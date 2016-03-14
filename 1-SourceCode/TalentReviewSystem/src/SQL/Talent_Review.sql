@@ -6,7 +6,7 @@ CREATE TABLE public."Employee_Info"
 (
   employee_id character varying(20) NOT NULL,
   start_level character varying(20) NOT NULL,
-  last_promotion_date character varying(20) NOT NULL,
+  last_promotion_date date NOT NULL,
   gdc_start_date date NOT NULL,
   work_start_date date NOT NULL,
   department character varying(20) NOT NULL,

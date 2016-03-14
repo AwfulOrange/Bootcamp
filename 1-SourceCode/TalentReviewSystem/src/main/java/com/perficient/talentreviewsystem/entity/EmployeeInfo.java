@@ -35,10 +35,10 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "EmployeeInfo.findAll", query = "SELECT e FROM EmployeeInfo e"),
     @NamedQuery(name = "EmployeeInfo.findByEmployeeId", query = "SELECT e FROM EmployeeInfo e WHERE e.employeeId = :employeeId"),
     @NamedQuery(name = "EmployeeInfo.findByStartLevel", query = "SELECT e FROM EmployeeInfo e WHERE e.startLevel = :startLevel"),
-    @NamedQuery(name = "EmployeeInfo.findByLastPromotionDate", query = "SELECT e FROM EmployeeInfo e WHERE e.lastPromotionDate = :lastPromotionDate"),
     @NamedQuery(name = "EmployeeInfo.findByGdcStartDate", query = "SELECT e FROM EmployeeInfo e WHERE e.gdcStartDate = :gdcStartDate"),
     @NamedQuery(name = "EmployeeInfo.findByWorkStartDate", query = "SELECT e FROM EmployeeInfo e WHERE e.workStartDate = :workStartDate"),
-    @NamedQuery(name = "EmployeeInfo.findByDepartment", query = "SELECT e FROM EmployeeInfo e WHERE e.department = :department")})
+    @NamedQuery(name = "EmployeeInfo.findByDepartment", query = "SELECT e FROM EmployeeInfo e WHERE e.department = :department"),
+    @NamedQuery(name = "EmployeeInfo.findByLastPromotionDate", query = "SELECT e FROM EmployeeInfo e WHERE e.lastPromotionDate = :lastPromotionDate")})
 public class EmployeeInfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -55,11 +55,6 @@ public class EmployeeInfo implements Serializable {
     private String startLevel;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 20)
-    @Column(name = "last_promotion_date")
-    private String lastPromotionDate;
-    @Basic(optional = false)
-    @NotNull
     @Column(name = "gdc_start_date")
     @Temporal(TemporalType.DATE)
     private Date gdcStartDate;
@@ -73,6 +68,11 @@ public class EmployeeInfo implements Serializable {
     @Size(min = 1, max = 20)
     @Column(name = "department")
     private String department;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "last_promotion_date")
+    @Temporal(TemporalType.DATE)
+    private Date lastPromotionDate;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "employeeInfo")
     private Collection<SupportiveInfo> supportiveInfoCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "employeeInfo")
@@ -85,13 +85,13 @@ public class EmployeeInfo implements Serializable {
         this.employeeId = employeeId;
     }
 
-    public EmployeeInfo(String employeeId, String startLevel, String lastPromotionDate, Date gdcStartDate, Date workStartDate, String department) {
+    public EmployeeInfo(String employeeId, String startLevel, Date gdcStartDate, Date workStartDate, String department, Date lastPromotionDate) {
         this.employeeId = employeeId;
         this.startLevel = startLevel;
-        this.lastPromotionDate = lastPromotionDate;
         this.gdcStartDate = gdcStartDate;
         this.workStartDate = workStartDate;
         this.department = department;
+        this.lastPromotionDate = lastPromotionDate;
     }
 
     public String getEmployeeId() {
@@ -108,14 +108,6 @@ public class EmployeeInfo implements Serializable {
 
     public void setStartLevel(String startLevel) {
         this.startLevel = startLevel;
-    }
-
-    public String getLastPromotionDate() {
-        return lastPromotionDate;
-    }
-
-    public void setLastPromotionDate(String lastPromotionDate) {
-        this.lastPromotionDate = lastPromotionDate;
     }
 
     public Date getGdcStartDate() {
@@ -140,6 +132,14 @@ public class EmployeeInfo implements Serializable {
 
     public void setDepartment(String department) {
         this.department = department;
+    }
+
+    public Date getLastPromotionDate() {
+        return lastPromotionDate;
+    }
+
+    public void setLastPromotionDate(Date lastPromotionDate) {
+        this.lastPromotionDate = lastPromotionDate;
     }
 
     @XmlTransient

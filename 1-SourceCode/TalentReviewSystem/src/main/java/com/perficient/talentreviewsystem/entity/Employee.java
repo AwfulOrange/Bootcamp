@@ -49,8 +49,8 @@ public class Employee {
     private String lastDay;
 
     private String department;
-    private Date gdcStartDate;
-    private Date lastPromotionDate;
+    private String gdcStartDate;
+    private String lastPromotionDate;
     private String startLevel;
     
     private Collection<TalentReviewScore> talentReviewScoreCollection;
@@ -311,28 +311,28 @@ public class Employee {
     /**
      * @return the gdcStartDate
      */
-    public Date getGdcStartDate() {
+    public String getGdcStartDate() {
         return gdcStartDate;
     }
 
     /**
      * @param gdcStartDate the gdcStartDate to set
      */
-    public void setGdcStartDate(Date gdcStartDate) {
+    public void setGdcStartDate(String gdcStartDate) {
         this.gdcStartDate = gdcStartDate;
     }
 
     /**
      * @return the lastPromotionDate
      */
-    public Date getLastPromotionDate() {
+    public String getLastPromotionDate() {
         return lastPromotionDate;
     }
 
     /**
      * @param lastPromotionDate the lastPromotionDate to set
      */
-    public void setLastPromotionDate(Date lastPromotionDate) {
+    public void setLastPromotionDate(String lastPromotionDate) {
         this.lastPromotionDate = lastPromotionDate;
     }
 

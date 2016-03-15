@@ -39,8 +39,8 @@ public class TalentReviewScoreJpaController implements Serializable {
         if (talentReviewScore.getTalentReviewScorePK() == null) {
             talentReviewScore.setTalentReviewScorePK(new TalentReviewScorePK());
         }
-        talentReviewScore.getTalentReviewScorePK().setReviewPeriod(talentReviewScore.getReviewPeriod1().getReviewPeriod());
         talentReviewScore.getTalentReviewScorePK().setEmployeeId(talentReviewScore.getEmployeeInfo().getEmployeeId());
+        talentReviewScore.getTalentReviewScorePK().setReviewPeriod(talentReviewScore.getReviewPeriod1().getReviewPeriod());
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -78,8 +78,8 @@ public class TalentReviewScoreJpaController implements Serializable {
     }
 
     public void edit(TalentReviewScore talentReviewScore) throws NonexistentEntityException, Exception {
-        talentReviewScore.getTalentReviewScorePK().setReviewPeriod(talentReviewScore.getReviewPeriod1().getReviewPeriod());
         talentReviewScore.getTalentReviewScorePK().setEmployeeId(talentReviewScore.getEmployeeInfo().getEmployeeId());
+        talentReviewScore.getTalentReviewScorePK().setReviewPeriod(talentReviewScore.getReviewPeriod1().getReviewPeriod());
         EntityManager em = null;
         try {
             em = getEntityManager();

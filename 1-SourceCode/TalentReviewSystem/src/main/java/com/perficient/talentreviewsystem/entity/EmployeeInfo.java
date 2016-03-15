@@ -29,69 +29,50 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author bootcamp19
  */
 @Entity
-@Table(name = "Employee_Info")
+@Table(name = "employee_info")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "EmployeeInfo.findAll", query = "SELECT e FROM EmployeeInfo e"),
     @NamedQuery(name = "EmployeeInfo.findByEmployeeId", query = "SELECT e FROM EmployeeInfo e WHERE e.employeeId = :employeeId"),
-    @NamedQuery(name = "EmployeeInfo.findByStartLevel", query = "SELECT e FROM EmployeeInfo e WHERE e.startLevel = :startLevel"),
-    @NamedQuery(name = "EmployeeInfo.findByGdcStartDate", query = "SELECT e FROM EmployeeInfo e WHERE e.gdcStartDate = :gdcStartDate"),
-    @NamedQuery(name = "EmployeeInfo.findByWorkStartDate", query = "SELECT e FROM EmployeeInfo e WHERE e.workStartDate = :workStartDate"),
     @NamedQuery(name = "EmployeeInfo.findByDepartment", query = "SELECT e FROM EmployeeInfo e WHERE e.department = :department"),
-    @NamedQuery(name = "EmployeeInfo.findByLastPromotionDate", query = "SELECT e FROM EmployeeInfo e WHERE e.lastPromotionDate = :lastPromotionDate")})
+    @NamedQuery(name = "EmployeeInfo.findByGdcStartDate", query = "SELECT e FROM EmployeeInfo e WHERE e.gdcStartDate = :gdcStartDate"),
+    @NamedQuery(name = "EmployeeInfo.findByLastPromotionDate", query = "SELECT e FROM EmployeeInfo e WHERE e.lastPromotionDate = :lastPromotionDate"),
+    @NamedQuery(name = "EmployeeInfo.findByStartLevel", query = "SELECT e FROM EmployeeInfo e WHERE e.startLevel = :startLevel"),
+    @NamedQuery(name = "EmployeeInfo.findByWorkStartDate", query = "SELECT e FROM EmployeeInfo e WHERE e.workStartDate = :workStartDate")})
 public class EmployeeInfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 20)
+    @Size(min = 1, max = 255)
     @Column(name = "employee_id")
     private String employeeId;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 20)
-    @Column(name = "start_level")
-    private String startLevel;
-    @Basic(optional = false)
-    @NotNull
+    @Size(max = 255)
+    @Column(name = "department")
+    private String department;
     @Column(name = "gdc_start_date")
     @Temporal(TemporalType.DATE)
     private Date gdcStartDate;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "work_start_date")
-    @Temporal(TemporalType.DATE)
-    private Date workStartDate;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 20)
-    @Column(name = "department")
-    private String department;
-    @Basic(optional = false)
-    @NotNull
     @Column(name = "last_promotion_date")
     @Temporal(TemporalType.DATE)
     private Date lastPromotionDate;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employeeInfo")
-    private Collection<SupportiveInfo> supportiveInfoCollection;
+    @Size(max = 255)
+    @Column(name = "start_level")
+    private String startLevel;
+    @Column(name = "work_start_date")
+    @Temporal(TemporalType.DATE)
+    private Date workStartDate;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "employeeInfo")
     private Collection<TalentReviewScore> talentReviewScoreCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employeeInfo")
+    private Collection<SupportiveInfo> supportiveInfoCollection;
 
     public EmployeeInfo() {
     }
 
     public EmployeeInfo(String employeeId) {
         this.employeeId = employeeId;
-    }
-
-    public EmployeeInfo(String employeeId, String startLevel, Date gdcStartDate, Date workStartDate, String department, Date lastPromotionDate) {
-        this.employeeId = employeeId;
-        this.startLevel = startLevel;
-        this.gdcStartDate = gdcStartDate;
-        this.workStartDate = workStartDate;
-        this.department = department;
-        this.lastPromotionDate = lastPromotionDate;
     }
 
     public String getEmployeeId() {
@@ -102,12 +83,12 @@ public class EmployeeInfo implements Serializable {
         this.employeeId = employeeId;
     }
 
-    public String getStartLevel() {
-        return startLevel;
+    public String getDepartment() {
+        return department;
     }
 
-    public void setStartLevel(String startLevel) {
-        this.startLevel = startLevel;
+    public void setDepartment(String department) {
+        this.department = department;
     }
 
     public Date getGdcStartDate() {
@@ -118,22 +99,6 @@ public class EmployeeInfo implements Serializable {
         this.gdcStartDate = gdcStartDate;
     }
 
-    public Date getWorkStartDate() {
-        return workStartDate;
-    }
-
-    public void setWorkStartDate(Date workStartDate) {
-        this.workStartDate = workStartDate;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
     public Date getLastPromotionDate() {
         return lastPromotionDate;
     }
@@ -142,13 +107,20 @@ public class EmployeeInfo implements Serializable {
         this.lastPromotionDate = lastPromotionDate;
     }
 
-    @XmlTransient
-    public Collection<SupportiveInfo> getSupportiveInfoCollection() {
-        return supportiveInfoCollection;
+    public String getStartLevel() {
+        return startLevel;
     }
 
-    public void setSupportiveInfoCollection(Collection<SupportiveInfo> supportiveInfoCollection) {
-        this.supportiveInfoCollection = supportiveInfoCollection;
+    public void setStartLevel(String startLevel) {
+        this.startLevel = startLevel;
+    }
+
+    public Date getWorkStartDate() {
+        return workStartDate;
+    }
+
+    public void setWorkStartDate(Date workStartDate) {
+        this.workStartDate = workStartDate;
     }
 
     @XmlTransient
@@ -158,6 +130,15 @@ public class EmployeeInfo implements Serializable {
 
     public void setTalentReviewScoreCollection(Collection<TalentReviewScore> talentReviewScoreCollection) {
         this.talentReviewScoreCollection = talentReviewScoreCollection;
+    }
+
+    @XmlTransient
+    public Collection<SupportiveInfo> getSupportiveInfoCollection() {
+        return supportiveInfoCollection;
+    }
+
+    public void setSupportiveInfoCollection(Collection<SupportiveInfo> supportiveInfoCollection) {
+        this.supportiveInfoCollection = supportiveInfoCollection;
     }
 
     @Override

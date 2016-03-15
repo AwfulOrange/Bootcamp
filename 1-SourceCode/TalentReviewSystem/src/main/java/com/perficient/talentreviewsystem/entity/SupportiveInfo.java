@@ -6,7 +6,6 @@
 package com.perficient.talentreviewsystem.entity;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -15,7 +14,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -24,58 +22,52 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author bootcamp19
  */
 @Entity
-@Table(name = "Supportive_Info")
+@Table(name = "supportive_info")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "SupportiveInfo.findAll", query = "SELECT s FROM SupportiveInfo s"),
-    @NamedQuery(name = "SupportiveInfo.findByEmployeeId", query = "SELECT s FROM SupportiveInfo s WHERE s.supportiveInfoPK.employeeId = :employeeId"),
-    @NamedQuery(name = "SupportiveInfo.findByAward", query = "SELECT s FROM SupportiveInfo s WHERE s.award = :award"),
-    @NamedQuery(name = "SupportiveInfo.findByTimeEntry", query = "SELECT s FROM SupportiveInfo s WHERE s.timeEntry = :timeEntry"),
     @NamedQuery(name = "SupportiveInfo.findByActivity", query = "SELECT s FROM SupportiveInfo s WHERE s.activity = :activity"),
-    @NamedQuery(name = "SupportiveInfo.findByCulture", query = "SELECT s FROM SupportiveInfo s WHERE s.culture = :culture"),
-    @NamedQuery(name = "SupportiveInfo.findByTraining", query = "SELECT s FROM SupportiveInfo s WHERE s.training = :training"),
-    @NamedQuery(name = "SupportiveInfo.findByRecruting", query = "SELECT s FROM SupportiveInfo s WHERE s.recruting = :recruting"),
-    @NamedQuery(name = "SupportiveInfo.findByCertification", query = "SELECT s FROM SupportiveInfo s WHERE s.certification = :certification"),
+    @NamedQuery(name = "SupportiveInfo.findByAward", query = "SELECT s FROM SupportiveInfo s WHERE s.award = :award"),
     @NamedQuery(name = "SupportiveInfo.findByBlog", query = "SELECT s FROM SupportiveInfo s WHERE s.blog = :blog"),
-    @NamedQuery(name = "SupportiveInfo.findByCoE", query = "SELECT s FROM SupportiveInfo s WHERE s.coE = :coE"),
+    @NamedQuery(name = "SupportiveInfo.findByCertification", query = "SELECT s FROM SupportiveInfo s WHERE s.certification = :certification"),
+    @NamedQuery(name = "SupportiveInfo.findByCoe", query = "SELECT s FROM SupportiveInfo s WHERE s.coe = :coe"),
+    @NamedQuery(name = "SupportiveInfo.findByCulture", query = "SELECT s FROM SupportiveInfo s WHERE s.culture = :culture"),
+    @NamedQuery(name = "SupportiveInfo.findByRecruting", query = "SELECT s FROM SupportiveInfo s WHERE s.recruting = :recruting"),
+    @NamedQuery(name = "SupportiveInfo.findByTimeEntry", query = "SELECT s FROM SupportiveInfo s WHERE s.timeEntry = :timeEntry"),
+    @NamedQuery(name = "SupportiveInfo.findByTraining", query = "SELECT s FROM SupportiveInfo s WHERE s.training = :training"),
+    @NamedQuery(name = "SupportiveInfo.findByEmployeeId", query = "SELECT s FROM SupportiveInfo s WHERE s.supportiveInfoPK.employeeId = :employeeId"),
     @NamedQuery(name = "SupportiveInfo.findByReviewPeriod", query = "SELECT s FROM SupportiveInfo s WHERE s.supportiveInfoPK.reviewPeriod = :reviewPeriod")})
 public class SupportiveInfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected SupportiveInfoPK supportiveInfoPK;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "award")
-    private int award;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 2147483647)
-    @Column(name = "time_entry")
-    private String timeEntry;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 2147483647)
+    @Size(max = 255)
     @Column(name = "activity")
     private String activity;
-    @Size(max = 2147483647)
-    @Column(name = "culture")
-    private String culture;
-    @Size(max = 2147483647)
-    @Column(name = "training")
-    private String training;
-    @Size(max = 2147483647)
-    @Column(name = "recruting")
-    private String recruting;
-    @Size(max = 2147483647)
-    @Column(name = "certification")
-    private String certification;
-    @Size(max = 2147483647)
+    @Column(name = "award")
+    private Integer award;
+    @Size(max = 255)
     @Column(name = "blog")
     private String blog;
-    @Size(max = 2147483647)
-    @Column(name = "CoE")
-    private String coE;
+    @Size(max = 255)
+    @Column(name = "certification")
+    private String certification;
+    @Size(max = 255)
+    @Column(name = "coe")
+    private String coe;
+    @Size(max = 255)
+    @Column(name = "culture")
+    private String culture;
+    @Size(max = 255)
+    @Column(name = "recruting")
+    private String recruting;
+    @Size(max = 255)
+    @Column(name = "time_entry")
+    private String timeEntry;
+    @Size(max = 255)
+    @Column(name = "training")
+    private String training;
     @JoinColumn(name = "employee_id", referencedColumnName = "employee_id", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private EmployeeInfo employeeInfo;
@@ -90,13 +82,6 @@ public class SupportiveInfo implements Serializable {
         this.supportiveInfoPK = supportiveInfoPK;
     }
 
-    public SupportiveInfo(SupportiveInfoPK supportiveInfoPK, int award, String timeEntry, String activity) {
-        this.supportiveInfoPK = supportiveInfoPK;
-        this.award = award;
-        this.timeEntry = timeEntry;
-        this.activity = activity;
-    }
-
     public SupportiveInfo(String employeeId, String reviewPeriod) {
         this.supportiveInfoPK = new SupportiveInfoPK(employeeId, reviewPeriod);
     }
@@ -109,22 +94,6 @@ public class SupportiveInfo implements Serializable {
         this.supportiveInfoPK = supportiveInfoPK;
     }
 
-    public int getAward() {
-        return award;
-    }
-
-    public void setAward(int award) {
-        this.award = award;
-    }
-
-    public String getTimeEntry() {
-        return timeEntry;
-    }
-
-    public void setTimeEntry(String timeEntry) {
-        this.timeEntry = timeEntry;
-    }
-
     public String getActivity() {
         return activity;
     }
@@ -133,36 +102,12 @@ public class SupportiveInfo implements Serializable {
         this.activity = activity;
     }
 
-    public String getCulture() {
-        return culture;
+    public Integer getAward() {
+        return award;
     }
 
-    public void setCulture(String culture) {
-        this.culture = culture;
-    }
-
-    public String getTraining() {
-        return training;
-    }
-
-    public void setTraining(String training) {
-        this.training = training;
-    }
-
-    public String getRecruting() {
-        return recruting;
-    }
-
-    public void setRecruting(String recruting) {
-        this.recruting = recruting;
-    }
-
-    public String getCertification() {
-        return certification;
-    }
-
-    public void setCertification(String certification) {
-        this.certification = certification;
+    public void setAward(Integer award) {
+        this.award = award;
     }
 
     public String getBlog() {
@@ -173,12 +118,52 @@ public class SupportiveInfo implements Serializable {
         this.blog = blog;
     }
 
-    public String getCoE() {
-        return coE;
+    public String getCertification() {
+        return certification;
     }
 
-    public void setCoE(String coE) {
-        this.coE = coE;
+    public void setCertification(String certification) {
+        this.certification = certification;
+    }
+
+    public String getCoe() {
+        return coe;
+    }
+
+    public void setCoe(String coe) {
+        this.coe = coe;
+    }
+
+    public String getCulture() {
+        return culture;
+    }
+
+    public void setCulture(String culture) {
+        this.culture = culture;
+    }
+
+    public String getRecruting() {
+        return recruting;
+    }
+
+    public void setRecruting(String recruting) {
+        this.recruting = recruting;
+    }
+
+    public String getTimeEntry() {
+        return timeEntry;
+    }
+
+    public void setTimeEntry(String timeEntry) {
+        this.timeEntry = timeEntry;
+    }
+
+    public String getTraining() {
+        return training;
+    }
+
+    public void setTraining(String training) {
+        this.training = training;
     }
 
     public EmployeeInfo getEmployeeInfo() {

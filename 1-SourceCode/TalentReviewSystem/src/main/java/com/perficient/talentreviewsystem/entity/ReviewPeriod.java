@@ -26,47 +26,33 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author bootcamp19
  */
 @Entity
-@Table(name = "Review_Period")
+@Table(name = "review_period")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "ReviewPeriod.findAll", query = "SELECT r FROM ReviewPeriod r"),
-    @NamedQuery(name = "ReviewPeriod.findById", query = "SELECT r FROM ReviewPeriod r WHERE r.id = :id"),
-    @NamedQuery(name = "ReviewPeriod.findByReviewPeriod", query = "SELECT r FROM ReviewPeriod r WHERE r.reviewPeriod = :reviewPeriod")})
+    @NamedQuery(name = "ReviewPeriod.findByReviewPeriod", query = "SELECT r FROM ReviewPeriod r WHERE r.reviewPeriod = :reviewPeriod"),
+    @NamedQuery(name = "ReviewPeriod.findById", query = "SELECT r FROM ReviewPeriod r WHERE r.id = :id")})
 public class ReviewPeriod implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Basic(optional = false)
-    @Column(name = "id")
-    private int id;
     @Id
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 6)
+    @Size(min = 1, max = 255)
     @Column(name = "review_period")
     private String reviewPeriod;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "reviewPeriod1")
-    private Collection<SupportiveInfo> supportiveInfoCollection;
+    @Column(name = "id")
+    private Integer id;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "reviewPeriod1")
     private Collection<TalentReviewScore> talentReviewScoreCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "reviewPeriod1")
+    private Collection<SupportiveInfo> supportiveInfoCollection;
 
     public ReviewPeriod() {
     }
 
     public ReviewPeriod(String reviewPeriod) {
         this.reviewPeriod = reviewPeriod;
-    }
-
-    public ReviewPeriod(String reviewPeriod, int id) {
-        this.reviewPeriod = reviewPeriod;
-        this.id = id;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getReviewPeriod() {
@@ -77,13 +63,12 @@ public class ReviewPeriod implements Serializable {
         this.reviewPeriod = reviewPeriod;
     }
 
-    @XmlTransient
-    public Collection<SupportiveInfo> getSupportiveInfoCollection() {
-        return supportiveInfoCollection;
+    public Integer getId() {
+        return id;
     }
 
-    public void setSupportiveInfoCollection(Collection<SupportiveInfo> supportiveInfoCollection) {
-        this.supportiveInfoCollection = supportiveInfoCollection;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     @XmlTransient
@@ -93,6 +78,15 @@ public class ReviewPeriod implements Serializable {
 
     public void setTalentReviewScoreCollection(Collection<TalentReviewScore> talentReviewScoreCollection) {
         this.talentReviewScoreCollection = talentReviewScoreCollection;
+    }
+
+    @XmlTransient
+    public Collection<SupportiveInfo> getSupportiveInfoCollection() {
+        return supportiveInfoCollection;
+    }
+
+    public void setSupportiveInfoCollection(Collection<SupportiveInfo> supportiveInfoCollection) {
+        this.supportiveInfoCollection = supportiveInfoCollection;
     }
 
     @Override

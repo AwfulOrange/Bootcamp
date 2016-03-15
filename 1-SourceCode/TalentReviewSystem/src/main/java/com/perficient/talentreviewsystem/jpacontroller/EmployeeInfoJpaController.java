@@ -11,10 +11,10 @@ import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import com.perficient.talentreviewsystem.entity.SupportiveInfo;
+import com.perficient.talentreviewsystem.entity.TalentReviewScore;
 import java.util.ArrayList;
 import java.util.Collection;
-import com.perficient.talentreviewsystem.entity.TalentReviewScore;
+import com.perficient.talentreviewsystem.entity.SupportiveInfo;
 import com.perficient.talentreviewsystem.jpacontroller.exceptions.IllegalOrphanException;
 import com.perficient.talentreviewsystem.jpacontroller.exceptions.NonexistentEntityException;
 import com.perficient.talentreviewsystem.jpacontroller.exceptions.PreexistingEntityException;
@@ -38,38 +38,29 @@ public class EmployeeInfoJpaController implements Serializable {
     }
 
     public void create(EmployeeInfo employeeInfo) throws PreexistingEntityException, Exception {
-        if (employeeInfo.getSupportiveInfoCollection() == null) {
-            employeeInfo.setSupportiveInfoCollection(new ArrayList<SupportiveInfo>());
-        }
         if (employeeInfo.getTalentReviewScoreCollection() == null) {
             employeeInfo.setTalentReviewScoreCollection(new ArrayList<TalentReviewScore>());
+        }
+        if (employeeInfo.getSupportiveInfoCollection() == null) {
+            employeeInfo.setSupportiveInfoCollection(new ArrayList<SupportiveInfo>());
         }
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Collection<SupportiveInfo> attachedSupportiveInfoCollection = new ArrayList<SupportiveInfo>();
-            for (SupportiveInfo supportiveInfoCollectionSupportiveInfoToAttach : employeeInfo.getSupportiveInfoCollection()) {
-                supportiveInfoCollectionSupportiveInfoToAttach = em.getReference(supportiveInfoCollectionSupportiveInfoToAttach.getClass(), supportiveInfoCollectionSupportiveInfoToAttach.getSupportiveInfoPK());
-                attachedSupportiveInfoCollection.add(supportiveInfoCollectionSupportiveInfoToAttach);
-            }
-            employeeInfo.setSupportiveInfoCollection(attachedSupportiveInfoCollection);
             Collection<TalentReviewScore> attachedTalentReviewScoreCollection = new ArrayList<TalentReviewScore>();
             for (TalentReviewScore talentReviewScoreCollectionTalentReviewScoreToAttach : employeeInfo.getTalentReviewScoreCollection()) {
                 talentReviewScoreCollectionTalentReviewScoreToAttach = em.getReference(talentReviewScoreCollectionTalentReviewScoreToAttach.getClass(), talentReviewScoreCollectionTalentReviewScoreToAttach.getTalentReviewScorePK());
                 attachedTalentReviewScoreCollection.add(talentReviewScoreCollectionTalentReviewScoreToAttach);
             }
             employeeInfo.setTalentReviewScoreCollection(attachedTalentReviewScoreCollection);
-            em.persist(employeeInfo);
-            for (SupportiveInfo supportiveInfoCollectionSupportiveInfo : employeeInfo.getSupportiveInfoCollection()) {
-                EmployeeInfo oldEmployeeInfoOfSupportiveInfoCollectionSupportiveInfo = supportiveInfoCollectionSupportiveInfo.getEmployeeInfo();
-                supportiveInfoCollectionSupportiveInfo.setEmployeeInfo(employeeInfo);
-                supportiveInfoCollectionSupportiveInfo = em.merge(supportiveInfoCollectionSupportiveInfo);
-                if (oldEmployeeInfoOfSupportiveInfoCollectionSupportiveInfo != null) {
-                    oldEmployeeInfoOfSupportiveInfoCollectionSupportiveInfo.getSupportiveInfoCollection().remove(supportiveInfoCollectionSupportiveInfo);
-                    oldEmployeeInfoOfSupportiveInfoCollectionSupportiveInfo = em.merge(oldEmployeeInfoOfSupportiveInfoCollectionSupportiveInfo);
-                }
+            Collection<SupportiveInfo> attachedSupportiveInfoCollection = new ArrayList<SupportiveInfo>();
+            for (SupportiveInfo supportiveInfoCollectionSupportiveInfoToAttach : employeeInfo.getSupportiveInfoCollection()) {
+                supportiveInfoCollectionSupportiveInfoToAttach = em.getReference(supportiveInfoCollectionSupportiveInfoToAttach.getClass(), supportiveInfoCollectionSupportiveInfoToAttach.getSupportiveInfoPK());
+                attachedSupportiveInfoCollection.add(supportiveInfoCollectionSupportiveInfoToAttach);
             }
+            employeeInfo.setSupportiveInfoCollection(attachedSupportiveInfoCollection);
+            em.persist(employeeInfo);
             for (TalentReviewScore talentReviewScoreCollectionTalentReviewScore : employeeInfo.getTalentReviewScoreCollection()) {
                 EmployeeInfo oldEmployeeInfoOfTalentReviewScoreCollectionTalentReviewScore = talentReviewScoreCollectionTalentReviewScore.getEmployeeInfo();
                 talentReviewScoreCollectionTalentReviewScore.setEmployeeInfo(employeeInfo);
@@ -77,6 +68,15 @@ public class EmployeeInfoJpaController implements Serializable {
                 if (oldEmployeeInfoOfTalentReviewScoreCollectionTalentReviewScore != null) {
                     oldEmployeeInfoOfTalentReviewScoreCollectionTalentReviewScore.getTalentReviewScoreCollection().remove(talentReviewScoreCollectionTalentReviewScore);
                     oldEmployeeInfoOfTalentReviewScoreCollectionTalentReviewScore = em.merge(oldEmployeeInfoOfTalentReviewScoreCollectionTalentReviewScore);
+                }
+            }
+            for (SupportiveInfo supportiveInfoCollectionSupportiveInfo : employeeInfo.getSupportiveInfoCollection()) {
+                EmployeeInfo oldEmployeeInfoOfSupportiveInfoCollectionSupportiveInfo = supportiveInfoCollectionSupportiveInfo.getEmployeeInfo();
+                supportiveInfoCollectionSupportiveInfo.setEmployeeInfo(employeeInfo);
+                supportiveInfoCollectionSupportiveInfo = em.merge(supportiveInfoCollectionSupportiveInfo);
+                if (oldEmployeeInfoOfSupportiveInfoCollectionSupportiveInfo != null) {
+                    oldEmployeeInfoOfSupportiveInfoCollectionSupportiveInfo.getSupportiveInfoCollection().remove(supportiveInfoCollectionSupportiveInfo);
+                    oldEmployeeInfoOfSupportiveInfoCollectionSupportiveInfo = em.merge(oldEmployeeInfoOfSupportiveInfoCollectionSupportiveInfo);
                 }
             }
             em.getTransaction().commit();
@@ -98,19 +98,11 @@ public class EmployeeInfoJpaController implements Serializable {
             em = getEntityManager();
             em.getTransaction().begin();
             EmployeeInfo persistentEmployeeInfo = em.find(EmployeeInfo.class, employeeInfo.getEmployeeId());
-            Collection<SupportiveInfo> supportiveInfoCollectionOld = persistentEmployeeInfo.getSupportiveInfoCollection();
-            Collection<SupportiveInfo> supportiveInfoCollectionNew = employeeInfo.getSupportiveInfoCollection();
             Collection<TalentReviewScore> talentReviewScoreCollectionOld = persistentEmployeeInfo.getTalentReviewScoreCollection();
             Collection<TalentReviewScore> talentReviewScoreCollectionNew = employeeInfo.getTalentReviewScoreCollection();
+            Collection<SupportiveInfo> supportiveInfoCollectionOld = persistentEmployeeInfo.getSupportiveInfoCollection();
+            Collection<SupportiveInfo> supportiveInfoCollectionNew = employeeInfo.getSupportiveInfoCollection();
             List<String> illegalOrphanMessages = null;
-            for (SupportiveInfo supportiveInfoCollectionOldSupportiveInfo : supportiveInfoCollectionOld) {
-                if (!supportiveInfoCollectionNew.contains(supportiveInfoCollectionOldSupportiveInfo)) {
-                    if (illegalOrphanMessages == null) {
-                        illegalOrphanMessages = new ArrayList<String>();
-                    }
-                    illegalOrphanMessages.add("You must retain SupportiveInfo " + supportiveInfoCollectionOldSupportiveInfo + " since its employeeInfo field is not nullable.");
-                }
-            }
             for (TalentReviewScore talentReviewScoreCollectionOldTalentReviewScore : talentReviewScoreCollectionOld) {
                 if (!talentReviewScoreCollectionNew.contains(talentReviewScoreCollectionOldTalentReviewScore)) {
                     if (illegalOrphanMessages == null) {
@@ -119,16 +111,17 @@ public class EmployeeInfoJpaController implements Serializable {
                     illegalOrphanMessages.add("You must retain TalentReviewScore " + talentReviewScoreCollectionOldTalentReviewScore + " since its employeeInfo field is not nullable.");
                 }
             }
+            for (SupportiveInfo supportiveInfoCollectionOldSupportiveInfo : supportiveInfoCollectionOld) {
+                if (!supportiveInfoCollectionNew.contains(supportiveInfoCollectionOldSupportiveInfo)) {
+                    if (illegalOrphanMessages == null) {
+                        illegalOrphanMessages = new ArrayList<String>();
+                    }
+                    illegalOrphanMessages.add("You must retain SupportiveInfo " + supportiveInfoCollectionOldSupportiveInfo + " since its employeeInfo field is not nullable.");
+                }
+            }
             if (illegalOrphanMessages != null) {
                 throw new IllegalOrphanException(illegalOrphanMessages);
             }
-            Collection<SupportiveInfo> attachedSupportiveInfoCollectionNew = new ArrayList<SupportiveInfo>();
-            for (SupportiveInfo supportiveInfoCollectionNewSupportiveInfoToAttach : supportiveInfoCollectionNew) {
-                supportiveInfoCollectionNewSupportiveInfoToAttach = em.getReference(supportiveInfoCollectionNewSupportiveInfoToAttach.getClass(), supportiveInfoCollectionNewSupportiveInfoToAttach.getSupportiveInfoPK());
-                attachedSupportiveInfoCollectionNew.add(supportiveInfoCollectionNewSupportiveInfoToAttach);
-            }
-            supportiveInfoCollectionNew = attachedSupportiveInfoCollectionNew;
-            employeeInfo.setSupportiveInfoCollection(supportiveInfoCollectionNew);
             Collection<TalentReviewScore> attachedTalentReviewScoreCollectionNew = new ArrayList<TalentReviewScore>();
             for (TalentReviewScore talentReviewScoreCollectionNewTalentReviewScoreToAttach : talentReviewScoreCollectionNew) {
                 talentReviewScoreCollectionNewTalentReviewScoreToAttach = em.getReference(talentReviewScoreCollectionNewTalentReviewScoreToAttach.getClass(), talentReviewScoreCollectionNewTalentReviewScoreToAttach.getTalentReviewScorePK());
@@ -136,18 +129,14 @@ public class EmployeeInfoJpaController implements Serializable {
             }
             talentReviewScoreCollectionNew = attachedTalentReviewScoreCollectionNew;
             employeeInfo.setTalentReviewScoreCollection(talentReviewScoreCollectionNew);
-            employeeInfo = em.merge(employeeInfo);
-            for (SupportiveInfo supportiveInfoCollectionNewSupportiveInfo : supportiveInfoCollectionNew) {
-                if (!supportiveInfoCollectionOld.contains(supportiveInfoCollectionNewSupportiveInfo)) {
-                    EmployeeInfo oldEmployeeInfoOfSupportiveInfoCollectionNewSupportiveInfo = supportiveInfoCollectionNewSupportiveInfo.getEmployeeInfo();
-                    supportiveInfoCollectionNewSupportiveInfo.setEmployeeInfo(employeeInfo);
-                    supportiveInfoCollectionNewSupportiveInfo = em.merge(supportiveInfoCollectionNewSupportiveInfo);
-                    if (oldEmployeeInfoOfSupportiveInfoCollectionNewSupportiveInfo != null && !oldEmployeeInfoOfSupportiveInfoCollectionNewSupportiveInfo.equals(employeeInfo)) {
-                        oldEmployeeInfoOfSupportiveInfoCollectionNewSupportiveInfo.getSupportiveInfoCollection().remove(supportiveInfoCollectionNewSupportiveInfo);
-                        oldEmployeeInfoOfSupportiveInfoCollectionNewSupportiveInfo = em.merge(oldEmployeeInfoOfSupportiveInfoCollectionNewSupportiveInfo);
-                    }
-                }
+            Collection<SupportiveInfo> attachedSupportiveInfoCollectionNew = new ArrayList<SupportiveInfo>();
+            for (SupportiveInfo supportiveInfoCollectionNewSupportiveInfoToAttach : supportiveInfoCollectionNew) {
+                supportiveInfoCollectionNewSupportiveInfoToAttach = em.getReference(supportiveInfoCollectionNewSupportiveInfoToAttach.getClass(), supportiveInfoCollectionNewSupportiveInfoToAttach.getSupportiveInfoPK());
+                attachedSupportiveInfoCollectionNew.add(supportiveInfoCollectionNewSupportiveInfoToAttach);
             }
+            supportiveInfoCollectionNew = attachedSupportiveInfoCollectionNew;
+            employeeInfo.setSupportiveInfoCollection(supportiveInfoCollectionNew);
+            employeeInfo = em.merge(employeeInfo);
             for (TalentReviewScore talentReviewScoreCollectionNewTalentReviewScore : talentReviewScoreCollectionNew) {
                 if (!talentReviewScoreCollectionOld.contains(talentReviewScoreCollectionNewTalentReviewScore)) {
                     EmployeeInfo oldEmployeeInfoOfTalentReviewScoreCollectionNewTalentReviewScore = talentReviewScoreCollectionNewTalentReviewScore.getEmployeeInfo();
@@ -156,6 +145,17 @@ public class EmployeeInfoJpaController implements Serializable {
                     if (oldEmployeeInfoOfTalentReviewScoreCollectionNewTalentReviewScore != null && !oldEmployeeInfoOfTalentReviewScoreCollectionNewTalentReviewScore.equals(employeeInfo)) {
                         oldEmployeeInfoOfTalentReviewScoreCollectionNewTalentReviewScore.getTalentReviewScoreCollection().remove(talentReviewScoreCollectionNewTalentReviewScore);
                         oldEmployeeInfoOfTalentReviewScoreCollectionNewTalentReviewScore = em.merge(oldEmployeeInfoOfTalentReviewScoreCollectionNewTalentReviewScore);
+                    }
+                }
+            }
+            for (SupportiveInfo supportiveInfoCollectionNewSupportiveInfo : supportiveInfoCollectionNew) {
+                if (!supportiveInfoCollectionOld.contains(supportiveInfoCollectionNewSupportiveInfo)) {
+                    EmployeeInfo oldEmployeeInfoOfSupportiveInfoCollectionNewSupportiveInfo = supportiveInfoCollectionNewSupportiveInfo.getEmployeeInfo();
+                    supportiveInfoCollectionNewSupportiveInfo.setEmployeeInfo(employeeInfo);
+                    supportiveInfoCollectionNewSupportiveInfo = em.merge(supportiveInfoCollectionNewSupportiveInfo);
+                    if (oldEmployeeInfoOfSupportiveInfoCollectionNewSupportiveInfo != null && !oldEmployeeInfoOfSupportiveInfoCollectionNewSupportiveInfo.equals(employeeInfo)) {
+                        oldEmployeeInfoOfSupportiveInfoCollectionNewSupportiveInfo.getSupportiveInfoCollection().remove(supportiveInfoCollectionNewSupportiveInfo);
+                        oldEmployeeInfoOfSupportiveInfoCollectionNewSupportiveInfo = em.merge(oldEmployeeInfoOfSupportiveInfoCollectionNewSupportiveInfo);
                     }
                 }
             }
@@ -189,19 +189,19 @@ public class EmployeeInfoJpaController implements Serializable {
                 throw new NonexistentEntityException("The employeeInfo with id " + id + " no longer exists.", enfe);
             }
             List<String> illegalOrphanMessages = null;
-            Collection<SupportiveInfo> supportiveInfoCollectionOrphanCheck = employeeInfo.getSupportiveInfoCollection();
-            for (SupportiveInfo supportiveInfoCollectionOrphanCheckSupportiveInfo : supportiveInfoCollectionOrphanCheck) {
-                if (illegalOrphanMessages == null) {
-                    illegalOrphanMessages = new ArrayList<String>();
-                }
-                illegalOrphanMessages.add("This EmployeeInfo (" + employeeInfo + ") cannot be destroyed since the SupportiveInfo " + supportiveInfoCollectionOrphanCheckSupportiveInfo + " in its supportiveInfoCollection field has a non-nullable employeeInfo field.");
-            }
             Collection<TalentReviewScore> talentReviewScoreCollectionOrphanCheck = employeeInfo.getTalentReviewScoreCollection();
             for (TalentReviewScore talentReviewScoreCollectionOrphanCheckTalentReviewScore : talentReviewScoreCollectionOrphanCheck) {
                 if (illegalOrphanMessages == null) {
                     illegalOrphanMessages = new ArrayList<String>();
                 }
                 illegalOrphanMessages.add("This EmployeeInfo (" + employeeInfo + ") cannot be destroyed since the TalentReviewScore " + talentReviewScoreCollectionOrphanCheckTalentReviewScore + " in its talentReviewScoreCollection field has a non-nullable employeeInfo field.");
+            }
+            Collection<SupportiveInfo> supportiveInfoCollectionOrphanCheck = employeeInfo.getSupportiveInfoCollection();
+            for (SupportiveInfo supportiveInfoCollectionOrphanCheckSupportiveInfo : supportiveInfoCollectionOrphanCheck) {
+                if (illegalOrphanMessages == null) {
+                    illegalOrphanMessages = new ArrayList<String>();
+                }
+                illegalOrphanMessages.add("This EmployeeInfo (" + employeeInfo + ") cannot be destroyed since the SupportiveInfo " + supportiveInfoCollectionOrphanCheckSupportiveInfo + " in its supportiveInfoCollection field has a non-nullable employeeInfo field.");
             }
             if (illegalOrphanMessages != null) {
                 throw new IllegalOrphanException(illegalOrphanMessages);

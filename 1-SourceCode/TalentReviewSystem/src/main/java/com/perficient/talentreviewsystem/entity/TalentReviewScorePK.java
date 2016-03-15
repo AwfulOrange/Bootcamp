@@ -21,12 +21,12 @@ public class TalentReviewScorePK implements Serializable {
 
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 20)
+    @Size(min = 1, max = 255)
     @Column(name = "employee_id")
     private String employeeId;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 6)
+    @Size(min = 1, max = 255)
     @Column(name = "review_period")
     private String reviewPeriod;
 

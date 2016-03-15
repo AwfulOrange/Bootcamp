@@ -30,7 +30,7 @@ public class ApplicationConfig extends Application {
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(com.perficient.talentreviewsystem.restful.EmployeeInfoFacadeREST.class);
-        resources.add(com.perficient.talentreviewsystem.restful.InformationREST.class);
+        resources.add(com.perficient.talentreviewsystem.restful.EmployeeREST.class);
         resources.add(com.perficient.talentreviewsystem.restful.ReviewPeriodFacadeREST.class);
         resources.add(com.perficient.talentreviewsystem.restful.SupportiveInfoFacadeREST.class);
         resources.add(com.perficient.talentreviewsystem.restful.TalentReviewScoreFacadeREST.class);

@@ -33,7 +33,7 @@ public class EmployeeREST {
         List<Employee> empList = gson.fromJson(empsInfo, new TypeToken<ArrayList<Employee>>(){}.getType());
         Employee emp = null;
         for (Employee e : empList){
-            if(e.getId()==Integer.parseInt(id)) {
+            if(e.getId().equals(id)) {
                 emp = e;
                 break;
             }

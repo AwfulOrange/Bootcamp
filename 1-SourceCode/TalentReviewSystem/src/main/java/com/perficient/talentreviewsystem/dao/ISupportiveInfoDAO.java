@@ -5,10 +5,13 @@
  */
 package com.perficient.talentreviewsystem.dao;
 
+import com.perficient.talentreviewsystem.entity.SupportiveInfo;
+import java.util.List;
+
 /**
  *
  * @author bootcamp19
  */
 public interface ISupportiveInfoDAO {
-    
+    public List<SupportiveInfo> selectAllSupportiveInfo();
 }

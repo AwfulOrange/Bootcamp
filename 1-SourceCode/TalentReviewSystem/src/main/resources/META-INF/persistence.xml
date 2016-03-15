@@ -7,6 +7,8 @@
     <class>com.perficient.talentreviewsystem.entity.ReviewPeriod</class>
     <class>com.perficient.talentreviewsystem.entity.TalentReviewScore</class>
     <class>com.perficient.talentreviewsystem.entity.EmployeeInfo</class>
+    <class>com.perficient.talentreviewsystem.entity.Rule</class>
+    <class>com.perficient.talentreviewsystem.entity.Critical</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://10.2.1.183:5433/TRS"/>

@@ -28,8 +28,7 @@ public class EmployeeREST {
     
     @GET
     @Path("{id}")
-    //@Produces(MediaType.APPLICATION_JSON)
-    public Employee findSingle(@PathParam("id") String id) {
+    public String findSingle(@PathParam("id") String id) {
         String empsInfo = HttpConnection.getFromUrl("http://10.2.1.207:8080/tpt2013-portlet/resteasy/employees");
         List<Employee> empList = gson.fromJson(empsInfo, new TypeToken<ArrayList<Employee>>(){}.getType());
         Employee emp = null;
@@ -39,12 +38,17 @@ public class EmployeeREST {
                 break;
             }
         }
-        System.out.println("ssss");
-        return emp;
+        return gson.toJson(emp);
     }
     
     @GET
     public String findAll() {
-        return HttpConnection.getFromUrl("http://10.2.1.207:8080/tpt2013-portlet/resteasy/employees");
+        String empsInfo = HttpConnection.getFromUrl("http://10.2.1.207:8080/tpt2013-portlet/resteasy/employees");
+        List<Employee> empList = gson.fromJson(empsInfo, new TypeToken<ArrayList<Employee>>(){}.getType());
+        List<Employee> empListSelected = new ArrayList<Employee>();
+        empListSelected.add(empList.get(0));
+        empListSelected.add(empList.get(1));
+        empListSelected.add(empList.get(2));
+        return gson.toJson(empListSelected);
     }
 }

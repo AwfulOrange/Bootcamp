@@ -8,6 +8,9 @@ package com.perficient.talentreviewsystem.restful;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.perficient.talentreviewsystem.entity.Employee;
+import com.perficient.talentreviewsystem.entity.EmployeeInfo;
+import com.perficient.talentreviewsystem.service.IEmployeeInfoService;
+import com.perficient.talentreviewsystem.serviceImpl.EmployeeInfoServiceImpl;
 import com.perficient.talentreviewsystem.utils.HttpConnection;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +47,23 @@ public class EmployeeREST {
     @GET
     public String findAll() {
         String empsInfo = HttpConnection.getFromUrl("http://10.2.1.207:8080/tpt2013-portlet/resteasy/employees");
+        IEmployeeInfoService empService = new EmployeeInfoServiceImpl();
         List<Employee> empList = gson.fromJson(empsInfo, new TypeToken<ArrayList<Employee>>(){}.getType());
+        List<EmployeeInfo> empInfoList = empService.findAll();
+        for(int i=0; i<empInfoList.size(); i++){
+            for(int j=0 ;j<empList.size(); j++){
+                if(empInfoList.get(i).getEmployeeId().equals(empList.get(j).getId())){
+                    EmployeeInfo ei = empInfoList.get(i);
+                    Employee e = empList.get(j);
+                    e.setDepartment(ei.getDepartment());
+                    e.setGdcStartDate(ei.getGdcStartDate());
+                    e.setLastPromotionDate(ei.getLastPromotionDate());
+                    e.setStartLevel(ei.getStartLevel());
+                    e.setSupportiveInfoCollection(ei.getSupportiveInfoCollection());
+                    e.setTalentReviewScoreCollection(ei.getTalentReviewScoreCollection());
+                }
+            } 
+        }
         List<Employee> empListSelected = new ArrayList<Employee>();
         empListSelected.add(empList.get(0));
         empListSelected.add(empList.get(1));

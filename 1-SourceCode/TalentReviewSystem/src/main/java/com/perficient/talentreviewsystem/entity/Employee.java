@@ -5,44 +5,56 @@
  */
 package com.perficient.talentreviewsystem.entity;
 
+import java.util.Collection;
+import java.util.Date;
+
 /**
  *
  * @author bootcamp19
  */
 public class Employee {
+
     private String id;
-    
+
     private String type;
-    
+
     private String role;
-    
+
     private String title;
-    
+
     private boolean active;
-    
+
     private String firstName;
-    
+
     private String lastName;
-    
+
     private String screenName;
-    
+
     private String gender;
-    
+
     private String emid;
-    
+
     private String lastUpdated;
-    
+
     private String onBoardDate;
-    
+
     private String photoURL;
-    
+
     private String bu;
-    
+
     private String workStartDate;
-    
+
     private String lineManager;
-    
+
     private String lastDay;
+
+    private String department;
+    private Date gdcStartDate;
+    private Date lastPromotionDate;
+    private String startLevel;
+    
+    private Collection<TalentReviewScore> talentReviewScoreCollection;
+    private Collection<SupportiveInfo> supportiveInfoCollection;
 
     /**
      * @return the id
@@ -281,8 +293,89 @@ public class Employee {
     public void setLastDay(String lastDay) {
         this.lastDay = lastDay;
     }
-    
-    
-    
+
+    /**
+     * @return the department
+     */
+    public String getDepartment() {
+        return department;
+    }
+
+    /**
+     * @param department the department to set
+     */
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    /**
+     * @return the gdcStartDate
+     */
+    public Date getGdcStartDate() {
+        return gdcStartDate;
+    }
+
+    /**
+     * @param gdcStartDate the gdcStartDate to set
+     */
+    public void setGdcStartDate(Date gdcStartDate) {
+        this.gdcStartDate = gdcStartDate;
+    }
+
+    /**
+     * @return the lastPromotionDate
+     */
+    public Date getLastPromotionDate() {
+        return lastPromotionDate;
+    }
+
+    /**
+     * @param lastPromotionDate the lastPromotionDate to set
+     */
+    public void setLastPromotionDate(Date lastPromotionDate) {
+        this.lastPromotionDate = lastPromotionDate;
+    }
+
+    /**
+     * @return the startLevel
+     */
+    public String getStartLevel() {
+        return startLevel;
+    }
+
+    /**
+     * @param startLevel the startLevel to set
+     */
+    public void setStartLevel(String startLevel) {
+        this.startLevel = startLevel;
+    }
+
+    /**
+     * @return the talentReviewScoreCollection
+     */
+    public Collection<TalentReviewScore> getTalentReviewScoreCollection() {
+        return talentReviewScoreCollection;
+    }
+
+    /**
+     * @param talentReviewScoreCollection the talentReviewScoreCollection to set
+     */
+    public void setTalentReviewScoreCollection(Collection<TalentReviewScore> talentReviewScoreCollection) {
+        this.talentReviewScoreCollection = talentReviewScoreCollection;
+    }
+
+    /**
+     * @return the supportiveInfoCollection
+     */
+    public Collection<SupportiveInfo> getSupportiveInfoCollection() {
+        return supportiveInfoCollection;
+    }
+
+    /**
+     * @param supportiveInfoCollection the supportiveInfoCollection to set
+     */
+    public void setSupportiveInfoCollection(Collection<SupportiveInfo> supportiveInfoCollection) {
+        this.supportiveInfoCollection = supportiveInfoCollection;
+    }
 
 }

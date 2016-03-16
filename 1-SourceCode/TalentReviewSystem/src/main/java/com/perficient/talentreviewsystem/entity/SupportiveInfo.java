@@ -45,8 +45,9 @@ public class SupportiveInfo implements Serializable {
     @Size(max = 255)
     @Column(name = "activity")
     private String activity;
+    @Size(max = 255)
     @Column(name = "award")
-    private Integer award;
+    private String award;
     @Size(max = 255)
     @Column(name = "blog")
     private String blog;
@@ -102,11 +103,11 @@ public class SupportiveInfo implements Serializable {
         this.activity = activity;
     }
 
-    public Integer getAward() {
+    public String getAward() {
         return award;
     }
 
-    public void setAward(Integer award) {
+    public void setAward(String award) {
         this.award = award;
     }
 

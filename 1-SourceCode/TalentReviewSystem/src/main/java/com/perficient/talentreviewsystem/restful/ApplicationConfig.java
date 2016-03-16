@@ -29,11 +29,8 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
-        resources.add(com.perficient.talentreviewsystem.restful.EmployeeInfoFacadeREST.class);
         resources.add(com.perficient.talentreviewsystem.restful.EmployeeREST.class);
-        resources.add(com.perficient.talentreviewsystem.restful.ReviewPeriodFacadeREST.class);
-        resources.add(com.perficient.talentreviewsystem.restful.SupportiveInfoFacadeREST.class);
-        resources.add(com.perficient.talentreviewsystem.restful.TalentReviewScoreFacadeREST.class);
+        resources.add(com.perficient.talentreviewsystem.restful.RuleREST.class);
         resources.add(org.eclipse.persistence.jpa.rs.exceptions.ClassNotFoundExceptionMapper.class);
         resources.add(org.eclipse.persistence.jpa.rs.exceptions.ConversionExceptionMapper.class);
         resources.add(org.eclipse.persistence.jpa.rs.exceptions.DatabaseExceptionMapper.class);

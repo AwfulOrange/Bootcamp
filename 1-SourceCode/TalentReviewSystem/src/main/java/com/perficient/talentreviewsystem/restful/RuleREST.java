@@ -31,4 +31,6 @@ public class RuleREST {
         List<Rule> list = ruleService.findAll();
         return list;
     }
+    
+    
 }

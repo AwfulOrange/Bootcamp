@@ -9,6 +9,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.perficient.talentreviewsystem.entity.Employee;
 import com.perficient.talentreviewsystem.entity.EmployeeInfo;
+import com.perficient.talentreviewsystem.entity.Score;
 import com.perficient.talentreviewsystem.service.IEmployeeInfoService;
 import com.perficient.talentreviewsystem.serviceImpl.EmployeeInfoServiceImpl;
 import com.perficient.talentreviewsystem.utils.HttpConnection;
@@ -16,9 +17,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.core.MediaType;
 
 /**
  *
@@ -28,6 +32,12 @@ import javax.ws.rs.PathParam;
 @Path("/employee")
 public class EmployeeREST {
     
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public String addEmp(String str) {
+        List<Score> scoreList = JSON.parseArray(str,Score.class);
+        return JSON.toJSONString(scoreList);
+    }
     
     
     @GET

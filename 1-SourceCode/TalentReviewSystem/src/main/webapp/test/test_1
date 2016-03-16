@@ -1,0 +1,50 @@
+{
+"records":
+[
+{
+"Name" : "Alfreds Futterkiste",
+"City" : "Berlin",
+"Country" : "First, the company adopts eight-hour day working system. The standard workday is 5 days per week. The working days are from Monday to Friday. Saturday and Sunday are public holidays"
+},
+{
+"Name" : "Berglunds snabbköp",
+"City" : "Luleå",
+"Country" : "Second, working hours are from 8:30 am to 12 am in the morning and are from 1:30 pm to 6 pm in the afternoon"
+},
+{
+"Name" : "Centro comercial Moctezuma",
+"City" : "México D.F.",
+"Country" : "Third, statutory holidays will be in accordance with state regulations and be executed as per company’s specific measures"
+},
+{
+"Name" : "Ernst Handel",
+"City" : "Graz",
+"Country" : "Employees should keep timecards properly. Compensation for loss or damage of timecard will be 20RMB for card replacement"
+},
+{
+"Name" : "FISSA Fabrica Inter. Salchichas S.A.",
+"City" : "Madrid",
+"Country" : "In the morning, if an employee forgets to take the timecard to punch in, he/she shall go to the receptionist to do the attendance registration by making signature with reception staff together. Before off duty, the employee will also need to do the attendance registration with reception staff before 6pm"
+},
+{
+"Name" : "Galería del gastrónomo",
+"City" : "Barcelona",
+"Country" : "An employee who needs to go out for business shall punch in and out. And his/her manager must make notes of reasons on the Attendance Sheet. In this way, the employee wont be considered as absenteeism and be incurred deduction on his/her salary"
+},
+{
+"Name" : "Island Trading",
+"City" : "Cowes",
+"Country" : "by monthly statistics, regardless of how much time for lateness or tardy, each time will be recorded as lateness/tardy one time. Cumulative time exceeds 3 times (excluding 3 times), the accumulation of punishment will begin"
+},
+{
+"Name" : "Königlich Essen",
+"City" : "Brandenburg",
+"Country" : "lateness / tardy within 5 minutes, the cumulative penalties will deduct 50RMB from performance pay per time"
+},
+{
+"Name" : "Laughing Bacchus Wine Cellars",
+"City" : "Vancouver",
+"Country" : "lateness / tardy for more than 5 minutes but within 30 minutes, the cumulative penalties will deduct 50RMB from performance pay per time"
+}
+]
+} 

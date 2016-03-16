@@ -5,7 +5,6 @@
  */
 package com.perficient.talentreviewsystem.entity;
 
-import com.alibaba.fastjson.annotation.JSONField;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
@@ -42,13 +41,13 @@ public class SupportiveInfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @EmbeddedId
-    @JSONField(serialize=false)
     protected SupportiveInfoPK supportiveInfoPK;
     @Size(max = 255)
     @Column(name = "activity")
     private String activity;
+    @Size(max = 255)
     @Column(name = "award")
-    private Integer award;
+    private String award;
     @Size(max = 255)
     @Column(name = "blog")
     private String blog;
@@ -72,7 +71,6 @@ public class SupportiveInfo implements Serializable {
     private String training;
     @JoinColumn(name = "employee_id", referencedColumnName = "employee_id", insertable = false, updatable = false)
     @ManyToOne(optional = false)
-    @JSONField(serialize=false)
     private EmployeeInfo employeeInfo;
     @JoinColumn(name = "review_period", referencedColumnName = "review_period", insertable = false, updatable = false)
     @ManyToOne(optional = false)
@@ -105,11 +103,11 @@ public class SupportiveInfo implements Serializable {
         this.activity = activity;
     }
 
-    public Integer getAward() {
+    public String getAward() {
         return award;
     }
 
-    public void setAward(Integer award) {
+    public void setAward(String award) {
         this.award = award;
     }
 

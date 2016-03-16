@@ -5,7 +5,6 @@
  */
 package com.perficient.talentreviewsystem.entity;
 
-import com.alibaba.fastjson.annotation.JSONField;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
@@ -44,11 +43,9 @@ public class ReviewPeriod implements Serializable {
     private String reviewPeriod;
     @Column(name = "id")
     private Integer id;
-    @JSONField(serialize=false)
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "reviewPeriod1")
     private Collection<TalentReviewScore> talentReviewScoreCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "reviewPeriod1")
-    @JSONField(serialize=false)
     private Collection<SupportiveInfo> supportiveInfoCollection;
 
     public ReviewPeriod() {

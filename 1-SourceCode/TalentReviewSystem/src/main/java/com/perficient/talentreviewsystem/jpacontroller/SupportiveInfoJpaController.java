@@ -39,8 +39,8 @@ public class SupportiveInfoJpaController implements Serializable {
         if (supportiveInfo.getSupportiveInfoPK() == null) {
             supportiveInfo.setSupportiveInfoPK(new SupportiveInfoPK());
         }
-        supportiveInfo.getSupportiveInfoPK().setEmployeeId(supportiveInfo.getEmployeeInfo().getEmployeeId());
         supportiveInfo.getSupportiveInfoPK().setReviewPeriod(supportiveInfo.getReviewPeriod1().getReviewPeriod());
+        supportiveInfo.getSupportiveInfoPK().setEmployeeId(supportiveInfo.getEmployeeInfo().getEmployeeId());
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -78,8 +78,8 @@ public class SupportiveInfoJpaController implements Serializable {
     }
 
     public void edit(SupportiveInfo supportiveInfo) throws NonexistentEntityException, Exception {
-        supportiveInfo.getSupportiveInfoPK().setEmployeeId(supportiveInfo.getEmployeeInfo().getEmployeeId());
         supportiveInfo.getSupportiveInfoPK().setReviewPeriod(supportiveInfo.getReviewPeriod1().getReviewPeriod());
+        supportiveInfo.getSupportiveInfoPK().setEmployeeId(supportiveInfo.getEmployeeInfo().getEmployeeId());
         EntityManager em = null;
         try {
             em = getEntityManager();

@@ -35,7 +35,7 @@ public class EmployeeInfoDAOImpl implements IEmployeeInfoDAO {
         return employeeInfos;
     }
     @Override
-    public EmployeeInfo selectEMployeeInfoById(String empId){
+    public EmployeeInfo selectEmployeeInfoById(String empId){
         emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
         eijc = new EmployeeInfoJpaController(emf);
         employeeInfo =eijc.findEmployeeInfo(empId);

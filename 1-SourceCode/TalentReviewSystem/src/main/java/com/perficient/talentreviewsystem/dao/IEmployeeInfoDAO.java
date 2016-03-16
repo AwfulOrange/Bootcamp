@@ -15,4 +15,5 @@ import java.util.List;
 public interface IEmployeeInfoDAO {
     
     public List<EmployeeInfo> selectAllEmployeeInfo();
+    public int addEmployeeInfo(EmployeeInfo employeeInfo);
 }

@@ -1,11 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="0" passed="0">
+<testng-results skipped="1" failed="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="US2" duration-ms="9" started-at="2016-03-15T04:20:20Z" finished-at="2016-03-15T04:20:20Z">
+  <suite name="Suite1" duration-ms="11573" started-at="2016-03-16T13:22:19Z" finished-at="2016-03-16T13:22:31Z">
     <groups>
     </groups>
-    <test name="Command line test" duration-ms="9" started-at="2016-03-15T04:20:20Z" finished-at="2016-03-15T04:20:20Z">
-    </test> <!-- Command line test -->
-  </suite> <!-- US2 -->
+    <test name="US02" duration-ms="11573" started-at="2016-03-16T13:22:19Z" finished-at="2016-03-16T13:22:31Z">
+      <class name="com.perficient.test.US002.TC001_US02">
+        <test-method status="FAIL" signature="setupFirefox()[pri:0, instance:com.perficient.test.US002.TC001_US02@90f6bfd]" name="setupFirefox" is-config="true" duration-ms="0" started-at="2016-03-16T21:22:19Z" finished-at="2016-03-16T21:22:19Z">
+          <exception class="java.lang.NoSuchMethodError">
+            <message>
+              <![CDATA[com.google.common.collect.Multimaps.transformValues(Lcom/google/common/collect/ListMultimap;Lcom/google/common/base/Function;)Lcom/google/common/collect/ListMultimap;]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.NoSuchMethodError: com.google.common.collect.Multimaps.transformValues(Lcom/google/common/collect/ListMultimap;Lcom/google/common/base/Function;)Lcom/google/common/collect/ListMultimap;
+	at com.google.common.net.MediaType.computeToString(MediaType.java:751)
+	at com.google.common.net.MediaType.toString(MediaType.java:741)
+	at org.openqa.selenium.remote.http.JsonHttpCommandCodec.encode(JsonHttpCommandCodec.java:232)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:139)
+	at org.openqa.selenium.firefox.internal.NewProfileExtensionConnection.execute(NewProfileExtensionConnection.java:160)
+	at org.openqa.selenium.firefox.FirefoxDriver$LazyCommandExecutor.execute(FirefoxDriver.java:380)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:249)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:131)
+	at org.openqa.selenium.firefox.FirefoxDriver.<init>(FirefoxDriver.java:216)
+	at org.openqa.selenium.firefox.FirefoxDriver.<init>(FirefoxDriver.java:211)
+	at org.openqa.selenium.firefox.FirefoxDriver.<init>(FirefoxDriver.java:207)
+	at org.openqa.selenium.firefox.FirefoxDriver.<init>(FirefoxDriver.java:120)
+	at com.perficient.test.US002.TC001_US02.setupFirefox(TC001_US02.java:36)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:517)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:213)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:601)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:295)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:84)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:90)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:203)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NoSuchMethodError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupFirefox -->
+        <test-method status="SKIP" signature="click()[pri:0, instance:com.perficient.test.US002.TC001_US02@90f6bfd]" name="click" duration-ms="3" started-at="2016-03-16T21:22:31Z" finished-at="2016-03-16T21:22:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- click -->
+        <test-method status="SKIP" signature="closeFirefox()[pri:0, instance:com.perficient.test.US002.TC001_US02@90f6bfd]" name="closeFirefox" is-config="true" duration-ms="0" started-at="2016-03-16T21:22:31Z" finished-at="2016-03-16T21:22:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeFirefox -->
+      </class> <!-- com.perficient.test.US002.TC001_US02 -->
+    </test> <!-- US02 -->
+  </suite> <!-- Suite1 -->
 </testng-results>

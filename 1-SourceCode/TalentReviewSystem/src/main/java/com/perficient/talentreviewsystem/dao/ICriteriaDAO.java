@@ -5,13 +5,14 @@
  */
 package com.perficient.talentreviewsystem.dao;
 
-import com.perficient.talentreviewsystem.entity.Rule;
+import com.perficient.talentreviewsystem.entity.Criteria;
 import java.util.List;
 
 /**
  *
  * @author bootcamp19
  */
-public interface IRuleDAO {
-    public List<Rule> selectAllRule();
+public interface ICriteriaDAO {
+    public List<Criteria> selectAllCriteria();
+    public Criteria getCriteriaByBoth(String criteria,String level);
 }

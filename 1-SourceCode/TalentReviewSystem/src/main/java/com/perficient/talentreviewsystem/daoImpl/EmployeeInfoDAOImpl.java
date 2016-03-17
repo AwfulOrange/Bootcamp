@@ -24,7 +24,7 @@ public class EmployeeInfoDAOImpl implements IEmployeeInfoDAO{
     EntityManagerFactory emf = null;
     EmployeeInfoJpaController eijc = null;
     List<EmployeeInfo> employeeInfos =new ArrayList<EmployeeInfo>();
-    
+    EmployeeInfo employeeInfo =null;
     
     @Override
     public List<EmployeeInfo> selectAllEmployeeInfo() {
@@ -47,6 +47,13 @@ public class EmployeeInfoDAOImpl implements IEmployeeInfoDAO{
         } catch (Exception ex) {
             return 0;
         }
+    }
+
+    public EmployeeInfo selectEmployeeInfoById(String id) {
+            emf =Persistence.createEntityManagerFactory(JPAUtil.JPA);
+            eijc =new EmployeeInfoJpaController(emf);
+            employeeInfo=eijc.findEmployeeInfo(id);
+            return  employeeInfo;
     }
     
 }

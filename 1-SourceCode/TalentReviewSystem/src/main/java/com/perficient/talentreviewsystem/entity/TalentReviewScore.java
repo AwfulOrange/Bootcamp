@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -41,7 +42,7 @@ public class TalentReviewScore implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @EmbeddedId
-    @JSONField(serialize=false)
+    @JSONField(serialize = false)
     protected TalentReviewScorePK talentReviewScorePK;
     @Column(name = "achieving_results")
     private Integer achievingResults;
@@ -65,11 +66,13 @@ public class TalentReviewScore implements Serializable {
     private String versatilityComment;
     @JoinColumn(name = "employee_id", referencedColumnName = "employee_id", insertable = false, updatable = false)
     @ManyToOne(optional = false)
-    @JSONField(serialize=false)
+    @JSONField(serialize = false)
     private EmployeeInfo employeeInfo;
     @JoinColumn(name = "review_period", referencedColumnName = "review_period", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private ReviewPeriod reviewPeriod1;
+    @Transient 
+    private String employeeId;
 
     public TalentReviewScore() {
     }
@@ -194,5 +197,19 @@ public class TalentReviewScore implements Serializable {
     public String toString() {
         return "com.perficient.talentreviewsystem.entity.TalentReviewScore[ talentReviewScorePK=" + talentReviewScorePK + " ]";
     }
-    
+
+    /**
+     * @return the employeeId
+     */
+    public String getEmployeeId() {
+        return employeeId;
+    }
+
+    /**
+     * @param employeeId the employeeId to set
+     */
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
+    }
+
 }

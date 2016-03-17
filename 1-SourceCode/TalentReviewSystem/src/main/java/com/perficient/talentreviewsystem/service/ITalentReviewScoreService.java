@@ -5,15 +5,12 @@
  */
 package com.perficient.talentreviewsystem.service;
 
-import com.perficient.talentreviewsystem.entity.Employee;
-import java.util.List;
-
 /**
  *
  * @author bootcamp19
  */
-public interface IEmployeeInfoService {
+public interface ITalentReviewScoreService {
     
-    List<Employee> findAll();
+    int add(String jsonStr);
     
 }

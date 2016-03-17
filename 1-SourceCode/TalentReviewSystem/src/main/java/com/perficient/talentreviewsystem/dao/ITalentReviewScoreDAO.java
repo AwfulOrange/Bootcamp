@@ -6,6 +6,7 @@
 package com.perficient.talentreviewsystem.dao;
 
 import com.perficient.talentreviewsystem.entity.TalentReviewScore;
+import java.util.List;
 
 /**
  *
@@ -13,4 +14,5 @@ import com.perficient.talentreviewsystem.entity.TalentReviewScore;
  */
 public interface ITalentReviewScoreDAO {
     public int addTalentReviewScore(TalentReviewScore trs);
+    public List<TalentReviewScore> selectAllTalentReviewScore();
 }

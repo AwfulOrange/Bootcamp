@@ -8,6 +8,7 @@ package com.perficient.talentreviewsystem.daoImpl;
 import com.perficient.talentreviewsystem.dao.ITalentReviewScoreDAO;
 import com.perficient.talentreviewsystem.entity.TalentReviewScore;
 import com.perficient.talentreviewsystem.jpacontroller.TalentReviewScoreJpaController;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManagerFactory;
@@ -21,8 +22,9 @@ public class TalentReviewScoreDAOImpl implements ITalentReviewScoreDAO {
 
     EntityManagerFactory emf = null;
     TalentReviewScoreJpaController trsjc = null;
-
-    //待测
+    List<TalentReviewScore> TalentReviewScores = null;
+    
+    
     @Override
     public int addTalentReviewScore(TalentReviewScore trs) {
         emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
@@ -33,6 +35,14 @@ public class TalentReviewScoreDAOImpl implements ITalentReviewScoreDAO {
         } catch (Exception ex) {
             return 0;
         }
+    }
+
+    @Override
+    public List<TalentReviewScore> selectAllTalentReviewScore() {
+        emf = emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
+        trsjc = new TalentReviewScoreJpaController(emf);
+        TalentReviewScores = trsjc.findTalentReviewScoreEntities();
+        return TalentReviewScores;
     }
 
 }

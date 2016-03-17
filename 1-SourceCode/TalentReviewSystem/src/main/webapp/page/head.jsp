@@ -15,7 +15,7 @@
 <!--<script src="../js/nav_js.js" type="text/javascript"></script>-->
 <script src="../js/angularjs.js" type="text/javascript"></script>
 <script src="../js/angular.min.js" type="text/javascript"></script>
-<script src="../js/bootstrap.js" type="text/javascript"></script>
+
 <script src= "../js/project.js"></script>
 <script src= "../js/myUsers.js"></script>
 <link href="../css/bootstrap.css" rel="stylesheet"/>

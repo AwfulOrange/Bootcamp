@@ -4,8 +4,6 @@ angular.module('myApp', []).controller('userCtrl', function($scope,$http) {
 $http.get("http://localhost:8080/TRS/web/employee/")
 .success(function (data) {
     $scope.emps = data;
-    
-
 });
 var allscore=[];
 $scope.save=function(emid,achievingresults,orgimpact,learningagility,versatility)
@@ -35,25 +33,27 @@ $scope.save=function(emid,achievingresults,orgimpact,learningagility,versatility
 }
 
 $scope.postSubmit = function(){
-
         console.log(allscore);
-        $http.post('http://localhost:8080/TRS/web/employee/', allscore).success(function(){
-//           alert(data.employeeId+","+data.achievingresults+","+data.orgimpact+","+data.learningagility+","+data.versatility);
-           
-        }).error(function(data) {
-            alert("failure message:" + JSON.stringify({data:data}));
-        });
+//        var judgena=function(){           
+//                     for(var i=0;i<allscore.length;i++) 
+//                        if(allscore[i])
+//                    {
+//                        
+//                    }
+//        }
+//        if(     1    ) 
+//        {
+//                $http.post('http://localhost:8080/TRS/web/employee/', allscore).success(function()
+//                {
+////           alert(data.employeeId+","+data.achievingresults+","+data.orgimpact+","+data.learningagility+","+data.versatility);
+//                })
+//        }
+//        else
+//        {
+//                 alert("Please check message!");
+//         }
+// 
     };
-
-//$scope.edit = true;
-//$scope.error = false;
-//$scope.incomplete = false; 
-//$scope.hideform = true; 
-//
-//    $scope.myVar = false;
-//$scope.toggle = function() {    
-//     $scope.myVar = !$scope.myVar;
-//     };
  $scope.number=[1,2,3,4,5 ];
 
 });

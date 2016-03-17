@@ -1,53 +1,53 @@
 <body ng-app="myApp" ng-controller="userCtrl" class="contentStyle">
-    <link href="../css/hoverCss.css" rel="stylesheet"/>
     <div class="contentStyle"  >
-        <table class="table">
+        <table style="text-align:center">
                <tr>
-                   <th style="width:200px">Reviewee ID</th>
-                    <th style="width:400px">Name</th>
-  
+                   <th style="width:400px;float:left;padding-bottom:5px ">Reviewee ID</th>
+                    <th style="width:400px;float:left;">Name</th>
+                    <th style="width:432.82px;float:left">status</th>
                </tr>
         </table>    
         <form >
             <div ng-repeat="emp in emps" >
-                <table  class="w3-hoverable" style="background-color:#CCCCFF">
-                    <tr>
-                    </tr>
+                <table  class="w3-hoverable" >
+                    <tr></tr>
                     <tr ng-click="pageshow=!pageshow">
-                        <td ng-model="AssignmentNo" style="width:400px" >{{ emp.emid }}</td>
-                        <td style="width:400px">{{ emp.screenName }}</td>
-                        
+                        <td ng-model="AssignmentNo" style="width:400px;text-align:center" >{{ emp.emid }}</td>
+                        <td style="width:400px;text-align:center">{{ emp.screenName }}</td>
+                        <td></td>
 <!--                        <td>  <button class="w3-btn-group  w3-red w3-ripple"  ng-click="pageshow=!pageshow">&#10004; </button> </td>-->
-                        <td>
-                            
-                        </td>
+
                     </tr>
                 </table>
                 
-                
-                <div  ng-show="pageshow">
+        
+                <div  ng-show="pageshow" >
                     
-                    <table class="w3-table-all" ng-show="personalshow">
-                        <h style="font-size: 20px" ng-click="personalshow=!personalshow">Personal Profile</h>
+                    <table class="w3-table-all"  ng-show="personalshow">
+                        <h style="font-size:20px" ng-click="personalshow=!personalshow">Personal Profile</h>
+                        
+                    <button  class="w3-btn w3-green w3-ripple" style="position: relative;right:83%;top:7px" ng-click="personalshow=!personalshow"  >                                      
+                        </button>
+                   
                         <tr>
-                            <td>
-                                <label>AssignmentNo</label>
+                            <td >
+                                Assignment No.
                                 
                             </td>
                            
                             <td>
-                                <label>Name</label>
+                                Name
                                 
                             </td>
                             <td>
-                                <label>Start Level</label>
+                               Start Level
                                 
                             </td>
                             <td>
-                                <label>Perficient Level</label>
+                               Perficient Level
                             </td>
                             <td>
-                                <label>Role</label>
+                                Role
                             </td>
                         </tr>
                         <tr>
@@ -59,18 +59,18 @@
                         </tr>
                         <tr>
                             <td>
-                                <label>Last Promotion Date</label>
+                                Last Promotion Date
                             </td>
                             <td>
-                                <label>GDC Working Experience</label>
+                                GDC Working Experience
                                 
                             </td>
                             <td>
-                                <label>Total Working Experience</label>
+                                Total Working Experience
                                 
                             </td>
                             <td>
-                                <label>Department</label>
+                               Departmen
                             </td>
                             <td></td>
                         </tr>
@@ -84,25 +84,27 @@
                         </tr>
                         
                     </table>
-                    <p></p>
+                       <br>
                     <table class="w3-table-all"  ng-show="suportshow">
                         <h style="font-size:20px" ng-click="suportshow=!suportshow" >Supportive Information </h> 
-                        
+                         <button  class="w3-btn w3-green w3-ripple" style="position: relative;right:78%;top:7px" ng-click="suportshow=!suportshow"  >      
+                                
+                        </button>
                         <tr>
                             <td>
-                                <label>Award</label>
+                               Award
                             </td>
                             <td>
-                                <label>Time entry compliance  </label>
+                               Time entry compliance 
                             </td>
                             <td>
-                                <label>Company activity</label>
+                            Company activity
                             </td>
                             <td>
-                                <label>Culture Committee </label>
+                               Culture Committee 
                             </td>
                             <td>
-                                <label>Training</label>
+                             Training
                             </td>
                           
                             
@@ -117,19 +119,19 @@
                         
                         <tr>
                             <td>
-                                <label>Recruiting</label>
+                              Recruiting
                                 
                             </td>
                             <td>
-                                <label>Certification</label>
+                             Certification
                                 
                             </td>
                             <td>
-                                <label>Blog</label>
+                              Blog
                                 
                             </td>
                             <td>
-                                <label>Center of Expertise</label>
+                              Center of Expertise
                             </td>
                               <td></td>
                             
@@ -142,20 +144,20 @@
                               <td></td>
                         </tr>
                     </table>
-                    <p></p>
+                    <br>
                     <table class="table-s">
-                        <h style="font-size:20px">Score</h> 
+                        <h style="font-size:20px;padding-top:-5px">Score</h> 
                         <tr>
-                            <th>Achieving Results&nbsp;&nbsp;&nbsp;&nbsp;
-                                <select  class="select-s" ng-model="achievingresults"  ng-options="act for act in number" ng-blur="save(emp.emid,achievingresults,orgimpact,learningagility,versatility)"></select>
-                                <a href="#" class="tip">?<span class="popbox">fsfsfsfsf</span></a>
+                            <th>Achieving Results
+                                <select  class="select-s1" ng-model="achievingresults"  ng-options="act for act in number" ng-blur="save(emp.emid,achievingresults,orgimpact,learningagility,versatility)"></select>
+                                
                             </th>
 <!--                             <td>Comment:
                                 <input class="w3-input w3-border" type="text" ng-model="ARComment"  placeholder="Comments Here"  required>
                               </td>-->
                         </tr>
                         <th >Organization Impact
-                                  <select class="select-s"  ng-model="orgimpact"  ng-options="act for act in number" ng-blur="save(emp.emid,achievingresults,orgimpact,learningagility,versatility)"></select>
+                                  <select class="select-s2"  ng-model="orgimpact"  ng-options="act for act in number" ng-blur="save(emp.emid,achievingresults,orgimpact,learningagility,versatility)"></select>
                             
                         </th>
                         <!-- <td>Comment:
@@ -163,18 +165,19 @@
                                 </td>-->
                         </tr>
                         <tr style="background-color:#f1f1f1">
-                            <th >Performance Total {{achievingresults + orgimpact}}</th>
+                            <th >Performance Total &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              {{achievingresults + orgimpact}}</th>
                         </tr>
                         <tr>
-                            <th>Learning Agility    &nbsp; &nbsp;&nbsp;        
-                               <select class="select-s"  ng-model="learningagility"  ng-options="act for act in number" ng-blur="save(emp.emid,achievingresults,orgimpact,learningagility,versatility)"></select>          
+                            <th>Learning Agility        
+                               <select class="select-s3"  ng-model="learningagility"  ng-options="act for act in number" ng-blur="save(emp.emid,achievingresults,orgimpact,learningagility,versatility)"></select>          
                             </th>
                             <!--<td>Comment:
                                 <input class="w3-input w3-border" type="text" ng-model="LAComment"  placeholder="Comments Here"  required>
                                     </td>-->
                         <tr>
-                            <th>Versatility&nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp;
-                                 <select class="select-s"  ng-model="versatility"  ng-options="act for act in number"  ng-blur="save(emp.emid,achievingresults,orgimpact,learningagility,versatility)"></select>         
+                            <th>Versatility
+                                 <select class="select-s4"  ng-model="versatility"  ng-options="act for act in number"  ng-blur="save(emp.emid,achievingresults,orgimpact,learningagility,versatility)"></select>         
                             </th>
                             
 
@@ -189,14 +192,16 @@
                                     </td>-->
                         </tr>
                         <tr style="background-color:#f1f1f1">
-                            <th>Potential Total  {{learningagility + versatility}} </th>
+                            <th>Potential Total  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              {{learningagility + versatility}} </th>
                         </tr>
                         
                         <tr>
-                            <th>Overall Rating {{achievingresults + orgimpact+"/"}}{{learningagility + versatility }}</th>
+                            <th style="width: 280px;">Overall Rating &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            {{achievingresults + orgimpact}}/{{learningagility + versatility }}</th>
                         </tr>
                         <tr>
-                            <th>Talent Review Score{{learningagility + versatility + achievingresults + orgimpact}}</th>
+                            <th>Talent Review Score&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{learningagility + versatility + achievingresults + orgimpact}}</th>
                         </tr>
                         
                     </table>

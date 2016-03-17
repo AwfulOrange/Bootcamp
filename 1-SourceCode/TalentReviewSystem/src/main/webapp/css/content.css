@@ -1,6 +1,14 @@
 .contentStyle{
     margin-left: 5%;
     width:90%;
+    height:100%;
     font-family:"DejaVu Sans";
-    font-size: 15px;
+    font-size: 13px;
+    border:0px;
+}
+.btn-green
+{
+    width: 24px;
+    weight:50px;
+    background-image:url('../img/bt01.jpg')
 }

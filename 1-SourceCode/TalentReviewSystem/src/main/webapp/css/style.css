@@ -44,12 +44,16 @@ table,th,td{border:1px}
 .w3-bordered tr,.w3-table-all tr th{border-bottom:1px solid #ddd;border-right: 1px solid #ddd}
 .w3-striped tbody tr:nth-child(even){background-color:#f1f1f1}
 .table-s{ }
-.table-s th{float:left;}
-.table-s tr{border-bottom: 1px solid #ddd;height: 30px;}
-.select-s {width:100px;height:30px;}
-.w3-table-all tr:nth-child(odd){background-color:#fff}
+.table-s th{text-align: left;}
+.table-s tr{border-bottom: 0px solid #ddd;height: 30px;}
+.select-s1 {width:100px;height:30px;position:relative;left: 35px;}
+.select-s2 {width:100px;height:30px;position:relative;left: 15px;}
+.select-s3 {width:100px;height:30px;position:relative;left: 50px;}
+.select-s4 {width:100px;height:30px;position:relative;left: 90px;}
+
+.w3-table-all tr:nth-child(odd){background-color:#fff;font-weight: bold}
 .w3-table-all tr:nth-child(even){background-color:#f1f1f1}
-.w3-hoverable tbody tr:hover{background-color:#1E90FF}.w3-ul.w3-hoverable li:hover{background-color:#ccc}
+.w3-hoverable tbody tr:hover{background-color:#CCCCFF}.w3-ul.w3-hoverable li:hover{background-color:#ccc}
 .w3-centered tr th,.w3-centered tr td{text-align:center}
 .w3-table td,.w3-table th,.w3-table-all td,.w3-table-all th{padding:6px 8px;display:table-cell;text-align:left;vertical-align:top}
 .w3-table th:first-child,.w3-table td:first-child,.w3-table-all th:first-child,.w3-table-all td:first-child{padding-left:16px}
@@ -64,8 +68,8 @@ table,th,td{border:1px}
 .w3-btn-floating,.w3-btn-floating-large{display:inline-block;text-align:center;color:#fff;background-color:#000;position:relative;overflow:hidden;z-index:1;padding:0;border-radius:50%;cursor:pointer;font-size:24px}
 .w3-btn-floating{width:40px;height:40px;line-height:40px}
 .w3-btn-floating-large{width:56px;height:56px;line-height:56px}
-.w3-btn-group .w3-btn{float:left}
-.w3-btn.w3-ripple{position:relative}
+.w3-btn-group .w3-btn{float:right}
+.w3-btn.w3-ripple{position:relative;float:right}
 .w3-ripple:after{content:"";background:#90EE90;display:block;position:absolute;padding-top:300%;padding-left:350%;margin-left:-20px!important;margin-top:-120%;opacity:0;transition:all 0.8s}
 .w3-ripple:active:after{padding:0;margin:0;opacity:1;transition:0s}
 .w3-badge,.w3-tag,.w3-sign{background-color:#000;color:#fff;display:inline-block;padding-left:8px;padding-right:8px;font-weight:bold;text-align:center}

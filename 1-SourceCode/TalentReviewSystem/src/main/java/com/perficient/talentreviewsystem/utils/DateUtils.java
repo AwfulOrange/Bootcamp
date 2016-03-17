@@ -21,7 +21,6 @@ public class DateUtils {
         
         int year = 0;
         int month = 0;
-        Integer.
         year = ParseUtil.longToInt(exp / (1000 * 3600 * 24 * 365));
         String expStr = year + " year";
         if(year > 1){

@@ -5,8 +5,8 @@
  */
 package com.perficient.talentreviewsystem.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import java.io.Serializable;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -15,7 +15,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -37,12 +36,12 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "TalentReviewScore.findByVersatility", query = "SELECT t FROM TalentReviewScore t WHERE t.versatility = :versatility"),
     @NamedQuery(name = "TalentReviewScore.findByVersatilityComment", query = "SELECT t FROM TalentReviewScore t WHERE t.versatilityComment = :versatilityComment"),
     @NamedQuery(name = "TalentReviewScore.findByEmployeeId", query = "SELECT t FROM TalentReviewScore t WHERE t.talentReviewScorePK.employeeId = :employeeId"),
-    @NamedQuery(name = "TalentReviewScore.findByReviewPeriod", query = "SELECT t FROM TalentReviewScore t WHERE t.talentReviewScorePK.reviewPeriod = :reviewPeriod"),
-    @NamedQuery(name = "TalentReviewScore.findByStatus", query = "SELECT t FROM TalentReviewScore t WHERE t.status = :status")})
+    @NamedQuery(name = "TalentReviewScore.findByReviewPeriod", query = "SELECT t FROM TalentReviewScore t WHERE t.talentReviewScorePK.reviewPeriod = :reviewPeriod")})
 public class TalentReviewScore implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @EmbeddedId
+    @JSONField(serialize=false)
     protected TalentReviewScorePK talentReviewScorePK;
     @Column(name = "achieving_results")
     private Integer achievingResults;
@@ -64,12 +63,9 @@ public class TalentReviewScore implements Serializable {
     @Size(max = 255)
     @Column(name = "versatility_comment")
     private String versatilityComment;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "status")
-    private int status;
     @JoinColumn(name = "employee_id", referencedColumnName = "employee_id", insertable = false, updatable = false)
     @ManyToOne(optional = false)
+    @JSONField(serialize=false)
     private EmployeeInfo employeeInfo;
     @JoinColumn(name = "review_period", referencedColumnName = "review_period", insertable = false, updatable = false)
     @ManyToOne(optional = false)
@@ -80,11 +76,6 @@ public class TalentReviewScore implements Serializable {
 
     public TalentReviewScore(TalentReviewScorePK talentReviewScorePK) {
         this.talentReviewScorePK = talentReviewScorePK;
-    }
-
-    public TalentReviewScore(TalentReviewScorePK talentReviewScorePK, int status) {
-        this.talentReviewScorePK = talentReviewScorePK;
-        this.status = status;
     }
 
     public TalentReviewScore(String employeeId, String reviewPeriod) {
@@ -161,14 +152,6 @@ public class TalentReviewScore implements Serializable {
 
     public void setVersatilityComment(String versatilityComment) {
         this.versatilityComment = versatilityComment;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
     }
 
     public EmployeeInfo getEmployeeInfo() {

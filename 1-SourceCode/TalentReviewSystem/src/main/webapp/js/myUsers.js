@@ -1,7 +1,7 @@
 angular.module('myApp', []).controller('userCtrl', function($scope,$http) {
 
 
-$http.get("http://10.2.1.183:8080/TRS/web/employee/")
+$http.get("http://localhost:8080/TRS/web/employee/")
 .success(function (data) {
     $scope.emps = data;
     
@@ -38,7 +38,7 @@ $scope.save=function(empid,achievingresults,orgimpact,learningagility,versatilit
 $scope.postSubmit = function(){
 
         console.log(allscore);
-        $http.post('http://10.2.1.183:8080/TRS/web/employee/', allscore).success(function(data){
+        $http.post('http://localhost:8080/TRS/web/employee/', allscore).success(function(data){
            alert(data.employeeId+","+data.achievingresults+","+data.orgimpact+","+data.learningagility+","+data.versatility);
            
         }).error(function(data) {

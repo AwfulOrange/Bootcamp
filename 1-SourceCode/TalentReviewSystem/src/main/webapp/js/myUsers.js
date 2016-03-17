@@ -8,11 +8,11 @@ $http.get("http://localhost:8080/TRS/web/employee/")
 
 });
 var allscore=[];
-$scope.save=function(empid,achievingresults,orgimpact,learningagility,versatility,pageshow)
+$scope.save=function(emid,achievingresults,orgimpact,learningagility,versatility)
 {
    
     var scoredata={
-        employeeId:empid,
+        employeeId:emid,
         achievingresults:achievingresults,
         orgimpact:orgimpact,
         learningagility:learningagility,
@@ -31,15 +31,14 @@ $scope.save=function(empid,achievingresults,orgimpact,learningagility,versatilit
             
         }
     }
-    return pageshow=!pageshow;
-   // console.log(allscore);
+    console.log(allscore);
 }
 
 $scope.postSubmit = function(){
 
         console.log(allscore);
-        $http.post('http://localhost:8080/TRS/web/employee/', allscore).success(function(data){
-           alert(data.employeeId+","+data.achievingresults+","+data.orgimpact+","+data.learningagility+","+data.versatility);
+        $http.post('http://localhost:8080/TRS/web/employee/', allscore).success(function(){
+//           alert(data.employeeId+","+data.achievingresults+","+data.orgimpact+","+data.learningagility+","+data.versatility);
            
         }).error(function(data) {
             alert("failure message:" + JSON.stringify({data:data}));
@@ -55,6 +54,6 @@ $scope.postSubmit = function(){
 //$scope.toggle = function() {    
 //     $scope.myVar = !$scope.myVar;
 //     };
-
+ $scope.number=[1,2,3,4,5 ];
 
 });

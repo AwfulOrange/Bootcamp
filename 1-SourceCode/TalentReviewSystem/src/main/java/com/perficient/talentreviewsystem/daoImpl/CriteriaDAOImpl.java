@@ -35,12 +35,12 @@ public class CriteriaDAOImpl implements ICriteriaDAO {
         return criterias;
     }
 
-    //代测！！！
+    
     @Override
     public Criteria getCriteriaByBoth(String criteria, String level) {
         emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
         em = emf.createEntityManager();
-        Query query = em.createNativeQuery(JPAUtil.SELECT_CRITERIA_BY_CRITERIA_LEVEL);
+        Query query = em.createNativeQuery(JPAUtil.SELECT_CRITERIA_BY_CRITERIA_LEVEL,Criteria.class);
         query.setParameter(1, criteria);
         query.setParameter(2, level);
         criterias = query.getResultList();

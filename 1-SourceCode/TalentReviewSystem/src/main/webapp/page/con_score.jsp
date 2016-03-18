@@ -1,4 +1,5 @@
 <body ng-app="myApp" ng-controller="userCtrl" class="contentStyle">
+    <link href="../css/hoverCss.css" rel="stylesheet" />
     <div class="contentStyle"  >
         <table style="text-align:center">
                <tr>
@@ -6,7 +7,8 @@
                     <th style="width:400px;float:left;">Name</th>
                     <th style="width:432.82px;float:left">status</th>
                </tr>
-        </table>    
+        </table>  
+      
         <form >
             <div ng-repeat="emp in emps" >
                 <table  class="w3-hoverable" >
@@ -26,7 +28,8 @@
                     <table class="w3-table-all"  ng-show="personalshow">
                         <h style="font-size:20px" ng-click="personalshow=!personalshow">Personal Profile</h>
                         
-                    <button  class="w3-btn w3-green w3-ripple" style="position: relative;right:83%;top:7px" ng-click="personalshow=!personalshow"  >                                      
+                    <button  class="w3-btn w3-green w3-ripple" style="position: relative;right:83%;top:7px" 
+                             ng-click="personalshow=!personalshow"  >                                      
                         </button>
                    
                         <tr>
@@ -70,7 +73,7 @@
                                 
                             </td>
                             <td>
-                               Departmen
+                               Department
                             </td>
                             <td></td>
                         </tr>
@@ -87,7 +90,8 @@
                        <br>
                     <table class="w3-table-all"  ng-show="suportshow">
                         <h style="font-size:20px" ng-click="suportshow=!suportshow" >Supportive Information </h> 
-                         <button  class="w3-btn w3-green w3-ripple" style="position: relative;right:78%;top:7px" ng-click="suportshow=!suportshow"  >      
+                         <button  class="w3-btn w3-green w3-ripple" style="position: relative;right:78%;top:7px" 
+                                  ng-click="suportshow=!suportshow"  >      
                                 
                         </button>
                         <tr>
@@ -146,59 +150,77 @@
                     </table>
                     <br>
                     <table class="table-s">
-                        <h style="font-size:20px;padding-top:-5px">Score</h> 
+                        <h style="font-size:20px;padding-top:-5px;position: relative;left:5%">Score</h> 
+                         <h style="font-size:20px;padding-top:-5px;position: relative;left:40%">Comments</h> 
                         <tr>
                             <th>Achieving Results
-                                <select  class="select-s1" ng-model="achievingresults"  ng-options="act for act in number" ng-blur="save(emp.emid,achievingresults,orgimpact,learningagility,versatility)"></select>
-                                
+                                <select  class="select-s1" ng-model="achievingResults"  ng-options="act for act in number" 
+                                         ng-blur="save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)">
+                                             
+                                </select>
+                               
                             </th>
-<!--                             <td>Comment:
-                                <input class="w3-input w3-border" type="text" ng-model="ARComment"  placeholder="Comments Here"  required>
-                              </td>-->
+                            <th style="width: 20px"> <a class="tip">?<span class="popbox">the metirtea is a and b</span></a></th>
+                            <th>
+                       
+                                <input class="w3-input w3-border" type="text" ng-model="achievingResultsComment" 
+                                       placeholder="Comments Here   (*)"  ng-blur="save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                           ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" required>
+                            </th>
                         </tr>
-                        <th >Organization Impact
-                                  <select class="select-s2"  ng-model="orgimpact"  ng-options="act for act in number" ng-blur="save(emp.emid,achievingresults,orgimpact,learningagility,versatility)"></select>
+                        <tr>
+                        <th>Organization Impact
+                                  <select class="select-s2"  ng-model="orgImpact"  ng-options="act for act in number" 
+                                           ng-blur="save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)"></select>
                             
                         </th>
-                        <!-- <td>Comment:
-                            <input class="w3-input w3-border" type="text" ng-model="OIComment"  placeholder="Comments Here"  required>
-                                </td>-->
+                        <th style="width: 20px"> <a class="tip">?<span class="popbox">the metirtea is a and b</span></a></th>
+                     <th>
+                            <input class="w3-input w3-border" type="text" ng-model="orgImpactComment"  placeholder="Comments Here   (*)"  
+                                   ng-blur="save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" required>
+                     </th>
                         </tr>
                         <tr style="background-color:#f1f1f1">
                             <th >Performance Total &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              {{achievingresults + orgimpact}}</th>
+                              {{achievingResults + orgImpact}}</th>
                         </tr>
                         <tr>
                             <th>Learning Agility        
-                               <select class="select-s3"  ng-model="learningagility"  ng-options="act for act in number" ng-blur="save(emp.emid,achievingresults,orgimpact,learningagility,versatility)"></select>          
+                               <select class="select-s3"  ng-model="learningAgility"  ng-options="act for act in number" 
+                                       ng-blur="save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)"></select>          
                             </th>
-                            <!--<td>Comment:
-                                <input class="w3-input w3-border" type="text" ng-model="LAComment"  placeholder="Comments Here"  required>
-                                    </td>-->
+                            <th style="width: 20px"> <a class="tip">?<span class="popbox">the metirtea is a and b</span></a></th>
+                            <th>
+                                <input class="w3-input w3-border" type="text" ng-model="learningAgilityComment"  placeholder="Comments Here   (*)" 
+                                       ng-blur="save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" required>
+                                    </th>
                         <tr>
                             <th>Versatility
-                                 <select class="select-s4"  ng-model="versatility"  ng-options="act for act in number"  ng-blur="save(emp.emid,achievingresults,orgimpact,learningagility,versatility)"></select>         
+                                 <select class="select-s4"  ng-model="versatility"  ng-options="act for act in number"  
+                                        ng-blur="save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)"></select>         
                             </th>
-                            
+                            <th style="width: 20px"> <a class="tip">?<span class="popbox">the metirtea is a and b</span></a></th>
 
-                            
-                            
-                            
-                            
-                            
-                            
-                            <!--		 <td> Comment:
-                                <input class="w3-input w3-border" type="text" ng-model="VSComment"  placeholder="Comments Here"  required>
-                                    </td>-->
+                             <th> 
+                                <input class="w3-input w3-border" type="text" ng-model="versatilityComment"  placeholder="Comments Here   (*)" 
+                                       ng-blur="save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" required>
+                                    </th>
                         </tr>
                         <tr style="background-color:#f1f1f1">
                             <th>Potential Total  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              {{learningagility + versatility}} </th>
+                              {{learningAgility + versatility}} </th>
                         </tr>
                         
                         <tr>
                             <th style="width: 280px;">Overall Rating &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            {{achievingresults + orgimpact}}/{{learningagility + versatility }}</th>
+                             {{achievingResults + orgImpact}}/{{learningAgility + versatility }}</th>
                         </tr>
                         <tr>
                             <th>Talent Review Score&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{learningagility + versatility + achievingresults + orgimpact}}</th>

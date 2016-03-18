@@ -22,4 +22,4 @@
 <link href="../css/bootstrap.min.css" rel="stylesheet"/>
 <link href="../css/header.css" rel="stylesheet"/>
 <link href="../css/content.css" rel="stylesheet"/>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/style.css"/>

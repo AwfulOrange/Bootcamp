@@ -10,15 +10,20 @@ $http.get("http://localhost:8080/TRS/web/employee/")
 
 });
 var allscore=[];
-$scope.save=function(emid,achievingresults,orgimpact,learningagility,versatility)
+$scope.save=function(id,achievingResults,orgImpact,learningAgility,
+versatility,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)
 {
    
     var scoredata={
-        employeeId:emid,
-        achievingresults:achievingresults,
-        orgimpact:orgimpact,
-        learningagility:learningagility,
-        versatility:versatility
+        employeeId:id,
+        achievingResults:achievingResults,
+        orgImpact:orgImpact,
+        learningAgility:learningAgility,
+        versatility:versatility,
+        achievingResultsComment:achievingResultsComment,
+        orgImpactComment:orgImpactComment,
+        learningAgilityComment:learningAgilityComment,
+        versatilityComment:versatilityComment
     };
     allscore.push(scoredata);
     for(var i=0;i<allscore.length;i++)
@@ -49,16 +54,28 @@ console.log(allscore.length==empslength);
         {
             for(var j=0;j<5;j++)
             {
-                console.log(allscore[i].achievingresults==undefined);
+                console.log(allscore[i].achievingResults==undefined);
                 if(allscore[i].employeeId==undefined){
                     return false; 
-                }else if(allscore[i].achievingresults==undefined){
+                }else if(allscore[i].achievingResults==undefined){
                     return false; 
-                }else if(allscore[i].orgimpact==undefined){
+                }else if(allscore[i].orgImpact==undefined){
                     return false; 
-                }else if(allscore[i].learningagility==undefined){
+                }else if(allscore[i].learningAgility==undefined){
                     return false; 
                 }else if(allscore[i].versatility==undefined){
+                    return false; 
+                }
+                else if(allscore[i].achievingResultsComment==undefined){
+                    return false; 
+                }
+                else if(allscore[i].orgImpactComment==undefined){
+                    return false; 
+                }
+                else if(allscore[i].learningAgilityComment==undefined){
+                    return false; 
+                }
+                else if(allscore[i].versatilityComment==undefined){
                     return false; 
                 }
 

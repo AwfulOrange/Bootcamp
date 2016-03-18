@@ -32,11 +32,8 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
         
         for(int i=0; i<empList.size(); i++){
             Employee e = empList.get(i);
-            e.setWorkStartDate(DateUtils.calcuDate(e.getWorkStartDate()));
+            //e.setWorkStartDate(DateUtils.calcuDate(e.getWorkStartDate()));
         }
-        
-        
-        
         
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");  
         for(int i=0; i<empInfoList.size(); i++){

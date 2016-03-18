@@ -13,9 +13,9 @@ import com.perficient.talentreviewsystem.daoImpl.ReviewPeriodDAOImpl;
 import com.perficient.talentreviewsystem.daoImpl.TalentReviewScoreDAOImpl;
 import com.perficient.talentreviewsystem.entity.EmployeeInfo;
 import com.perficient.talentreviewsystem.entity.ReviewPeriod;
-import com.perficient.talentreviewsystem.entity.Score;
 import com.perficient.talentreviewsystem.entity.TalentReviewScore;
 import com.perficient.talentreviewsystem.service.ITalentReviewScoreService;
+import java.util.List;
 
 /**
  *
@@ -27,18 +27,21 @@ public class TalentReviewScoreServiceImpl implements ITalentReviewScoreService{
     
     @Override
     public int add(String jsonStr) {
-        TalentReviewScore trScore = JSON.parseObject(jsonStr, TalentReviewScore.class);
-        
-        IEmployeeInfoDAO employeeInfoDao = new EmployeeInfoDAOImpl();
-        EmployeeInfo emp = employeeInfoDao.selectEmployeeInfoById(trScore.getEmployeeId());
-
-        ReviewPeriod rp = new ReviewPeriodDAOImpl().selectReviePeriodByRP("201503");
-        trScore.setReviewPeriod1(rp);
-        trScore.setEmployeeInfo(emp); 
-        
-        
         ITalentReviewScoreDAO trDao = new TalentReviewScoreDAOImpl();
-        return trDao.addTalentReviewScore(trScore);
+        IEmployeeInfoDAO employeeInfoDao = new EmployeeInfoDAOImpl();
+        ReviewPeriod rp = new ReviewPeriodDAOImpl().selectReviePeriodByRP("201503");
+        
+        List<TalentReviewScore> trScore = JSON.parseArray(jsonStr, TalentReviewScore.class);
+        int status = 0;
+        for(int i=0;i<trScore.size();i++){
+            EmployeeInfo emp = employeeInfoDao.selectEmployeeInfoById(trScore.get(i).getEmployeeId());
+
+            trScore.get(i).setReviewPeriod1(rp);
+            trScore.get(i).setEmployeeInfo(emp); 
+            
+            status = trDao.addTalentReviewScore(trScore.get(i));
+        }
+        return status;
     }
     
     

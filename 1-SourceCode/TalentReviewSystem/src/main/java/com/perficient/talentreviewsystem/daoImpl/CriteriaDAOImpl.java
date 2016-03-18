@@ -35,7 +35,7 @@ public class CriteriaDAOImpl implements ICriteriaDAO {
         return criterias;
     }
 
-    
+    //精确查找
     @Override
     public Criteria getCriteriaByBoth(String criteria, String level) {
         emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
@@ -45,6 +45,17 @@ public class CriteriaDAOImpl implements ICriteriaDAO {
         query.setParameter(2, level);
         criterias = query.getResultList();
         return criterias.get(0);
+    }
+
+    @Override
+    public List<Criteria> getCriteriaByLevel(String level) {
+        emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
+        em = emf.createEntityManager();
+        Query query =em.createNativeQuery(JPAUtil.SELECT_CRITERIA_BY_LEVLE, Criteria.class);
+        query.setParameter(1, level);
+        criterias = query.getResultList();
+        return  criterias;
+        
     }
 
 }

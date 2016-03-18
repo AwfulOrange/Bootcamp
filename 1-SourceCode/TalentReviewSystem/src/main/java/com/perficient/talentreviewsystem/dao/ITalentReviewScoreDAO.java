@@ -15,4 +15,5 @@ import java.util.List;
 public interface ITalentReviewScoreDAO {
     public int addTalentReviewScore(TalentReviewScore trs);
     public List<TalentReviewScore> selectAllTalentReviewScore();
+    public TalentReviewScore selectSingleByBoth(String emfInfo ,String rp);
 }

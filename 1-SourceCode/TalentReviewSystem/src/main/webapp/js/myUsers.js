@@ -5,7 +5,7 @@ $http.get("http://localhost:8080/TRS/web/employee/")
 .success(function (data) {
     $scope.emps = data;
     empslength=data.length;
-    console.log(empslength);
+    //console.log(empslength);
     
 
 });
@@ -24,6 +24,7 @@ versatility,achievingResultsComment,orgImpactComment,learningAgilityComment,vers
         orgImpactComment:orgImpactComment,
         learningAgilityComment:learningAgilityComment,
         versatilityComment:versatilityComment
+//        status:1
     };
     allscore.push(scoredata);
     for(var i=0;i<allscore.length;i++)
@@ -38,14 +39,18 @@ versatility,achievingResultsComment,orgImpactComment,learningAgilityComment,vers
             
         }
     }
-    
-    console.log(allscore);
+   // console.log(allscore);
+    $http.post('http://localhost:8080/TRS/web/employee/', allscore).success(function(){
+        alert("save successfully!");
+    }).error(function(data) {
+        //alert(" save failure message:" + JSON.stringify({data:data}));
+    });
+    //console.log(allscore);
 }
+
     var valid=function(){
 //        var a=true; 
-console.log(empslength);
-console.log(allscore.length);
-console.log(allscore.length==empslength);
+
         if(allscore.length!=empslength)
         {
             return false;       
@@ -54,7 +59,7 @@ console.log(allscore.length==empslength);
         {
             for(var j=0;j<5;j++)
             {
-                console.log(allscore[i].achievingResults==undefined);
+              //  console.log(allscore[i].achievingResults==undefined);
                 if(allscore[i].employeeId==undefined){
                     return false; 
                 }else if(allscore[i].achievingResults==undefined){
@@ -88,17 +93,18 @@ $scope.postSubmit = function(){
         if(valid()){
              $http.post('http://localhost:8080/TRS/web/employee/', allscore).success(function(){
            
-            alert("success");
+            alert("Submit successfully!");
            
         }).error(function(data) {
             alert("failure message:" + JSON.stringify({data:data}));
         });
         }
         else
-        { alert("please input all data!");}
+        { alert("Please input all data!");}
            
        
 };
+
 
  $scope.number=[1,2,3,4,5 ];
 

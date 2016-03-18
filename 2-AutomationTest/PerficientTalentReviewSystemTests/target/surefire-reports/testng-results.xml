@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Account Test Suite" duration-ms="25915" started-at="2016-03-18T11:52:10Z" finished-at="2016-03-18T11:52:36Z">
+  <suite name="Account Test Suite" duration-ms="18620" started-at="2016-03-18T13:09:53Z" finished-at="2016-03-18T13:10:12Z">
     <groups>
     </groups>
-    <test name="US02" duration-ms="25915" started-at="2016-03-18T11:52:10Z" finished-at="2016-03-18T11:52:36Z">
-      <class name="com.perficient.test.US02.TC001_US02">
-        <test-method status="PASS" signature="setupFirefox()[pri:0, instance:com.perficient.test.US02.TC001_US02@1936f0f5]" name="setupFirefox" is-config="true" duration-ms="11281" started-at="2016-03-18T19:52:10Z" finished-at="2016-03-18T19:52:21Z">
+    <test name="US01" duration-ms="18620" started-at="2016-03-18T13:09:53Z" finished-at="2016-03-18T13:10:12Z">
+      <class name="com.perficient.test.US01.TC001_US01">
+        <test-method status="PASS" signature="setupFirefox()[pri:0, instance:com.perficient.test.US01.TC001_US01@1936f0f5]" name="setupFirefox" is-config="true" duration-ms="5498" started-at="2016-03-18T21:09:53Z" finished-at="2016-03-18T21:09:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupFirefox -->
-        <test-method status="PASS" signature="click()[pri:0, instance:com.perficient.test.US02.TC001_US02@1936f0f5]" name="click" duration-ms="14386" started-at="2016-03-18T19:52:21Z" finished-at="2016-03-18T19:52:35Z">
+        <test-method status="PASS" signature="click()[pri:0, instance:com.perficient.test.US01.TC001_US01@1936f0f5]" name="click" duration-ms="12999" started-at="2016-03-18T21:09:58Z" finished-at="2016-03-18T21:10:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- click -->
-        <test-method status="PASS" signature="closeFirefox()[pri:0, instance:com.perficient.test.US02.TC001_US02@1936f0f5]" name="closeFirefox" is-config="true" duration-ms="198" started-at="2016-03-18T19:52:35Z" finished-at="2016-03-18T19:52:36Z">
+        <test-method status="PASS" signature="closeFirefox()[pri:0, instance:com.perficient.test.US01.TC001_US01@1936f0f5]" name="closeFirefox" is-config="true" duration-ms="107" started-at="2016-03-18T21:10:11Z" finished-at="2016-03-18T21:10:12Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeFirefox -->
-      </class> <!-- com.perficient.test.US02.TC001_US02 -->
-    </test> <!-- US02 -->
+      </class> <!-- com.perficient.test.US01.TC001_US01 -->
+    </test> <!-- US01 -->
   </suite> <!-- Account Test Suite -->
 </testng-results>

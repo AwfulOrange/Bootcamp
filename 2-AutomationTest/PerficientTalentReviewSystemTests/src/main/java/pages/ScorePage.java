@@ -15,6 +15,16 @@ import org.openqa.selenium.support.FindBy;
 public class ScorePage {
     @FindBy(id="revid0")
     public static WebElement clickElement;
+    @FindBy(xpath = ".//button[ @id='PB0']")
+    public static WebElement click2Element;
+    @FindBy(xpath = ".//button[ @id='PB0']")
+    public static WebElement click3Element;
+    @FindBy(id="SB0")
+    public static WebElement click4Element;
+    @FindBy(id="SB0")
+    public static WebElement click5Element;
+    @FindBy(id="A0")
+    public static WebElement click6Element;
     @FindBy(xpath=".//a[@id='AQ0']")
     public static WebElement mouseoverElement1;
     @FindBy(xpath=".//a[@id='OQ0}']")

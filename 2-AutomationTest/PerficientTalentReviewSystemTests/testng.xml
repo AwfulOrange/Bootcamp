@@ -9,13 +9,24 @@
     <parameter name="server" value="${server}"/>
     
 
-    
-<test name="US02">
+   
+<!--<test name="US02">
     
         <classes>
             <class name="com.perficient.test.US02.TC001_US02"/>
+            
         </classes>
-   </test>  
+ </test>  -->
+ <test name="US01">
+<!--     <packages>
+            <package name="com.perficient.test.US01"/>
+        </packages>-->
     
+        <classes>
+            <class name="com.perficient.test.US01.TC001_US01"/>
+            
+        </classes>
+ </test> 
+ 
 </suite>
 

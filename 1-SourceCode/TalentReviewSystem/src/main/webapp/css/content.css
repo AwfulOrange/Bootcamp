@@ -13,3 +13,10 @@
     weight:50px;
     background-image:url('../img/bt01.jpg')
 }
+.input-txt
+{
+    display:block;
+    border:1px solid #B;
+    height:32px;
+    width:65%
+}

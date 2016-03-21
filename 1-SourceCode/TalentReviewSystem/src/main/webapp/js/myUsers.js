@@ -3,17 +3,17 @@ angular.module('myApp', []).controller('userCtrl', function($scope,$http) {
 var empslength=0;
 $http.get("http://localhost:8080/TRS/web/employee/")
 .success(function (data) {
-    $scope.emps = data;
+    $scope.emps = data;    
     empslength=data.length;
-    //console.log(empslength);
-    
-
+   // console.log(empslength);
+    changestatus(data);
+    console.log(data[1].status);
 });
 var allscore=[];
 $scope.save=function(id,achievingResults,orgImpact,learningAgility,
-versatility,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)
+versatility,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)
 {
-   
+   status=1;
     var scoredata={
         employeeId:id,
         achievingResults:achievingResults,
@@ -23,8 +23,8 @@ versatility,achievingResultsComment,orgImpactComment,learningAgilityComment,vers
         achievingResultsComment:achievingResultsComment,
         orgImpactComment:orgImpactComment,
         learningAgilityComment:learningAgilityComment,
-        versatilityComment:versatilityComment
-//        status:1
+        versatilityComment:versatilityComment,
+         status:status
     };
     allscore.push(scoredata);
     for(var i=0;i<allscore.length;i++)
@@ -36,16 +36,20 @@ versatility,achievingResultsComment,orgImpactComment,learningAgilityComment,vers
                 allscore.splice(i,1);
                 j--;
             }
-            
         }
     }
-   // console.log(allscore);
-    $http.post('http://localhost:8080/TRS/web/employee/', allscore).success(function(){
-        alert("save successfully!");
-    }).error(function(data) {
-        //alert(" save failure message:" + JSON.stringify({data:data}));
-    });
+  // console.log(allscore);
+    
+//    $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function(){
+//       
+//    }).error(function(data) {
+//        //alert(" save failure message:" + JSON.stringify({data:data}));
+//    });
     //console.log(allscore);
+   // backstatus(allscore);
+      // console.log(scoredata.status);
+        backstatus(scoredata);
+        return scoredata.status;
 }
 
     var valid=function(){
@@ -83,29 +87,66 @@ versatility,achievingResultsComment,orgImpactComment,learningAgilityComment,vers
                 else if(allscore[i].versatilityComment==undefined){
                     return false; 
                 }
-
             }
         }
         return true;
     }
 
-$scope.postSubmit = function(){
-        if(valid()){
-             $http.post('http://localhost:8080/TRS/web/employee/', allscore).success(function(){
-           
-            alert("Submit successfully!");
-           
-        }).error(function(data) {
-            alert("failure message:" + JSON.stringify({data:data}));
-        });
-        }
-        else
-        { alert("Please input all data!");}
-           
-       
+$scope.postSubmit = function()
+{
+         for(var i=0;i<allscore.length;i++)
+         {
+          allscore[i].status=2;
+         }
+        //   console.log($scope.status);
+        $scope.status="Submitted";
+         console.log($scope.status);
+         //   changestatus(allscore);
+            return "Submitted";
+            
+//       if(valid()){
+//             $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function(){           
+//            alert("Submit successfully!");
+
+           //  allsocre.status="Submitted";
+     
+//        }).error(function(data) {
+//            alert("Sorry,Fail to send message!" );
+//        });
+//        }
+//        else
+//        { alert("Please input all data!");}   
 };
 
 
  $scope.number=[1,2,3,4,5 ];
-
+var changestatus=function(data){
+     for(var i=0;i<empslength;i++)
+    {
+        if(data[i].status==undefined)
+        {
+            data[i].status="Unfinished";
+        }
+        else if(data[i].status==1)
+        {
+            data[i].status=="Saved"
+        }
+        else 
+            data[i].status=="Submitted";
+        //  console.log(data[i].status);
+    }
+ }
+var backstatus=function(allscore)
+{
+    if(allscore.status==1)
+    {
+      allscore.status="Saved";
+    }
+    else if (allscore.status==undefined)
+    {
+      allscore.status="Unfinished";
+    }
+    else 
+        allscore.status="Submitted";
+}
 });

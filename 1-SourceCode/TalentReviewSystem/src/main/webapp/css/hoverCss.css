@@ -25,9 +25,9 @@ body{
   display:block;
   position:absolute;
   top:15px;
-  left:0px;
+  left:20px;
   width:500px;
-  background-color:#FFFF99;
-  color:black;
+  background-color:#99BBFF;
+  color:white;
   padding:10px;
 }

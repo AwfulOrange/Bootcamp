@@ -5,18 +5,18 @@
                <tr>
                    <th style="width:33%;float:left;padding-bottom:5px ">Reviewee ID</th>
                     <th style="width:33%;float:left;">Name</th>
-                    <th style="width:33%;float:left">status</th>
+                    <th style="width:33%;float:left"  ng-model="allstatus">status</th>
                </tr>
         </table>  
       
-        <form >
+        <form>
             <div ng-repeat="emp in emps" >
-                <table  class="w3-hoverable" >
+                <table  class="w3-hoverable" style="background-color:gainsboro" >
                     <tr></tr>
-                    <tr ng-click="pageshow=!pageshow" id="revid{{$index}}">
+                    <tr ng-click="pageshow=!pageshow" id="revid{{$index}}" >
                         <td ng-model="AssignmentNo" style="width:33%;text-align:center" >{{ emp.emid }}</td>
                         <td style="width:33%;text-align:center">{{ emp.screenName }}</td>
-                        <td style="width: 33%;text-align:center">{{emp.status}}</td>
+                        <td style="width: 33%;text-align:center" ng-init="status=emp.status">{{status}}</td>
                         <td></td>
 <!--                        <td>  <button class="w3-btn-group  w3-red w3-ripple"  ng-click="pageshow=!pageshow">&#10004; </button> </td>-->
 
@@ -27,7 +27,7 @@
                 <div  ng-show="pageshow" >
                     
                     <table class="w3-table-all"  ng-show="personalshow">
-                        <h style="font-size:20px" ng-click="personalshow=!personalshow" id="P{{$index}}">Personal Profile</h>
+                        <a class="w3-hoverable" style="font-size:20px" ng-click="personalshow=!personalshow" id="P{{$index}}">Personal Profile</a>
                         
                     <button  class="w3-btn w3-green w3-ripple" style="position: relative;right:83%;top:7px" 
                              ng-click="personalshow=!personalshow" id="PB{{$index}}" >                                      
@@ -35,7 +35,7 @@
                    
                         <tr>
                             <td >
-                                Assignment No.
+                                Assignment Number
                                 
                             </td>
                            
@@ -90,7 +90,7 @@
                     </table>
                        <br>
                     <table class="w3-table-all"  ng-show="suportshow">
-                        <h style="font-size:20px" ng-click="suportshow=!suportshow" id="S{{$index}}">Supportive Information </h> 
+                        <a class="w3-hoverable" style="font-size:20px" ng-click="suportshow=!suportshow" id="S{{$index}}">Supportive Information </a> 
                          <button  class="w3-btn w3-green w3-ripple" style="position: relative;right:78%;top:7px" 
                                   ng-click="suportshow=!suportshow" id="SB{{$index}}" >      
                                 
@@ -156,32 +156,31 @@
                         <tr>
                             <th>Achieving Results
                                 <select  class="select-s1" ng-model="achievingResults"  ng-options="act for act in number" 
-                                         ng-blur="save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                         ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
                                              ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" id="A{{$index}}">
                                              
                                 </select>
-                               
                             </th>
                              <th style="width: 20px"> <a class="tip" id="AQ{{$index}}">?<span class="popbox">the metirtea is a and b</span></a></th>
                             <th>
                        
                                 <input class="w3-input w3-border" type="text" ng-model="achievingResultsComment" 
-                                       placeholder="Comments Here   (*)"  ng-blur="save(emp.id,achievingResults,orgImpact,learningAgility,versatility
-                                    ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" id="AC{{$index}}}" required>
+                                       placeholder="Comments Here   (*)"  ng-blur="emp.status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                    ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" id="E{{$index}}}" required>
                             </th>
                         </tr>
                         <tr>
                         <th>Organization Impact
                                   <select class="select-s2"  ng-model="orgImpact"  ng-options="act for act in number" 
-                                           ng-blur="save(emp.id,achievingResults,orgImpact,learningAgility,versatility
-                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" id="O{{$index}}"></select>
+                                           ng-blur="emp.status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" id="B{{$index}}"></select>
                             
                         </th>
                         <th style="width: 20px"> <a class="tip" id="OQ{{$index}}}">?<span class="popbox">the metirtea is a and b</span></a></th>
                         <th>
                             <input class="w3-input w3-border" type="text" ng-model="orgImpactComment"  placeholder="Comments Here   (*)"  
-                                   ng-blur="save(emp.id,achievingResults,orgImpact,learningAgility,versatility
-                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" id="OC{{$index}}" required>
+                                   ng-blur="emp.status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" id="F{{$index}}" required>
                          </th>
                         </tr>
                         <tr style="background-color:#f1f1f1">
@@ -191,27 +190,27 @@
                         <tr>
                             <th>Learning Agility        
                                <select class="select-s3"  ng-model="learningAgility"  ng-options="act for act in number" 
-                                       ng-blur="save(emp.id,achievingResults,orgImpact,learningAgility,versatility
-                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" id="L{{$index}}"></select>          
+                                       ng-blur="emp.status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" id="C{{$index}}"></select>          
                             </th>
                             <th style="width: 20px"> <a class="tip" id="LQ{{$index}}">?<span class="popbox">the metirtea is a and b</span></a></th>
                             <th>
                                 <input class="w3-input w3-border" type="text" ng-model="learningAgilityComment"  placeholder="Comments Here   (*)" 
-                                       ng-blur="save(emp.id,achievingResults,orgImpact,learningAgility,versatility
-                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" id="LC{{$index}}" required>
+                                       ng-blur="emp.status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" id="G{{$index}}" required>
                                     </th>
                         <tr>
                             <th>Versatility
                                  <select class="select-s4"  ng-model="versatility"  ng-options="act for act in number"  
-                                        ng-blur="save(emp.id,achievingResults,orgImpact,learningAgility,versatility
-                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" id="V{{$index}}"></select>         
+                                        ng-blur="emp.status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" id="D{{$index}}"></select>         
                             </th>
                             <th style="width: 20px"> <a class="tip" id="VQ{{$index}}">?<span class="popbox">the metirtea is a and b</span></a></th>
 
                              <th> 
                                 <input class="w3-input w3-border" type="text" ng-model="versatilityComment"  placeholder="Comments Here   (*)" 
-                                       ng-blur="save(emp.id,achievingResults,orgImpact,learningAgility,versatility
-                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)"id="VC{{$index}}" required>
+                                       ng-blur="emp.status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)"id="H{{$index}}" required>
                                     </th>
                         </tr>
                         <tr style="background-color:#f1f1f1">
@@ -224,7 +223,7 @@
                              {{achievingResults + orgImpact}}/{{learningAgility + versatility }}</th>
                         </tr>
                         <tr>
-                            <th>Talent Review Score&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{learningagility + versatility + achievingresults + orgimpact}}</th>
+                            <th>Talent Review Score&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{learningAgility + versatility + achievingResults + orgImpact}}</th>
                         </tr>
                         
                     </table>
@@ -233,8 +232,8 @@
                 
             </div>
             
-            <button class="w3-btn w3-green w3-ripple" ng-disabled="error || incomplete" ng-click="postSubmit()" id="submitbt">&#10004; Submit</button>
-            <p>{{msg}}</p>
+            <button class="w3-btn w3-green w3-ripple" ng-disabled="error || incomplete" ng-click="status=postSubmit()" id="submitbt">&#10004; Submit</button>
+     
         </form>
         
         

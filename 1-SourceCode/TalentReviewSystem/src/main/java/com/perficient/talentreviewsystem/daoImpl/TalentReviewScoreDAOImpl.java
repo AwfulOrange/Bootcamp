@@ -51,13 +51,27 @@ public class TalentReviewScoreDAOImpl implements ITalentReviewScoreDAO {
 
     
     @Override
-    public TalentReviewScore selectSingleByBoth(String emfInfo, String rp) {
+    public TalentReviewScore selectSingleByBoth(String empId, String rp) {
         emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
         trsjc = new TalentReviewScoreJpaController(emf);
-        trspk = new TalentReviewScorePK(emfInfo,rp);
+        trspk = new TalentReviewScorePK(empId,rp);
         trs = trsjc.findTalentReviewScore(trspk);
         return trs;
     }
 
+    @Override
+    public int updateTalentReviewScore(TalentReviewScore talentReviewScore) {
+       emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
+        trsjc = new TalentReviewScoreJpaController(emf);
+        
+        try {
+            trsjc.edit(talentReviewScore);
+            return 1;
+        } catch (Exception ex) {
+           return 0;
+        }
+    }
+
+    
     
 }

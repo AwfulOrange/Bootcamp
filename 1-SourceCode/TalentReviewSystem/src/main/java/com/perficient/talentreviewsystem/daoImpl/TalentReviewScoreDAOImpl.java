@@ -49,7 +49,7 @@ public class TalentReviewScoreDAOImpl implements ITalentReviewScoreDAO {
     }
 
 
-    //待测
+    
     @Override
     public TalentReviewScore selectSingleByBoth(String emfInfo, String rp) {
         emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);

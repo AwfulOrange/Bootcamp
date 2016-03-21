@@ -41,17 +41,17 @@ public class IReviewPeriodDAOTest {
         ReviewPeriod expResult = new ReviewPeriod();
         expResult.setId(1);
         expResult.setReviewPeriod("201503");
-        ReviewPeriod result = instance.selectReviePeriodByRP(rp);
+        ReviewPeriod result = instance.selectReviewPeriodByRP(rp);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
        //S fail("The test case is a prototype.");
     }
 
-    public class IReviewPeriodDAOImpl implements IReviewPeriodDAO {
-
-        public ReviewPeriod selectReviePeriodByRP(String rp) {
-            return null;
-        }
-    }
+//    public class IReviewPeriodDAOImpl implements IReviewPeriodDAO {
+//
+//        public ReviewPeriod selectReviePeriodByRP(String rp) {
+//            return null;
+//        }
+//    }
     
 }

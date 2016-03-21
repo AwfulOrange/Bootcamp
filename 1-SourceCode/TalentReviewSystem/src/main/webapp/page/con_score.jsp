@@ -43,10 +43,7 @@
                                 Name
                                 
                             </td>
-                            <td>
-                               Start Level
-                                
-                            </td>
+
                             <td>
                                Perficient Level
                             </td>
@@ -57,14 +54,12 @@
                         <tr>
                             <td>{{emp.emid}}</td>
                             <td>{{emp.screenName}}</td>
-                            <td>{{emp.startLevel}}</td>
+
                             <td>{{emp.title}}</td>
                             <td>{{emp.role}}</td>
                         </tr>
                         <tr>
-                            <td>
-                                Last Promotion Date
-                            </td>
+
                             <td>
                                 GDC Working Experience
                                 
@@ -80,7 +75,7 @@
                         </tr>
                         <tr>
                     
-                            <td>{{emp.lastPromotionDate}}</td>
+       
                             <td>{{emp.gdcStart}}</td>
                             <td></td>
                             <td>{{emp.bu}}</td>
@@ -157,16 +152,19 @@
                             <th>Achieving Results
                                 <select  class="select-s1" ng-model="achievingResults"  ng-options="act for act in number" 
                                          ng-blur="emp.status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
-                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" id="A{{$index}}">
+                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" id="A{{$index}}">{{emp.id}}
                                              
                                 </select>
                             </th>
-                             <th style="width: 20px"> <a class="tip" id="AQ{{$index}}">?<span class="popbox">the metirtea is a and b</span></a></th>
+                             <th style="width: 20px"> <a class="tip" id="AQ{{$index}}">?<span class="popbox"  style="z-index:999">
+                                1:{{emp.listCriteria[0].rule}}<br/>2:{{emp.listCriteria[1].rule}}<br/>3:{{emp.listCriteria[2].rule}}<br/>4:{{emp.listCriteria[3].rule}}<br/>5:{{emp.listCriteria[4].rule}}
+                                 </span></a></th>
+                            
                             <th>
-                       
-                                <input class="w3-input w3-border" type="text" ng-model="achievingResultsComment" 
+                                <input style="display:block;border:1px solid #B;height:32px;width:65%" type="text"
+                                       ng-model="achievingResultsComment" 
                                        placeholder="Comments Here   (*)"  ng-blur="emp.status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
-                                    ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" id="E{{$index}}}" required>
+                                    ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" id="E{{$index}}" required>
                             </th>
                         </tr>
                         <tr>
@@ -176,9 +174,9 @@
                                              ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" id="B{{$index}}"></select>
                             
                         </th>
-                        <th style="width: 20px"> <a class="tip" id="OQ{{$index}}}">?<span class="popbox">the metirtea is a and b</span></a></th>
+                        <th > <a class="tip" id="J{{$index}}}">?<span class="popbox">{{emp.listCriteria[0].rule}}</span></a></th>
                         <th>
-                            <input class="w3-input w3-border" type="text" ng-model="orgImpactComment"  placeholder="Comments Here   (*)"  
+                            <input style="display:block;border:1px solid #B;height:32px;width:65%"  type="text" ng-model="orgImpactComment"  placeholder="Comments Here   (*)"  
                                    ng-blur="emp.status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
                                              ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" id="F{{$index}}" required>
                          </th>
@@ -193,9 +191,9 @@
                                        ng-blur="emp.status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
                                              ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" id="C{{$index}}"></select>          
                             </th>
-                            <th style="width: 20px"> <a class="tip" id="LQ{{$index}}">?<span class="popbox">the metirtea is a and b</span></a></th>
+                            <th > <a class="tip" id="K{{$index}}">?<span class="popbox">the metirtea is a and b</span></a></th>
                             <th>
-                                <input class="w3-input w3-border" type="text" ng-model="learningAgilityComment"  placeholder="Comments Here   (*)" 
+                                <input style="display:block;border:1px solid #B;height:32px;width:65%"  type="text" ng-model="learningAgilityComment"  placeholder="Comments Here   (*)" 
                                        ng-blur="emp.status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
                                              ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" id="G{{$index}}" required>
                                     </th>
@@ -205,10 +203,10 @@
                                         ng-blur="emp.status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
                                              ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" id="D{{$index}}"></select>         
                             </th>
-                            <th style="width: 20px"> <a class="tip" id="VQ{{$index}}">?<span class="popbox">the metirtea is a and b</span></a></th>
+                            <th > <a class="tip" id="L{{$index}}">?<span class="popbox">the metirtea is a and b</span></a></th>
 
                              <th> 
-                                <input class="w3-input w3-border" type="text" ng-model="versatilityComment"  placeholder="Comments Here   (*)" 
+                                <input style="display:block;border:1px solid #B;height:32px;width:65%"  type="text" ng-model="versatilityComment"  placeholder="Comments Here   (*)" 
                                        ng-blur="emp.status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
                                              ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)"id="H{{$index}}" required>
                                     </th>

@@ -16,7 +16,7 @@
                     <tr ng-click="pageshow=!pageshow" id="revid{{$index}}" >
                         <td ng-model="AssignmentNo" style="width:33%;text-align:center" >{{ emp.emid }}</td>
                         <td style="width:33%;text-align:center">{{ emp.screenName }}</td>
-                        <td style="width: 33%;text-align:center" ng-init="status=emp.status">{{status}}</td>
+                        <td style="width: 33%;text-align:center" ng-model="status">{{emp.status}}</td>
                         <td></td>
 <!--                        <td>  <button class="w3-btn-group  w3-red w3-ripple"  ng-click="pageshow=!pageshow">&#10004; </button> </td>-->
 
@@ -156,7 +156,7 @@
                         <tr>
                             <th>Achieving Results
                                 <select  class="select-s1" ng-model="achievingResults"  ng-options="act for act in number" 
-                                         ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                         ng-blur="emp.status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
                                              ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" id="A{{$index}}">
                                              
                                 </select>
@@ -232,7 +232,7 @@
                 
             </div>
             
-            <button class="w3-btn w3-green w3-ripple" ng-disabled="error || incomplete" ng-click="status=postSubmit()" id="submitbt">&#10004; Submit</button>
+            <button class="w3-btn w3-green w3-ripple" ng-disabled="error || incomplete" ng-click="postSubmit()" id="submitbt">&#10004; Submit</button>
      
         </form>
         

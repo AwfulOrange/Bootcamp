@@ -5,14 +5,15 @@
  */
 package com.perficient.talentreviewsystem.entity;
 
+import java.io.Serializable;
 import java.util.Collection;
-import java.util.Date;
+import java.util.List;
 
 /**
  *
  * @author bootcamp19
  */
-public class Employee {
+public class Employee implements Serializable {
 
     private String id;
 
@@ -55,6 +56,8 @@ public class Employee {
     
     private Collection<TalentReviewScore> talentReviewScoreCollection;
     private Collection<SupportiveInfo> supportiveInfoCollection;
+    
+    private List<Criteria> ListCriteria;
 
     /**
      * @return the id
@@ -376,6 +379,20 @@ public class Employee {
      */
     public void setSupportiveInfoCollection(Collection<SupportiveInfo> supportiveInfoCollection) {
         this.supportiveInfoCollection = supportiveInfoCollection;
+    }
+
+    /**
+     * @return the ListCriteria
+     */
+    public List<Criteria> getListCriteria() {
+        return ListCriteria;
+    }
+
+    /**
+     * @param ListCriteria the ListCriteria to set
+     */
+    public void setListCriteria(List<Criteria> ListCriteria) {
+        this.ListCriteria = ListCriteria;
     }
 
 }

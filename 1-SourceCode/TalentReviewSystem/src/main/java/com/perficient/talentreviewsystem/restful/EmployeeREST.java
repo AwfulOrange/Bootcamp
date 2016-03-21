@@ -6,7 +6,6 @@
 package com.perficient.talentreviewsystem.restful;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.perficient.talentreviewsystem.entity.Employee;
 import com.perficient.talentreviewsystem.service.IEmployeeInfoService;
 import com.perficient.talentreviewsystem.serviceImpl.EmployeeInfoServiceImpl;
@@ -43,7 +42,8 @@ public class EmployeeREST {
     
     @GET
     public String findAll() {
-        return JSON.toJSONString(empService.findAll(),SerializerFeature.DisableCircularReferenceDetect);
+        return JSON.toJSONString(empService.findAll());
     }
+    
     
 }

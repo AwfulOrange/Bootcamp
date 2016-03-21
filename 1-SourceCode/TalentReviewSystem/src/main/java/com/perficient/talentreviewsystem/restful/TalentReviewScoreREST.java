@@ -5,7 +5,6 @@
  */
 package com.perficient.talentreviewsystem.restful;
 
-import com.perficient.talentreviewsystem.service.ITalentReviewScoreService;
 import com.perficient.talentreviewsystem.serviceImpl.TalentReviewScoreServiceImpl;
 import javax.ejb.Stateless;
 import javax.ws.rs.Consumes;
@@ -25,7 +24,7 @@ public class TalentReviewScoreREST {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public int addScore(String str) {
-        ITalentReviewScoreService trsService = new TalentReviewScoreServiceImpl();
-        return trsService.add(str);
+        
+        return new TalentReviewScoreServiceImpl().add(str);
     }
 }

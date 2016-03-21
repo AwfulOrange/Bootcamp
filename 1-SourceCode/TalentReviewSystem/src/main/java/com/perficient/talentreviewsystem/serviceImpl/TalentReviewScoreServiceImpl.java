@@ -43,6 +43,7 @@ public class TalentReviewScoreServiceImpl implements ITalentReviewScoreService{
             if(trs == null){
                 status = trsDao.addTalentReviewScore(trScore.get(i));
             } else {
+                trScore.get(i).setTalentReviewScorePK(trs.getTalentReviewScorePK());
                 status = trsDao.updateTalentReviewScore(trScore.get(i));
             }
         }

@@ -27,7 +27,7 @@ public class TalentReviewScoreServiceImpl implements ITalentReviewScoreService{
     
     @Override
     public int add(String jsonStr) {
-        ITalentReviewScoreDAO trDao = new TalentReviewScoreDAOImpl();
+        ITalentReviewScoreDAO trsDao = new TalentReviewScoreDAOImpl();
         IEmployeeInfoDAO employeeInfoDao = new EmployeeInfoDAOImpl();
         ReviewPeriod rp = new ReviewPeriodDAOImpl().selectReviePeriodByRP("201503");
         
@@ -39,10 +39,13 @@ public class TalentReviewScoreServiceImpl implements ITalentReviewScoreService{
             trScore.get(i).setReviewPeriod1(rp);
             trScore.get(i).setEmployeeInfo(emp); 
             
-            status = trDao.addTalentReviewScore(trScore.get(i));
+            TalentReviewScore trs = trsDao.selectSingleByBoth(trScore.get(i).getEmployeeId(), rp.getReviewPeriod());
+            if(trs == null){
+                status = trsDao.addTalentReviewScore(trScore.get(i));
+            } else {
+                status = trsDao.updateTalentReviewScore(trScore.get(i));
+            }
         }
         return status;
     }
-    
-    
 }

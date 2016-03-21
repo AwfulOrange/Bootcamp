@@ -24,7 +24,6 @@ public class TalentReviewScoreREST {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public int addScore(String str) {
-        
         return new TalentReviewScoreServiceImpl().add(str);
     }
 }

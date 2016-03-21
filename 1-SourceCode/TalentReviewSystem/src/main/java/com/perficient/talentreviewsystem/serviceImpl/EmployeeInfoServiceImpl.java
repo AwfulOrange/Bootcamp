@@ -14,9 +14,11 @@ import com.perficient.talentreviewsystem.daoImpl.EmployeeInfoDAOImpl;
 import com.perficient.talentreviewsystem.entity.Criteria;
 import com.perficient.talentreviewsystem.entity.Employee;
 import com.perficient.talentreviewsystem.service.ICriteriaService;
+import com.perficient.talentreviewsystem.utils.DateUtils;
 import com.perficient.talentreviewsystem.utils.HttpConnection;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -31,19 +33,24 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
         String empsInfo = HttpConnection.getFromUrl("http://10.2.1.207:8080/tpt2013-portlet/resteasy/employees");
         List<Employee> empList = JSON.parseArray(empsInfo, Employee.class);
         
-        for(int i=0; i<empList.size(); i++){
-            Employee e = empList.get(i);
-            //e.setWorkStartDate(DateUtils.calcuDate(e.getWorkStartDate()));
+        List<Employee> empListSelected = new ArrayList<Employee>();
+        empListSelected.add(empList.get(0));
+        empListSelected.add(empList.get(1));
+        empListSelected.add(empList.get(2));
+        
+        for(int i=0; i<empListSelected.size(); i++){
+            Employee e = empListSelected.get(i);
+            e.setWorkStartDate(DateUtils.calcuDate(e.getWorkStartDate()));
         }
         ICriteriaService criService = new CriteriaServiceImpl();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");  
         for(int i=0; i<empInfoList.size(); i++){
-            for(int j=0 ;j<empList.size(); j++){
-                if(empInfoList.get(i).getEmployeeId().equals(empList.get(j).getId())){
+            for(int j=0 ;j<empListSelected.size(); j++){
+                if(empInfoList.get(i).getEmployeeId().equals(empListSelected.get(j).getId())){
                     EmployeeInfo ei = empInfoList.get(i);
-                    Employee e = empList.get(j);
+                    Employee e = empListSelected.get(j);
                     e.setDepartment(ei.getDepartment());
-                    e.setGdcStartDate(sdf.format(ei.getGdcStartDate()));
+                    e.setGdcStartDate(DateUtils.calcuDate(Long.toString(ei.getGdcStartDate().getTime())));
                     e.setLastPromotionDate(sdf.format(ei.getLastPromotionDate()));
                     e.setStartLevel(ei.getStartLevel());
                     e.setSupportiveInfoCollection(ei.getSupportiveInfoCollection());
@@ -55,10 +62,7 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
                 }
             } 
         }
-        List<Employee> empListSelected = new ArrayList<Employee>();
-        empListSelected.add(empList.get(0));
-        empListSelected.add(empList.get(1));
-        empListSelected.add(empList.get(2));
+        
         
         return empListSelected;
     }

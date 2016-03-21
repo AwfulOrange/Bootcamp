@@ -21,15 +21,15 @@ public class DateUtils {
         
         int year = 0;
         int month = 0;
-        year = ParseUtil.longToInt(exp / (1000 * 3600 * 24 * 365));
-        String expStr = year + " year";
+        year = ParseUtil.longToInt(exp / 1000 / 3600 / 24 / 365);
+        String expStr = year + "year";
         if(year > 1){
             expStr += "s";
         }
         
-        month = ParseUtil.longToInt(exp) - (365 * year);
+        month = ParseUtil.longToInt(exp/1000/3600/24) - (365 * year);
         month /= 30;
-        expStr = expStr + " " + month;
+        expStr = expStr + " "+month+"month";
         if(month > 1){
             expStr += "s";
         }

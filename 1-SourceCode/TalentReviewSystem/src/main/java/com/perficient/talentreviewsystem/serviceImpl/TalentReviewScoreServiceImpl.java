@@ -22,17 +22,21 @@ import java.util.List;
  * @author bootcamp19
  */
 public class TalentReviewScoreServiceImpl implements ITalentReviewScoreService{
-
+    private ITalentReviewScoreDAO trsDao = new TalentReviewScoreDAOImpl();
+    private IEmployeeInfoDAO employeeInfoDao = new EmployeeInfoDAOImpl();
     
     
     @Override
     public int add(String jsonStr) {
-        ITalentReviewScoreDAO trsDao = new TalentReviewScoreDAOImpl();
-        IEmployeeInfoDAO employeeInfoDao = new EmployeeInfoDAOImpl();
         ReviewPeriod rp = new ReviewPeriodDAOImpl().selectReviewPeriodByRP("201503");
         
         List<TalentReviewScore> trScore = JSON.parseArray(jsonStr, TalentReviewScore.class);
         int status = 0;
+        status = cycleInsert(trScore, rp, status);
+        return status;
+    }
+
+    private int cycleInsert(List<TalentReviewScore> trScore, ReviewPeriod rp, int status) {
         for(int i=0;i<trScore.size();i++){
             EmployeeInfo emp = employeeInfoDao.selectEmployeeInfoById(trScore.get(i).getEmployeeId());
 
@@ -49,4 +53,5 @@ public class TalentReviewScoreServiceImpl implements ITalentReviewScoreService{
         }
         return status;
     }
+ 
 }

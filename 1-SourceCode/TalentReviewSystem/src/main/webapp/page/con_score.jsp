@@ -16,14 +16,15 @@
                     <tr ng-click="pageshow=!pageshow" id="revid{{$index}}" >
                         <td ng-model="AssignmentNo" style="width:33%;text-align:center" >{{ emp.emid }}</td>
                         <td style="width:33%;text-align:center">{{ emp.screenName }}</td>
-                        <td style="width: 33%;text-align:center" ng-model="status">{{emp.status}}</td>
+                        <td style="width: 33%;text-align:center" ng-init="status=backstatus(emp.talentReviewScoreCollection[0].status)" ng-model="status">{{status}}</td>
                         <td></td>
 <!--                        <td>  <button class="w3-btn-group  w3-red w3-ripple"  ng-click="pageshow=!pageshow">&#10004; </button> </td>-->
 
                     </tr>
                 </table>
                 
-        
+       
+
                 <div  ng-show="pageshow" >
                     
                     <table class="w3-table-all"  ng-show="personalshow">
@@ -69,16 +70,16 @@
                                 
                             </td>
                             <td>
-                               Department
+                       
                             </td>
                             <td></td>
                         </tr>
                         <tr>
                     
        
-                            <td>{{emp.gdcStart}}</td>
+                            <td>{{emp.gdcStartDate}}</td>
+                            <td>{{emp.workStartDate}}</td>
                             <td></td>
-                            <td>{{emp.bu}}</td>
                             <td></td>
                         </tr>
                         
@@ -110,11 +111,11 @@
                             
                         </tr>
                         <tr>
-                            <td>{{emp.id}}</td>
-                            <td>{{emp.id}}</td>
-                            <td>{{emp.id}}</td>
-                            <td>{{emp.id}}</td>
-                            <td>{{emp.id}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         
                         <tr>
@@ -137,10 +138,10 @@
                             
                         </tr>
                         <tr>
-                            <td>{{emp.id}}</td>
-                            <td>{{emp.id}}</td>
-                            <td>{{emp.id}}</td>
-                            <td>{{emp.id}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                               <td></td>
                         </tr>
                     </table>
@@ -150,35 +151,39 @@
                          <h style="font-size:20px;padding-top:-5px;position: relative;left:40%">Comments</h> 
                         <tr>
                             <th>Achieving Results
-                                <select  class="select-s1" ng-model="achievingResults"  ng-options="act for act in number" 
-                                         ng-blur="emp.status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
-                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" id="A{{$index}}">{{emp.id}}
-                                             
+                                <select  class="select-s1" ng-init="achievingResults=emp.talentReviewScoreCollection[0].achievingResults" 
+                                         ng-model="achievingResults"  ng-options="act for act in number" 
+                                         ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                        ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="A{{$index}}">{{emp.id}}  
                                 </select>
-                            </th>
-                             <th style="width: 20px"> <a class="tip" id="AQ{{$index}}">?<span class="popbox"  style="z-index:999">
+                                <a class="tip" id="I{{$index}}">?<span class="popbox"  style="z-index:999;">
                                 1:{{emp.listCriteria[0].rule}}<br/>2:{{emp.listCriteria[1].rule}}<br/>3:{{emp.listCriteria[2].rule}}<br/>4:{{emp.listCriteria[3].rule}}<br/>5:{{emp.listCriteria[4].rule}}
-                                 </span></a></th>
+                                 </span></a>
+                            </th>
+                          
                             
                             <th>
                                 <input style="display:block;border:1px solid #B;height:32px;width:65%" type="text"
+                                       ng-init="achievingResultsComment=emp.talentReviewScoreCollection[0].achievingResultsComment" 
                                        ng-model="achievingResultsComment" 
-                                       placeholder="Comments Here   (*)"  ng-blur="emp.status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
-                                    ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" id="E{{$index}}" required>
+                                       placeholder="Comments Here   (*)"  ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                    ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="E{{$index}}" required>
                             </th>
                         </tr>
                         <tr>
                         <th>Organization Impact
                                   <select class="select-s2"  ng-model="orgImpact"  ng-options="act for act in number" 
-                                           ng-blur="emp.status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
-                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" id="B{{$index}}"></select>
-                            
+                                            ng-init="orgImpact=emp.talentReviewScoreCollection[0].orgImpact" 
+                                           ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="B{{$index}}"></select>
+                          <a class="tip" id="J{{$index}}}" style="left:12%">?<span class="popbox">{{emp.listCriteria[0].rule}}</span></a>
                         </th>
-                        <th > <a class="tip" id="J{{$index}}}">?<span class="popbox">{{emp.listCriteria[0].rule}}</span></a></th>
+                   
                         <th>
                             <input style="display:block;border:1px solid #B;height:32px;width:65%"  type="text" ng-model="orgImpactComment"  placeholder="Comments Here   (*)"  
-                                   ng-blur="emp.status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
-                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" id="F{{$index}}" required>
+                                        ng-init="orgImpactComment=emp.talentReviewScoreCollection[0].orgImpactComment" 
+                                   ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="F{{$index}}" required>
                          </th>
                         </tr>
                         <tr style="background-color:#f1f1f1">
@@ -188,27 +193,33 @@
                         <tr>
                             <th>Learning Agility        
                                <select class="select-s3"  ng-model="learningAgility"  ng-options="act for act in number" 
-                                       ng-blur="emp.status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
-                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" id="C{{$index}}"></select>          
+                                         ng-init="learningAgility=emp.talentReviewScoreCollection[0].learningAgility" 
+                                       ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="C{{$index}}"></select>          
+                           <a class="tip" style="left:20%" id="K{{$index}}">?<span class="popbox">the metirtea is a and b</span></a>
                             </th>
-                            <th > <a class="tip" id="K{{$index}}">?<span class="popbox">the metirtea is a and b</span></a></th>
+                           
                             <th>
                                 <input style="display:block;border:1px solid #B;height:32px;width:65%"  type="text" ng-model="learningAgilityComment"  placeholder="Comments Here   (*)" 
-                                       ng-blur="emp.status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
-                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" id="G{{$index}}" required>
+                                        ng-init="learningAgilityComment=emp.talentReviewScoreCollection[0].learningAgilityComment" 
+                                       ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="G{{$index}}" required>
                                     </th>
                         <tr>
                             <th>Versatility
                                  <select class="select-s4"  ng-model="versatility"  ng-options="act for act in number"  
-                                        ng-blur="emp.status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
-                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)" id="D{{$index}}"></select>         
+                                          ng-init="versatility=emp.talentReviewScoreCollection[0].versatility" 
+                                        ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="D{{$index}}"></select>         
+                          <a class="tip" style="left:30%" id="L{{$index}}">?<span class="popbox">the metirtea is a and b</span></a>
                             </th>
-                            <th > <a class="tip" id="L{{$index}}">?<span class="popbox">the metirtea is a and b</span></a></th>
+                           
 
                              <th> 
                                 <input style="display:block;border:1px solid #B;height:32px;width:65%"  type="text" ng-model="versatilityComment"  placeholder="Comments Here   (*)" 
-                                       ng-blur="emp.status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
-                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment)"id="H{{$index}}" required>
+                                        ng-init="versatilityComment=emp.talentReviewScoreCollection[0].versatilityComment" 
+                                       ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)"id="H{{$index}}" required>
                                     </th>
                         </tr>
                         <tr style="background-color:#f1f1f1">

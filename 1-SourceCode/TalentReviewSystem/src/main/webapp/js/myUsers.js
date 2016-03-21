@@ -11,7 +11,6 @@ var allscore=[];
 $scope.save=function(id,achievingResults,orgImpact,learningAgility,
 versatility,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)
 {
-   status=1;
     var scoredata={
         employeeId:id,
         achievingResults:achievingResults,
@@ -22,7 +21,7 @@ versatility,achievingResultsComment,orgImpactComment,learningAgilityComment,vers
         orgImpactComment:orgImpactComment,
         learningAgilityComment:learningAgilityComment,
         versatilityComment:versatilityComment,
-         status:status
+         status:statustoNum(status)
     };
     allscore.push(scoredata);
     for(var i=0;i<allscore.length;i++)
@@ -42,8 +41,7 @@ versatility,achievingResultsComment,orgImpactComment,learningAgilityComment,vers
          
     }).error(function(data) {
      alert("Save fail!");
-    });
-                  
+    });            
       if(  checkScoredata(scoredata)==false)
       {
        return "Saved,but Unfinished";
@@ -138,17 +136,41 @@ var changestatus=function(data){
         //  console.log(data[i].status);
     }
  }
-var backstatus=function(allscore)
+$scope.backstatus=function(status)
 {
-    if(allscore.status==1)
+    if(status==1)
     {
-      allscore.status="Saved";
+      status="Saved";
     }
-    else if (allscore.status==undefined)
+    else if (status==0)
     {
-      allscore.status="Unfinished";
+      status="Unfinished";
     }
-    else 
-        allscore.status="Submitted";
+    else if(status==2) 
+        status="Submitted";
+    else if(status==3)
+        status="Saved,but Unfinished";
+    
+    return status;
+}
+var statustoNum=function(status)
+{
+      if( status=="Saved")
+      {
+          status=1;
+      }
+      else if(status=="Unfinished")
+      {
+          status=0;
+      }
+            else if(status=="Saved,but Unfinished")
+      {
+          status=3;
+      }
+            else if(status=="Submitted")
+      {
+          status=2;
+      }
+      return status;
 }
 });

@@ -141,7 +141,9 @@
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite thread-count=&quot;1&quot; configfailurepolicy=&quot;continue&quot; verbose=&quot;0&quot; name=&quot;Account Test Suite&quot;&gt;
-  &lt;parameter name=&quot;server&quot; value=&quot;${server}&quot;/&gt;
+  &lt;parameter name=&quot;grid&quot; value=&quot;true&quot;/&gt;
+  &lt;parameter name=&quot;hubHost&quot; value=&quot;10.2.7.32&quot;/&gt;
+  &lt;parameter name=&quot;hubPort&quot; value=&quot;4444&quot;/&gt;
   &lt;test name=&quot;US02&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;com.perficient.test.US02.TC001_US02&quot;/&gt;
@@ -188,12 +190,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'click')
 data.setCell(0, 2, 'com.perficient.test.US02.TC001_US02')
-data.setCell(0, 3, 14275);
+data.setCell(0, 3, 15231);
 window.suiteTableData['Account_Test_Suite']= { tableData: data, tableDiv: 'times-div-Account_Test_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 14 seconds</span>
+              <span class="suite-total-time">Total running time: 15 seconds</span>
               <div id="times-div-Account_Test_Suite">
               </div> <!-- times-div-Account_Test_Suite -->
             </div> <!-- times-div -->
@@ -221,16 +223,16 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">com.perficient.test.US02.TC001_US02</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
-                <span class="method-name">setupFirefox</span>
+                <span class="method-name">setupFirefox(true, 10.2.7.32, 4444)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">click</span>
-                <span class="method-start">11192 ms</span>
+                <span class="method-start">15678 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">closeFirefox</span>
-                <span class="method-start">25469 ms</span>
+                <span class="method-start">30911 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

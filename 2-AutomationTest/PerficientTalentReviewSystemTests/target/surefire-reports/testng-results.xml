@@ -2,20 +2,37 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Account Test Suite" duration-ms="25636" started-at="2016-03-21T06:00:42Z" finished-at="2016-03-21T06:01:08Z">
+  <suite name="Account Test Suite" duration-ms="31069" started-at="2016-03-21T10:43:11Z" finished-at="2016-03-21T10:43:42Z">
     <groups>
     </groups>
-    <test name="US02" duration-ms="25636" started-at="2016-03-21T06:00:42Z" finished-at="2016-03-21T06:01:08Z">
+    <test name="US02" duration-ms="31069" started-at="2016-03-21T10:43:11Z" finished-at="2016-03-21T10:43:42Z">
       <class name="com.perficient.test.US02.TC001_US02">
-        <test-method status="PASS" signature="setupFirefox()[pri:0, instance:com.perficient.test.US02.TC001_US02@1936f0f5]" name="setupFirefox" is-config="true" duration-ms="11191" started-at="2016-03-21T14:00:42Z" finished-at="2016-03-21T14:00:54Z">
+        <test-method status="PASS" signature="setupFirefox(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.perficient.test.US02.TC001_US02@3a03464]" name="setupFirefox" is-config="true" duration-ms="15678" started-at="2016-03-21T18:43:11Z" finished-at="2016-03-21T18:43:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[true]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[10.2.7.32]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[4444]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupFirefox -->
-        <test-method status="PASS" signature="click()[pri:0, instance:com.perficient.test.US02.TC001_US02@1936f0f5]" name="click" duration-ms="14275" started-at="2016-03-21T14:00:54Z" finished-at="2016-03-21T14:01:08Z">
+        <test-method status="PASS" signature="click()[pri:0, instance:com.perficient.test.US02.TC001_US02@3a03464]" name="click" duration-ms="15231" started-at="2016-03-21T18:43:27Z" finished-at="2016-03-21T18:43:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- click -->
-        <test-method status="PASS" signature="closeFirefox()[pri:0, instance:com.perficient.test.US02.TC001_US02@1936f0f5]" name="closeFirefox" is-config="true" duration-ms="116" started-at="2016-03-21T14:01:08Z" finished-at="2016-03-21T14:01:08Z">
+        <test-method status="PASS" signature="closeFirefox()[pri:0, instance:com.perficient.test.US02.TC001_US02@3a03464]" name="closeFirefox" is-config="true" duration-ms="117" started-at="2016-03-21T18:43:42Z" finished-at="2016-03-21T18:43:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeFirefox -->

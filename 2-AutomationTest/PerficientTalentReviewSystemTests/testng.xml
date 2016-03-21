@@ -6,18 +6,17 @@
     <parameter name="hubHost" value="10.2.7.32" />
     <parameter name="hubPort" value="4444" />  
 
-<!--    <parameter name="server" value="${server}"/>-->
-    
+<!--   <parameter name="server" value="${server}"/>-->
+
 
    
 <test name="US02">
     
         <classes>
             <class name="com.perficient.test.US02.TC001_US02"/>
-            
         </classes>
  </test>  
-<!-- <test name="US01">
+<!--<test name="US01">
      <packages>
             <package name="com.perficient.test.US01"/>
         </packages>

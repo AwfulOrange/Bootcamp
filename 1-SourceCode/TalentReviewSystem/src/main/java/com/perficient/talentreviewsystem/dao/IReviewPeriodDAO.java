@@ -12,5 +12,5 @@ import com.perficient.talentreviewsystem.entity.ReviewPeriod;
  * @author bootcamp19
  */
 public interface IReviewPeriodDAO {
-    public ReviewPeriod selectReviePeriodByRP(String rp);
+    public ReviewPeriod selectReviewPeriodByRP(String rp);
 }

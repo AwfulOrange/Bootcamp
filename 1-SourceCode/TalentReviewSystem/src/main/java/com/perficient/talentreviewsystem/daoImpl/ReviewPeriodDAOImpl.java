@@ -22,7 +22,7 @@ public class ReviewPeriodDAOImpl implements IReviewPeriodDAO {
     ReviewPeriod reviewPeriod = null;
 
     @Override
-    public ReviewPeriod selectReviePeriodByRP(String rp) {
+    public ReviewPeriod selectReviewPeriodByRP(String rp) {
         emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
         rpjc = new ReviewPeriodJpaController(emf);
         reviewPeriod = rpjc.findReviewPeriod(rp);

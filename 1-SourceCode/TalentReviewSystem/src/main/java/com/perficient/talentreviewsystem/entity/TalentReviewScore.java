@@ -56,6 +56,8 @@ public class TalentReviewScore implements Serializable {
     private String learningAgilityComment;
     @Column(name = "org_impact")
     private Integer orgImpact;
+    @Column(name="status")
+    private Integer status;
     @Size(max = 255)
     @Column(name = "org_impact_comment")
     private String orgImpactComment;
@@ -171,6 +173,14 @@ public class TalentReviewScore implements Serializable {
 
     public void setReviewPeriod1(ReviewPeriod reviewPeriod1) {
         this.reviewPeriod1 = reviewPeriod1;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     @Override

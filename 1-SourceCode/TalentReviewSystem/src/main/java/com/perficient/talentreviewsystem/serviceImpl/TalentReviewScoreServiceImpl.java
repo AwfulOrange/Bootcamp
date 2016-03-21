@@ -29,7 +29,7 @@ public class TalentReviewScoreServiceImpl implements ITalentReviewScoreService{
     public int add(String jsonStr) {
         ITalentReviewScoreDAO trsDao = new TalentReviewScoreDAOImpl();
         IEmployeeInfoDAO employeeInfoDao = new EmployeeInfoDAOImpl();
-        ReviewPeriod rp = new ReviewPeriodDAOImpl().selectReviePeriodByRP("201503");
+        ReviewPeriod rp = new ReviewPeriodDAOImpl().selectReviewPeriodByRP("201503");
         
         List<TalentReviewScore> trScore = JSON.parseArray(jsonStr, TalentReviewScore.class);
         int status = 0;

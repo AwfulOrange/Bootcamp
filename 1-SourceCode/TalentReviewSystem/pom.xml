@@ -89,8 +89,9 @@
                         </goals>
                     <configuration>
                         <excludes>
-                        <exclude>**/entity/*.class</exclude>
-                        <exclude>**/dao/*.class</exclude>
+                            <exclude>*</exclude>
+<!--                            <exclude>**/dao/*.class</exclude>-->
+                            
                         </excludes>
                      </configuration>
                     </execution>

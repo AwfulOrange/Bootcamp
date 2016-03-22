@@ -1,5 +1,285 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="72f03536-6439-4587-af29-cb2a1fec513b" activeEnvironment="Default" name="TalentReview" resourceRoot="" soapui-version="5.1.2" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="3861fd91-5ee1-4ab1-acd3-d2ca06f7280d" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://10.2.1.183:8080" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://10.2.1.183:8080</con:endpoint></con:endpoints><con:resource name="Criteria" path="/TRS/web/employee" id="52eaa164-943a-4fe3-b3da-f541642355ca"><con:settings/><con:parameters><con:parameter><con:name>criteria</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>rule</con:name><con:style>QUERY</con:style></con:parameter><con:parameter><con:name>id</con:name><con:style>QUERY</con:style></con:parameter><con:parameter><con:name>score</con:name><con:style>QUERY</con:style></con:parameter><con:parameter><con:name>level</con:name><con:style>QUERY</con:style></con:parameter></con:parameters><con:method name="Criteria" id="aff992e5-80da-46da-97bd-48b8fff4e727" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/octet-stream</con:mediaType><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:request name="GetCriteria" id="4d84834d-9bcb-49d1-855d-07553969f7be" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.2.1.183:8080</con:endpoint><con:request/><con:originalUri>http://10.2.1.183/TRS/web/employee</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>criteria</con:entry><con:entry>rule</con:entry><con:entry>id</con:entry><con:entry/></con:parameterOrder></con:request></con:method></con:resource></con:interface><con:interface xsi:type="con:RestService" id="5b70cdc4-bf51-4256-a8c0-e6eceffec249" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://10.2.1.183:8080" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://10.2.1.183:8080</con:endpoint></con:endpoints><con:resource name="EmployeeInfo" path="/TRS/web/employee" id="488d02d0-2d5e-4085-bbb9-0a2e05d869be"><con:settings/><con:parameters><con:parameter><con:name>employee_id</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>department</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>gdcStartDate</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>lastPromotionDate</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>active</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>bu</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>emid</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>firstName</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>id</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>lastDay</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>lastName</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>lineManager</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="EmployeeInfo" id="1cb2bce5-7d89-4d80-a128-09c5a05d0ba3" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/octet-stream</con:mediaType><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:request name="GETEmployeeInfo" id="73490c30-5aec-4343-8034-77df622c171c" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.2.1.183:8080</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>employee_id</con:entry><con:entry>department</con:entry><con:entry>gdcStartDate</con:entry><con:entry>lastPromotionDate</con:entry><con:entry>active</con:entry><con:entry>bu</con:entry><con:entry>emid</con:entry><con:entry>firstName</con:entry><con:entry>id</con:entry><con:entry>lastDay</con:entry><con:entry>lastName</con:entry><con:entry>lineManager</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface><con:testSuite id="2271de9b-bef0-495d-8563-71988720709f" name="GetCriteria"><con:description>TestSuite generated for REST Service [http://10.2.1.183:8080]</con:description><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="9309aff6-cca4-408d-9ecd-bf2ef5986e34" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Employee TestCase" searchProperties="true"><con:description>TestCase generated for REST Resource [Employee] located at [/TRS/web/employee]</con:description><con:settings/><con:testStep type="restrequest" name="GetCriteria" id="5310c707-ad88-43ab-9e24-ff3ee074d05e"><con:settings/><con:config service="http://10.2.1.183:8080" resourcePath="/TRS/web/employee" methodName="Criteria" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetCriteria" id="2e78d835-6c40-4ef1-9973-4bda3601adee" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.2.1.183:8080</con:endpoint><con:request/><con:originalUri>http://10.2.1.183/TRS/web/employee</con:originalUri><con:assertion type="GroovyScriptAssertion" id="94d54c48-8bc6-4095-8324-eeedbd39f47d" name="Script Assertion"><con:configuration><scriptText>import groovy.sql.Sql
+<con:soapui-project id="72f03536-6439-4587-af29-cb2a1fec513b" activeEnvironment="Default" name="TalentReview" resourceRoot="" soapui-version="5.1.2" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/>
+
+
+
+<con:endpointStrategy xsi:type="con:DefaultEndpointStrategy" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:endpoint mode="OVERRIDE">http://10.2.1.183:8080</con:endpoint></con:endpointStrategy>
+
+
+
+
+
+
+
+
+<con:interface xsi:type="con:RestService" id="fb8613e2-6b49-416b-880a-ba16392e1590" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://10.2.1.183:8080" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://10.2.1.183:5433</con:endpoint></con:endpoints><con:resource name="AddScoreandComment" path="/TRS/web/score" id="47ffca2d-cab1-495b-9b9a-4d0171211da7"><con:settings/><con:parameters/><con:method name="AddScoreandComment" id="dced0657-914a-454a-b206-1bf0a7177780" method="POST"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>500 404</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>text/html;charset=ISO-8859-1</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>415</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>415</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>415</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>415</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>415</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/x-www-form-urlencoded</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>415</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>415</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>415</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>415</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>415</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>415</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>415</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>415</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>415</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>415</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>415</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>415</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>415</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>415</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>415</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>415</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>415</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>415</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>415</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>415</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>415</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>415</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>415</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>415</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>415</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/octet-stream</con:mediaType><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:request name="AddScoreandCommentRequest" id="64b34c85-b72b-4871-a9a5-034057cb4e32" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.2.1.183:8080</con:endpoint><con:request>[{"employeeId":"61","achievingResults":1,"orgImpact":1,"learningAgility":1,"versatility":1,"achievingResultsComment"
+:"a","orgImpactComment":"a","learningAgilityComment":"a","versatilityComment":"a","status":1},{"employeeId"
+:"191","achievingResults":1,"status":3}]
+    </con:request><con:originalUri>http://10.2.1.183/TRS/web/score</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:request></con:method></con:resource></con:interface><con:testSuite id="aa173074-4abb-4518-aeee-c6e316ef15f4" name="AddScoreandComment"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="1af931a9-cae7-4f47-b4ca-383c7393ff07" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="addscoreandcomment" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="AddScoreandComments - AddScoreandCommentsRequest" id="e4502a7f-a201-4a25-b35a-4194bf63d422"><con:settings/><con:config service="http://10.2.1.183:8080" resourcePath="/TRS/web/score" methodName="AddScoreandComment" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="AddScoreandComments - AddScoreandCommentsRequest" id="64b34c85-b72b-4871-a9a5-034057cb4e32" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.2.1.183:8080</con:endpoint><con:request>[{"employeeId":"61","achievingResults":1,"orgImpact":1,"learningAgility":1,"versatility":1,"achievingResultsComment"
+:"a","orgImpactComment":"a","learningAgilityComment":"a","versatilityComment":"a","status":1}]</con:request><con:originalUri>http://10.2.1.183/TRS/web/score</con:originalUri><con:assertion type="GroovyScriptAssertion" id="7238c1ff-2ec8-47a8-a09d-92b9965908be" name="Script Assertion"><con:configuration><scriptText>import groovy.sql.Sql
+import java.sql.ResultSet 
+import groovy.json.JsonSlurper
+
+def project=messageExchange.modelItem.testStep.testCase.testSuite.project;
+def driver=project.getPropertyValue( "jdbc.driver" );
+def sqlConnectionURL=project.getPropertyValue( "jdbc.url" );
+def userName = project.getPropertyValue( "jdbc.user" );
+def password = project.getPropertyValue( "jdbc.password" );
+try{
+	db = Sql.newInstance(sqlConnectionURL, userName, password, driver);
+} catch(Exception e){
+	log.info("DB connection failed. Detail message: "+ e);	
+}
+
+def rows = db.rows("select count(*) from talent_review_score where employee_id='61'and versatility_comment='a'");
+log.info(rows.get(0).count);
+assert(rows.get(0).count>=0);
+</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<con:interface xsi:type="con:RestService" id="3861fd91-5ee1-4ab1-acd3-d2ca06f7280d" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://10.2.1.183:8080" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:settings/>
+    <con:definitionCache type="TEXT" rootPart=""/>
+    <con:endpoints>
+        <con:endpoint>http://10.2.1.183:8080</con:endpoint>
+    </con:endpoints>
+    <con:resource name="Criteria" path="/TRS/web/employee" id="52eaa164-943a-4fe3-b3da-f541642355ca">
+        <con:settings/>
+        <con:parameters>
+            <con:parameter>
+                <con:name>criteria</con:name>
+                <con:value/>
+                <con:style>QUERY</con:style>
+                <con:default/>
+                <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter>
+                <con:name>rule</con:name>
+                <con:style>QUERY</con:style>
+            </con:parameter>
+            <con:parameter>
+                <con:name>id</con:name>
+                <con:style>QUERY</con:style>
+            </con:parameter>
+            <con:parameter>
+                <con:name>score</con:name>
+                <con:style>QUERY</con:style>
+            </con:parameter>
+            <con:parameter>
+                <con:name>level</con:name>
+                <con:style>QUERY</con:style>
+            </con:parameter>
+        </con:parameters>
+        <con:method name="Criteria" id="aff992e5-80da-46da-97bd-48b8fff4e727" method="GET">
+            <con:settings/>
+            <con:parameters/>
+            <con:representation type="RESPONSE">
+                <con:mediaType>application/octet-stream</con:mediaType>
+                <con:status>200</con:status>
+                <con:params/>
+                <con:element>data</con:element>
+            </con:representation>
+            <con:representation type="FAULT">
+                <con:mediaType>text/html;charset=utf-8</con:mediaType>
+                <con:status>500</con:status>
+                <con:params/>
+                <con:element>html</con:element>
+            </con:representation>
+            <con:request name="GetCriteria" id="4d84834d-9bcb-49d1-855d-07553969f7be" mediaType="application/json">
+                <con:settings>
+                    <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                </con:settings>
+                <con:endpoint>http://10.2.1.183:8080</con:endpoint>
+                <con:request/>
+                <con:originalUri>http://10.2.1.183/TRS/web/employee</con:originalUri>
+                <con:credentials>
+                    <con:authType>No Authorization</con:authType>
+                </con:credentials>
+                <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                <con:jmsPropertyConfig/>
+                <con:parameters/>
+                <con:parameterOrder>
+                    <con:entry>criteria</con:entry>
+                    <con:entry>rule</con:entry>
+                    <con:entry>id</con:entry>
+                    <con:entry/>
+                </con:parameterOrder>
+            </con:request>
+        </con:method>
+    </con:resource>
+</con:interface>
+<con:interface xsi:type="con:RestService" id="5b70cdc4-bf51-4256-a8c0-e6eceffec249" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://10.2.1.183:8080" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:settings/>
+    <con:definitionCache type="TEXT" rootPart=""/>
+    <con:endpoints>
+        <con:endpoint>http://10.2.1.183:8080</con:endpoint>
+    </con:endpoints>
+    <con:resource name="EmployeeInfo" path="/TRS/web/employee" id="488d02d0-2d5e-4085-bbb9-0a2e05d869be">
+        <con:settings/>
+        <con:parameters>
+            <con:parameter>
+                <con:name>employee_id</con:name>
+                <con:value/>
+                <con:style>QUERY</con:style>
+                <con:default/>
+                <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter>
+                <con:name>department</con:name>
+                <con:value/>
+                <con:style>QUERY</con:style>
+                <con:default/>
+                <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter>
+                <con:name>gdcStartDate</con:name>
+                <con:value/>
+                <con:style>QUERY</con:style>
+                <con:default/>
+                <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter>
+                <con:name>lastPromotionDate</con:name>
+                <con:value/>
+                <con:style>QUERY</con:style>
+                <con:default/>
+                <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter>
+                <con:name>active</con:name>
+                <con:value/>
+                <con:style>QUERY</con:style>
+                <con:default/>
+                <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter>
+                <con:name>bu</con:name>
+                <con:value/>
+                <con:style>QUERY</con:style>
+                <con:default/>
+                <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter>
+                <con:name>emid</con:name>
+                <con:value/>
+                <con:style>QUERY</con:style>
+                <con:default/>
+                <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter>
+                <con:name>firstName</con:name>
+                <con:value/>
+                <con:style>QUERY</con:style>
+                <con:default/>
+                <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter>
+                <con:name>id</con:name>
+                <con:value/>
+                <con:style>QUERY</con:style>
+                <con:default/>
+                <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter>
+                <con:name>lastDay</con:name>
+                <con:value/>
+                <con:style>QUERY</con:style>
+                <con:default/>
+                <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter>
+                <con:name>lastName</con:name>
+                <con:value/>
+                <con:style>QUERY</con:style>
+                <con:default/>
+                <con:description xsi:nil="true"/>
+            </con:parameter>
+            <con:parameter>
+                <con:name>lineManager</con:name>
+                <con:value/>
+                <con:style>QUERY</con:style>
+                <con:default/>
+                <con:description xsi:nil="true"/>
+            </con:parameter>
+        </con:parameters>
+        <con:method name="EmployeeInfo" id="1cb2bce5-7d89-4d80-a128-09c5a05d0ba3" method="GET">
+            <con:settings/>
+            <con:parameters/>
+            <con:representation type="RESPONSE">
+                <con:mediaType>application/octet-stream</con:mediaType>
+                <con:status>200</con:status>
+                <con:params/>
+                <con:element>data</con:element>
+            </con:representation>
+            <con:representation type="FAULT">
+                <con:mediaType>text/html;charset=utf-8</con:mediaType>
+                <con:status>500</con:status>
+                <con:params/>
+                <con:element>html</con:element>
+            </con:representation>
+            <con:request name="GETEmployeeInfo" id="73490c30-5aec-4343-8034-77df622c171c" mediaType="application/json">
+                <con:settings>
+                    <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                </con:settings>
+                <con:endpoint>http://10.2.1.183:8080</con:endpoint>
+                <con:request/>
+                <con:credentials>
+                    <con:authType>No Authorization</con:authType>
+                </con:credentials>
+                <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                <con:jmsPropertyConfig/>
+                <con:parameters/>
+                <con:parameterOrder>
+                    <con:entry>employee_id</con:entry>
+                    <con:entry>department</con:entry>
+                    <con:entry>gdcStartDate</con:entry>
+                    <con:entry>lastPromotionDate</con:entry>
+                    <con:entry>active</con:entry>
+                    <con:entry>bu</con:entry>
+                    <con:entry>emid</con:entry>
+                    <con:entry>firstName</con:entry>
+                    <con:entry>id</con:entry>
+                    <con:entry>lastDay</con:entry>
+                    <con:entry>lastName</con:entry>
+                    <con:entry>lineManager</con:entry>
+                </con:parameterOrder>
+            </con:request>
+        </con:method>
+    </con:resource>
+</con:interface>
+<con:interface xsi:type="con:RestService" id="c5462d56-45d2-482a-9539-33045bb0d415" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://10.2.1.183:8080" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://10.2.1.183:8080</con:endpoint></con:endpoints><con:resource name="Employee" path="/TRS/web/employee" id="c2873edb-29fd-4d41-942c-07457cf20967"><con:settings/><con:parameters><con:parameter><con:name>achievingResults</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>learningAgility</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>learningAgilityComment</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>achievingResultsComment</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>orgImpact</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>orgImpactComment</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>versatility</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="GetScoreComment" id="d6982e77-0a2f-4bc3-94d2-f9331feb11a2" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/octet-stream</con:mediaType><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="GetScoreComment" id="445cc396-4006-4032-8da6-de523efddea9" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.2.1.183:8080</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>achievingResults</con:entry><con:entry>learningAgility</con:entry><con:entry>learningAgilityComment</con:entry><con:entry>achievingResultsComment</con:entry><con:entry>orgImpact</con:entry><con:entry>orgImpactComment</con:entry><con:entry>versatility</con:entry><con:entry/></con:parameterOrder></con:request></con:method></con:resource></con:interface><con:interface xsi:type="con:RestService" id="a1e42924-1864-4a3d-9e4c-fb67a94b776a" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://10.2.1.183:8080" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://10.2.1.183:8080</con:endpoint></con:endpoints><con:resource name="Commit" path="/TRS/web/score" id="0c450ccb-f915-4c46-bd41-b886b654e255"><con:settings/><con:parameters/><con:method name="Commit" id="67f1b756-867d-42db-8a14-a5d661269dee" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/octet-stream</con:mediaType><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Commit" id="78e66c3b-d2a8-42f5-9ce5-12b8cdd1a697" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.2.1.183:8080</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:testSuite id="2271de9b-bef0-495d-8563-71988720709f" name="GetCriteria">
+    <con:description>TestSuite generated for REST Service [http://10.2.1.183:8080]</con:description>
+    <con:settings/>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="9309aff6-cca4-408d-9ecd-bf2ef5986e34" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Employee TestCase" searchProperties="true">
+        <con:description>TestCase generated for REST Resource [Employee] located at [/TRS/web/employee]</con:description>
+        <con:settings/>
+        <con:testStep type="restrequest" name="GetCriteria" id="5310c707-ad88-43ab-9e24-ff3ee074d05e">
+            <con:settings/>
+            <con:config service="http://10.2.1.183:8080" resourcePath="/TRS/web/employee" methodName="Criteria" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <con:restRequest name="GetCriteria" id="2e78d835-6c40-4ef1-9973-4bda3601adee" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                    </con:settings>
+                    <con:endpoint>http://10.2.1.183:8080</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://10.2.1.183/TRS/web/employee</con:originalUri>
+                    <con:assertion type="GroovyScriptAssertion" id="94d54c48-8bc6-4095-8324-eeedbd39f47d" name="Script Assertion">
+                        <con:configuration>
+                            <scriptText>import groovy.sql.Sql
+    
 import java.sql.ResultSet 
 import groovy.json.JsonSlurper
 
@@ -56,4 +336,56 @@ if(rows.size()==responseJson.size()){
 //		assert(rows.get(i).level.toString()==responseJson.get(i).level.toString());
 //		assert(rows.get(i).level.toString()==responseJson.get(i).level.toString());	
 	}	
-}</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>employee_id</con:entry><con:entry>department</con:entry><con:entry>gdcStartDate</con:entry><con:entry>lastPromotionDate</con:entry><con:entry>active</con:entry><con:entry>bu</con:entry><con:entry>emid</con:entry><con:entry>firstName</con:entry><con:entry>id</con:entry><con:entry>lastDay</con:entry><con:entry>lastName</con:entry><con:entry>lineManager</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>jdbc.url</con:name><con:value>jdbc:postgresql://10.2.1.183:5433/TRS</con:value></con:property><con:property><con:name>jdbc.driver</con:name><con:value>org.postgresql.Driver</con:value></con:property><con:property><con:name>jdbc.user</con:name><con:value>hr</con:value></con:property><con:property><con:name>jdbc.password</con:name><con:value>hr123456</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
+}</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>employee_id</con:entry><con:entry>department</con:entry><con:entry>gdcStartDate</con:entry><con:entry>lastPromotionDate</con:entry><con:entry>active</con:entry><con:entry>bu</con:entry><con:entry>emid</con:entry><con:entry>firstName</con:entry><con:entry>id</con:entry><con:entry>lastDay</con:entry><con:entry>lastName</con:entry><con:entry>lineManager</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite id="51e7bde6-3ba7-4608-b710-9f24b268d4db" name="GetScoreComment"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="cd70606c-3d72-4f6f-8cab-631a894be9ac" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetScoreComment" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="GetScoreComment" id="c1588471-c076-4258-a81d-4f14ecfe0c31"><con:settings/><con:config service="http://10.2.1.183:8080" resourcePath="/TRS/web/employee" methodName="GetScoreComment" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetScoreComment" id="445cc396-4006-4032-8da6-de523efddea9" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.2.1.183:8080</con:endpoint><con:request/><con:originalUri>http://10.2.1.183/TRS/web/employee</con:originalUri><con:assertion type="GroovyScriptAssertion" id="b5511851-31e6-4a58-8432-52c35d3fe62b" name="Script Assertion"><con:configuration><scriptText>import groovy.sql.Sql
+import java.sql.ResultSet 
+import groovy.json.JsonSlurper
+
+def project=messageExchange.modelItem.testStep.testCase.testSuite.project;
+def driver=project.getPropertyValue( "jdbc.driver" );
+def sqlConnectionURL=project.getPropertyValue( "jdbc.url" );
+def userName = project.getPropertyValue( "jdbc.user" );
+def password = project.getPropertyValue( "jdbc.password" );
+try{
+	db = Sql.newInstance(sqlConnectionURL, userName, password, driver);
+} catch(Exception e){
+	log.info("DB connection failed. Detail message: "+ e);	
+}
+def slurper = new JsonSlurper();
+def responseText = messageExchange.modelItem.testStep.testRequest.response.contentAsString
+def responseJson = slurper.parseText(responseText)
+def rows = db.rows("select * from talent_review_score where employee_id='61'");
+db.close();
+if(rows.size()==responseJson.size()){
+	assert(responseJson.size()>0);
+	for(def i=0;i&lt;rows.size();i++){
+		assert(rows.get(i).achieving_results.toString()==responseJson.get(i).achievingResults.toString());
+		assert(rows.get(i).achieving_results_comment.toString()==responseJson.get(i).achievingResultsComment.toString());	
+		assert(rows.get(i).learning_agility.toString()==responseJson.get(i).learningAgility.toString());
+		assert(rows.get(i).learning_agility_comment.toString()==responseJson.get(i).learningAgilityComment.toString());
+		assert(rows.get(i).org_impact.toString()==responseJson.get(i).orgImpact.toString());	
+		assert(rows.get(i).org_impact_comment.toString()==responseJson.get(i).orgImpactComment.toString());
+		assert(rows.get(i).versatility.toString()==responseJson.get(i).versatility.toString());
+		assert(rows.get(i).versatility_comment.toString()==responseJson.get(i).versatilityComment.toString());	
+	}	
+}</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>achievingResults</con:entry><con:entry>learningAgility</con:entry><con:entry>learningAgilityComment</con:entry><con:entry>achievingResultsComment</con:entry><con:entry>orgImpact</con:entry><con:entry>orgImpactComment</con:entry><con:entry>versatility</con:entry><con:entry/></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite id="46c1b2a3-124c-4a19-a699-01d8d4072620" name="Commit"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="c3819edb-4811-40f7-86ed-e1603bd4ebed" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Commit" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="Commit" id="c0bf7872-aeec-4887-bb22-ce08b225c5df"><con:settings/><con:config service="http://10.2.1.183:8080" resourcePath="/TRS/web/score" methodName="Commit" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Commit" id="78e66c3b-d2a8-42f5-9ce5-12b8cdd1a697" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.2.1.183:8080</con:endpoint><con:request>[{"employeeId":"61","achievingResults":1,"orgImpact":2,"learningAgility":2,"versatility":4,"achievingResultsComment"
+:"1","orgImpactComment":"d","learningAgilityComment":"f","versatilityComment":"f","status":2},{"employeeId"
+:"264","achievingResults":1,"orgImpact":4,"learningAgility":2,"versatility":3,"achievingResultsComment"
+:"f","orgImpactComment":"f","learningAgilityComment":"f","versatilityComment":"f","status":2},{"employeeId"
+:"191","achievingResults":2,"orgImpact":3,"learningAgility":2,"versatility":3,"achievingResultsComment"
+:"fd","orgImpactComment":"f","learningAgilityComment":"f","versatilityComment":"g","status":2}]</con:request><con:originalUri>http://10.2.1.183/TRS/web/score</con:originalUri><con:assertion type="GroovyScriptAssertion" id="72a065ab-ebac-4c21-9f4e-1a0b3be4e0df" name="Script Assertion"><con:configuration><scriptText>import groovy.sql.Sql
+import java.sql.ResultSet 
+import groovy.json.JsonSlurper
+
+def project=messageExchange.modelItem.testStep.testCase.testSuite.project;
+def driver=project.getPropertyValue( "jdbc.driver" );
+def sqlConnectionURL=project.getPropertyValue( "jdbc.url" );
+def userName = project.getPropertyValue( "jdbc.user" );
+def password = project.getPropertyValue( "jdbc.password" );
+try{
+	db = Sql.newInstance(sqlConnectionURL, userName, password, driver);
+} catch(Exception e){
+	log.info("DB connection failed. Detail message: "+ e);	
+}
+def rows = db.rows("select count(*) from talent_review_score where employee_id='61' or employee_id='264' or employee_id='191'");
+db.close();
+assert(rows.get(0).count>=3);</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>jdbc.url</con:name><con:value>jdbc:postgresql://10.2.1.183:5433/TRS</con:value></con:property><con:property><con:name>jdbc.driver</con:name><con:value>org.postgresql.Driver</con:value></con:property><con:property><con:name>jdbc.user</con:name><con:value>hr</con:value></con:property><con:property><con:name>jdbc.password</con:name><con:value>hr123456</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

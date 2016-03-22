@@ -3,10 +3,10 @@
 <suite name="Account Test Suite" parallel="false" thread-count="1"
        configfailurepolicy="continue">
     <parameter name="grid" value="true" />
-    <parameter name="hubHost" value="10.2.128.93" />
+    <parameter name="hubHost" value="10.2.7.32" />
     <parameter name="hubPort" value="4444" />  
 
-<!--   <parameter name="server" value="${server}"/>-->
+<!--   <parameterfff name="server" value="${server}"/>-->
 
 
    

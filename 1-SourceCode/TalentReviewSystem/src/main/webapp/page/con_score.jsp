@@ -143,20 +143,20 @@
                                          ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
                         ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="A{{$index}}">{{emp.id}}  
                                 </select>
-                                <a class="tip" id="I{{$index}}">?<span class="popbox"  style="z-index:999;">
+                                <a class="tip-1" id="I{{$index}}">?<span class="popbox"  style="z-index:999;">
                                 1:{{emp.listCriteria[0].rule}}<br/>2:{{emp.listCriteria[1].rule}}<br/>3:{{emp.listCriteria[2].rule}}<br/>4:{{emp.listCriteria[3].rule}}<br/>5:{{emp.listCriteria[4].rule}}
                                  </span></a>
                             </td>
                           
                             
-                            <th class="minwidth">
-                                <textarea class="text-area" name="text"
+                            <td class="minwidth">
+                                <textarea class="text-area" name="text" rows="4" cols="100"
                                        ng-disabled="editable()"
                                        ng-init="achievingResultsComment=emp.talentReviewScoreCollection[0].achievingResultsComment" 
                                        ng-model="achievingResultsComment" 
                                        placeholder="Comment Here   (*)"  ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
                                            ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="E{{$index}}" required></textarea>
-                            </th>
+                            </td>
                         </tr>
                         <tr>
                         <td>Organization Impact
@@ -165,10 +165,10 @@
                                             ng-init="orgImpact=emp.talentReviewScoreCollection[0].orgImpact" 
                                            ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
                                              ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="B{{$index}}"></select>
-                          <a class="tip" id="J{{$index}}" >?<span class="popbox">1:{{emp.listCriteria[5].rule}}<br/>2:{{emp.listCriteria[6].rule}}<br/>3:{{emp.listCriteria[7].rule}}<br/>4:{{emp.listCriteria[8].rule}}<br/>5:{{emp.listCriteria[9].rule}}</span></a>
+                          <a class="tip-2" id="J{{$index}}" >?<span class="popbox">1:{{emp.listCriteria[5].rule}}<br/>2:{{emp.listCriteria[6].rule}}<br/>3:{{emp.listCriteria[7].rule}}<br/>4:{{emp.listCriteria[8].rule}}<br/>5:{{emp.listCriteria[9].rule}}</span></a>
                         </td>
                    
-                        <th>
+                        <td>
                              <textarea class="text-area" name="text"  
                                    type="text" ng-model="orgImpactComment"  placeholder="Comment Here   (*)" 
                                    ng-disabled="editable()"
@@ -176,7 +176,7 @@
                                    ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
                                              ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="F{{$index}}" required>
                                    </textarea>
-                         </th>
+                         </td>
                         </tr>
                         <tr style="background-color:#f1f1f1">
                             <th >Performance Total &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -190,10 +190,10 @@
                                        ng-init="learningAgility=emp.talentReviewScoreCollection[0].learningAgility" 
                                        ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
                                              ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="C{{$index}}"></select>          
-                           <a class="tip"  id="K{{$index}}">?<span class="popbox">1:{{emp.listCriteria[10].rule}}<br/>2:{{emp.listCriteria[11].rule}}<br/>3:{{emp.listCriteria[12].rule}}<br/>4:{{emp.listCriteria[13].rule}}<br/>5:{{emp.listCriteria[14].rule}}</span></a>
+                           <a class="tip-3"  id="K{{$index}}">?<span class="popbox">1:{{emp.listCriteria[10].rule}}<br/>2:{{emp.listCriteria[11].rule}}<br/>3:{{emp.listCriteria[12].rule}}<br/>4:{{emp.listCriteria[13].rule}}<br/>5:{{emp.listCriteria[14].rule}}</span></a>
                             </td>
                            
-                            <th>
+                            <td>
                                  <textarea class="text-area" name="text" 
                                        type="text" ng-model="learningAgilityComment"  placeholder="Comment Here   (*)" 
                                        ng-disabled="editable()"
@@ -201,7 +201,7 @@
                                        ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
                                              ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="G{{$index}}" required>
                                    </textarea>
-                                    </th>
+                                    </td>
                         <tr>
                             <td>Versatility
                                  <select class="select-s4"  ng-disabled="editable()"
@@ -209,11 +209,11 @@
                                         ng-init="versatility=emp.talentReviewScoreCollection[0].versatility" 
                                         ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
                                              ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="D{{$index}}"></select>         
-                          <a class="tip"  id="L{{$index}}">?<span class="popbox">1:{{emp.listCriteria[15].rule}}<br/>2:{{emp.listCriteria[16].rule}}<br/>3:{{emp.listCriteria[17].rule}}<br/>4:{{emp.listCriteria[18].rule}}<br/>5:{{emp.listCriteria[19].rule}}</span></a>
+                          <a class="tip-4"  id="L{{$index}}">?<span class="popbox">1:{{emp.listCriteria[15].rule}}<br/>2:{{emp.listCriteria[16].rule}}<br/>3:{{emp.listCriteria[17].rule}}<br/>4:{{emp.listCriteria[18].rule}}<br/>5:{{emp.listCriteria[19].rule}}</span></a>
                             </td>
                            
 
-                             <th> 
+                             <td> 
                                  <textarea class="text-area" name="text"  
                                        type="text" ng-model="versatilityComment"  placeholder="Comment Here   (*)"
                                        ng-disabled="editable()"
@@ -221,7 +221,7 @@
                                        ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
                                              ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)"id="H{{$index}}" required>
                                    </textarea>
-                                    </th>
+                                    </td>
                         </tr>
                         <tr style="background-color:#f1f1f1">
                             <th>Potential Total  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -239,7 +239,7 @@
                     </table>
                 </div>
             </div>
-            <button class="w3-btn w3-red w3-ripple"  ng-disabled="error || incomplete" ng-click="postSubmit()" id="submitbt">&#10004; Submit</button>
+            <button class="w3-btn w3-red w3-ripple"  ng-disabled="editable()" ng-click="postSubmit()" id="submitbt">&#10004; Submit</button>
         </form>
     </div>
 </body>

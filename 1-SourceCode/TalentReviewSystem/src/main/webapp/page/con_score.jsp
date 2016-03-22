@@ -1,7 +1,7 @@
 <body ng-app="myApp" ng-controller="userCtrl" class="contentStyle">
     <link href="../css/hoverCss.css" rel="stylesheet" />
     <div class="contentStyle"  >
-        <table style="text-align:center">
+        <table style="text-align:left">
                <tr>
                    <th style="width:33%;float:left;padding-bottom:5px ">Reviewee ID</th>
                     <th style="width:33%;float:left;">Name</th>
@@ -14,9 +14,9 @@
                 <table  class="w3-hoverable" style="background-color:gainsboro" >
                     <tr></tr>
                     <tr ng-click="pageshow=!pageshow" id="revid{{$index}}" >
-                        <td ng-model="AssignmentNo" style="width:33%;text-align:center" >{{ emp.emid }}</td>
-                        <td style="width:33%;text-align:center">{{ emp.screenName }}</td>
-                        <td style="width: 33%;text-align:center" ng-init="status=backstatus(emp.talentReviewScoreCollection[0].status)" ng-model="status">{{status}}</td>
+                        <td ng-model="AssignmentNo" style="width:33%;text-align:left" >{{ emp.emid }}</td>
+                        <td style="width:33%;text-align:left">{{ emp.screenName }}</td>
+                        <td style="width: 33%;text-align:left" ng-init="status=backstatus(emp.talentReviewScoreCollection[0].status)" ng-model="status">{{status}}</td>
                         <td></td>
 <!--                        <td>  <button class="w3-btn-group  w3-red w3-ripple"  ng-click="pageshow=!pageshow">&#10004; </button> </td>-->
 
@@ -28,11 +28,10 @@
                 <div  ng-show="pageshow" >
                     
                     <table class="w3-table-all"  ng-show="personalshow">
-                        <a class="w3-hoverable" style="font-size:20px" ng-click="personalshow=!personalshow" id="P{{$index}}">Personal Profile</a>
-                        
-                    <button  class="w3-btn w3-green w3-ripple" style="position: relative;right:83%;top:7px" 
-                             ng-click="personalshow=!personalshow" id="PB{{$index}}" >                                      
-                        </button>
+                        <h class="w3-hoverable" style="font-size:20px" ng-click="personalshow=!personalshow" id="P{{$index}}">Personal Profile                        
+                        <img ng-if="personalshow"  style="height:20px;width:20px"  src="../img/minus.png"   />
+                        <img ng-if="!personalshow"  style="height:20px;width:20px" src="../img/plus.png"  /></h>
+
                    
                         <tr>
                             <td >
@@ -86,11 +85,10 @@
                     </table>
                        <br>
                     <table class="w3-table-all"  ng-show="suportshow">
-                        <a class="w3-hoverable" style="font-size:20px" ng-click="suportshow=!suportshow" id="S{{$index}}">Supportive Information </a> 
-                         <button  class="w3-btn w3-green w3-ripple" style="position: relative;right:78%;top:7px" 
-                                  ng-click="suportshow=!suportshow" id="SB{{$index}}" >      
-                                
-                        </button>
+                        <h class="w3-hoverable" style="font-size:20px" ng-click="suportshow=!suportshow" id="S{{$index}}">Supportive Information
+                            <img ng-if="suportshow"  style="height:20px;width:20px"  src="../img/minus.png"   />
+                        <img ng-if="!suportshow"  style="height:20px;width:20px" src="../img/plus.png"  /></h> 
+
                         <tr>
                             <td>
                                Award
@@ -150,7 +148,7 @@
                         <h style="font-size:20px;padding-top:-5px;position: relative;left:5%">Score</h> 
                          <h style="font-size:20px;padding-top:-5px;position: relative;left:40%">Comments</h> 
                         <tr>
-                            <th>Achieving Results
+                            <th class="minwidth">Achieving Results
                                 <select  class="select-s1" ng-init="achievingResults=emp.talentReviewScoreCollection[0].achievingResults" 
                                          ng-model="achievingResults"  ng-options="act for act in number" 
                                          ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
@@ -176,7 +174,7 @@
                                             ng-init="orgImpact=emp.talentReviewScoreCollection[0].orgImpact" 
                                            ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
                                              ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="B{{$index}}"></select>
-                          <a class="tip" id="J{{$index}}}" style="left:12%">?<span class="popbox">{{emp.listCriteria[0].rule}}</span></a>
+                          <a class="tip" id="J{{$index}}" >?<span class="popbox">1:{{emp.listCriteria[5].rule}}<br/>2:{{emp.listCriteria[6].rule}}<br/>3:{{emp.listCriteria[7].rule}}<br/>4:{{emp.listCriteria[8].rule}}<br/>5:{{emp.listCriteria[9].rule}}</span></a>
                         </th>
                    
                         <th>
@@ -196,7 +194,7 @@
                                          ng-init="learningAgility=emp.talentReviewScoreCollection[0].learningAgility" 
                                        ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
                                              ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="C{{$index}}"></select>          
-                           <a class="tip" style="left:20%" id="K{{$index}}">?<span class="popbox">the metirtea is a and b</span></a>
+                           <a class="tip"  id="K{{$index}}">?<span class="popbox">1:{{emp.listCriteria[10].rule}}<br/>2:{{emp.listCriteria[11].rule}}<br/>3:{{emp.listCriteria[12].rule}}<br/>4:{{emp.listCriteria[13].rule}}<br/>5:{{emp.listCriteria[14].rule}}</span></a>
                             </th>
                            
                             <th>
@@ -211,7 +209,7 @@
                                           ng-init="versatility=emp.talentReviewScoreCollection[0].versatility" 
                                         ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
                                              ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="D{{$index}}"></select>         
-                          <a class="tip" style="left:30%" id="L{{$index}}">?<span class="popbox">the metirtea is a and b</span></a>
+                          <a class="tip"  id="L{{$index}}">?<span class="popbox">1:{{emp.listCriteria[15].rule}}<br/>2:{{emp.listCriteria[16].rule}}<br/>3:{{emp.listCriteria[17].rule}}<br/>4:{{emp.listCriteria[18].rule}}<br/>5:{{emp.listCriteria[19].rule}}</span></a>
                             </th>
                            
 
@@ -241,7 +239,7 @@
                 
             </div>
             
-            <button class="w3-btn w3-green w3-ripple" ng-disabled="error || incomplete" ng-click="postSubmit()" id="submitbt">&#10004; Submit</button>
+            <button class="w3-btn w3-red w3-ripple" ng-disabled="error || incomplete" ng-click="postSubmit()" id="submitbt">&#10004; Submit</button>
      
         </form>
         

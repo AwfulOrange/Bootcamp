@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" configfailurepolicy="continue" verbose="0" name="Failed suite [Account Test Suite]">
+  <parameter name="grid" value="true"/>
+  <parameter name="hubHost" value="10.2.7.32"/>
+  <parameter name="hubPort" value="4444"/>
+  <test name="US02(failed)">
+    <classes>
+      <class name="com.perficient.test.US02.TC001_US02">
+        <methods>
+          <include name="setupFirefox"/>
+          <include name="click"/>
+          <include name="closeFirefox"/>
+        </methods>
+      </class> <!-- com.perficient.test.US02.TC001_US02 -->
+    </classes>
+  </test> <!-- US02(failed) -->
+</suite> <!-- Failed suite [Account Test Suite] -->

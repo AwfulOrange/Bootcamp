@@ -6,6 +6,7 @@
 package com.perficient.talentreviewsystem.service;
 
 import com.perficient.talentreviewsystem.entity.Criteria;
+import java.util.List;
 
 /**
  *
@@ -15,4 +16,5 @@ public interface ICriteriaService {
     
     Criteria findSingle(String jsonStr);
     
+    List<Criteria> getCriteriaByLevel(String level);
 }

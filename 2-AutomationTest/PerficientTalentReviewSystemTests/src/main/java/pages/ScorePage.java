@@ -27,7 +27,7 @@ public class ScorePage {
     public static WebElement click6Element;
     @FindBy(xpath=".//a[@id='I0']")
     public static WebElement mouseoverElement1;
-    @FindBy(xpath=".//a[@id='J0}']")
+    @FindBy(xpath=".//a[@id='J0']")
     public static WebElement mouseoverElement2;
     @FindBy(xpath=".//a[@id='K0']")
     public static WebElement mouseoverElement3;

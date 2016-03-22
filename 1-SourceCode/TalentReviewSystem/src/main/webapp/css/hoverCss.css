@@ -11,7 +11,7 @@ body{
   font-size:12px;
 }
 .tip{
-  color:green;
+  color:#C00020;
   text-decoration:none;
   position:absolute;
   left:450px;
@@ -31,4 +31,7 @@ body{
   background-color:#99BBFF;
   color:white;
   padding:10px;
+}
+.minwidth{
+    min-width: 300px;
 }

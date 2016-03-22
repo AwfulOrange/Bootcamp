@@ -5,7 +5,6 @@
  */
 package com.perficient.talentreviewsystem.utils;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -36,16 +35,5 @@ public class DateUtils {
         }
         
         return expStr;
-    }
-    
-    public static String formatDate(Date date){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        return sdf.format(date);
-    }
-    
-    public static String toDate(String dateStr) {
-        Long l = Long.parseLong(dateStr);
-        Date date = new Date(l);
-        return formatDate(date);
     }
 }

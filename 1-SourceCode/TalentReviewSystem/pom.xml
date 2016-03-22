@@ -84,7 +84,6 @@
                         <exclude>com.perficient.talentreviewsystem.daoImpl.CriteriaDAOImpl</exclude> 
                         <exclude>com.perficient.talentreviewsystem.daoImpl.JPAUtil.class</exclude> 
                     </excludes>
-
                 </configuration>
                 <executions>
                     <execution>

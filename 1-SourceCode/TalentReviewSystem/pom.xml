@@ -78,7 +78,11 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.7.0.201403182114</version>
                 <configuration>
-                    <excludes>**/entity/*.class</excludes>
+                    
+                    <excludes>
+                        <exclude>**/entity/*.class</exclude>
+                        <exclude>**/dao/*.class</exclude>
+                    </excludes>
                     <destFile>${sonar.jacoco.reportPath}</destFile>
                     <append>true</append>
                 </configuration>

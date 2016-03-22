@@ -10,19 +10,37 @@ and open the template in the editor.
 body{
   font-size:15px;
 }
-.tip{
+.tip-1{
   color:#C00020;
   text-decoration:none;
-  position:absolute;
-  left:450px;
+  position:relative;
+  left:55px;
 }
-.tip span{
+.tip-2{
+  color:#C00020;
+  text-decoration:none;
+  position:relative;
+  left:40px;
+}
+.tip-3{
+  color:#C00020;
+  text-decoration:none;
+  position:relative;
+  left:70px;
+}
+.tip-4{
+  color:#C00020;
+  text-decoration:none;
+  position:relative;
+  left:105px;
+}
+.tip-1 span,.tip-2 span,.tip-3 span,.tip-4 span{
   display:none;
 }
-.tip:hover{
+.tip-1:hover,.tip-2:hover,.tip-3:hover,.tip-4:hover{
   cursor:pointer;
 }
-.tip:hover .popbox{
+.tip-1:hover .popbox, .tip-2:hover .popbox,.tip-3:hover .popbox,.tip-4:hover .popbox{
   font-size:14px;
   display:block;
   position:absolute;
@@ -40,10 +58,8 @@ body{
 .text-area{
     display:block;
     border:1px solid #B;
-    height:32px;
+    height:30px;
     width:100%;
-    min-height:32px;
-    max-height: 100px;
-    min-width: 400px;
+    resize: none;
        
 }

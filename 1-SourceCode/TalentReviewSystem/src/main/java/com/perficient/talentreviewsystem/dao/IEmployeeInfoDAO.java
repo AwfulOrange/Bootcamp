@@ -17,4 +17,5 @@ public interface IEmployeeInfoDAO {
     public List<EmployeeInfo> selectAllEmployeeInfo();
     public int addEmployeeInfo(EmployeeInfo employeeInfo);
     public EmployeeInfo selectEmployeeInfoById(String id);
+    public void deleteEmployeeInfoById(String id);
 }

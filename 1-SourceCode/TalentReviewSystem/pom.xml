@@ -79,6 +79,11 @@
                     <!-- plus argLine parameter configured by JaCoCo prepare-agent -->
                     <argLine>${argLine} -XX:-UseSplitVerifier</argLine>
                     <includes>
+                        <include>**/dao/*.java,**/daoimpl/*.java,**/entity/*.java,
+                            **/exceptions/*.java,**/jpacontroller/*.java,**/restful/*.java,
+                            **/service/*.java,**/utils/*.java,**/serviceImpl/*.java,**/utils/*.java
+                        
+                        </include>
                         <include>**/*Test.java</include>
                         <include>**/*Tests.java</include>
                     </includes>

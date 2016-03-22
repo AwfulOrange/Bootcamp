@@ -12,8 +12,10 @@
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
         
-        
+        <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+        <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
     </properties>
     
     <dependencies>
@@ -71,30 +73,24 @@
     </dependencies>
 
     <build>
-        
         <plugins>
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                    <configuration>
-                        <includes>*</includes>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <id>pre-test</id>
-                            <goals>
-                                <goal>prepare-agent</goal>
-                            </goals>
-                        </execution>
-                        <execution>
-                            <id>jacoco-report</id>
-                            <phase>test</phase>
-                            <goals>
-                                <goal>report</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
+                <version>0.7.0.201403182114</version>
+                <configuration>
+                    <destFile>${sonar.jacoco.reportPath}</destFile>
+                    <append>true</append>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -107,15 +103,14 @@
                         <include>**/*Test.java</include>
                         <include>**/*Tests.java</include>
                     </includes>
-<!--                    <excludes>
+                    <excludes>
                         <exclude>**/it/*IT.java</exclude>
-                    </excludes>-->
+                    </excludes>
                     <!-- new configuration needed for coverage per test -->
                     <properties>
                         <property>
                             <name>listener</name>
                             <value>org.sonar.java.jacoco.JUnitListener</value>
-                            
                         </property>
                     </properties>
                 </configuration>

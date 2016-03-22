@@ -45,11 +45,11 @@ table,th,td{border:1px}
 .w3-striped tbody tr:nth-child(even){background-color:#f1f1f1}
 .table-s{ }
 .table-s th{text-align: left;}
-.table-s tr{border-bottom: 0px solid #ddd;height: 30px;}
+.table-s tr{border-bottom: 0px  #ddd;height: 30px;}
 .select-s1 {width:100px;height:30px;position:relative;left: 35px;}
-.select-s2 {width:100px;height:30px;position:relative;left: 15px;}
+.select-s2 {width:100px;height:30px;position:relative;left: 20px;}
 .select-s3 {width:100px;height:30px;position:relative;left: 50px;}
-.select-s4 {width:100px;height:30px;position:relative;left: 90px;}
+.select-s4 {width:100px;height:30px;position:relative;left: 85px;}
 
 .w3-table-all tr:nth-child(odd){background-color:#fff;font-weight: bold}
 .w3-table-all tr:nth-child(even){background-color:#f1f1f1}

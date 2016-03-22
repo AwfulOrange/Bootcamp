@@ -1,4 +1,4 @@
-angular.module('myApp', []).controller('userCtrl', function($scope,$http) {
+angular.module('myApp', []).controller('userCtrl', function($scope,$http,$window) {
 
 var empslength=0;
 $http.get("http://localhost:8080/TRS/web/employee/")
@@ -35,8 +35,6 @@ versatility,achievingResultsComment,orgImpactComment,learningAgilityComment,vers
             }
         }
     }
-  // console.log(allscore);
-    
     $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function(){
          
     }).error(function(data) {
@@ -94,17 +92,16 @@ versatility,achievingResultsComment,orgImpactComment,learningAgilityComment,vers
 
 $scope.postSubmit = function()
 {          
-    
+      
        if(valid()){
                 for(var m=0;m<allscore.length;m++)
             {
              allscore[m].status=2;
             }
-        //  $scope.status="Submitted";
 
-            $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function(){      
-        // allsocre.status="Submitted";    
+            $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function(){  
                alert("Submit successfully!");
+               $window.location.reload();
        }).error(function(data) {
            alert("Sorry,Fail to send message!" );
        });
@@ -112,8 +109,6 @@ $scope.postSubmit = function()
         else
       { alert("Please input all data!");}   
 };
-
-
  $scope.number=[1,2,3,4,5 ];
 var changestatus=function(data){
      for(var i=0;i<empslength;i++)
@@ -129,8 +124,7 @@ var changestatus=function(data){
         else if(data[i].status==2) 
             data[i].status=="Submitted";
         else 
-            data[i].status=="Saved,but Unfinished"
-        //  console.log(data[i].status);
+            data[i].status=="Partially completed"
     }
  }
 $scope.backstatus=function(status)
@@ -146,7 +140,7 @@ $scope.backstatus=function(status)
     else if(status==2) 
         status="Submitted";
     else if(status==3)
-        status="Saved,but Unfinished";
+        status="Partially completed";
     
     return status;
 }
@@ -160,7 +154,7 @@ var statustoNum=function(status)
       {
           status=0;
       }
-            else if(status=="Saved,but Unfinished")
+            else if(status=="Partially completed")
       {
           status=3;
       }

@@ -1,13 +1,38 @@
 angular.module('myApp', []).controller('userCtrl', function($scope,$http,$window) {
-
+var edit=false;
 var empslength=0;
+var allscore=[];
+
 $http.get("http://localhost:8080/TRS/web/employee/")
 .success(function (data) {
     $scope.emps = data;    
     empslength=data.length;
-    changestatus(data);
+    changestatus(data);for(var i=0;i<empslength;i++){
+    var scoredata={
+        employeeId:data[i].id,
+        achievingResults:data[i].talentReviewScoreCollection[0].achievingResults,
+        orgImpact:data[i].talentReviewScoreCollection[0].orgImpact,
+        learningAgility:data[i].talentReviewScoreCollection[0].learningAgility,
+        versatility:data[i].talentReviewScoreCollection[0].versatility,
+        achievingResultsComment:data[i].talentReviewScoreCollection[0].achievingResultsComment,
+        orgImpactComment:data[i].talentReviewScoreCollection[0].orgImpactComment,
+        learningAgilityComment:data[i].talentReviewScoreCollection[0].learningAgilityComment,
+        versatilityComment:data[i].talentReviewScoreCollection[0].versatilityComment,
+         status:data[i].talentReviewScoreCollection[0].status
+    }
+    if(data[i].talentReviewScoreCollection[0].status==2)
+    {
+        edit=true;
+    }
+    allscore.push(scoredata);
+    }
+    console.log(allscore);
 });
-var allscore=[];
+
+
+$scope.editable=function(){
+    return edit;
+}
 $scope.save=function(id,achievingResults,orgImpact,learningAgility,
 versatility,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)
 {
@@ -23,29 +48,49 @@ versatility,achievingResultsComment,orgImpactComment,learningAgilityComment,vers
         versatilityComment:versatilityComment,
          status:statustoNum(status)
     };
-    allscore.push(scoredata);
-    for(var i=0;i<allscore.length;i++)
+    if(  checkScoredata(scoredata)==false)
     {
-        for(var j=i+1;j<allscore.length;j++)
+        scoredata.status=3;
+        allscore.push(scoredata);
+        for(var i=0;i<allscore.length;i++)
         {
-            if(allscore[i].employeeId==allscore[j].employeeId)
+            for(var j=i+1;j<allscore.length;j++)
             {
-                allscore.splice(i,1);
-                j--;
+                if(allscore[i].employeeId==allscore[j].employeeId)
+                {
+                    allscore.splice(i,1);
+                    j--;
+                }
             }
         }
+        $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function(){
+
+        }).error(function(data) {
+         alert("Save fail!");
+        });            
+        return "Saved,but Unfinished";
     }
-    $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function(){
-         
-    }).error(function(data) {
-     alert("Save fail!");
-    });            
-      if(  checkScoredata(scoredata)==false)
-      {
-       return "Saved,but Unfinished";
-      }
-      else 
-        return "Saved";
+    else 
+    {
+        scoredata.status=1;
+        allscore.push(scoredata);
+        for(var i=0;i<allscore.length;i++)
+        {
+            for(var j=i+1;j<allscore.length;j++)
+            {
+                if(allscore[i].employeeId==allscore[j].employeeId)
+                {
+                    allscore.splice(i,1);
+                        j--;
+                }
+            }
+        }
+        $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function(){
+        }).error(function(data) {
+            alert("Save fail!");
+        });            
+            return "Saved";
+    }
 }
     var checkScoredata=function(data){
         if(data.employeeId==undefined){

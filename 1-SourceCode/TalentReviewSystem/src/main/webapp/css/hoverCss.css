@@ -35,4 +35,15 @@ body{
 }
 .minwidth{
     min-width: 400px;
+    max-width: 100%;
+}
+.text-area{
+    display:block;
+    border:1px solid #B;
+    height:32px;
+    width:100%;
+    min-height:32px;
+    max-height: 100px;
+    min-width: 400px;
+       
 }

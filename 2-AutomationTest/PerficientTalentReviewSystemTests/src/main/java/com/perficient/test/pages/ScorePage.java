@@ -15,15 +15,16 @@ import org.openqa.selenium.support.FindBy;
 public class ScorePage {
     @FindBy(id="revid0")
     public static WebElement clickElement;
-    @FindBy(xpath = ".//button[ @id='PB0']")
+    @FindBy(id="P0")
     public static WebElement click2Element;
-    @FindBy(xpath = ".//button[ @id='PB0']")
+    @FindBy(id="S0")
     public static WebElement click3Element;
-    @FindBy(id="SB0")
+    
+    @FindBy(id="revid1")
     public static WebElement click4Element;
-    @FindBy(id="SB0")
+    @FindBy(id="P1")
     public static WebElement click5Element;
-    @FindBy(id="A0")
+    @FindBy(id="S1")
     public static WebElement click6Element;
     
     @FindBy(id="revid2")
@@ -36,14 +37,14 @@ public class ScorePage {
     @FindBy(id="submitbt")
     public static WebElement click10Element;
     
-    @FindBy(xpath=".//a[@id='I0']")
-    public static WebElement mouseoverElement1;
-    @FindBy(xpath=".//a[@id='J0']")
-    public static WebElement mouseoverElement2;
-    @FindBy(xpath=".//a[@id='K0']")
-    public static WebElement mouseoverElement3;
-    @FindBy(xpath=".//a[@id='L0']")
-    public static WebElement mouseoverElement4;
+//    @FindBy(xpath=".//a[@id='I0']")
+//    public static WebElement mouseoverElement1;
+//    @FindBy(xpath=".//a[@id='J0']")
+//    public static WebElement mouseoverElement2;
+//    @FindBy(xpath=".//a[@id='K0']")
+//    public static WebElement mouseoverElement3;
+//    @FindBy(xpath=".//a[@id='L0']")
+//    public static WebElement mouseoverElement4;
     
 
 }

@@ -6,6 +6,7 @@
 package com.perficient.test.US01;
 
 
+import static com.perficient.test.US02.TC001_US02.sp;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -36,8 +37,9 @@ public class TC001_US01 extends TestCaseBase{
     public static void click() throws InterruptedException{
         
         //---------------------1---------------------//
+        PageFactory.initElements(TestCaseBase.driver, sp); 
         TestCaseBase.driver.navigate().to(URL);
-        Thread.sleep(2000);
+        Thread.sleep(6000);
         sp.clickElement.click();
         Thread.sleep(1000);
         sp.click2Element.click(); 
@@ -56,7 +58,7 @@ public class TC001_US01 extends TestCaseBase{
         }
         for(int s=69;s<73;s++)
         {
-            TestCaseBase.driver.findElement(By.xpath("//input[@id='"+(char)s+"0']")).sendKeys("NA");
+            TestCaseBase.driver.findElement(By.xpath("//textarea[@id='"+(char)s+"0']")).sendKeys("NA");
         }
         sp.clickElement.click();
         Thread.sleep(1000);
@@ -79,7 +81,7 @@ public class TC001_US01 extends TestCaseBase{
         }
         for(int s=69;s<73;s++)
         {
-            TestCaseBase.driver.findElement(By.xpath("//input[@id='"+(char)s+"1']")).sendKeys("NA");
+            TestCaseBase.driver.findElement(By.xpath("//textarea[@id='"+(char)s+"1']")).sendKeys("NA");
         }
         sp.click4Element.click();
         Thread.sleep(1000);
@@ -102,7 +104,7 @@ public class TC001_US01 extends TestCaseBase{
         }
         for(int s=69;s<73;s++)
         {
-            TestCaseBase.driver.findElement(By.xpath("//input[@id='"+(char)s+"2']")).sendKeys("NA");
+            TestCaseBase.driver.findElement(By.xpath("//textarea[@id='"+(char)s+"2']")).sendKeys("NA");
         } 
         sp.click7Element.click();
         Thread.sleep(1000);

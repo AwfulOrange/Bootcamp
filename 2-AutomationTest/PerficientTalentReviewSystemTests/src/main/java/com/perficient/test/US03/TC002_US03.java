@@ -5,6 +5,7 @@
  */
 package com.perficient.test.US03;
 
+import static com.perficient.test.US02.TC001_US02.sp;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -35,7 +36,8 @@ public class TC002_US03 extends TestCaseBase{
     @Test
     public static void click() throws InterruptedException{
          TestCaseBase.driver.navigate().to(URL);
-        Thread.sleep(2000);
+         PageFactory.initElements(TestCaseBase.driver, sp); 
+        Thread.sleep(6000);
         sp.clickElement.click();  
         Thread.sleep(3000);
     };

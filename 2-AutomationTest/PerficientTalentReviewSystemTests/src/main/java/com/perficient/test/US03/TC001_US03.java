@@ -5,11 +5,13 @@
  */
 package com.perficient.test.US03;
 
+import static com.perficient.test.US02.TC001_US02.sp;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import com.perficient.test.pages.ScorePage;
 import com.perficient.test.util.TestCaseBase;
+import org.openqa.selenium.support.PageFactory;
 
 
 
@@ -33,7 +35,8 @@ public class TC001_US03 extends TestCaseBase{
     @Test
     public static void click() throws InterruptedException{
          TestCaseBase.driver.navigate().to(URL);
-        Thread.sleep(2000);
+         PageFactory.initElements(TestCaseBase.driver, sp); 
+        Thread.sleep(6000);
         sp.clickElement.click();  
         Thread.sleep(1000);
         for(int r=65;r<69;r++){
@@ -44,7 +47,7 @@ public class TC001_US03 extends TestCaseBase{
         }
         for(int s=69;s<73;s++)
         {
-             TestCaseBase.driver.findElement(By.xpath("//input[@id='"+(char)s+"0']")).sendKeys("NA");
+             TestCaseBase.driver.findElement(By.xpath("//textarea[@id='"+(char)s+"0']")).sendKeys("NA");
         }
         Thread.sleep(2000);
         sp.clickElement.click();

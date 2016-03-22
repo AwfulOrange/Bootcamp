@@ -36,13 +36,15 @@ public class clear extends TestCaseBase{
     public static void click() throws InterruptedException{
         
         //---------------------1---------------------//
-         TestCaseBase.driver.navigate().to(URL);
-        Thread.sleep(2000);
+        PageFactory.initElements(TestCaseBase.driver, sp); 
+        TestCaseBase.driver.navigate().to(URL);
+    
+        Thread.sleep(6000);
         sp.clickElement.click();
         Thread.sleep(1000);
         for(int s=69;s<73;s++)
         {
-             TestCaseBase.driver.findElement(By.xpath("//input[@id='"+(char)s+"0']")).clear();
+             TestCaseBase.driver.findElement(By.xpath("//textarea[@id='"+(char)s+"0']")).clear();
         }
         sp.clickElement.click();
         Thread.sleep(1000);
@@ -51,7 +53,7 @@ public class clear extends TestCaseBase{
         Thread.sleep(1000);
         for(int s=69;s<73;s++)
         {
-             TestCaseBase.driver.findElement(By.xpath("//input[@id='"+(char)s+"1']")).clear();
+             TestCaseBase.driver.findElement(By.xpath("//textarea[@id='"+(char)s+"1']")).clear();
         }
         sp.click4Element.click();
         Thread.sleep(1000);
@@ -60,7 +62,7 @@ public class clear extends TestCaseBase{
         Thread.sleep(1000);
         for(int s=69;s<73;s++)
         {
-             TestCaseBase.driver.findElement(By.xpath("//input[@id='"+(char)s+"2']")).clear();
+             TestCaseBase.driver.findElement(By.xpath("//textarea[@id='"+(char)s+"2']")).clear();
         } 
         sp.click7Element.click();
         Thread.sleep(2000);

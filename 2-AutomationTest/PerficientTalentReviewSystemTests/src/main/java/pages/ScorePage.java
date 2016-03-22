@@ -25,13 +25,13 @@ public class ScorePage {
     public static WebElement click5Element;
     @FindBy(id="A0")
     public static WebElement click6Element;
-    @FindBy(xpath=".//a[@id='AQ0']")
+    @FindBy(xpath=".//a[@id='I0']")
     public static WebElement mouseoverElement1;
-    @FindBy(xpath=".//a[@id='OQ0}']")
+    @FindBy(xpath=".//a[@id='J0}']")
     public static WebElement mouseoverElement2;
-    @FindBy(xpath=".//a[@id='LQ0']")
+    @FindBy(xpath=".//a[@id='K0']")
     public static WebElement mouseoverElement3;
-    @FindBy(xpath=".//a[@id='VQ0']")
+    @FindBy(xpath=".//a[@id='L0']")
     public static WebElement mouseoverElement4;
     
 

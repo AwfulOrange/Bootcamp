@@ -6,6 +6,8 @@
 package com.perficient.test.US01;
 
 
+
+import static com.perficient.test.US01.clear.driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -26,7 +28,7 @@ import pages.ScorePage;
  *
  * @author bootcamp19
  */
-public class TC001_US01 {
+public class TC002_US01 {
     public static WebDriver driver; 
     public static final String URL="http://localhost:8080/TRS/page/score.jsp";
     public static ScorePage sp=new ScorePage();
@@ -35,11 +37,11 @@ public class TC001_US01 {
     public static void setupFirefox() throws Exception{
         driver = new FirefoxDriver();
         PageFactory.initElements(driver, sp);
+       
     }
     
     @Test
     public static void click() throws InterruptedException{
-        
         //---------------------1---------------------//
         driver.navigate().to(URL);
         Thread.sleep(2000);
@@ -59,10 +61,12 @@ public class TC001_US01 {
                 select.findElement(By.cssSelector("option[label='"+Integer.toString(j)+"']")).click();
             }
         }
-        for(int s=69;s<73;s++)
+        for(int s=69;s<72;s++)
         {
             driver.findElement(By.xpath("//input[@id='"+(char)s+"0']")).sendKeys("NA");
         }
+        driver.findElement(By.xpath("//input[@id='E0']")).clear();
+        Thread.sleep(2000);
         sp.clickElement.click();
         Thread.sleep(1000);
         //---------------------2---------------------//
@@ -118,7 +122,6 @@ public class TC001_US01 {
     @AfterMethod
      public static void closeFirefox() throws Exception
     {
-        
         driver.quit();
     }
 }

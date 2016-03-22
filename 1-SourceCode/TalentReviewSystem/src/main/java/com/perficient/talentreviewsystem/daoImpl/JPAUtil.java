@@ -12,6 +12,9 @@ package com.perficient.talentreviewsystem.daoImpl;
 public class JPAUtil {
 
     public static final String JPA = "com.perficient_TalentReviewSystem_war_1.0-SNAPSHOTPU";
-    public static final String SELECT_CRITERIA_BY_CRITERIA_LEVEL ="select * from public.criteria where criteria=? and level=?";
-    public static final String SELECT_CRITERIA_BY_LEVLE="select * from public.criteria where level=? or level='all' ";
+    public static final String SELECT_CRITERIA_BY_CRITERIA_LEVEL = "select * from public.criteria where criteria=? and level=?";
+    public static final String SELECT_CRITERIA_BY_LEVLE = "select * from public.criteria where level=? or level='all' ";
+
+    private JPAUtil() {
+    }
 }

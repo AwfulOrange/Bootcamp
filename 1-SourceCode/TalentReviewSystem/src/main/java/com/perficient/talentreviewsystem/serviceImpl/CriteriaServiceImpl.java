@@ -10,7 +10,6 @@ import com.perficient.talentreviewsystem.dao.ICriteriaDAO;
 import com.perficient.talentreviewsystem.daoImpl.CriteriaDAOImpl;
 import com.perficient.talentreviewsystem.entity.Criteria;
 import com.perficient.talentreviewsystem.service.ICriteriaService;
-import java.util.List;
 
 /**
  *
@@ -25,11 +24,4 @@ public class CriteriaServiceImpl implements ICriteriaService{
         cri = criDao.getCriteriaByBoth(cri.getCriteria(), cri.getLevel());
         return cri;
     }
-
-    @Override
-    public List<Criteria> getCriteriaByLevel(String level) {
-        ICriteriaDAO criDao = new CriteriaDAOImpl();
-        return criDao.getCriteriaByLevel(level);
-    }
- 
 }

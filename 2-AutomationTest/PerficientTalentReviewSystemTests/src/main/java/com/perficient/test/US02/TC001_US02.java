@@ -11,12 +11,12 @@ package com.perficient.test.US02;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
-import pages.ScorePage;
-import static pages.ScorePage.mouseoverElement1;
-import static pages.ScorePage.mouseoverElement2;
-import static pages.ScorePage.mouseoverElement3;
-import static pages.ScorePage.mouseoverElement4;
-import util.TestCaseBase;
+import com.perficient.test.pages.ScorePage;
+import static com.perficient.test.pages.ScorePage.mouseoverElement1;
+import static com.perficient.test.pages.ScorePage.mouseoverElement2;
+import static com.perficient.test.pages.ScorePage.mouseoverElement3;
+import static com.perficient.test.pages.ScorePage.mouseoverElement4;
+import com.perficient.test.util.TestCaseBase;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

@@ -40,7 +40,7 @@ public class TestCaseBase {
         fxProfile.setPreference("browser.download.panel.shown", false);  
         if ("true".equals(grid)) {
             DesiredCapabilities capability = DesiredCapabilities.firefox(); 
-//            capability.setCapability(FirefoxDriver.PROFILE, fxProfile);
+           capability.setCapability(FirefoxDriver.PROFILE, fxProfile);
 //            capability.setBrowserName("firefox");
         //    capability.setPlatform(org.openqa.selenium.Platform.LINUX);
             driver = new RemoteWebDriver(new URL("http://" + hubHost + ":" + hubPort + "/wd/hub"),capability);

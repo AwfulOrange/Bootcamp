@@ -80,7 +80,7 @@
                 <version>0.7.0.201403182114</version>
                 <configuration>
                     <excludes>
-                        com.perficient.*
+                       com.perficient.talentreviewsystem.daoImpl.*
                         
                     </excludes>
 

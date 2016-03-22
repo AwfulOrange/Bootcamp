@@ -80,8 +80,12 @@
                 <version>0.7.0.201403182114</version>
                 <configuration>
                     <excludes>
-                        <exclude> com.perficient.talentreviewsystem.daoImpl.*</exclude>
+<!--                        <exclude> com.perficient.talentreviewsystem.daoImpl.*</exclude>-->
                          <exclude> com.perficient.talentreviewsystem.entity.*</exclude>
+                         <exclude> com.perficient.talentreviewsystem.dao.*</exclude>
+                         <exclude> com.perficient.talentreviewsystem.exceptions.*</exclude>
+                         <exclude> com.perficient.talentreviewsystem.jpacontroller.*</exclude>
+                         <exclude> com.perficient.talentreviewsystem.restful.*</exclude>
                     </excludes>
 
                 </configuration>

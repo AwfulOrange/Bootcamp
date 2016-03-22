@@ -51,6 +51,9 @@ public class TC001_US03 extends TestCaseBase{
         }
         Thread.sleep(2000);
         sp.clickElement.click();
+         Thread.sleep(1000); 
+        sp.click10Element.click();
+         Thread.sleep(2000);
         
     };
     

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Account Test Suite" parallel="false" thread-count="1"
+       configfailurepolicy="continue">
+    <parameter name="grid" value="true" />
+    <parameter name="hubHost" value="localhost" />
+    <parameter name="hubPort" value="4444" />  
+
+<!--   <parameter name="server" value="${server}"/>-->
+
+
+   
+<test name="US02">
+    
+        <classes>
+            <class name="com.perficient.test.US02.TC001_US02"/>
+        </classes>
+ </test>  
+<!--<test name="US01">
+     <packages>
+            <package name="com.perficient.test.US01"/>
+        </packages>
+    
+        <classes>
+            <class name="com.perficient.test.US01.TC001_US01"/>
+            
+        </classes>
+ </test> -->
+ 
+</suite>
+

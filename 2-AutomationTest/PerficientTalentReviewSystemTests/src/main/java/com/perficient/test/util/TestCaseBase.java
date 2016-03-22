@@ -9,6 +9,7 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
@@ -31,12 +32,21 @@ public class TestCaseBase {
     @Parameters({"grid", "hubHost", "hubPort"})
     @BeforeMethod
     public void setupFirefox(@Optional("true") String grid, @Optional("10.2.128.93") String hubHost, @Optional("4444") String hubPort) throws Exception {
-          if ("true".equals(grid)) {
-            DesiredCapabilities capability = DesiredCapabilities.firefox();        
-            driver = new EventFiringWebDriver(new RemoteWebDriver(new URL("http://" + hubHost + ":" + hubPort + "/wd/hub"), capability)).register(new MyWebDriverListener());
+        FirefoxProfile fxProfile = new FirefoxProfile();  
+        
+        fxProfile.setPreference("browser.download.folderList", 2);
+        fxProfile.setPreference("browser.helperApps.alwaysAsk.force", false);
+        fxProfile.setPreference("browser.helperApps.neverAsk.saveToDisk", "application/octet-stream, application/vnd.ms-excel, application/x-msdownload");
+        fxProfile.setPreference("browser.download.panel.shown", false);  
+        if ("true".equals(grid)) {
+            DesiredCapabilities capability = DesiredCapabilities.firefox(); 
+//            capability.setCapability(FirefoxDriver.PROFILE, fxProfile);
+//            capability.setBrowserName("firefox");
+        //    capability.setPlatform(org.openqa.selenium.Platform.LINUX);
+            driver = new RemoteWebDriver(new URL("http://" + hubHost + ":" + hubPort + "/wd/hub"),capability);
 
         } else {
-            driver = new EventFiringWebDriver(new FirefoxDriver()).register(new MyWebDriverListener());
+            driver = new EventFiringWebDriver(new FirefoxDriver(fxProfile)).register(new MyWebDriverListener());
         }
         String s_URL = "http://localhost:8080/TRS/page/score.jsp";
        driver.manage().window().maximize();

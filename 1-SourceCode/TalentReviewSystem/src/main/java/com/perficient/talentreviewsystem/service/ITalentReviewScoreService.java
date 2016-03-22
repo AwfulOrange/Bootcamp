@@ -5,12 +5,15 @@
  */
 package com.perficient.talentreviewsystem.service;
 
+import com.perficient.talentreviewsystem.entity.TalentReviewScore;
+import java.util.List;
+
 /**
  *
  * @author bootcamp19
  */
 public interface ITalentReviewScoreService {
     
-    int add(String jsonStr);
+    int add(List<TalentReviewScore> scoreList);
     
 }

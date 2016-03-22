@@ -5,7 +5,10 @@
  */
 package com.perficient.talentreviewsystem.restful;
 
+import com.alibaba.fastjson.JSON;
+import com.perficient.talentreviewsystem.entity.TalentReviewScore;
 import com.perficient.talentreviewsystem.serviceImpl.TalentReviewScoreServiceImpl;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
@@ -24,6 +27,7 @@ public class TalentReviewScoreREST {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public int addScore(String str) {
-        return new TalentReviewScoreServiceImpl().add(str);
+        List<TalentReviewScore> trScore = JSON.parseArray(str, TalentReviewScore.class);
+        return new TalentReviewScoreServiceImpl().add(trScore);
     }
 }

@@ -29,7 +29,7 @@ public class SupportiveInfoJpaController implements Serializable {
     public SupportiveInfoJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    private EntityManagerFactory emf = null;
+    private transient EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
@@ -207,5 +207,5 @@ public class SupportiveInfoJpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }

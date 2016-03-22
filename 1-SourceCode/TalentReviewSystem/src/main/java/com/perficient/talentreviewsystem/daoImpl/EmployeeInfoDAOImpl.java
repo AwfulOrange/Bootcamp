@@ -25,7 +25,7 @@ public class EmployeeInfoDAOImpl implements IEmployeeInfoDAO{
     
     EntityManagerFactory emf = null;
     EmployeeInfoJpaController eijc = null;
-    List<EmployeeInfo> employeeInfos =new ArrayList<EmployeeInfo>();
+    List<EmployeeInfo> employeeInfos =null;
     EmployeeInfo employeeInfo =null;
     
     @Override
@@ -45,6 +45,7 @@ public class EmployeeInfoDAOImpl implements IEmployeeInfoDAO{
             eijc.create(employeeInfo);
             return 1;
         } catch (Exception ex) {
+            ex.printStackTrace();
             return 0;
         }
     }

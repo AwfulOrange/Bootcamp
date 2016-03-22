@@ -133,7 +133,7 @@
                     <br>
                     <table class="table-s">
                         <h style="font-size:20px;padding-top:-5px;text-align: left">Score</h> 
-                         <h style="font-size:20px;padding-top:-5px;position: relative;left:40%">Comment</h> 
+                         <h style="font-size:20px;padding-top:-5px;text-align: left">Comment</h> 
                         <tr>
                             <td class="minwidth">Achieving Results
                                 <select  class="select-s1"  

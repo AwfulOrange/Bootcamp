@@ -80,10 +80,10 @@
                 <version>0.7.0.201403182114</version>
                 <configuration>
                     <excludes>
-                        <exclude>com.perficient.talentreviewsystem.enetity</exclude>  
-                        <exclude>com.perficient.talentreviewsystem.daoImpl.CriteriaDAOImpl</exclude> 
-                        <exclude>com.perficient.talentreviewsystem.daoImpl.JPAUtil.class</exclude> 
+                       com.perficient.talentreviewsystem.daoImpl.*
+                        
                     </excludes>
+
                 </configuration>
                 <executions>
                     <execution>

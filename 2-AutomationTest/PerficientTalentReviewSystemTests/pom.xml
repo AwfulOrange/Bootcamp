@@ -38,13 +38,13 @@
             <artifactId>postgresql</artifactId>
             <version>9.1-901-1.jdbc4</version>
         </dependency>
-        <dependency>
+<!--        <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.7</version>
             <scope>test</scope>
             <type>jar</type>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>net.sourceforge.jexcelapi</groupId>
             <artifactId>jxl</artifactId>
@@ -84,6 +84,11 @@
             <artifactId>jetty-rc-repacked</artifactId>
             <version>5</version>
             <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.webdriver</groupId>
+            <artifactId>webdriver-firefox</artifactId>
+            <version>0.9.7376</version>
         </dependency>
     </dependencies>
     <build>

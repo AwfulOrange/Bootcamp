@@ -5,10 +5,13 @@
  */
 package util;
 
-import static com.perficient.test.US01.TC001_US01.driver;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 
@@ -27,8 +30,14 @@ public class TestCaseBase {
     public static WebDriverWait wait;
     @Parameters({"grid", "hubHost", "hubPort"})
     @BeforeMethod
-    public void setupFirefox(@Optional("true") String grid, @Optional("10.2.7.32") String hubHost, @Optional("4444") String hubPort) throws Exception {
-        driver = new FirefoxDriver();
+    public void setupFirefox(@Optional("true") String grid, @Optional("10.2.128.93") String hubHost, @Optional("4444") String hubPort) throws Exception {
+          if ("true".equals(grid)) {
+            DesiredCapabilities capability = DesiredCapabilities.firefox();        
+            driver = new EventFiringWebDriver(new RemoteWebDriver(new URL("http://" + hubHost + ":" + hubPort + "/wd/hub"), capability)).register(new MyWebDriverListener());
+
+        } else {
+            driver = new EventFiringWebDriver(new FirefoxDriver()).register(new MyWebDriverListener());
+        }
         String s_URL = "http://localhost:8080/TRS/page/score.jsp";
        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(WAIT_SECONDS, TimeUnit.SECONDS);

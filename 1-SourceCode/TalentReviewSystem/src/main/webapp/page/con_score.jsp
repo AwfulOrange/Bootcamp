@@ -86,7 +86,7 @@
                        <br>
                     <table class="w3-table-all"  ng-show="suportshow">
                         <h class="w3-hoverable" style="font-size:20px" ng-click="suportshow=!suportshow" id="S{{$index}}">Supportive Information
-                            <img ng-if="suportshow"  style="height:20px;width:20px"  src="../img/minus.png"   />
+                            <img ng-if="suportshow"  style="height:20px;width:20px;position:relative;top:-10px;"  src="../img/minus.png"   />
                         <img ng-if="!suportshow"  style="height:20px;width:20px" src="../img/plus.png"  /></h> 
 
                         <tr>
@@ -160,7 +160,7 @@
                             </th>
                           
                             
-                            <th>
+                            <th class="minwidth">
                                 <input style="display:block;border:1px solid #B;height:32px;width:65%" type="text"
                                        ng-init="achievingResultsComment=emp.talentReviewScoreCollection[0].achievingResultsComment" 
                                        ng-model="achievingResultsComment" 

@@ -15,9 +15,7 @@
         <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
         <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
         <sonar.jacoco.reportPath>${project.basedir}/target/jacoco.exec</sonar.jacoco.reportPath>
-            <sonar.exclusions>
-            **/dao/*.java,**/daoImpl/*.java,**/entity/*.java,**/util/EmailConstants.java,**/service/*.class
-        </sonar.exclusions>
+
     </properties>
     
     <dependencies>
@@ -81,7 +79,10 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.7.0.201403182114</version>
                 <configuration>
-                    
+                    <excludes>
+                        <exclude>com.perficient.*</exclude>
+                        
+                    </excludes>
 
                 </configuration>
                 <executions>

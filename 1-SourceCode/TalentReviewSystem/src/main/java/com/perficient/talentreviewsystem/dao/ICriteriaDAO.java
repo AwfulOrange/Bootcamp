@@ -14,6 +14,6 @@ import java.util.List;
  */
 public interface ICriteriaDAO {
     public List<Criteria> selectAllCriteria();
-    public Criteria getCriteriaByBoth(String criteria,String level);
+    public List<Criteria> getCriteriaByBoth(String criteria,String level);
     public List<Criteria> getCriteriaByLevel(String level);
 }

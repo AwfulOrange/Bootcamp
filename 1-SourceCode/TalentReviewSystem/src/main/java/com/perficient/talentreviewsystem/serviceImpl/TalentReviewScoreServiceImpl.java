@@ -27,31 +27,29 @@ public class TalentReviewScoreServiceImpl implements ITalentReviewScoreService{
     
     
     @Override
-    public int add(String jsonStr) {
+    public int add(List<TalentReviewScore> scoreList) {
         ReviewPeriod rp = new ReviewPeriodDAOImpl().selectReviewPeriodByRP("201503");
         
-        List<TalentReviewScore> trScore = JSON.parseArray(jsonStr, TalentReviewScore.class);
         int status = 0;
-        status = cycleInsert(trScore, rp, status);
+        status = cycleInsert(scoreList, rp, status);
         return status;
     }
 
-    private int cycleInsert(List<TalentReviewScore> trScore, ReviewPeriod rp, int status) {
-        for(int i=0;i<trScore.size();i++){
-            EmployeeInfo emp = employeeInfoDao.selectEmployeeInfoById(trScore.get(i).getEmployeeId());
+    private int cycleInsert(List<TalentReviewScore> scoreList, ReviewPeriod rp, int status) {
+        for(int i=0;i<scoreList.size();i++){
+            EmployeeInfo emp = employeeInfoDao.selectEmployeeInfoById(scoreList.get(i).getEmployeeId());
 
-            trScore.get(i).setReviewPeriod1(rp);
-            trScore.get(i).setEmployeeInfo(emp); 
+            scoreList.get(i).setReviewPeriod1(rp);
+            scoreList.get(i).setEmployeeInfo(emp); 
             
-            TalentReviewScore trs = trsDao.selectSingleByBoth(trScore.get(i).getEmployeeId(), rp.getReviewPeriod());
+            TalentReviewScore trs = trsDao.selectSingleByBoth(scoreList.get(i).getEmployeeId(), rp.getReviewPeriod());
             if(trs == null){
-                status = trsDao.addTalentReviewScore(trScore.get(i));
+                status = trsDao.addTalentReviewScore(scoreList.get(i));
             } else {
-                trScore.get(i).setTalentReviewScorePK(trs.getTalentReviewScorePK());
-                status = trsDao.updateTalentReviewScore(trScore.get(i));
+                scoreList.get(i).setTalentReviewScorePK(trs.getTalentReviewScorePK());
+                status = trsDao.updateTalentReviewScore(scoreList.get(i));
             }
         }
         return status;
     }
- 
 }

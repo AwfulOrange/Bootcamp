@@ -121,7 +121,9 @@ public class Criteria implements Serializable {
 
     @Override
     public String toString() {
-        return "com.perficient.talentreviewsystem.entity.Criteria[ id=" + id + " ]";
+        return "Criteria{" + "id=" + id + ", criteria=" + criteria + ", level=" + level + ", rule=" + rule + ", score=" + score + '}';
     }
+
+   
     
 }

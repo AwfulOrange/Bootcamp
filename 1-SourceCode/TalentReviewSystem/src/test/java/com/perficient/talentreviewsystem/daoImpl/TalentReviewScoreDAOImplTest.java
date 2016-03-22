@@ -39,11 +39,11 @@ public class TalentReviewScoreDAOImplTest {
     
     @Before
     public void setUp() {
-        trs = new TalentReviewScore("61","201503");
+        trs = new TalentReviewScore("2","201503");
         trs.setOrgImpact(5);
         trs.setLearningAgility(5);
         trs.setStatus(1);
-        trs.setEmployeeInfo(eidaoi.selectEmployeeInfoById("61"));
+        trs.setEmployeeInfo(eidaoi.selectEmployeeInfoById("2"));
         trs.setReviewPeriod1(rpdaoi.selectReviewPeriodByRP("201503"));
     }
     
@@ -72,7 +72,7 @@ public class TalentReviewScoreDAOImplTest {
     @Test
     public void testSelectSingleByBoth() {
 
-      assert( trsdaoi.selectSingleByBoth("61", "201503")!=null);
+      assert( trsdaoi.selectSingleByBoth("2", "201503")!=null);
         System.out.println("testSelectSingleByBoth success");
     }
 
@@ -88,7 +88,8 @@ public class TalentReviewScoreDAOImplTest {
 
     @Test
     public void testDeleteTalentReviewScore() {
-            int i= trsdaoi.deleteTalentReviewScore("61","201503");
+            int i= trsdaoi.deleteTalentReviewScore("2","201503");
+            assertEquals("testDeleteTalentReviewScore fail", i, 1);
        
            System.out.println("testDeleteTalentReviewScore success");
     }

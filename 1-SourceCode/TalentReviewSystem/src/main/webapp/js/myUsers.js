@@ -7,7 +7,10 @@ $http.get("http://10.2.1.183:8080/TRS/web/employee/")
 .success(function (data) {
     $scope.emps = data;    
     empslength=data.length;
-    changestatus(data);for(var i=0;i<empslength;i++){
+    changestatus(data);
+for(var i=0;i<empslength;i++){
+if(data[i].talentReviewScoreCollection.length!=0)
+    {
     var scoredata={
         employeeId:data[i].id,
         achievingResults:data[i].talentReviewScoreCollection[0].achievingResults,
@@ -26,7 +29,7 @@ $http.get("http://10.2.1.183:8080/TRS/web/employee/")
     }
     allscore.push(scoredata);
     }
-    console.log(allscore);
+}
 });
 
 
@@ -66,9 +69,9 @@ versatility,achievingResultsComment,orgImpactComment,learningAgilityComment,vers
         $http.post('http://10.2.1.183:8080/TRS/web/score/', allscore).success(function(){
 
         }).error(function(data) {
-         alert("Save fail!");
+         alert("Fail to save!");
         });            
-        return "Saved,but Unfinished";
+        return "Partially completed";
     }
     else 
     {
@@ -87,7 +90,7 @@ versatility,achievingResultsComment,orgImpactComment,learningAgilityComment,vers
         }
         $http.post('http://10.2.1.183:8080/TRS/web/score/', allscore).success(function(){
         }).error(function(data) {
-            alert("Save fail!");
+            alert("Fail to save!");
         });            
             return "Saved";
     }

@@ -27,7 +27,7 @@ public class TestCaseBase {
     public static WebDriverWait wait;
     @Parameters({"grid", "hubHost", "hubPort"})
     @BeforeMethod
-    public void setupFirefox(@Optional("false") String grid, @Optional("10.2.7.32") String hubHost, @Optional("4444") String hubPort) throws Exception {
+    public void setupFirefox(@Optional("true") String grid, @Optional("10.2.7.32") String hubHost, @Optional("4444") String hubPort) throws Exception {
         driver = new FirefoxDriver();
         String s_URL = "http://localhost:8080/TRS/page/score.jsp";
        driver.manage().window().maximize();

@@ -29,7 +29,7 @@ public class TalentReviewScoreJpaController implements Serializable {
     public TalentReviewScoreJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    private EntityManagerFactory emf = null;
+    private transient EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();

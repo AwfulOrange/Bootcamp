@@ -56,9 +56,10 @@ public class CriteriaDAOImplTest {
         assert(lists.size()>0);
          System.err.println("GetCriteriaByLevel success");
     }
-//    @Test
-//    public void  testGetCriteriaByBoth(){
-//        Criteria c =cdaoi.getCriteriaByBoth("2", "2");
-//        assertArrayEquals(expecteds, actuals);
-//    }
+    @Test
+    public void  testGetCriteriaByBoth(){
+        List<Criteria> c =cdaoi.getCriteriaByBoth("Achieves Results", "Associate Technical Consultant");
+        assert(c.size()>0);
+        System.err.println("GetCriteriaBoth success");
+    }
 }

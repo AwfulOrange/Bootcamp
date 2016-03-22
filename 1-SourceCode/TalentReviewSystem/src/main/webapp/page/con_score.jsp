@@ -136,7 +136,9 @@
                          <h style="font-size:20px;padding-top:-5px;position: relative;left:40%">Comment</h> 
                         <tr>
                             <td class="minwidth">Achieving Results
-                                <select  class="select-s1" ng-init="achievingResults=emp.talentReviewScoreCollection[0].achievingResults" 
+                                <select  class="select-s1"  
+                                         ng-disabled="editable()"
+                                         ng-init="achievingResults=emp.talentReviewScoreCollection[0].achievingResults" 
                                          ng-model="achievingResults"  ng-options="act for act in number" 
                                          ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
                         ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="A{{$index}}">{{emp.id}}  
@@ -148,16 +150,18 @@
                           
                             
                             <th class="minwidth">
-                                <input style="display:block;border:1px solid #B;height:32px;width:100%" type="text"
+                                <textarea class="text-area" name="text"
+                                       ng-disabled="editable()"
                                        ng-init="achievingResultsComment=emp.talentReviewScoreCollection[0].achievingResultsComment" 
                                        ng-model="achievingResultsComment" 
                                        placeholder="Comment Here   (*)"  ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
-                                    ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="E{{$index}}" required>
+                                           ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="E{{$index}}" required></textarea>
                             </th>
                         </tr>
                         <tr>
                         <td>Organization Impact
-                                  <select class="select-s2"  ng-model="orgImpact"  ng-options="act for act in number" 
+                                  <select class="select-s2"  ng-disabled="editable()"
+                                          ng-model="orgImpact"  ng-options="act for act in number" 
                                             ng-init="orgImpact=emp.talentReviewScoreCollection[0].orgImpact" 
                                            ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
                                              ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="B{{$index}}"></select>
@@ -165,10 +169,13 @@
                         </td>
                    
                         <th>
-                            <input style="display:block;border:1px solid #B;height:32px;width:100%"  type="text" ng-model="orgImpactComment"  placeholder="Comment Here   (*)"  
-                                        ng-init="orgImpactComment=emp.talentReviewScoreCollection[0].orgImpactComment" 
+                             <textarea class="text-area" name="text"  
+                                   type="text" ng-model="orgImpactComment"  placeholder="Comment Here   (*)" 
+                                   ng-disabled="editable()"
+                                   ng-init="orgImpactComment=emp.talentReviewScoreCollection[0].orgImpactComment" 
                                    ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
                                              ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="F{{$index}}" required>
+                                   </textarea>
                          </th>
                         </tr>
                         <tr style="background-color:#f1f1f1">
@@ -178,23 +185,28 @@
                         </tr>
                         <tr>
                             <td>Learning Agility        
-                               <select class="select-s3"  ng-model="learningAgility"  ng-options="act for act in number" 
-                                         ng-init="learningAgility=emp.talentReviewScoreCollection[0].learningAgility" 
+                               <select class="select-s3"  ng-disabled="editable()"
+                                       ng-model="learningAgility"  ng-options="act for act in number" 
+                                       ng-init="learningAgility=emp.talentReviewScoreCollection[0].learningAgility" 
                                        ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
                                              ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="C{{$index}}"></select>          
                            <a class="tip"  id="K{{$index}}">?<span class="popbox">1:{{emp.listCriteria[10].rule}}<br/>2:{{emp.listCriteria[11].rule}}<br/>3:{{emp.listCriteria[12].rule}}<br/>4:{{emp.listCriteria[13].rule}}<br/>5:{{emp.listCriteria[14].rule}}</span></a>
                             </td>
                            
                             <th>
-                                <input style="display:block;border:1px solid #B;height:32px;width:100%"  type="text" ng-model="learningAgilityComment"  placeholder="Comment Here   (*)" 
-                                        ng-init="learningAgilityComment=emp.talentReviewScoreCollection[0].learningAgilityComment" 
+                                 <textarea class="text-area" name="text" 
+                                       type="text" ng-model="learningAgilityComment"  placeholder="Comment Here   (*)" 
+                                       ng-disabled="editable()"
+                                       ng-init="learningAgilityComment=emp.talentReviewScoreCollection[0].learningAgilityComment" 
                                        ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
                                              ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="G{{$index}}" required>
+                                   </textarea>
                                     </th>
                         <tr>
                             <td>Versatility
-                                 <select class="select-s4"  ng-model="versatility"  ng-options="act for act in number"  
-                                          ng-init="versatility=emp.talentReviewScoreCollection[0].versatility" 
+                                 <select class="select-s4"  ng-disabled="editable()"
+                                        ng-model="versatility"  ng-options="act for act in number"  
+                                        ng-init="versatility=emp.talentReviewScoreCollection[0].versatility" 
                                         ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
                                              ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="D{{$index}}"></select>         
                           <a class="tip"  id="L{{$index}}">?<span class="popbox">1:{{emp.listCriteria[15].rule}}<br/>2:{{emp.listCriteria[16].rule}}<br/>3:{{emp.listCriteria[17].rule}}<br/>4:{{emp.listCriteria[18].rule}}<br/>5:{{emp.listCriteria[19].rule}}</span></a>
@@ -202,10 +214,13 @@
                            
 
                              <th> 
-                                <input style="display:block;border:1px solid #B;height:32px;width:100%"  type="text" ng-model="versatilityComment"  placeholder="Comment Here   (*)" 
-                                        ng-init="versatilityComment=emp.talentReviewScoreCollection[0].versatilityComment" 
+                                 <textarea class="text-area" name="text"  
+                                       type="text" ng-model="versatilityComment"  placeholder="Comment Here   (*)"
+                                       ng-disabled="editable()"
+                                       ng-init="versatilityComment=emp.talentReviewScoreCollection[0].versatilityComment" 
                                        ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
                                              ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)"id="H{{$index}}" required>
+                                   </textarea>
                                     </th>
                         </tr>
                         <tr style="background-color:#f1f1f1">

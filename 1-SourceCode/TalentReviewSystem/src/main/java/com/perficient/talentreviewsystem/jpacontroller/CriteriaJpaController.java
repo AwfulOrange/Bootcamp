@@ -28,8 +28,8 @@ public class CriteriaJpaController implements Serializable {
         this.utx = utx;
         this.emf = emf;
     }
-    private UserTransaction utx = null;
-    private EntityManagerFactory emf = null;
+    private transient UserTransaction utx = null;
+    private transient EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
@@ -157,5 +157,5 @@ public class CriteriaJpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }

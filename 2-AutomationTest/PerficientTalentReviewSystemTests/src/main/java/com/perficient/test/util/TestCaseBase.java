@@ -31,7 +31,7 @@ public class TestCaseBase {
     public static WebDriverWait wait;
     @Parameters({"grid", "hubHost", "hubPort"})
     @BeforeMethod
-    public void setupFirefox(@Optional("true") String grid, @Optional("10.2.128.93") String hubHost, @Optional("4444") String hubPort) throws Exception {
+    public void setupFirefox(@Optional("true") String grid, @Optional("10.2.7.32") String hubHost, @Optional("4444") String hubPort) throws Exception {
         FirefoxProfile fxProfile = new FirefoxProfile();  
         
         fxProfile.setPreference("browser.download.folderList", 2);

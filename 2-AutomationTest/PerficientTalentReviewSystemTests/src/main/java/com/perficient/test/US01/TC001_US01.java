@@ -14,7 +14,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.ScorePage;
+import com.perficient.test.pages.ScorePage;
+import com.perficient.test.util.TestCaseBase;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -26,22 +27,16 @@ import pages.ScorePage;
  *
  * @author bootcamp19
  */
-public class TC001_US01 {
-    public static WebDriver driver; 
-    public static final String URL="http://localhost:8080/TRS/page/score.jsp";
+public class TC001_US01 extends TestCaseBase{
+    public static final String URL="http://10.2.1.183:8080/TRS/page/score.jsp";
     public static ScorePage sp=new ScorePage();
- 
-    @BeforeMethod
-    public static void setupFirefox() throws Exception{
-        driver = new FirefoxDriver();
-        PageFactory.initElements(driver, sp);
-    }
+
     
     @Test
     public static void click() throws InterruptedException{
         
         //---------------------1---------------------//
-        driver.navigate().to(URL);
+        TestCaseBase.driver.navigate().to(URL);
         Thread.sleep(2000);
         sp.clickElement.click();
         Thread.sleep(1000);
@@ -53,7 +48,7 @@ public class TC001_US01 {
         sp.click3Element.click();   
         Thread.sleep(1000);
         for(int r=65;r<69;r++){
-            WebElement select=driver.findElement(By.xpath("//select[@id='"+(char)r+"0']"));
+            WebElement select=TestCaseBase.driver.findElement(By.xpath("//select[@id='"+(char)r+"0']"));
             for(int j=1;j<6;j++)
             {
                 select.findElement(By.cssSelector("option[label='"+Integer.toString(j)+"']")).click();
@@ -61,7 +56,7 @@ public class TC001_US01 {
         }
         for(int s=69;s<73;s++)
         {
-            driver.findElement(By.xpath("//input[@id='"+(char)s+"0']")).sendKeys("NA");
+            TestCaseBase.driver.findElement(By.xpath("//input[@id='"+(char)s+"0']")).sendKeys("NA");
         }
         sp.clickElement.click();
         Thread.sleep(1000);
@@ -76,7 +71,7 @@ public class TC001_US01 {
         sp.click6Element.click();   
         Thread.sleep(1000);
         for(int r=65;r<69;r++){
-            WebElement select=driver.findElement(By.xpath("//select[@id='"+(char)r+"1']"));
+            WebElement select=TestCaseBase.driver.findElement(By.xpath("//select[@id='"+(char)r+"1']"));
             for(int j=1;j<6;j++)
             {
                 select.findElement(By.cssSelector("option[label='"+Integer.toString(j)+"']")).click();
@@ -84,7 +79,7 @@ public class TC001_US01 {
         }
         for(int s=69;s<73;s++)
         {
-            driver.findElement(By.xpath("//input[@id='"+(char)s+"1']")).sendKeys("NA");
+            TestCaseBase.driver.findElement(By.xpath("//input[@id='"+(char)s+"1']")).sendKeys("NA");
         }
         sp.click4Element.click();
         Thread.sleep(1000);
@@ -99,7 +94,7 @@ public class TC001_US01 {
         sp.click9Element.click();   
         Thread.sleep(1000);
         for(int r=65;r<69;r++){
-            WebElement select=driver.findElement(By.xpath("//select[@id='"+(char)r+"2']"));
+            WebElement select=TestCaseBase.driver.findElement(By.xpath("//select[@id='"+(char)r+"2']"));
             for(int j=1;j<6;j++)
             {
                 select.findElement(By.cssSelector("option[label='"+Integer.toString(j)+"']")).click();
@@ -107,7 +102,7 @@ public class TC001_US01 {
         }
         for(int s=69;s<73;s++)
         {
-            driver.findElement(By.xpath("//input[@id='"+(char)s+"2']")).sendKeys("NA");
+            TestCaseBase.driver.findElement(By.xpath("//input[@id='"+(char)s+"2']")).sendKeys("NA");
         } 
         sp.click7Element.click();
         Thread.sleep(1000);
@@ -115,11 +110,6 @@ public class TC001_US01 {
         Thread.sleep(2000);
     };
     
-    @AfterMethod
-     public static void closeFirefox() throws Exception
-    {
-        
-        driver.quit();
-    }
+    
 }
 

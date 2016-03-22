@@ -9,11 +9,23 @@
 
     <name>TalentReviewSystem</name>
 
+
+    
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
+        <sonar.exclusions>
+          **/dao/*.java,**/daoimpl/*.java,**/entity/*.java,
+          **/exceptions/*.java,**/jpacontroller/*.java,**/restful/*.java,
+           **/service/*.java,**/utils/*.java,**/serviceImpl/*.java,**/utils/*.java
+        </sonar.exclusions>
+        <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+        <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
     </properties>
-    
+ 
+                        
+                        
     <dependencies>
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
@@ -79,11 +91,6 @@
                     <!-- plus argLine parameter configured by JaCoCo prepare-agent -->
                     <argLine>${argLine} -XX:-UseSplitVerifier</argLine>
                     <includes>
-                        <include>**/dao/*.java,**/daoimpl/*.java,**/entity/*.java,
-                            **/exceptions/*.java,**/jpacontroller/*.java,**/restful/*.java,
-                            **/service/*.java,**/utils/*.java,**/serviceImpl/*.java,**/utils/*.java
-                        
-                        </include>
                         <include>**/*Test.java</include>
                         <include>**/*Tests.java</include>
                     </includes>

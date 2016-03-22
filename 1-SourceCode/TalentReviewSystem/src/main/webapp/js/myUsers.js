@@ -94,20 +94,17 @@ versatility,achievingResultsComment,orgImpactComment,learningAgilityComment,vers
 
 $scope.postSubmit = function()
 {          
+    
        if(valid()){
-            $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function(){      
-                      for(var i=0;i<allscore.length;i++)
-         {
-          allscore[i].status=2;
-         }
-           for(var i=0;i<$scope.emps.length;i++)
-         {
-          $scope.emps[i].status="Submitted";
-         }     
-            alert("Submit successfully!");
+                for(var m=0;m<allscore.length;m++)
+            {
+             allscore[m].status=2;
+            }
+        //  $scope.status="Submitted";
 
-            allsocre.status="Submitted";
-     
+            $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function(){      
+        // allsocre.status="Submitted";    
+               alert("Submit successfully!");
        }).error(function(data) {
            alert("Sorry,Fail to send message!" );
        });
@@ -173,4 +170,6 @@ var statustoNum=function(status)
       }
       return status;
 }
+
+
 });

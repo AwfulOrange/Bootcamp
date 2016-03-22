@@ -48,7 +48,7 @@ public class TestCaseBase {
         } else {
             driver = new EventFiringWebDriver(new FirefoxDriver(fxProfile)).register(new MyWebDriverListener());
         }
-        String s_URL = "http://10.2.1.183:8080/TRS/page/score.jsp";
+        String s_URL = "http://localhost:8080/TRS/page/score.jsp";
        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(WAIT_SECONDS, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 15);

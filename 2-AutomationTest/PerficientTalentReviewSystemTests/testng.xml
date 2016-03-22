@@ -6,7 +6,7 @@
     <parameter name="hubHost" value="10.2.128.93" />
     <parameter name="hubPort" value="4444" />  
 
-<!--   <parameter name=fff"server" value="${server}"/>-->
+<!--   <parameter name="server" value="${server}"/>-->
 
 
    

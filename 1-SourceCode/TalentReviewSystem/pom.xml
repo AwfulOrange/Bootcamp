@@ -16,9 +16,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
         <sonar.exclusions>
-          **/dao/*.java,**/daoimpl/*.java,**/entity/*.java,
-          **/exceptions/*.java,**/jpacontroller/*.java,**/restful/*.java,
-           **/service/*.java,**/utils/*.java,**/serviceImpl/*.java,**/utils/*.java
+       **/dao/*.java,**/daoImpl/*.java,**/entity/*.java,**/exceptions/*.java,**/jpacontroller/*.java,**/restful/*.java,**/service/*.java,**/utils/*.java,**/serviceImpl/*.java,**/utils/*.java
         </sonar.exclusions>
         <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
         <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>

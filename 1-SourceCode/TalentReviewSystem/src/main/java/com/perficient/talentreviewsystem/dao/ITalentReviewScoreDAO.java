@@ -17,4 +17,5 @@ public interface ITalentReviewScoreDAO {
     public List<TalentReviewScore> selectAllTalentReviewScore();
     public TalentReviewScore selectSingleByBoth(String empId ,String rp);
     public int updateTalentReviewScore(TalentReviewScore talentReviewScore);
+    public int deleteTalentReviewScore(String empId ,String rp);
 }

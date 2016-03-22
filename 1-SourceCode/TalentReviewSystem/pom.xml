@@ -62,7 +62,7 @@
         <dependency>
             <groupId>org.jacoco</groupId>
             <artifactId>jacoco-maven-plugin</artifactId>
-            <version>0.7.6.201602180812</version>
+            <version>0.7.0.201403182114</version>
         </dependency>
         <dependency>
             <groupId>org.codehaus.sonar-plugins.java</groupId>
@@ -77,11 +77,12 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.7.6.201602180812</version>
+                <version>0.7.0.201403182114</version>
                 <configuration>
                     <excludes>
-                        <exclude>**/entity/*.class</exclude>
-                         <exclude>**/dao/*.class</exclude>
+                        <exclude>com.perficient.talentreviewsystem.enetity</exclude>  
+                        <exclude>com.perficient.talentreviewsystem.daoImpl.CriteriaDAOImpl</exclude> 
+                        <exclude>com.perficient.talentreviewsystem.daoImpl.JPAUtil.class</exclude> 
                     </excludes>
 
                 </configuration>

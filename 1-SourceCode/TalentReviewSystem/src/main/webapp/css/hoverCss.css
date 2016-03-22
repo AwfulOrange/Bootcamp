@@ -13,8 +13,8 @@ body{
 .tip{
   color:green;
   text-decoration:none;
-  position:relative;
-  left:17%;
+  position:absolute;
+  left:450px;
 }
 .tip span{
   display:none;

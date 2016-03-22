@@ -78,13 +78,13 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.7.0.201403182114</version>
                 <configuration>
-                       <excludes>
-                            <exclude>**/entity/*</exclude>
-                           <exclude>**/dao/*.class</exclude>
-                            <exclude>**/service/*</exclude>
-                        <exclude>**/serviceImpl/*</exclude>
-                        <exclude>**/restful/*</exclude>
-                        </excludes>
+                    <includes>
+                            <include>**/entity/*</include>
+                           <include>com/perficient/talentreviewsystem/dao/*.class</include>
+                            <include>**/service/*</include>
+                        <include>**/serviceImpl/*</include>
+                        <include>**/restful/*</include>
+                    </includes>
 
                 </configuration>
                 <executions>

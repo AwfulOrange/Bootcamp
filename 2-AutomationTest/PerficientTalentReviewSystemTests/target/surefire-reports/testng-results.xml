@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Account Test Suite" duration-ms="69586" started-at="2016-03-22T10:10:36Z" finished-at="2016-03-22T10:11:46Z">
+    <groups>
+    </groups>
+    <test name="US02" duration-ms="69586" started-at="2016-03-22T10:10:36Z" finished-at="2016-03-22T10:11:46Z">
+      <class name="com.perficient.test.US02.TC001_US02">
+        <test-method status="PASS" signature="setupFirefox(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.perficient.test.US02.TC001_US02@5a61f5df]" name="setupFirefox" is-config="true" duration-ms="27843" started-at="2016-03-22T18:10:36Z" finished-at="2016-03-22T18:11:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[true]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[10.2.7.32]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[4444]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupFirefox -->
+        <test-method status="PASS" signature="click()[pri:0, instance:com.perficient.test.US02.TC001_US02@5a61f5df]" name="click" duration-ms="41587" started-at="2016-03-22T18:11:04Z" finished-at="2016-03-22T18:11:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- click -->
+        <test-method status="PASS" signature="closeFirefox()[pri:0, instance:com.perficient.test.US02.TC001_US02@5a61f5df]" name="closeFirefox" is-config="true" duration-ms="114" started-at="2016-03-22T18:11:46Z" finished-at="2016-03-22T18:11:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeFirefox -->
+      </class> <!-- com.perficient.test.US02.TC001_US02 -->
+    </test> <!-- US02 -->
+  </suite> <!-- Account Test Suite -->
+</testng-results>

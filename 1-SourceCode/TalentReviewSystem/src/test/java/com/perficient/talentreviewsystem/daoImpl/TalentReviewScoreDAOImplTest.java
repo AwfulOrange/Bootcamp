@@ -5,6 +5,8 @@
  */
 package com.perficient.talentreviewsystem.daoImpl;
 
+import com.perficient.talentreviewsystem.entity.EmployeeInfo;
+import com.perficient.talentreviewsystem.entity.ReviewPeriod;
 import com.perficient.talentreviewsystem.entity.TalentReviewScore;
 import java.util.List;
 import org.junit.After;
@@ -19,13 +21,15 @@ import static org.junit.Assert.*;
  * @author bootcamp19
  */
 public class TalentReviewScoreDAOImplTest {
-
+   
     TalentReviewScoreDAOImpl trsdaoi = new TalentReviewScoreDAOImpl();
     EmployeeInfoDAOImpl eidaoi = new EmployeeInfoDAOImpl();
     ReviewPeriodDAOImpl rpdaoi = new ReviewPeriodDAOImpl();
+    EmployeeInfo ei =new EmployeeInfo();
+    ReviewPeriod rp=new ReviewPeriod();
     TalentReviewScore trs = null;
     List<TalentReviewScore> list = null;
-
+    
     public TalentReviewScoreDAOImplTest() {
     }
 
@@ -39,6 +43,9 @@ public class TalentReviewScoreDAOImplTest {
 
     @Before
     public void setUp() {
+        ei.setEmployeeId("2");
+        eidaoi.addEmployeeInfo(ei);
+       
         trs = new TalentReviewScore("2", "201503");
         trs.setOrgImpact(5);
         trs.setLearningAgility(5);
@@ -49,6 +56,7 @@ public class TalentReviewScoreDAOImplTest {
 
     @After
     public void tearDown() {
+        eidaoi.deleteEmployeeInfoById("2");
     }
 
     @Test

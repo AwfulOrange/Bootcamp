@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-settings xmlns:con="http://eviware.com/soapui/config">
+   <con:setting id="HttpSettings@socket_timeout">2400000</con:setting>
+</con:soapui-settings>

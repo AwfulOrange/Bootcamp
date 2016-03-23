@@ -7,7 +7,7 @@ package com.perficient.talentreviewsystem.restful;
 
 import com.alibaba.fastjson.JSON;
 import com.perficient.talentreviewsystem.entity.TalentReviewScore;
-import com.perficient.talentreviewsystem.serviceImpl.TalentReviewScoreServiceImpl;
+import com.perficient.talentreviewsystem.serviceimpl.TalentReviewScoreServiceImpl;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.ws.rs.Consumes;

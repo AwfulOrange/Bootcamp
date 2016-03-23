@@ -54,8 +54,9 @@ public class TalentReviewScoreDAOImplTest {
     @Test
     public void testAddTalentReviewScore() {
         int i = trsdaoi.addTalentReviewScore(trs);
-        assertEquals("testAddTalentReviewScore fail", i, 1);
-        System.out.println("testAddTalentReviewScore success");
+        assert (i == 1);
+        trsdaoi.deleteTalentReviewScore("2", "201503");
+
     }
 
     @Test
@@ -67,23 +68,27 @@ public class TalentReviewScoreDAOImplTest {
 
     @Test
     public void testSelectSingleByBoth() {
-
+        trsdaoi.addTalentReviewScore(trs);
         assert (trsdaoi.selectSingleByBoth("2", "201503") != null);
         System.out.println("testSelectSingleByBoth success");
+        trsdaoi.deleteTalentReviewScore("2", "201503");
     }
 
     @Test
     public void testUpdateTalentReviewScore() {
+         trsdaoi.addTalentReviewScore(trs);
         trs.setOrgImpact(4);
         int i = trsdaoi.updateTalentReviewScore(trs);
-        assertEquals("testUpdateTalentReviewScore fail", i, 1);
+        assert(i==1);
         System.out.println("testUpdateTalentReviewScore success");
+        trsdaoi.deleteTalentReviewScore("2", "201503");
     }
 
     @Test
     public void testDeleteTalentReviewScore() {
+        trsdaoi.addTalentReviewScore(trs);
         int i = trsdaoi.deleteTalentReviewScore("2", "201503");
-        assertEquals("testDeleteTalentReviewScore fail", i, 1);
+        assert (i == 1);
 
         System.out.println("testDeleteTalentReviewScore success");
     }

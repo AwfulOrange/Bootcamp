@@ -3,8 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.perficient.talentreviewsystem.daoImpl;
+package com.perficient.talentreviewsystem.daoimpl;
 
+import com.perficient.talentreviewsystem.daoimpl.ReviewPeriodDAOImpl;
+import com.perficient.talentreviewsystem.daoimpl.TalentReviewScoreDAOImpl;
+import com.perficient.talentreviewsystem.daoimpl.EmployeeInfoDAOImpl;
 import com.perficient.talentreviewsystem.entity.EmployeeInfo;
 import com.perficient.talentreviewsystem.entity.ReviewPeriod;
 import com.perficient.talentreviewsystem.entity.TalentReviewScore;

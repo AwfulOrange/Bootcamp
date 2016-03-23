@@ -7,9 +7,9 @@ package com.perficient.talentreviewsystem.serviceimpl;
 
 import com.perficient.talentreviewsystem.dao.IEmployeeInfoDAO;
 import com.perficient.talentreviewsystem.dao.ITalentReviewScoreDAO;
-import com.perficient.talentreviewsystem.daoImpl.EmployeeInfoDAOImpl;
-import com.perficient.talentreviewsystem.daoImpl.ReviewPeriodDAOImpl;
-import com.perficient.talentreviewsystem.daoImpl.TalentReviewScoreDAOImpl;
+import com.perficient.talentreviewsystem.daoimpl.EmployeeInfoDAOImpl;
+import com.perficient.talentreviewsystem.daoimpl.ReviewPeriodDAOImpl;
+import com.perficient.talentreviewsystem.daoimpl.TalentReviewScoreDAOImpl;
 import com.perficient.talentreviewsystem.entity.EmployeeInfo;
 import com.perficient.talentreviewsystem.entity.ReviewPeriod;
 import com.perficient.talentreviewsystem.entity.TalentReviewScore;

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.perficient.talentreviewsystem.daoImpl;
+package com.perficient.talentreviewsystem.daoimpl;
 
 import com.perficient.talentreviewsystem.dao.IReviewPeriodDAO;
 import com.perficient.talentreviewsystem.entity.ReviewPeriod;

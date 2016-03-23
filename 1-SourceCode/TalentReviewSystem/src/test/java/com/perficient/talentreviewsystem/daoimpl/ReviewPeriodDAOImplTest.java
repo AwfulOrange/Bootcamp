@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.perficient.talentreviewsystem.daoImpl;
+package com.perficient.talentreviewsystem.daoimpl;
 
+import com.perficient.talentreviewsystem.daoimpl.ReviewPeriodDAOImpl;
 import com.perficient.talentreviewsystem.entity.ReviewPeriod;
 import org.junit.After;
 import org.junit.AfterClass;

@@ -31,21 +31,22 @@ public class TestCaseBase {
     public static WebDriverWait wait;
     @Parameters({"grid", "hubHost", "hubPort"})
     @BeforeMethod
-    public void setupFirefox(@Optional("true") String grid, @Optional("10.2.7.32") String hubHost, @Optional("4444") String hubPort) throws Exception {
+    public void setupFirefox(@Optional("true") String grid, @Optional("172.17.0.1") String hubHost, @Optional("4444") String hubPort) throws Exception {
+    //    driver = new FirefoxDriver();
         FirefoxProfile fxProfile = new FirefoxProfile();  
         
         fxProfile.setPreference("browser.download.folderList", 2);
-        fxProfile.setPreference("browser.helperApps.alwaysAsk.force", false);
+       fxProfile.setPreference("browser.helperApps.alwaysAsk.force", false);
         fxProfile.setPreference("browser.helperApps.neverAsk.saveToDisk", "application/octet-stream, application/vnd.ms-excel, application/x-msdownload");
         fxProfile.setPreference("browser.download.panel.shown", false);  
-        if ("true".equals(grid)) {
-            DesiredCapabilities capability = DesiredCapabilities.firefox(); 
-           capability.setCapability(FirefoxDriver.PROFILE, fxProfile);
+       if ("true".equals(grid)) {
+           DesiredCapabilities capability = DesiredCapabilities.firefox(); 
+          capability.setCapability(FirefoxDriver.PROFILE, fxProfile);
 //            capability.setBrowserName("firefox");
         //    capability.setPlatform(org.openqa.selenium.Platform.LINUX);
             driver = new RemoteWebDriver(new URL("http://" + hubHost + ":" + hubPort + "/wd/hub"),capability);
 
-        } else {
+       } else {
             driver = new EventFiringWebDriver(new FirefoxDriver(fxProfile)).register(new MyWebDriverListener());
         }
         String s_URL = "http://10.2.1.183:8080/TRS/page/score.jsp";

@@ -17,6 +17,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.perficient.test.pages.ScorePage;
 import com.perficient.test.util.TestCaseBase;
+import org.testng.Assert;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -110,6 +111,7 @@ public class TC001_US01 extends TestCaseBase{
         Thread.sleep(1000);
 //        sp.click10Element.click();
 //        Thread.sleep(2000);
+//        Assert.assertEquals(0, 0, "error");
     };
     
     

@@ -60,6 +60,7 @@ body{
     border:1px solid #B;
     height:30px;
     width:100%;
-    resize: none;
+    min-height: 30px;
+    min-width: 400px;
        
 }

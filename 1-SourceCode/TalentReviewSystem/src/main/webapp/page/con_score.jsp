@@ -132,8 +132,9 @@
                     </table>
                     <br>
                     <table class="table-s">
-                        <h style="font-size:20px;padding-top:-5px;text-align: left">Score</h> 
-                         <h style="font-size:20px;padding-top:-5px;text-align: left">Comment</h> 
+                        <tr><td><h style="font-size:20px;padding-top:-5px;text-align: left">Score</h></td> 
+                         <td><h style="font-size:20px;padding-top:-5px;text-align: left; left: 40%">Comment</h></td>
+                        </tr>
                         <tr>
                             <td class="minwidth">Achieving Results
                                 <select  class="select-s1"  

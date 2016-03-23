@@ -161,9 +161,9 @@ $scope.postSubmit = function()
 var changestatus=function(data){
      for(var i=0;i<empslength;i++)
     {
-        if(data[i].status==undefined)
+        if(data[i].status==0)
         {
-            data[i].status="Unfinished";
+            data[i].status="New";
         }
         else if(data[i].status==1)
         {
@@ -183,7 +183,7 @@ $scope.backstatus=function(status)
     }
     else if (status==0)
     {
-      status="Unfinished";
+      status="New";
     }
     else if(status==2) 
         status="Submitted";
@@ -198,7 +198,7 @@ var statustoNum=function(status)
       {
           status=1;
       }
-      else if(status=="Unfinished")
+      else if(status=="New")
       {
           status=0;
       }

@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.perficient.talentreviewsystem.daoImpl;
+package com.perficient.talentreviewsystem.serviceimpl;
 
-import com.perficient.talentreviewsystem.entity.ReviewPeriod;
+import com.perficient.talentreviewsystem.entity.Employee;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,10 +18,9 @@ import static org.junit.Assert.*;
  *
  * @author bootcamp19
  */
-public class ReviewPeriodDAOImplTest {
-            ReviewPeriodDAOImpl rpdaoi = new  ReviewPeriodDAOImpl();
-        
-    public ReviewPeriodDAOImplTest() {
+public class EmployeeInfoServiceImplTest {
+    
+    public EmployeeInfoServiceImplTest() {
     }
     
     @BeforeClass
@@ -33,7 +33,6 @@ public class ReviewPeriodDAOImplTest {
     
     @Before
     public void setUp() {
-
     }
     
     @After
@@ -41,13 +40,15 @@ public class ReviewPeriodDAOImplTest {
     }
 
     /**
-     * Test of selectReviewPeriodByRP method, of class ReviewPeriodDAOImpl.
+     * Test of findAll method, of class EmployeeInfoServiceImpl.
      */
     @Test
-    public void testSelectReviewPeriodByRP() {
-        ReviewPeriod rp = rpdaoi.selectReviewPeriodByRP("201503");
-        assert(rp!=null);
-        System.err.println("testSelectReviewPeriodByRP success");
+    public void testFindAll() {
+        System.out.println("findAll");
+        EmployeeInfoServiceImpl instance = new EmployeeInfoServiceImpl();
+        List<Employee> result = instance.findAll();
+        assertNotNull(result);
+        //fail("The test case is a prototype.");
     }
     
 }

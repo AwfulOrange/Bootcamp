@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.perficient.talentreviewsystem.daoImpl;
+package com.perficient.talentreviewsystem.daoimpl;
 
 import com.perficient.talentreviewsystem.dao.ITalentReviewScoreDAO;
 import com.perficient.talentreviewsystem.entity.TalentReviewScore;
@@ -36,6 +36,7 @@ public class TalentReviewScoreDAOImpl implements ITalentReviewScoreDAO {
             trsjc.create(trs);
             return 1;
         } catch (Exception ex) {
+            ex.printStackTrace();
             return 0;
         }
     }

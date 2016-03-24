@@ -40,16 +40,31 @@ body{
 .tip-1:hover,.tip-2:hover,.tip-3:hover,.tip-4:hover{
   cursor:pointer;
 }
-.tip-1:hover .popbox, .tip-2:hover .popbox,.tip-3:hover .popbox,.tip-4:hover .popbox{
+
+.tip-1:hover .popbox{
   font-size:14px;
   display:block;
   position:absolute;
-  top:-80px;
+  top:-200px;
   left:20px;
-  width:680px;
-  background-color:#FF8060;
+  width:650px;
+  background-color:#b00715;
   color:white;
   padding:10px;
+  opacity:0.8;
+}
+
+.tip-2:hover .popbox,.tip-3:hover .popbox,.tip-4:hover .popbox{
+  font-size:14px;
+  display:block;
+  position:absolute;
+  top:-150px;
+  left:20px;
+  width:650px;
+  background-color:#b00715;
+  color:white;
+  padding:10px;
+  opacity:0.8;
 }
 .minwidth{
     min-width: 400px;

@@ -3,7 +3,7 @@ var edit=false;
 var empslength=0;
 var allscore=[];
 
-$http.get("http://10.2.1.183:8080/TRS/web/employee/")
+$http.get("http://localhost:8080/TRS/web/employee/")
 .success(function (data) {
     $scope.emps = data;    
     empslength=data.length;
@@ -66,12 +66,12 @@ versatility,achievingResultsComment,orgImpactComment,learningAgilityComment,vers
                 }
             }
         }
-        $http.post('http://10.2.1.183:8080/TRS/web/score/', allscore).success(function(){
+        $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function(){
 
         }).error(function(data) {
          alert("Fail to save!");
         });            
-        return "Partially completed";
+        return "Modified";
     }
     else 
     {
@@ -88,11 +88,11 @@ versatility,achievingResultsComment,orgImpactComment,learningAgilityComment,vers
                 }
             }
         }
-        $http.post('http://10.2.1.183:8080/TRS/web/score/', allscore).success(function(){
+        $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function(){
         }).error(function(data) {
             alert("Fail to save!");
         });            
-            return "Saved";
+            return "Completed";
     }
 }
     var checkScoredata=function(data){
@@ -146,13 +146,15 @@ $scope.postSubmit = function()
             {
              allscore[m].status=2;
             }
-
-            $http.post('http://10.2.1.183:8080/TRS/web/score/', allscore).success(function(){  
-               alert("Submit successfully!");
+//            var con =window.confirm("Are you sure to submit");
+//            if(con){
+            $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function(){  
+               
                $window.location.reload();
        }).error(function(data) {
            alert("Sorry,Fail to send message!" );
        });
+//         }
        }
         else
       { alert("Please input all data!");}   
@@ -167,19 +169,19 @@ var changestatus=function(data){
         }
         else if(data[i].status==1)
         {
-            data[i].status=="Saved"
+            data[i].status=="Completed"
         }
         else if(data[i].status==2) 
             data[i].status=="Submitted";
         else 
-            data[i].status=="Partially completed"
+            data[i].status=="Modified"
     }
  }
 $scope.backstatus=function(status)
 {
     if(status==1)
     {
-      status="Saved";
+      status="Completed";
     }
     else if (status==0)
     {
@@ -188,13 +190,13 @@ $scope.backstatus=function(status)
     else if(status==2) 
         status="Submitted";
     else if(status==3)
-        status="Partially completed";
+        status="Modified";
     
     return status;
 }
 var statustoNum=function(status)
 {
-      if( status=="Saved")
+      if( status=="Completed")
       {
           status=1;
       }
@@ -202,7 +204,7 @@ var statustoNum=function(status)
       {
           status=0;
       }
-            else if(status=="Partially completed")
+            else if(status=="Modified")
       {
           status=3;
       }

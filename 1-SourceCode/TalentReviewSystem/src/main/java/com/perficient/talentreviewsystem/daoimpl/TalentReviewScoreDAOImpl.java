@@ -87,7 +87,7 @@ public class TalentReviewScoreDAOImpl implements ITalentReviewScoreDAO {
             return 0;
         }
     }
-
+    //acquire the information of reviewees according to reviewer's id
     @Override
     public List<TalentReviewScore> selectTRScoreByReviewerId(String reviewerId) {
         emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);

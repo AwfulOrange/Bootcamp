@@ -15,6 +15,7 @@ import com.perficient.test.pages.ScorePage;
 import com.perficient.test.util.TestCaseBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -40,44 +41,45 @@ public class TC001_US02 extends TestCaseBase{
         //first row
         sp.clickElement.click();
         Thread.sleep(2000);
-         WebElement mouseoverElement;
+        WebElement mouseoverElement;
         Actions action = new Actions(TestCaseBase.driver);
-        
-          for(int s=73;s<77;s++)
+        for(int s=73;s<77;s++)
         {
             mouseoverElement=TestCaseBase.driver.findElement(By.xpath("//a[@id='"+(char)s+"0']"));
             action.moveToElement(mouseoverElement).perform();
+            Assert.assertNotNull(mouseoverElement, "null");
             Thread.sleep(2000);
         }   
-           sp.clickElement.click();
-            Thread.sleep(1000);
+        sp.clickElement.click();
+        Thread.sleep(1000);
         
           //second row
         sp.click4Element.click();
         Thread.sleep(2000);
-        
-          for(int s=73;s<77;s++)
+        for(int s=73;s<77;s++)
         {
             mouseoverElement=TestCaseBase.driver.findElement(By.xpath("//a[@id='"+(char)s+"1']"));
             action.moveToElement(mouseoverElement).perform();
+            Assert.assertNotNull(mouseoverElement, "null");
             Thread.sleep(2000);
         }   
-          sp.click4Element.click();
-           Thread.sleep(1000);
+        sp.click4Element.click();
+        Thread.sleep(1000);
           
           //third row
         sp.click7Element.click();
         Thread.sleep(2000);
-        
-          for(int s=73;s<77;s++)
+       
+        for(int s=73;s<77;s++)
         {
             mouseoverElement=TestCaseBase.driver.findElement(By.xpath("//a[@id='"+(char)s+"2']"));
             action.moveToElement(mouseoverElement).perform();
+            Assert.assertNotNull(mouseoverElement, "null");
             Thread.sleep(2000);
-        }
-           sp.click7Element.click();
-            Thread.sleep(1000);
-          
+       }
+        sp.click7Element.click();
+        Thread.sleep(1000);
+         
           
       
         

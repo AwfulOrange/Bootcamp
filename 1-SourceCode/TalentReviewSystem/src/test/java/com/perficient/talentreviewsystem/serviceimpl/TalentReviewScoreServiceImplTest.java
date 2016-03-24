@@ -45,7 +45,6 @@ public class TalentReviewScoreServiceImplTest {
      */
     @Test
     public void testAdd() {
-        System.out.println("add");
         List<TalentReviewScore> scoreList = new ArrayList<TalentReviewScore>();
         TalentReviewScore trScore = new TalentReviewScore();
         trScore.setEmployeeId("61");

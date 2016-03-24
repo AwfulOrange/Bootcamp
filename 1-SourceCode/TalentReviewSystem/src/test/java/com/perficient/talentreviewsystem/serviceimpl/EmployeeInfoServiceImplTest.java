@@ -44,7 +44,6 @@ public class EmployeeInfoServiceImplTest {
      */
     @Test
     public void testFindAll() {
-        System.out.println("findAll");
         EmployeeInfoServiceImpl instance = new EmployeeInfoServiceImpl();
         List<Employee> result = instance.findAll();
         assertNotNull(result);

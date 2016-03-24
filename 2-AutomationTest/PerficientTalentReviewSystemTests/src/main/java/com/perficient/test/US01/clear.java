@@ -7,14 +7,12 @@ package com.perficient.test.US01;
 
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.perficient.test.pages.ScorePage;
 import com.perficient.test.util.TestCaseBase;
+import static com.perficient.test.util.TestCaseBase.driver;
+import org.testng.Assert;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -45,6 +43,7 @@ public class clear extends TestCaseBase{
         for(int s=69;s<73;s++)
         {
              TestCaseBase.driver.findElement(By.xpath("//textarea[@id='"+(char)s+"0']")).clear();
+//             Assert.assertNotNull(driver.findElement(By.xpath("//textarea[@id='"+(char)s+"0']")), "failure");
         }
         sp.clickElement.click();
         Thread.sleep(1000);
@@ -65,8 +64,21 @@ public class clear extends TestCaseBase{
              TestCaseBase.driver.findElement(By.xpath("//textarea[@id='"+(char)s+"2']")).clear();
         } 
         sp.click7Element.click();
+           Thread.sleep(6000);
+        for(int s=69;s<73;s++)
+        {
+             Assert.assertNotNull(driver.findElement(By.xpath("//textarea[@id='"+(char)s+"0']")), "failure");
+        }
+        for(int s=69;s<73;s++)
+        {
+             Assert.assertNotNull(driver.findElement(By.xpath("//textarea[@id='"+(char)s+"1']")), "failure");
+        }
+        for(int s=69;s<73;s++)
+        {
+             Assert.assertNotNull(driver.findElement(By.xpath("//textarea[@id='"+(char)s+"2']")), "failure");
+        }
         Thread.sleep(2000);
-    
+        
     };
     
     

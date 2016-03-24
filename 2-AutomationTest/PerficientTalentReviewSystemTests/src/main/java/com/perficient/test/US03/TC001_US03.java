@@ -11,7 +11,9 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import com.perficient.test.pages.ScorePage;
 import com.perficient.test.util.TestCaseBase;
+import static com.perficient.test.util.TestCaseBase.driver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 
 
@@ -51,6 +53,10 @@ public class TC001_US03 extends TestCaseBase{
         }
         Thread.sleep(2000);
         sp.clickElement.click();
+         for(int s=69;s<73;s++)
+        {
+            Assert.assertNotEquals(driver.findElement(By.xpath("//textarea[@id='"+(char)s+"0']")),"NANA", "failure");
+        }
          Thread.sleep(1000); 
         sp.click10Element.click();
          Thread.sleep(2000);

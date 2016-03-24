@@ -45,7 +45,7 @@ public class EmployeeInfoDAOImpl implements IEmployeeInfoDAO{
             eijc.create(employeeInfo);
             return 1;
         } catch (Exception ex) {
-            ex.printStackTrace();
+             Logger.getLogger(EmployeeInfoDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             return 0;
         }
     }

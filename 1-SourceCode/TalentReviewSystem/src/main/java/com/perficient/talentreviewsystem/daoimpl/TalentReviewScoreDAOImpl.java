@@ -40,7 +40,7 @@ public class TalentReviewScoreDAOImpl implements ITalentReviewScoreDAO {
             trsjc.create(trs);
             return 1;
         } catch (Exception ex) {
-            ex.printStackTrace();
+           Logger.getLogger(TalentReviewScoreDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             return 0;
         }
     }
@@ -71,6 +71,7 @@ public class TalentReviewScoreDAOImpl implements ITalentReviewScoreDAO {
             trsjc.edit(talentReviewScore);
             return 1;
         } catch (Exception ex) {
+            Logger.getLogger(TalentReviewScoreDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             return 0;
         }
     }
@@ -84,6 +85,7 @@ public class TalentReviewScoreDAOImpl implements ITalentReviewScoreDAO {
             trsjc.destroy(trspk);
             return 1;
         } catch (NonexistentEntityException ex) {
+             Logger.getLogger(TalentReviewScoreDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             return 0;
         }
     }

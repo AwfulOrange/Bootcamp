@@ -56,11 +56,16 @@ public class TalentReviewScore implements Serializable {
     private String learningAgilityComment;
     @Column(name = "org_impact")
     private Integer orgImpact;
-    @Column(name="status")
+    @Column(name = "status")
     private Integer status;
     @Size(max = 255)
     @Column(name = "org_impact_comment")
     private String orgImpactComment;
+
+    @Size(max = 255)
+    @Column(name = "reviewer_id")
+    private String reviewerId;
+
     @Column(name = "versatility")
     private Integer versatility;
     @Size(max = 255)
@@ -73,7 +78,7 @@ public class TalentReviewScore implements Serializable {
     @JoinColumn(name = "review_period", referencedColumnName = "review_period", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private ReviewPeriod reviewPeriod1;
-    @Transient 
+    @Transient
     private String employeeId;
 
     public TalentReviewScore() {
@@ -181,6 +186,14 @@ public class TalentReviewScore implements Serializable {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public String getReviewerId() {
+        return reviewerId;
+    }
+
+    public void setReviewerId(String reviewerId) {
+        this.reviewerId = reviewerId;
     }
 
     @Override

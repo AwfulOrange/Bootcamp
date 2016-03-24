@@ -6,6 +6,7 @@
 package com.perficient.talentreviewsystem.daoimpl;
 
 import com.perficient.talentreviewsystem.dao.ITalentReviewScoreDAO;
+import com.perficient.talentreviewsystem.entity.Criteria;
 import com.perficient.talentreviewsystem.entity.TalentReviewScore;
 import com.perficient.talentreviewsystem.entity.TalentReviewScorePK;
 import com.perficient.talentreviewsystem.jpacontroller.TalentReviewScoreJpaController;
@@ -13,8 +14,10 @@ import com.perficient.talentreviewsystem.jpacontroller.exceptions.NonexistentEnt
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 /**
  *
@@ -27,6 +30,7 @@ public class TalentReviewScoreDAOImpl implements ITalentReviewScoreDAO {
     List<TalentReviewScore> TalentReviewScores = null;
     TalentReviewScorePK trspk = null;
     TalentReviewScore trs = null;
+    EntityManager em = null;
 
     @Override
     public int addTalentReviewScore(TalentReviewScore trs) {
@@ -75,13 +79,23 @@ public class TalentReviewScoreDAOImpl implements ITalentReviewScoreDAO {
     public int deleteTalentReviewScore(String empId, String rp) {
         emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
         trsjc = new TalentReviewScoreJpaController(emf);
-        trspk=new TalentReviewScorePK(empId, rp);
+        trspk = new TalentReviewScorePK(empId, rp);
         try {
             trsjc.destroy(trspk);
             return 1;
         } catch (NonexistentEntityException ex) {
             return 0;
         }
+    }
+
+    @Override
+    public List<TalentReviewScore> selectTRScoreByReviewerId(String reviewerId) {
+        emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
+        em = emf.createEntityManager();
+        Query query = em.createNativeQuery(JPAUtil.SELECT_TALENTREVIEWSCORE_BY_REVIEWER, TalentReviewScore.class);
+        query.setParameter(1, reviewerId);
+        TalentReviewScores = query.getResultList();
+        return TalentReviewScores;
     }
 
 }

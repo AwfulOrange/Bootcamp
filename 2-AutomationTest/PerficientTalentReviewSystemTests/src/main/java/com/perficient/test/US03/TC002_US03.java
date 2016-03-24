@@ -5,13 +5,15 @@
  */
 package com.perficient.test.US03;
 
+import static com.perficient.test.US02.TC001_US02.sp;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.perficient.test.pages.ScorePage;
 import com.perficient.test.util.TestCaseBase;
-import static com.perficient.test.util.TestCaseBase.driver;
-import org.openqa.selenium.By;
-import org.testng.Assert;
 
 
 
@@ -36,10 +38,6 @@ public class TC002_US03 extends TestCaseBase{
          TestCaseBase.driver.navigate().to(URL);
          PageFactory.initElements(TestCaseBase.driver, sp); 
         Thread.sleep(6000);
-        for(int s=69;s<73;s++)
-        {
-            Assert.assertNotEquals(driver.findElement(By.xpath("//textarea[@id='"+(char)s+"0']")),"NANA", "failure");
-        }
         sp.clickElement.click();  
         Thread.sleep(3000);
     };

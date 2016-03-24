@@ -5,6 +5,8 @@
  */
 package com.perficient.test.util;
 
+import static com.perficient.test.US04.TC001_US04.lp;
+import static com.perficient.test.US04.TC001_US04.sp;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
@@ -55,6 +57,14 @@ public class TestCaseBase {
         TestCaseBase.driver.navigate().to(s_URL);
         /*driver*/
     }
+     public static void login(String user, String password){
+        lp.userElement.sendKeys(user);
+        lp.passElement.sendKeys(password);
+        lp.loginButton.click();        
+    }
+     public static void logout(){
+         sp.logoutButton.click();
+     }
      @AfterMethod
     public void closeFirefox() throws Exception {
         driver.quit();

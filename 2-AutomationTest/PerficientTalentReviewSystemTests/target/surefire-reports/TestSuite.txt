@@ -1,4 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 90.817 sec - in TestSuite
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 76.499 sec <<< FAILURE! - in TestSuite
+click(com.perficient.test.US01.TC001_US01)  Time elapsed: 26.587 sec  <<< FAILURE!
+java.lang.AssertionError: 1 expected [NA] but found []
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:496)
+	at org.testng.Assert.assertEquals(Assert.java:125)
+	at org.testng.Assert.assertEquals(Assert.java:178)
+	at com.perficient.test.US01.TC001_US01.click(TC001_US01.java:64)
+

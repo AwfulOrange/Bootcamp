@@ -4,15 +4,21 @@
   <parameter name="grid" value="true"/>
   <parameter name="hubHost" value="10.2.7.32"/>
   <parameter name="hubPort" value="4444"/>
-  <test name="US02(failed)">
+  <test name="US01(failed)">
     <classes>
-      <class name="com.perficient.test.US02.TC001_US02">
+      <class name="com.perficient.test.US01.TC001_US01">
         <methods>
-          <include name="closeFirefox"/>
           <include name="click"/>
+          <include name="closeFirefox"/>
           <include name="setupFirefox"/>
         </methods>
-      </class> <!-- com.perficient.test.US02.TC001_US02 -->
+      </class> <!-- com.perficient.test.US01.TC001_US01 -->
+      <class name="com.perficient.test.US01.clear">
+        <methods>
+          <include name="closeFirefox"/>
+          <include name="setupFirefox"/>
+        </methods>
+      </class> <!-- com.perficient.test.US01.clear -->
     </classes>
-  </test> <!-- US02(failed) -->
+  </test> <!-- US01(failed) -->
 </suite> <!-- Failed suite [Account Test Suite] -->

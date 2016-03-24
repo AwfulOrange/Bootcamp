@@ -7,14 +7,13 @@ package com.perficient.test.US01;
 
 
 
+import static com.perficient.test.US02.TC001_US02.sp;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import com.perficient.test.pages.ScorePage;
 import com.perficient.test.util.TestCaseBase;
-import static com.perficient.test.util.TestCaseBase.driver;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -51,16 +50,11 @@ public class TC002_US01 extends TestCaseBase{
                 select.findElement(By.cssSelector("option[label='"+Integer.toString(j)+"']")).click();
             }
         }
-        for(int s=69;s<73;s++)
+        for(int s=69;s<72;s++)
         {
              TestCaseBase.driver.findElement(By.xpath("//textarea[@id='"+(char)s+"0']")).sendKeys("NA");
         }
-        for(int s=69;s<73;s++)
-        {
-            Assert.assertNotEquals(driver.findElement(By.xpath("//textarea[@id='"+(char)s+"0']")),"NA", "failure");
-        }
-        TestCaseBase.driver.findElement(By.xpath("//textarea[@id='E0']")).clear();
-        Assert.assertNotNull(driver.findElement(By.xpath("//textarea[@id='E0']")), "failure");
+         TestCaseBase.driver.findElement(By.xpath("//textarea[@id='E0']")).clear();
         Thread.sleep(2000);
         sp.clickElement.click();
         Thread.sleep(1000);
@@ -85,10 +79,6 @@ public class TC002_US01 extends TestCaseBase{
         {
              TestCaseBase.driver.findElement(By.xpath("//textarea[@id='"+(char)s+"1']")).sendKeys("NA");
         }
-        for(int s=69;s<73;s++)
-        {
-            Assert.assertNotEquals(driver.findElement(By.xpath("//textarea[@id='"+(char)s+"1']")),"NA", "failure");
-        }
         sp.click4Element.click();
         Thread.sleep(1000);
         //---------------------3---------------------//
@@ -110,12 +100,8 @@ public class TC002_US01 extends TestCaseBase{
         }
         for(int s=69;s<73;s++)
         {
-            TestCaseBase.driver.findElement(By.xpath("//textarea[@id='"+(char)s+"2']")).sendKeys("NA");
-        }
-        for(int s=69;s<73;s++)
-        {
-            Assert.assertNotEquals(driver.findElement(By.xpath("//textarea[@id='"+(char)s+"2']")),"NA", "failure");
-        }
+             TestCaseBase.driver.findElement(By.xpath("//textarea[@id='"+(char)s+"2']")).sendKeys("NA");
+        } 
         sp.click7Element.click();
         Thread.sleep(1000);
         sp.click10Element.click();

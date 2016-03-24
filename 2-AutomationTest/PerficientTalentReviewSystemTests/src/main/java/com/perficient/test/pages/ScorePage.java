@@ -37,14 +37,9 @@ public class ScorePage {
     @FindBy(id="submitbt")
     public static WebElement click10Element;
     
-//    @FindBy(xpath=".//a[@id='I0']")
-//    public static WebElement mouseoverElement1;
-//    @FindBy(xpath=".//a[@id='J0']")
-//    public static WebElement mouseoverElement2;
-//    @FindBy(xpath=".//a[@id='K0']")
-//    public static WebElement mouseoverElement3;
-//    @FindBy(xpath=".//a[@id='L0']")
-//    public static WebElement mouseoverElement4;
+    //********************US04 find Id**************************************************
+    @FindBy(id="XXXXXXXXXXXXX")
+    public static WebElement logoutButton;
     
 
 }

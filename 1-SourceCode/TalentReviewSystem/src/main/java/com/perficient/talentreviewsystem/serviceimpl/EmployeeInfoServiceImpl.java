@@ -18,6 +18,7 @@ import com.perficient.talentreviewsystem.entity.Employee;
 import com.perficient.talentreviewsystem.utils.DateUtils;
 import com.perficient.talentreviewsystem.utils.HttpConnection;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -29,24 +30,30 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
 
     @Override
     public List<Employee> findAll() {
+        long startTime = new Date().getTime();
         List<EmployeeInfo> empInfoList = empDAO.selectAllEmployeeInfo();
+        System.out.println("dbTime:"+(new Date().getTime()-startTime));
         
+        long startTime2 = new Date().getTime();
         String empsInfo = HttpConnection.getFromUrl("http://10.2.1.207:8080/tpt2013-portlet/resteasy/employees");
         List<Employee> empList = JSON.parseArray(empsInfo, Employee.class);
+        System.out.println("tptTime:"+(new Date().getTime()-startTime2));
         
         List<Employee> empListSelected = new ArrayList<>();
         empListSelected.add(empList.get(0));
         empListSelected.add(empList.get(1));
         empListSelected.add(empList.get(2));
         
+        long startTime3 = new Date().getTime();
         combineTPTandDataBase(empInfoList, empListSelected);
+        System.out.println("cbTime:"+(new Date().getTime()-startTime3));
         
         return empListSelected;
     }
 
     private void combineTPTandDataBase(List<EmployeeInfo> empInfoList, List<Employee> empListSelected) {
-        for(int i=0; i<empInfoList.size(); i++){
-            for(int j=0 ;j<empListSelected.size(); j++){
+        for(int j=0 ;j<empListSelected.size(); j++){
+            for(int i=0; i<empInfoList.size(); i++){
                 if(empInfoList.get(i).getEmployeeId().equals(empListSelected.get(j).getId())){
                     EmployeeInfo ei = empInfoList.get(i);
                     Employee e = empListSelected.get(j);

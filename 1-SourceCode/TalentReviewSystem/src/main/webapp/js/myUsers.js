@@ -3,7 +3,7 @@ var edit=false;
 var empslength=0;
 var allscore=[];
 
-$http.get("http://localhost:8080/TRS/web/employee/")
+$http.get("http://10.2.1.183:8080/TRS/web/employee/")
 .success(function (data) {
     $scope.emps = data;    
     empslength=data.length;
@@ -66,7 +66,7 @@ versatility,achievingResultsComment,orgImpactComment,learningAgilityComment,vers
                 }
             }
         }
-        $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function(){
+        $http.post('http://10.2.1.183:8080/TRS/web/score/', allscore).success(function(){
 
         }).error(function(data) {
          alert("Fail to save!");
@@ -88,7 +88,7 @@ versatility,achievingResultsComment,orgImpactComment,learningAgilityComment,vers
                 }
             }
         }
-        $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function(){
+        $http.post('http://10.2.1.183:8080/TRS/web/score/', allscore).success(function(){
         }).error(function(data) {
             alert("Fail to save!");
         });            
@@ -148,7 +148,7 @@ $scope.postSubmit = function()
             }
 //            var con =window.confirm("Are you sure to submit");
 //            if(con){
-            $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function(){  
+            $http.post('http://10.2.1.183:8080/TRS/web/score/', allscore).success(function(){  
                
                $window.location.reload();
        }).error(function(data) {

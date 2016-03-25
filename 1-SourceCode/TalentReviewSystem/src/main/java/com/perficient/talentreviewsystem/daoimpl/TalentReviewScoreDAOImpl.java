@@ -6,7 +6,6 @@
 package com.perficient.talentreviewsystem.daoimpl;
 
 import com.perficient.talentreviewsystem.dao.ITalentReviewScoreDAO;
-import com.perficient.talentreviewsystem.entity.Criteria;
 import com.perficient.talentreviewsystem.entity.TalentReviewScore;
 import com.perficient.talentreviewsystem.entity.TalentReviewScorePK;
 import com.perficient.talentreviewsystem.jpacontroller.TalentReviewScoreJpaController;
@@ -27,7 +26,7 @@ public class TalentReviewScoreDAOImpl implements ITalentReviewScoreDAO {
 
     EntityManagerFactory emf = null;
     TalentReviewScoreJpaController trsjc = null;
-    List<TalentReviewScore> TalentReviewScores = null;
+    List<TalentReviewScore> talentReviewScores = null;
     TalentReviewScorePK trspk = null;
     TalentReviewScore trs = null;
     EntityManager em = null;
@@ -49,8 +48,8 @@ public class TalentReviewScoreDAOImpl implements ITalentReviewScoreDAO {
     public List<TalentReviewScore> selectAllTalentReviewScore() {
         emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
         trsjc = new TalentReviewScoreJpaController(emf);
-        TalentReviewScores = trsjc.findTalentReviewScoreEntities();
-        return TalentReviewScores;
+        talentReviewScores = trsjc.findTalentReviewScoreEntities();
+        return talentReviewScores;
     }
 
     @Override
@@ -96,8 +95,8 @@ public class TalentReviewScoreDAOImpl implements ITalentReviewScoreDAO {
         em = emf.createEntityManager();
         Query query = em.createNativeQuery(JPAUtil.SELECT_TALENTREVIEWSCORE_BY_REVIEWER, TalentReviewScore.class);
         query.setParameter(1, reviewerId);
-        TalentReviewScores = query.getResultList();
-        return TalentReviewScores;
+        talentReviewScores = query.getResultList();
+        return talentReviewScores;
     }
 
 }

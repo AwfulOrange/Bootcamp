@@ -21,8 +21,7 @@ public class DateUtils {
     public static String calcuDate(String date){
         long joinTime = Long.parseLong(date);
         Date nowTime = new Date();
-        long exp = 0;
-        exp = nowTime.getTime() - joinTime;
+        long exp = nowTime.getTime() - joinTime;
         
         int year = (int)(exp / 1000 / 3600 / 24 / 365);
         String expStr = year + "year";

@@ -5,15 +5,11 @@
         <table style="text-align:left;font-size: 17px;">
                <tr>
                    <th style="width:16%;float:left;padding-bottom:5px ">Reviewer</th>
- <!--                   <th style="width:16%;float:left;">Name</th>
-                    <th style="width:16%;float:left"  ng-model="allstatus">Status</th>
-                    <th style="width:17%;float:left"  >Performance </th>
-                    <th style="width:17%;float:left"  >Potential </th>
-                    <th style="width:16%;float:left"  >Total</th>-->
+
                </tr>
         </table>  
  
-        <div  ng-repeat="pmo in pmos">
+        <div  ng-repeat="pmo in pmos" id="pmo{{$index}}">
             <table  class="w3-hoverable" style="background-color:gainsboro" >
 
                     <tr></tr>
@@ -259,11 +255,19 @@
                         
                       
                     </table>
+
                 </div>
             </div>
             <!--<button class="w3-btn w3-red w3-ripple"  ng-disabled="editable()" ng-click="postSubmit()" id="submitbt">&#10004; Submit</button>-->
-        </form>  
+
+            </form>  
+                        
         </div>
+        
+        <table>
+            <tr></tr>
+            
+        </table>
         
     </div>
 </body>

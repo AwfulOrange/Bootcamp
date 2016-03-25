@@ -19,4 +19,7 @@ public interface ITalentReviewScoreDAO {
     public int updateTalentReviewScore(TalentReviewScore talentReviewScore);
     public int deleteTalentReviewScore(String empId ,String rp);
     public List<TalentReviewScore> selectTRScoreByReviewerId(String reviewerId);
+     public List<TalentReviewScore> selectTRScoreByPmoId(String pmoId) ;
+        public List<List<TalentReviewScore>> selectTRScoreByBoth(String pmoId) ;
+    public List<String> selectreviewerByPmoId(String pmoId); 
 }

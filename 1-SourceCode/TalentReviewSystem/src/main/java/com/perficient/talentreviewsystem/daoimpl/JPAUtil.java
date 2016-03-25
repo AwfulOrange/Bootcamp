@@ -15,6 +15,8 @@ public class JPAUtil {
     public static final String SELECT_CRITERIA_BY_CRITERIA_LEVEL = "select * from public.criteria where criteria=? and level=?";
     public static final String SELECT_CRITERIA_BY_LEVLE = "select * from public.criteria where level=? or level='all' ";
     public static final String SELECT_TALENTREVIEWSCORE_BY_REVIEWER="select * from public.talent_review_score where reviewer_id=?";
+     public static final String SELECT_TALENTREVIEWSCORE_BY_PMO="select  * from public.talent_review_score where pmo_id=?";
+     public static final String SELECT_reviewer_BY_PMO="select distinct reviewer_id from public.talent_review_score where pmo_id=?";
     private JPAUtil() {
     }
 }

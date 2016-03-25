@@ -10,6 +10,7 @@ import com.perficient.talentreviewsystem.entity.TalentReviewScore;
 import com.perficient.talentreviewsystem.entity.TalentReviewScorePK;
 import com.perficient.talentreviewsystem.jpacontroller.TalentReviewScoreJpaController;
 import com.perficient.talentreviewsystem.jpacontroller.exceptions.NonexistentEntityException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,7 +24,7 @@ import javax.persistence.Query;
  * @author bootcamp19
  */
 public class TalentReviewScoreDAOImpl implements ITalentReviewScoreDAO {
-
+ 
     EntityManagerFactory emf = null;
     TalentReviewScoreJpaController trsjc = null;
     List<TalentReviewScore> talentReviewScores = null;
@@ -98,5 +99,42 @@ public class TalentReviewScoreDAOImpl implements ITalentReviewScoreDAO {
         talentReviewScores = query.getResultList();
         return talentReviewScores;
     }
+     @Override 
+    public List<TalentReviewScore> selectTRScoreByPmoId(String pmoId) {
+        emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
+        em = emf.createEntityManager();
+        Query query = em.createNativeQuery(JPAUtil.SELECT_TALENTREVIEWSCORE_BY_PMO, TalentReviewScore.class);
+        query.setParameter(1, pmoId);
+        talentReviewScores = query.getResultList();
+        return talentReviewScores;
+    }
+        @Override 
+    public List<String> selectreviewerByPmoId(String pmoId) {
+          List<String> reviewerId=new ArrayList<String>();
+        emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
+        em = emf.createEntityManager();
+        Query query = em.createNativeQuery(JPAUtil.SELECT_reviewer_BY_PMO);
+        query.setParameter(1, pmoId);
+      
+        reviewerId = query.getResultList();
+       // System.out.print(reviewerId.size());
+        return reviewerId;
+    }
+    
+    
+    @Override
+      public List<List<TalentReviewScore>> selectTRScoreByBoth(String pmoId) 
+      {
+              TalentReviewScoreDAOImpl trsdao=new TalentReviewScoreDAOImpl();
+             
+              List<String> reviewerInfo=new ArrayList<String>();
+              reviewerInfo=trsdao.selectreviewerByPmoId(pmoId);
+              List<List<TalentReviewScore>> employeeInfo=new ArrayList<List<TalentReviewScore>>();
+              for(int i=0;i<reviewerInfo.size();i++)
+              {
+               employeeInfo.add(trsdao.selectTRScoreByReviewerId(reviewerInfo.get(i))) ;  
+              }
+              return employeeInfo;
+      }
 
 }

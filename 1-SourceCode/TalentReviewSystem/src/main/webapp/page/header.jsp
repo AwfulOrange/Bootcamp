@@ -10,9 +10,12 @@
             <img src="../img/title_logo.png">
         </div>
             
-        <ul class="nav nav-tabs" role="tablist" >
-            <li ><a href="${pageContext.request.contextPath}/page/score.jsp" >Score </a></li>
-           
-        </ul>
+        <table class="nav nav-tabs" role="tablist" >
+            <tr width="10px">
+                <td  class="w1-tab-hover"><a href="${pageContext.request.contextPath}/page/score.jsp"  class="w1-tab-a"><b>Score</b> </a></td>
+                <td class="w1-tab-hover"><a href="${pageContext.request.contextPath}/page/pmo_leader.jsp" class="w1-tab-a"><b>PMO-Leader</b> </a></td>
+                <td></td>
+            </tr>
+        </table>
     </div>
 </header>

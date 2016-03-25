@@ -42,7 +42,8 @@ public class HttpConnection {
         }
         finally {
             try {
-                in.close();
+                if (in != null) 
+                    in.close();
             } catch (Exception e2) {
                 Logger.getLogger(HttpConnection.class.getName()).log(Level.SEVERE, null, e2);
             }

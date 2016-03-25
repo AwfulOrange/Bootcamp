@@ -63,4 +63,12 @@ public class HttpConnectionTest {
         assertTrue(result.contains("lastDay"));
     }
     
+    @Test
+    public void testGetFromUrlFail() {
+        String url = "xxxxxxx";
+        String result = HttpConnection.getFromUrl(url);
+        String expResult = "";
+        assertEquals(expResult, result);
+    }
+    
 }

@@ -23,17 +23,6 @@ public class GetProperty {
         }
     }
     
-    public GetProperty(String path) {
-        try{
-            File file = new File(GetProperty.class.getResource(path).getPath()); 
-            properties.load(new FileInputStream(file));
-        } catch (FileNotFoundException e){
-            Logger.getLogger(GetProperty.class.getName()).log(Level.SEVERE, null, e);
-        } catch (IOException e) {
-            Logger.getLogger(GetProperty.class.getName()).log(Level.SEVERE, null, e);
-        }
-    }
-    
     public String getString(String key) {
         return properties.getProperty(key);
     }

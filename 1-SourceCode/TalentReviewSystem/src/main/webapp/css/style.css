@@ -357,7 +357,8 @@ input[type=checkbox].w3-check:disabled+.w3-validate,input[type=radio].w3-radio:d
 .w1-hoverable tbody tr:hover{background-color:#b00715;min-height:20px;min-width: 800px;}.w1-ul.w1-hoverable li:hover{background-color:#b00715;opacity:0.8;}
 .w1-hoverable tbody tr{font-size: 15px;}
 .w1-form{width:97%;float:right;}
-.w1-tab-hover{padding-top: 20px;width:10%;}
-.w1-tab-hover:hover{background-color:#9e9e9e;}
+.w1-tab-hover{padding-top: 20px;width:10%;background-color:#9e9e9e;}
+.w1-tab-hover:hover{background-color: #d9d9d9;}
 .w1-tab-a{font-size: 17px;}
 .w1-tab-a:hover{text-decoration: none;}
+.w1-log-out{float: right;padding-top: 20px;width:16%;text-align: center;}

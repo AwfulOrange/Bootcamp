@@ -1,58 +1,62 @@
 angular.module('myApp1', []).controller('pmoCtrl', 
 function($scope,$http,$window) {
-var edit=false;
-var empslength=0;
+var pmoslength=0;
+var empslength=[];
 var allscore=[];
 
-    $scope.pmos = [
-        {"pname":"1"},
-        {"pname":"2"},
-        {"pname":"3"},
-        {"pname":"4"},
-    ]
-
-    
-  var edit=false;
-var empslength=0;
-var allscore=[];
-
-
-
     
     
-    
-$http.get("http://localhost:8080/TRS/web/employee/")
+$http.get("http://localhost:8080/TRS/test/testpmo.json")
 .success(function (data) {
-    $scope.emps = data;    
-    empslength=data.length;
-    changestatus(data);
-for(var i=0;i<empslength;i++){
-if(data[i].talentReviewScoreCollection.length!=0)
+    $scope.pmos =data;
+    var p=data;   
+    pmoslength=data.length;
+//    console.log(pmoslength);
+    for(var i=0;i<pmoslength;i++){
+    empslength[i]=p[i].emps.length;
+        }
+//    console.log(empslength);
+for(var i=0;i<pmoslength;i++){
+       for(var j=0;j<empslength[i];j++){
+//           console.log(data[i].emps[j]);
+if(data[i].emps[j].talentReviewScoreCollection.length!=0)
     {
     var scoredata={
-        employeeId:data[i].id,
-        achievingResults:data[i].talentReviewScoreCollection[0].achievingResults,
-        orgImpact:data[i].talentReviewScoreCollection[0].orgImpact,
-        learningAgility:data[i].talentReviewScoreCollection[0].learningAgility,
-        versatility:data[i].talentReviewScoreCollection[0].versatility,
-        achievingResultsComment:data[i].talentReviewScoreCollection[0].achievingResultsComment,
-        orgImpactComment:data[i].talentReviewScoreCollection[0].orgImpactComment,
-        learningAgilityComment:data[i].talentReviewScoreCollection[0].learningAgilityComment,
-        versatilityComment:data[i].talentReviewScoreCollection[0].versatilityComment,
-         status:data[i].talentReviewScoreCollection[0].status
+        employeeId:data[i].emps[j].id,
+        achievingResults:data[i].emps[j].talentReviewScoreCollection[0].achievingResults,
+        orgImpact:data[i].emps[j].talentReviewScoreCollection[0].orgImpact,
+        learningAgility:data[i].emps[j].talentReviewScoreCollection[0].learningAgility,
+        versatility:data[i].emps[j].talentReviewScoreCollection[0].versatility,
+        achievingResultsComment:data[i].emps[j].talentReviewScoreCollection[0].achievingResultsComment,
+        orgImpactComment:data[i].emps[j].talentReviewScoreCollection[0].orgImpactComment,
+        learningAgilityComment:data[i].emps[j].talentReviewScoreCollection[0].learningAgilityComment,
+        versatilityComment:data[i].emps[j].talentReviewScoreCollection[0].versatilityComment,
+         status:data[i].emps[j].talentReviewScoreCollection[0].status
     }
-    if(data[i].talentReviewScoreCollection[0].status==0||data[i].talentReviewScoreCollection[0].status==1||data[i].talentReviewScoreCollection[0].status==3)
-    {
-        edit=true;
-    }
+
     allscore.push(scoredata);
     }
+       }
 }
+
+  
+//    for(var j=0;j<empslength[0];j++){
+//    if(data[0].emps[j].talentReviewScoreCollection[0].status==0||data[0].emps[j].talentReviewScoreCollection[0].status==1||data[0].emps[j].talentReviewScoreCollection[0].status==3)
+//    {
+//        edit=true;
+//    }
+//    
+//    }
+
 });
 
 
-$scope.editable=function(){
-    return edit;
+$scope.editable=function(status){
+    if(status=="Submitted"){
+        return false;
+    }else{
+        return true;
+    }
 }
 $scope.save=function(id,achievingResults,orgImpact,learningAgility,
 versatility,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)
@@ -140,7 +144,10 @@ versatility,achievingResultsComment,orgImpactComment,learningAgilityComment,vers
     }
     var valid=function(){
 //        var a=true; 
-
+     for(var i=0;i<pmoslength;i++)
+     {
+         
+         
         if(allscore.length!=empslength)
         {
             return false;       
@@ -150,10 +157,13 @@ versatility,achievingResultsComment,orgImpactComment,learningAgilityComment,vers
            if(checkScoredata(allscore[i])==false){
                return false;
            }
-              
-  
+
+
         }
         return true;
+         }
+    
+    
     }
 
 $scope.postSubmit = function()
@@ -179,21 +189,24 @@ $scope.postSubmit = function()
 };
  $scope.number=[1,2,3,4,5 ];
 var changestatus=function(data){
-     for(var i=0;i<empslength;i++)
+     for(var i=0;i<pmoslength;i++)
+     {
+         for(var j=0;j<empslength[i];j++)
     {
-        if(data[i].status==0)
+        if(data[i].emps[j].status==0)
         {
-            data[i].status="New";
+            data[i].emps[j].status="New";
         }
-        else if(data[i].status==1)
+        else if(data[i].emps[j].status==1)
         {
-            data[i].status=="Completed"
+            data[i].emps[j].status=="Completed"
         }
-        else if(data[i].status==2) 
-            data[i].status=="Submitted";
+        else if(data[i].emps[j].status==2) 
+            data[i].emps[j].status=="Submitted";
         else 
-            data[i].status=="Modified"
+            data[i].emps[j].status=="Modified"
     }
+     }
  }
 $scope.backstatus=function(status)
 {
@@ -233,7 +246,11 @@ var statustoNum=function(status)
       return status;
 }  
     
+$scope.editablebutton=function(){
 
+    
+    
+}
 
 
 });

@@ -13,6 +13,7 @@ import org.testng.annotations.Test;
 import com.perficient.test.pages.ScorePage;
 import com.perficient.test.util.TestCaseBase;
 import static com.perficient.test.util.TestCaseBase.driver;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
@@ -34,15 +35,45 @@ public class TC002_US01 extends TestCaseBase{
         //---------------------1---------------------//
         PageFactory.initElements(TestCaseBase.driver, sp); 
         TestCaseBase.driver.navigate().to(URL);
-        Thread.sleep(10000);
+        Thread.sleep(6000);
+        
+        
+        //---------------------C1---------------------//       
         sp.clickElement.click();
         Thread.sleep(1000);
-        sp.click2Element.click(); 
+        for(int s=69;s<73;s++)
+        {
+             TestCaseBase.driver.findElement(By.xpath("//textarea[@id='"+(char)s+"0']")).clear();
+        }
+        sp.clickElement.click();
         Thread.sleep(1000);
-        sp.click2Element.click(); 
-        sp.click3Element.click(); 
+        //---------------------C2---------------------//
+        sp.click4Element.click();
         Thread.sleep(1000);
-        sp.click3Element.click();   
+        for(int s=69;s<73;s++)
+        {
+             TestCaseBase.driver.findElement(By.xpath("//textarea[@id='"+(char)s+"1']")).clear();
+        }
+        sp.click4Element.click();
+        Thread.sleep(1000);
+        //---------------------C3---------------------//
+        sp.click7Element.click();   
+        Thread.sleep(1000);
+        for(int s=69;s<73;s++)
+        {
+             TestCaseBase.driver.findElement(By.xpath("//textarea[@id='"+(char)s+"2']")).clear();
+        } 
+        sp.click7Element.click();
+        
+        
+        ScorePage.clickElement.click();
+        Thread.sleep(1000);
+        ScorePage.click2Element.click(); 
+        Thread.sleep(1000);
+        ScorePage.click2Element.click(); 
+        ScorePage.click3Element.click(); 
+        Thread.sleep(1000);
+        ScorePage.click3Element.click();   
         Thread.sleep(1000);
         for(int r=65;r<69;r++){
             WebElement select= TestCaseBase.driver.findElement(By.xpath("//select[@id='"+(char)r+"0']"));
@@ -57,22 +88,23 @@ public class TC002_US01 extends TestCaseBase{
         }
         for(int s=69;s<73;s++)
         {
-            Assert.assertNotEquals(driver.findElement(By.xpath("//textarea[@id='"+(char)s+"0']")),"NA", "failure");
+            Assert.assertEquals(driver.findElement(By.xpath("//textarea[@id='"+(char)s+"0']")).getAttribute("value"),"NA", "failure");
         }
         TestCaseBase.driver.findElement(By.xpath("//textarea[@id='E0']")).clear();
-        Assert.assertNotNull(driver.findElement(By.xpath("//textarea[@id='E0']")), "failure");
+        Thread.sleep(1000);
+        Assert.assertEquals(driver.findElement(By.xpath("//textarea[@id='E0']")).getAttribute("value"),"", "failure");
         Thread.sleep(2000);
-        sp.clickElement.click();
+        ScorePage.clickElement.click();
         Thread.sleep(1000);
         //---------------------2---------------------//
-        sp.click4Element.click();
+        ScorePage.click4Element.click();
         Thread.sleep(1000);
-        sp.click5Element.click(); 
+        ScorePage.click5Element.click(); 
         Thread.sleep(1000);
-        sp.click5Element.click(); 
-        sp.click6Element.click(); 
+        ScorePage.click5Element.click(); 
+        ScorePage.click6Element.click(); 
         Thread.sleep(1000);
-        sp.click6Element.click();   
+        ScorePage.click6Element.click();   
         Thread.sleep(1000);
         for(int r=65;r<69;r++){
             WebElement select= TestCaseBase.driver.findElement(By.xpath("//select[@id='"+(char)r+"1']"));
@@ -87,19 +119,19 @@ public class TC002_US01 extends TestCaseBase{
         }
         for(int s=69;s<73;s++)
         {
-            Assert.assertNotEquals(driver.findElement(By.xpath("//textarea[@id='"+(char)s+"1']")),"NA", "failure");
+            Assert.assertEquals(driver.findElement(By.xpath("//textarea[@id='"+(char)s+"1']")).getAttribute("value"),"NA", "failure");
         }
-        sp.click4Element.click();
+        ScorePage.click4Element.click();
         Thread.sleep(1000);
         //---------------------3---------------------//
-        sp.click7Element.click();
+        ScorePage.click7Element.click();
         Thread.sleep(1000);
-        sp.click8Element.click(); 
+        ScorePage.click8Element.click(); 
         Thread.sleep(1000);
-        sp.click8Element.click(); 
-        sp.click9Element.click(); 
+        ScorePage.click8Element.click(); 
+        ScorePage.click9Element.click(); 
         Thread.sleep(1000);
-        sp.click9Element.click();   
+        ScorePage.click9Element.click();   
         Thread.sleep(1000);
         for(int r=65;r<69;r++){
             WebElement select= TestCaseBase.driver.findElement(By.xpath("//select[@id='"+(char)r+"2']"));
@@ -114,12 +146,19 @@ public class TC002_US01 extends TestCaseBase{
         }
         for(int s=69;s<73;s++)
         {
-            Assert.assertNotEquals(driver.findElement(By.xpath("//textarea[@id='"+(char)s+"2']")),"NA", "failure");
+            Assert.assertEquals(TestCaseBase.driver.findElement(By.xpath("//textarea[@id='"+(char)s+"2']")).getAttribute("value"),"NA", "failure");
         }
-        sp.click7Element.click();
+        ScorePage.click7Element.click();
         Thread.sleep(1000);
-        sp.click10Element.click();
+        ScorePage.click10Element.click();
+
+        Alert alert = driver.switchTo().alert();
+        String message = alert.getText();
+        Assert.assertNotNull(message,"Fail to alert");
+
+
         Thread.sleep(2000);
+        
     };
     
     

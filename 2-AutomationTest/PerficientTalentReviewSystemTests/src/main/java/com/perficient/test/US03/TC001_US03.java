@@ -30,7 +30,6 @@ import org.testng.Assert;
  */
 public class TC001_US03 extends TestCaseBase{
     public static final String URL="http://10.2.1.183:8080/TRS/page/score.jsp";
-    public static ScorePage sp=new ScorePage();
  
     
     
@@ -39,8 +38,8 @@ public class TC001_US03 extends TestCaseBase{
          TestCaseBase.driver.navigate().to(URL);
          PageFactory.initElements(TestCaseBase.driver, sp); 
         Thread.sleep(6000);
-        sp.clickElement.click();  
-        Thread.sleep(6000);
+        ScorePage.clickElement.click();  
+        Thread.sleep(2000);
         for(int r=65;r<69;r++){
             WebElement select= TestCaseBase.driver.findElement(By.xpath("//select[@id='"+(char)r+"0']"));
             select.findElement(By.cssSelector("option[label='1']")).click();
@@ -52,10 +51,12 @@ public class TC001_US03 extends TestCaseBase{
         }
         for(int s=69;s<73;s++)
         {
-             TestCaseBase.driver.findElement(By.xpath("//textarea[@id='"+(char)s+"0']")).sendKeys("NA");
+            WebElement we=TestCaseBase.driver.findElement(By.xpath("//textarea[@id='"+(char)s+"0']"));
+            we.clear();
+            we.sendKeys("NA");
         }
         Thread.sleep(2000);
-        sp.clickElement.click();
+        ScorePage.clickElement.click();
          Thread.sleep(1000); 
         
     };

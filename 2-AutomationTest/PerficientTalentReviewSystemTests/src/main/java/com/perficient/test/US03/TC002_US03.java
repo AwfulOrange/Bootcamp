@@ -5,6 +5,7 @@
  */
 package com.perficient.test.US03;
 
+
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 import com.perficient.test.pages.ScorePage;
@@ -38,7 +39,7 @@ public class TC002_US03 extends TestCaseBase{
          PageFactory.initElements(TestCaseBase.driver, sp); 
          Thread.sleep(6000);
          sp.clickElement.click(); 
-         Thread.sleep(6000);
+         Thread.sleep(2000);
 
             WebElement select = TestCaseBase.driver.findElement(By.xpath("//select[@id='A0']"));
             Select select1=new Select(select);
@@ -59,17 +60,16 @@ public class TC002_US03 extends TestCaseBase{
             Select select14=new Select(select4);
             String number4=select14.getFirstSelectedOption().getText();
             Assert.assertEquals(number4, "1","Fail");
+            
+        for(int s=69;s<73;s++)
+        {
+            WebElement we=TestCaseBase.driver.findElement(By.xpath("//textarea[@id='"+(char)s+"0']"));
+            Assert.assertEquals(we.getAttribute("value"), "NA","Fail to Match");
+        }
            
             
 
-        
-//        for(int s=69;s<73;s++)
-//        {
-//
-//             Assert.assertEquals(TestCaseBase.driver.findElement(By.xpath("//textarea[@id='"+(char)s+"0']")), "NA","Fail to Match Comments");
-//        }
- 
-        Thread.sleep(3000);
+        Thread.sleep(1000);
     };
     
 }

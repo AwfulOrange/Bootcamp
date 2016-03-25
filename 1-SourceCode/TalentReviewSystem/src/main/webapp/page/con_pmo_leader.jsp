@@ -9,11 +9,11 @@
                </tr>
         </table>  
  
-        <div  ng-repeat="pmo in pmos" id="pmo{{$index}}">
+        <div  ng-repeat="pmo in pmos" >
             <table  class="w3-hoverable" style="background-color:gainsboro" >
 
                     <tr></tr>
-                    <tr  ng-click="p=!p" >
+                    <tr  ng-click="p=!p" id="pmo{{$index}}">
                         
                         <td  style="width:15%;text-align:left;" >
                 <img ng-if="p"  style="height:15px;width:15px;position:relative;top:-5px;"  src="../img/down_1.png"   />

@@ -4,6 +4,13 @@
     Author     : bootcamp19
 --%>
 <%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page import="com.perficient.talentreviewsystem.utils.GetProperties" %>
+    <%
+        String reportIssuePROP = "Link.properties";
+        GetProperties gp = new GetProperties("/properties/" + reportIssuePROP);
+        String logout = "logout";
+        String logoutLink = gp.getProperty(logout);
+    %>
 <header>
     <div class="masthead pagewidth">
         <div>
@@ -14,8 +21,9 @@
             <tr>
                 <td  class="w1-tab-hover"><a href="${pageContext.request.contextPath}/page/score.jsp"  class="w1-tab-a"><b>Score</b> </a></td>
                 <td class="w1-tab-hover"><a href="${pageContext.request.contextPath}/page/pmo_leader.jsp" class="w1-tab-a"><b>PMO-Leader</b> </a></td>
-                <td></td>
-                <td class="w1-log-out" ><img src="../img/logout.png" style="width:25px;height:25px;margin-bottom: 5px;margin-right: 5px;">log out</td>
+                <td>
+                    <li><a href=<%=logoutLink%> > <span class="glyphicon glyphicon-log-out" aria-hidden="true">&ensp;</span>Log-out</a></li>
+                </td>
             </tr>
         </table>
     </div>

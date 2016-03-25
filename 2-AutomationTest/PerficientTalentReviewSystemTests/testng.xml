@@ -7,28 +7,33 @@
     <parameter name="hubPort" value="4444" />  
 
  
-<test name="US01">
+<!--<test name="US01">
     
         <classes>
              <class name="com.perficient.test.US01.clear"/>
             <class name="com.perficient.test.US01.TC001_US01"/>
-<!--            <class name="com.perficient.test.US01.clear"/>
-            <class name="com.perficient.test.US01.TC002_US01"/>-->
+            <class name="com.perficient.test.US01.clear"/>
+            <class name="com.perficient.test.US01.TC002_US01"/>
         </classes>
  </test> 
-<!--<test name="US02">
+<test name="US02">
     
         <classes>
             <class name="com.perficient.test.US02.TC001_US02"/>
             
         </classes>
- </test>-->
-<!-- <test name="US03">
+ </test>
+ <test name="US03">
         <classes>
             <class name="com.perficient.test.US03.TC001_US03"/>
             <class name="com.perficient.test.US03.TC002_US03"/>
         </classes>
  </test> -->
+  <test name="US05">
+        <classes>
+            <class name="com.perficient.test.US05.TC001_US05"/>
+        </classes>
+ </test> 
  
 </suite>
 

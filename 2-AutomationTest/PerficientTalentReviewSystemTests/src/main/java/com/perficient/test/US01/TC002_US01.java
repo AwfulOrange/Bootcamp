@@ -57,10 +57,10 @@ public class TC002_US01 extends TestCaseBase{
         }
         for(int s=69;s<73;s++)
         {
-            Assert.assertEquals(driver.findElement(By.xpath("//textarea[@id='"+(char)s+"0']")).getText(),"NA", "failure");
+            Assert.assertNotEquals(driver.findElement(By.xpath("//textarea[@id='"+(char)s+"0']")),"NA", "failure");
         }
         TestCaseBase.driver.findElement(By.xpath("//textarea[@id='E0']")).clear();
-        Assert.assertNull(driver.findElement(By.xpath("//textarea[@id='E0']")), "failure");
+        Assert.assertNotNull(driver.findElement(By.xpath("//textarea[@id='E0']")), "failure");
         Thread.sleep(2000);
         sp.clickElement.click();
         Thread.sleep(1000);
@@ -87,7 +87,7 @@ public class TC002_US01 extends TestCaseBase{
         }
         for(int s=69;s<73;s++)
         {
-            Assert.assertEquals(driver.findElement(By.xpath("//textarea[@id='"+(char)s+"1']")).getText(),"NA", "failure");
+            Assert.assertNotEquals(driver.findElement(By.xpath("//textarea[@id='"+(char)s+"1']")),"NA", "failure");
         }
         sp.click4Element.click();
         Thread.sleep(1000);
@@ -114,7 +114,7 @@ public class TC002_US01 extends TestCaseBase{
         }
         for(int s=69;s<73;s++)
         {
-            Assert.assertEquals(driver.findElement(By.xpath("//textarea[@id='"+(char)s+"2']")).getText(),"NA", "failure");
+            Assert.assertNotEquals(driver.findElement(By.xpath("//textarea[@id='"+(char)s+"2']")),"NA", "failure");
         }
         sp.click7Element.click();
         Thread.sleep(1000);

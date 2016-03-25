@@ -113,15 +113,15 @@ public class TC001_US01 extends TestCaseBase{
         sp.click7Element.click();
          for(int s=69;s<73;s++)
         {
-            Assert.assertEquals(driver.findElement(By.xpath("//textarea[@id='"+(char)s+"0']")).getText(),"NA", "failure");
+                Assert.assertNotEquals(driver.findElement(By.xpath("//textarea[@id='"+(char)s+"0']")),"NA", "failure");
         }
           for(int s=69;s<73;s++)
         {
-            Assert.assertEquals(driver.findElement(By.xpath("//textarea[@id='"+(char)s+"1']")).getText(),"NA", "failure");
+             Assert.assertNotEquals(driver.findElement(By.xpath("//textarea[@id='"+(char)s+"1']")),"NA", "failure");
         }
            for(int s=69;s<73;s++)
         {
-            Assert.assertEquals(driver.findElement(By.xpath("//textarea[@id='"+(char)s+"2']")).getText(),"NA", "failure");
+             Assert.assertNotEquals(driver.findElement(By.xpath("//textarea[@id='"+(char)s+"2']")),"NA", "failure");
         } 
         Thread.sleep(1000);
 //        sp.click10Element.click();

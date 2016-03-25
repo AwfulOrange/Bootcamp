@@ -14,21 +14,23 @@ import java.util.Date;
  */
 public class DateUtils {
     
+    private DateUtils(){
+        
+    }
+    
     public static String calcuDate(String date){
         long joinTime = Long.parseLong(date);
         Date nowTime = new Date();
         long exp = 0;
         exp = nowTime.getTime() - joinTime;
         
-        int year = 0;
-        int month = 0;
-        year = (int)(exp / 1000 / 3600 / 24 / 365);
+        int year = (int)(exp / 1000 / 3600 / 24 / 365);
         String expStr = year + "year";
         if(year > 1){
             expStr += "s";
         }
         
-        month = (int)(exp/1000/3600/24) - (365 * year);
+        int month = (int)(exp/1000/3600/24) - (365 * year);
         month /= 30;
         expStr = expStr + " "+month+"month";
         if(month > 1){

@@ -16,9 +16,9 @@ import com.perficient.talentreviewsystem.daoimpl.EmployeeInfoDAOImpl;
 import com.perficient.talentreviewsystem.entity.Criteria;
 import com.perficient.talentreviewsystem.entity.Employee;
 import com.perficient.talentreviewsystem.utils.DateUtils;
+import com.perficient.talentreviewsystem.utils.GetProperty;
 import com.perficient.talentreviewsystem.utils.HttpConnection;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  *
@@ -32,7 +32,7 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
     public List<Employee> findAll() {
         List<EmployeeInfo> empInfoList = empDAO.selectAllEmployeeInfo();
         
-        String empsInfo = HttpConnection.getFromUrl("http://10.2.1.207:8080/tpt2013-portlet/resteasy/employees");
+        String empsInfo = HttpConnection.getFromUrl(new GetProperty().getString("tptPath"));
         List<Employee> empList = JSON.parseArray(empsInfo, Employee.class);
         
         List<Employee> empListSelected = new ArrayList<>();

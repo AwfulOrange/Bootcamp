@@ -11,15 +11,22 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author bootcamp19
  */
 public class HttpConnection {
-        public  static String getFromUrl(String url) {
-        String result = "";
-        BufferedReader in = null;
+        
+    private HttpConnection(){
+
+    }
+
+    public  static String getFromUrl(String url) {
+    String result = "";
+    BufferedReader in = null;
         try {
             URL realUrl = new URL(url);
             URLConnection connection = realUrl.openConnection();
@@ -28,10 +35,6 @@ public class HttpConnection {
             connection.setRequestProperty("user-agent",
                     "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
             connection.connect();
-            Map<String, List<String>> map = connection.getHeaderFields();
-            for (String key : map.keySet()) {
-                System.out.println(key + "--->" + map.get(key));
-            }
             in = new BufferedReader(new InputStreamReader(
                     connection.getInputStream()));
             String line;
@@ -39,7 +42,7 @@ public class HttpConnection {
                 result += line;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            Logger.getLogger(HttpConnection.class.getName()).log(Level.SEVERE, null, e);
         }
         finally {
             try {
@@ -47,12 +50,12 @@ public class HttpConnection {
                     in.close();
                 }
             } catch (Exception e2) {
-                e2.printStackTrace();
+                Logger.getLogger(HttpConnection.class.getName()).log(Level.SEVERE, null, e2);
             }
         }
         return result;
     
-}
+    }
       
         
 }

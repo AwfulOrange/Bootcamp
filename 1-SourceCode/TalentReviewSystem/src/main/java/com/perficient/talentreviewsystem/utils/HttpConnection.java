@@ -18,9 +18,7 @@ import java.util.logging.Logger;
  */
 public class HttpConnection {
         
-    private HttpConnection(){
-
-    }
+    private HttpConnection(){}
 
     public  static String getFromUrl(String url) {
     String result = "";
@@ -44,15 +42,13 @@ public class HttpConnection {
         }
         finally {
             try {
-                if (in != null) {
+                if (in != null) 
                     in.close();
-                }
             } catch (Exception e2) {
                 Logger.getLogger(HttpConnection.class.getName()).log(Level.SEVERE, null, e2);
             }
         }
         return result;
-    
     }
       
         

@@ -14,9 +14,7 @@ import java.util.Date;
  */
 public class DateUtils {
     
-    private DateUtils(){
-        
-    }
+    private DateUtils(){}
     
     public static String calcuDate(String date){
         long joinTime = Long.parseLong(date);

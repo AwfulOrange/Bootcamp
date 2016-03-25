@@ -17,7 +17,7 @@ import javax.validation.constraints.Size;
  * @author bootcamp19
  */
 @Embeddable
-public class TalentReviewScorePK implements Serializable {
+public class TalentReviewScorePK implements Serializable{
 
     @Basic(optional = false)
     @NotNull
@@ -29,7 +29,6 @@ public class TalentReviewScorePK implements Serializable {
     @Size(min = 1, max = 255)
     @Column(name = "review_period")
     private String reviewPeriod;
-
     public TalentReviewScorePK() {
     }
 
@@ -82,5 +81,5 @@ public class TalentReviewScorePK implements Serializable {
     public String toString() {
         return "com.perficient.talentreviewsystem.entity.TalentReviewScorePK[ employeeId=" + employeeId + ", reviewPeriod=" + reviewPeriod + " ]";
     }
-    
+
 }

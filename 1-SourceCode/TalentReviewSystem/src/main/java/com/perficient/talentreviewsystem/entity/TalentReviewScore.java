@@ -7,6 +7,7 @@ package com.perficient.talentreviewsystem.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import java.io.Serializable;
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -16,6 +17,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -37,12 +39,14 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "TalentReviewScore.findByVersatility", query = "SELECT t FROM TalentReviewScore t WHERE t.versatility = :versatility"),
     @NamedQuery(name = "TalentReviewScore.findByVersatilityComment", query = "SELECT t FROM TalentReviewScore t WHERE t.versatilityComment = :versatilityComment"),
     @NamedQuery(name = "TalentReviewScore.findByEmployeeId", query = "SELECT t FROM TalentReviewScore t WHERE t.talentReviewScorePK.employeeId = :employeeId"),
-    @NamedQuery(name = "TalentReviewScore.findByReviewPeriod", query = "SELECT t FROM TalentReviewScore t WHERE t.talentReviewScorePK.reviewPeriod = :reviewPeriod")})
+    @NamedQuery(name = "TalentReviewScore.findByReviewPeriod", query = "SELECT t FROM TalentReviewScore t WHERE t.talentReviewScorePK.reviewPeriod = :reviewPeriod"),
+    @NamedQuery(name = "TalentReviewScore.findByStatus", query = "SELECT t FROM TalentReviewScore t WHERE t.status = :status"),
+    @NamedQuery(name = "TalentReviewScore.findByReviewerId", query = "SELECT t FROM TalentReviewScore t WHERE t.reviewerId = :reviewerId"),
+    @NamedQuery(name = "TalentReviewScore.findByPmoId", query = "SELECT t FROM TalentReviewScore t WHERE t.pmoId = :pmoId")})
 public class TalentReviewScore implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @EmbeddedId
-    @JSONField(serialize = false)
     protected TalentReviewScorePK talentReviewScorePK;
     @Column(name = "achieving_results")
     private Integer achievingResults;
@@ -56,21 +60,24 @@ public class TalentReviewScore implements Serializable {
     private String learningAgilityComment;
     @Column(name = "org_impact")
     private Integer orgImpact;
-    @Column(name = "status")
-    private Integer status;
     @Size(max = 255)
     @Column(name = "org_impact_comment")
     private String orgImpactComment;
-
-    @Size(max = 255)
-    @Column(name = "reviewer_id")
-    private String reviewerId;
-
     @Column(name = "versatility")
     private Integer versatility;
     @Size(max = 255)
     @Column(name = "versatility_comment")
     private String versatilityComment;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "status")
+    private int status;
+    @Size(max = 255)
+    @Column(name = "reviewer_id")
+    private String reviewerId;
+    @Size(max = 255)
+    @Column(name = "pmo_id")
+    private String pmoId;
     @JoinColumn(name = "employee_id", referencedColumnName = "employee_id", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     @JSONField(serialize = false)
@@ -86,6 +93,11 @@ public class TalentReviewScore implements Serializable {
 
     public TalentReviewScore(TalentReviewScorePK talentReviewScorePK) {
         this.talentReviewScorePK = talentReviewScorePK;
+    }
+
+    public TalentReviewScore(TalentReviewScorePK talentReviewScorePK, int status) {
+        this.talentReviewScorePK = talentReviewScorePK;
+        this.status = status;
     }
 
     public TalentReviewScore(String employeeId, String reviewPeriod) {
@@ -164,6 +176,30 @@ public class TalentReviewScore implements Serializable {
         this.versatilityComment = versatilityComment;
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getReviewerId() {
+        return reviewerId;
+    }
+
+    public void setReviewerId(String reviewerId) {
+        this.reviewerId = reviewerId;
+    }
+
+    public String getPmoId() {
+        return pmoId;
+    }
+
+    public void setPmoId(String pmoId) {
+        this.pmoId = pmoId;
+    }
+
     public EmployeeInfo getEmployeeInfo() {
         return employeeInfo;
     }
@@ -178,22 +214,6 @@ public class TalentReviewScore implements Serializable {
 
     public void setReviewPeriod1(ReviewPeriod reviewPeriod1) {
         this.reviewPeriod1 = reviewPeriod1;
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public String getReviewerId() {
-        return reviewerId;
-    }
-
-    public void setReviewerId(String reviewerId) {
-        this.reviewerId = reviewerId;
     }
 
     @Override
@@ -234,5 +254,5 @@ public class TalentReviewScore implements Serializable {
     public void setEmployeeId(String employeeId) {
         this.employeeId = employeeId;
     }
-
+    
 }

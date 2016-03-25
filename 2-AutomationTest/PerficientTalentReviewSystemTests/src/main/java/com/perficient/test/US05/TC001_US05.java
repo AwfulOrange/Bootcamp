@@ -45,32 +45,36 @@ public class TC001_US05 extends TestCaseBase{
               Thread.sleep(1000);                    
               TestCaseBase.driver.findElement(By.xpath("/html/body/div/div/div["+r+"]/form/div["+j+"]/div/h[1]/img")).click();
                 Thread.sleep(1000);                   
-              TestCaseBase.driver.findElement(By.xpath("/html/body/div/div/div["+r+"]/form/div["+j+"]/div/h[1]/img")).click();
+//              TestCaseBase.driver.findElement(By.xpath("/html/body/div/div/div["+r+"]/form/div["+j+"]/div/h[1]/img")).click();
                 Thread.sleep(1000);
               TestCaseBase.driver.findElement(By.xpath("/html/body/div/div/div["+r+"]/form/div["+j+"]/div/h[2]/img")).click();
                 Thread.sleep(1000);
-              TestCaseBase.driver.findElement(By.xpath("/html/body/div/div/div["+r+"]/form/div["+j+"]/div/h[2]/img")).click();
-                Thread.sleep(1000);
-              TestCaseBase.driver.findElement(By.xpath("/html/body/div/div/div["+r+"]/form/div["+j+"]/table/tbody/tr[2]/td[1]")).click();
-                Thread.sleep(1000);
+//              TestCaseBase.driver.findElement(By.xpath("/html/body/div/div/div["+r+"]/form/div["+j+"]/div/h[2]/img")).click();
+//              Thread.sleep(1000);
+//              TestCaseBase.driver.findElement(By.xpath("/html/body/div/div/div["+r+"]/form/div["+j+"]/table/tbody/tr[2]/td[1]")).click();
+//                Thread.sleep(1000);
             }
-           TestCaseBase.driver.findElement(By.xpath("//tr[@id='pmo"+i+"']")).click();
-           Thread.sleep(2000);
+//           TestCaseBase.driver.findElement(By.xpath("//tr[@id='pmo"+i+"']")).click();
+//           Thread.sleep(2000);
         }
         
-//        for(int i=0;i<4;i++){
-//           for(int j=1;j<4;j++)
-//            {   
-//         
-//              WebElement select = TestCaseBase.driver.findElement(By.xpath("//select[@id='A0']"));
-//            Select select1=new Select(select);
-//            String number=select1.getFirstSelectedOption().getText();
-//            Assert.assertEquals(number, "1","Fail");
-//             
-//            }
-//           
-//        }
-        
+        for(int i=0;i<4;i++){
+           for(int j=1;j<4;j++)
+            {
+                int r=i+1;
+                WebElement select = TestCaseBase.driver.findElement(By.xpath("/html/body/div/div/div["+r+"]/form/div["+j+"]/table/tbody/tr[2]/td[1]"));
+                Assert.assertNotNull(select,"Fail");
+                WebElement select1 = TestCaseBase.driver.findElement(By.xpath("/html/body/div/div/div["+r+"]/form/div["+j+"]/div/h[1]/img"));
+                Assert.assertNotNull(select1,"Fail");
+                WebElement select2 = TestCaseBase.driver.findElement(By.xpath("/html/body/div/div/div["+r+"]/form/div["+j+"]/div/h[2]/img"));
+                Assert.assertNotNull(select2,"Fail");
+            
+            }
+        }
+        for(int i=0;i<4;i++){
+            TestCaseBase.driver.findElement(By.xpath("//tr[@id='pmo"+i+"']")).click();
+            Thread.sleep(1000);
+           } 
     }
 };
     

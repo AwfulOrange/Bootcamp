@@ -12,6 +12,8 @@ import org.testng.annotations.Test;
 import com.perficient.test.pages.ScorePage;
 import com.perficient.test.util.TestCaseBase;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 
 
@@ -38,11 +40,14 @@ public class TC001_US03 extends TestCaseBase{
          PageFactory.initElements(TestCaseBase.driver, sp); 
         Thread.sleep(6000);
         sp.clickElement.click();  
-        Thread.sleep(1000);
+        Thread.sleep(6000);
         for(int r=65;r<69;r++){
             WebElement select= TestCaseBase.driver.findElement(By.xpath("//select[@id='"+(char)r+"0']"));
-            
-                select.findElement(By.cssSelector("option[label='1']")).click();
+            select.findElement(By.cssSelector("option[label='1']")).click();
+            Select select1=new Select(select);
+            String number=select1.getFirstSelectedOption().getText();
+            Assert.assertEquals(number, "1","Fail");
+                
             
         }
         for(int s=69;s<73;s++)
@@ -52,8 +57,6 @@ public class TC001_US03 extends TestCaseBase{
         Thread.sleep(2000);
         sp.clickElement.click();
          Thread.sleep(1000); 
-        sp.click10Element.click();
-         Thread.sleep(2000);
         
     };
     

@@ -2,28 +2,32 @@ angular.module('myApp', []).controller('userCtrl', function($scope,$http,$window
 var edit=false;
 var empslength=0;
 var allscore=[];
-
-$http.get("http://10.2.1.183:8080/TRS/web/employee/")
+var criteria=[];
+var reviewerId="";
+var pmoId="";
+$http.get("http://localhost:8080/TRS/web/employee/reviewer/"+ID)
 .success(function (data) {
     $scope.emps = data;    
     empslength=data.length;
-    changestatus(data);
+    changestatus(data); 
 for(var i=0;i<empslength;i++){
-if(data[i].talentReviewScoreCollection.length!=0)
+if(data[i].score!=null)
     {
     var scoredata={
         employeeId:data[i].id,
-        achievingResults:data[i].talentReviewScoreCollection[0].achievingResults,
-        orgImpact:data[i].talentReviewScoreCollection[0].orgImpact,
-        learningAgility:data[i].talentReviewScoreCollection[0].learningAgility,
-        versatility:data[i].talentReviewScoreCollection[0].versatility,
-        achievingResultsComment:data[i].talentReviewScoreCollection[0].achievingResultsComment,
-        orgImpactComment:data[i].talentReviewScoreCollection[0].orgImpactComment,
-        learningAgilityComment:data[i].talentReviewScoreCollection[0].learningAgilityComment,
-        versatilityComment:data[i].talentReviewScoreCollection[0].versatilityComment,
-         status:data[i].talentReviewScoreCollection[0].status
+        achievingResults:data[i].score.achievingResults,
+        orgImpact:data[i].score.orgImpact,
+        learningAgility:data[i].score.learningAgility,
+        versatility:data[i].score.versatility,
+        achievingResultsComment:data[i].score.achievingResultsComment,
+        orgImpactComment:data[i].score.orgImpactComment,
+        learningAgilityComment:data[i].score.learningAgilityComment,
+        versatilityComment:data[i].score.versatilityComment,
+         status:data[i].score.status,
+        reviewerId:data[i].score.reviewerId,
+        pmoId: data[i].score.pmoId
     }
-    if(data[i].talentReviewScoreCollection[0].status==2)
+    if(data[i].score.status==2)
     {
         edit=true;
     }
@@ -32,6 +36,32 @@ if(data[i].talentReviewScoreCollection.length!=0)
 }
 });
 
+$http.get("http://localhost:8080/TRS/web/cri").success(function (data) {
+    criteria=data;
+});
+$scope.findCriteriaByName=function(name){
+    var lvlCriteria=[];
+    for(var i=0;i<criteria.length;i++)
+    {
+        if(name==criteria[i].criteria)
+        {
+            lvlCriteria.push(criteria[i]);
+        }
+    }
+    return lvlCriteria;
+}
+$scope.findCriteriaByLevel=function(name,level){
+    var lvlCriteria=[];
+    for(var i=0;i<criteria.length;i++)
+    {
+        if(name==criteria[i].criteria&&level==criteria[i].level)
+        {
+            lvlCriteria.push(criteria[i]);
+        }
+    }
+    console.log(lvlCriteria);
+    return lvlCriteria;
+}
 
 $scope.editable=function(){
     return edit;
@@ -49,7 +79,9 @@ versatility,achievingResultsComment,orgImpactComment,learningAgilityComment,vers
         orgImpactComment:orgImpactComment,
         learningAgilityComment:learningAgilityComment,
         versatilityComment:versatilityComment,
-         status:statustoNum(status)
+         status:statustoNum(status),
+        reviewerId:reviewerId,
+        pmoId:pmoId
     };
     if(  checkScoredata(scoredata)==false)
     {
@@ -66,7 +98,7 @@ versatility,achievingResultsComment,orgImpactComment,learningAgilityComment,vers
                 }
             }
         }
-        $http.post('http://10.2.1.183:8080/TRS/web/score/', allscore).success(function(){
+        $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function(){
 
         }).error(function(data) {
          alert("Fail to save!");
@@ -83,12 +115,14 @@ versatility,achievingResultsComment,orgImpactComment,learningAgilityComment,vers
             {
                 if(allscore[i].employeeId==allscore[j].employeeId)
                 {
+                    allscore[j].reviewerId=allscore[i].reviewerId;
+                    allscore[j].pmoId=allscore[i].pmoId;
                     allscore.splice(i,1);
                         j--;
                 }
             }
         }
-        $http.post('http://10.2.1.183:8080/TRS/web/score/', allscore).success(function(){
+        $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function(){
         }).error(function(data) {
             alert("Fail to save!");
         });            
@@ -148,7 +182,7 @@ $scope.postSubmit = function()
             }
 //            var con =window.confirm("Are you sure to submit");
 //            if(con){
-            $http.post('http://10.2.1.183:8080/TRS/web/score/', allscore).success(function(){  
+            $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function(){  
                
                $window.location.reload();
        }).error(function(data) {

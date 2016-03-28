@@ -29,9 +29,10 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
-        resources.add(com.perficient.talentreviewsystem.restful.EmployeeREST.class);
-        resources.add(com.perficient.talentreviewsystem.restful.TalentReviewScoreREST.class);
         resources.add(com.perficient.talentreviewsystem.restful.CriteriaREST.class);
+        resources.add(com.perficient.talentreviewsystem.restful.EmployeeREST.class);
+        resources.add(com.perficient.talentreviewsystem.restful.RoleREST.class);
+        resources.add(com.perficient.talentreviewsystem.restful.TalentReviewScoreREST.class);
     }
     
 }

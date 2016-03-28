@@ -9,7 +9,7 @@ import com.alibaba.fastjson.JSON;
 import com.perficient.talentreviewsystem.entity.Employee;
 import com.perficient.talentreviewsystem.entity.LoginUser;
 import com.perficient.talentreviewsystem.entity.RoleList;
-import com.perficient.talentreviewsystem.restful.RoleRest;
+import com.perficient.talentreviewsystem.restful.RoleREST;
 import com.perficient.talentreviewsystem.utils.GetProperty;
 import com.perficient.talentreviewsystem.utils.HttpConnection;
 import java.util.ArrayList;
@@ -48,6 +48,7 @@ public class LoginService extends AbstractCasAssertionUserDetailsService{
                 break;
             }
         }
-        return new User(name, "NO_PASSWORD", grantedAuthorities);
+        User user = new User(name, "NO_PASSWORD", grantedAuthorities);
+        return user;
     }
 }

@@ -6,6 +6,7 @@
 package com.perficient.talentreviewsystem.service;
 
 import com.perficient.talentreviewsystem.entity.Employee;
+import com.perficient.talentreviewsystem.entity.Group;
 import java.util.List;
 
 /**
@@ -15,5 +16,6 @@ import java.util.List;
 public interface IEmployeeInfoService {
     
     List<Employee> findAll();
+    List<Group> findAllByPMOID(String pmoid);
     
 }

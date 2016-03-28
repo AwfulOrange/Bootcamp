@@ -53,10 +53,8 @@ public class Employee implements Serializable {
     private String gdcStartDate;
     private String lastPromotionDate;
     private String startLevel;
-    
-    private Collection<TalentReviewScore> talentReviewScoreCollection;
     private Collection<SupportiveInfo> supportiveInfoCollection;
-    
+    private TalentReviewScore Score;
     private List<Criteria> ListCriteria;
 
     /**
@@ -353,19 +351,6 @@ public class Employee implements Serializable {
         this.startLevel = startLevel;
     }
 
-    /**
-     * @return the talentReviewScoreCollection
-     */
-    public Collection<TalentReviewScore> getTalentReviewScoreCollection() {
-        return talentReviewScoreCollection;
-    }
-
-    /**
-     * @param talentReviewScoreCollection the talentReviewScoreCollection to set
-     */
-    public void setTalentReviewScoreCollection(Collection<TalentReviewScore> talentReviewScoreCollection) {
-        this.talentReviewScoreCollection = talentReviewScoreCollection;
-    }
 
     /**
      * @return the supportiveInfoCollection
@@ -393,6 +378,20 @@ public class Employee implements Serializable {
      */
     public void setListCriteria(List<Criteria> ListCriteria) {
         this.ListCriteria = ListCriteria;
+    }
+
+    /**
+     * @return the Score
+     */
+    public TalentReviewScore getScore() {
+        return Score;
+    }
+
+    /**
+     * @param Score the Score to set
+     */
+    public void setScore(TalentReviewScore Score) {
+        this.Score = Score;
     }
 
 }

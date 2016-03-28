@@ -17,6 +17,9 @@ public class DateUtils {
     private DateUtils(){}
     
     public static String calcuDate(String date){
+        if(date==null){
+            return " ";
+        }
         long joinTime = Long.parseLong(date);
         Date nowTime = new Date();
         long exp = nowTime.getTime() - joinTime;
@@ -44,7 +47,7 @@ public class DateUtils {
     
     public static String toDate(String dateStr) {
         if(dateStr==null){
-            return "null";
+            return " ";
         }
         Long l = Long.parseLong(dateStr);
         Date date = new Date(l);

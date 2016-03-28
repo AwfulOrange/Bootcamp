@@ -7,12 +7,10 @@ package com.perficient.test.US05;
 
 
 
-import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 import com.perficient.test.util.TestCaseBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 /*
@@ -49,10 +47,11 @@ public class TC001_US05 extends TestCaseBase{
                 Thread.sleep(1000);
               TestCaseBase.driver.findElement(By.xpath("/html/body/div/div/div["+r+"]/form/div["+j+"]/div/h[2]/img")).click();
                 Thread.sleep(1000);
+                
 //              TestCaseBase.driver.findElement(By.xpath("/html/body/div/div/div["+r+"]/form/div["+j+"]/div/h[2]/img")).click();
 //              Thread.sleep(1000);
 //              TestCaseBase.driver.findElement(By.xpath("/html/body/div/div/div["+r+"]/form/div["+j+"]/table/tbody/tr[2]/td[1]")).click();
-//                Thread.sleep(1000);
+//         
             }
 //           TestCaseBase.driver.findElement(By.xpath("//tr[@id='pmo"+i+"']")).click();
 //           Thread.sleep(2000);
@@ -68,7 +67,9 @@ public class TC001_US05 extends TestCaseBase{
                 Assert.assertNotNull(select1,"Fail");
                 WebElement select2 = TestCaseBase.driver.findElement(By.xpath("/html/body/div/div/div["+r+"]/form/div["+j+"]/div/h[2]/img"));
                 Assert.assertNotNull(select2,"Fail");
-            
+                
+                Assert.assertEquals(driver.findElement(By.cssSelector("select[disabled]")).getAttribute("disabled"), "true","Fail");
+   
             }
         }
         for(int i=0;i<4;i++){

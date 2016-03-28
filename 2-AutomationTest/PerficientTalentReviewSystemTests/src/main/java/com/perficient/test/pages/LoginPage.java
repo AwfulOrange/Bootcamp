@@ -13,11 +13,13 @@ import org.openqa.selenium.support.FindBy;
  * @author bootcamp19
  */
 public class LoginPage {
-   @FindBy(id = "XXXXXXXXXXX")
+   @FindBy(id = "username")
     public static WebElement userElement;
-    @FindBy(id = "XXXXXXXXXXXXx")
-    public static WebElement passElement;
-    @FindBy(xpath = "XXXXXXXXXXXXXXXXX")
+    
+   @FindBy(id = "password")
+   public static WebElement passElement;
+    
+    @FindBy(xpath = "/html/body/div[1]/div/table/tbody/tr/td[2]/div/form/nobr/button[1]")
     public static WebElement loginButton;
     
     

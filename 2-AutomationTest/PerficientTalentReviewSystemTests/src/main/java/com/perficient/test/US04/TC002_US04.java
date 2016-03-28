@@ -11,6 +11,8 @@ import com.perficient.test.util.TestCaseBase;
 import static com.perficient.test.util.TestCaseBase.login;
 import static com.perficient.test.util.TestCaseBase.logout;
 import static com.thoughtworks.selenium.SeleneseTestBase.assertEquals;
+import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 /**
@@ -26,17 +28,20 @@ public class TC002_US04 extends TestCaseBase{
             
     @Test
     public static void Login() throws Exception{
-       login("","");
+       String LoginPagetruetitle = TestCaseBase.driver.getTitle();
+       String LoginPageexptitle = "Perficient CAS";
+       assertEquals(LoginPageexptitle,LoginPagetruetitle);
+       
+       login("yuhang.zhang","tRApha7T");
        Thread.sleep(2000);
-       String ScorePagetruetitle = TestCaseBase.driver.getTitle();
-       String ScorePageexptitle = "xxxxxxxxxxxx";
-       assertEquals(ScorePageexptitle,ScorePagetruetitle);
+       Assert.assertEquals(TestCaseBase.driver.findElement(By.id("scoretab")).getAttribute("value"),"Score","1");
+       Assert.assertEquals(TestCaseBase.driver.findElement(By.id("pmotab")).getAttribute("value"),"PMO-Leader","1");
        
        Thread.sleep(2000);
        logout();
-       String LoginPagetruetitle = TestCaseBase.driver.getTitle();
-       String LoginPageexptitle = "xxxxxxxxxxxx";
-       assertEquals(LoginPageexptitle,LoginPagetruetitle);
+       String LoginPagetruetitle1 = TestCaseBase.driver.getTitle();
+       String LoginPageexptitle1 = "Perficient CAS";
+       assertEquals(LoginPageexptitle1,LoginPagetruetitle1);
         
     }
 

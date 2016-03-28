@@ -38,7 +38,7 @@ public class ScorePage {
     public static WebElement click10Element;
     
     //********************US04 find Id**************************************************
-    @FindBy(id="XXXXXXXXXXXXX")
+    @FindBy(id="logout")
     public static WebElement logoutButton;
     
 

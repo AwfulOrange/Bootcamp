@@ -17,10 +17,12 @@
             <img src="../img/title_logo.png">
         </div>
             
-        <table class="nav nav-tabs" role="tablist" >
+        <table class="nav nav-tabs" role="tablist" ng-controller="pmoCtrl">
+            
             <tr>
                 <td  class="w1-tab-hover"><a href="${pageContext.request.contextPath}/page/score.jsp"  class="w1-tab-a"><b>Score</b> </a></td>
-                <td class="w1-tab-hover"><a href="${pageContext.request.contextPath}/page/pmo_leader.jsp" class="w1-tab-a"><b>PMO-Leader</b> </a></td>
+                <td class="w1-tab-hover"  ng-show="check()"><a href="${pageContext.request.contextPath}/page/pmo_leader.jsp" class="w1-tab-a"><b>PMO-Leader</b> </a></td>
+                <td>{{info[0].name}}</td>
                 <td>
                     <li><a id="logout" href=<%=logoutLink%> > <span class="glyphicon glyphicon-log-out" aria-hidden="true">&ensp;</span>Log-out</a></li>
                 </td>

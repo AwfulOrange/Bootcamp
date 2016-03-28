@@ -38,7 +38,8 @@ angular.module('myApp1', []).controller('pmoCtrl',
 
             $http.get("http://localhost:8080/TRS/test/testpmo.json")
                     .success(function (ndata) {
-                        
+                        $scope.info=ndata;
+                        var info = ndata;
                         var ID = ndata[0].pmoid;
                           console.log(ndata)
                         $http.get("http://localhost:8080/TRS/web/employee/pmo/" + ID)
@@ -78,7 +79,12 @@ angular.module('myApp1', []).controller('pmoCtrl',
                                 })
 
 
-
+                 $scope.check=function(){
+                 if(info[0].title=="pmo"){
+                     return true;}
+                 else 
+                     return false;
+             } 
 
 
 
@@ -89,7 +95,7 @@ angular.module('myApp1', []).controller('pmoCtrl',
 
 
 
-
+          
 
 
 

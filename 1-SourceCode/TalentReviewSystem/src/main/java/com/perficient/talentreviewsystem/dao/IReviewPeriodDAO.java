@@ -12,5 +12,8 @@ import com.perficient.talentreviewsystem.entity.ReviewPeriod;
  * @author bootcamp19
  */
 public interface IReviewPeriodDAO {
+
     public ReviewPeriod selectReviewPeriodByRP(String rp);
+
+    public String findMaxRp();
 }

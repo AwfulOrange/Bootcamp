@@ -113,7 +113,7 @@ public class TalentReviewScoreDAOImpl implements ITalentReviewScoreDAO {
           List<String> reviewerId=new ArrayList<String>();
         emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
         em = emf.createEntityManager();
-        Query query = em.createNativeQuery(JPAUtil.SELECT_reviewer_BY_PMO);
+        Query query = em.createNativeQuery(JPAUtil.SELECT_REVIEWER_BY_PMO);
         query.setParameter(1, pmoId);
       
         reviewerId = query.getResultList();

@@ -8,8 +8,11 @@ package com.perficient.talentreviewsystem.daoimpl;
 import com.perficient.talentreviewsystem.dao.IReviewPeriodDAO;
 import com.perficient.talentreviewsystem.entity.ReviewPeriod;
 import com.perficient.talentreviewsystem.jpacontroller.ReviewPeriodJpaController;
+import java.util.List;
+import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 /**
  *
@@ -20,6 +23,8 @@ public class ReviewPeriodDAOImpl implements IReviewPeriodDAO {
     EntityManagerFactory emf = null;
     ReviewPeriodJpaController rpjc = null;
     ReviewPeriod reviewPeriod = null;
+    EntityManager em = null;
+    List<String> rps = null;
 
     @Override
     public ReviewPeriod selectReviewPeriodByRP(String rp) {
@@ -27,6 +32,15 @@ public class ReviewPeriodDAOImpl implements IReviewPeriodDAO {
         rpjc = new ReviewPeriodJpaController(emf);
         reviewPeriod = rpjc.findReviewPeriod(rp);
         return reviewPeriod;
+    }
+
+    @Override
+    public String findMaxRp() {
+        emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
+        em = emf.createEntityManager();
+        Query query =em.createNativeQuery(JPAUtil.SELECT_MAX_REVIEW_PERIOD);
+        rps=query.getResultList();
+        return rps.get(0);
     }
 
 }

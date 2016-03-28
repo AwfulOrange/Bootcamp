@@ -9,7 +9,7 @@
 
     <security:http auto-config="true" entry-point-ref="casAuthenticationEntryPoint">
 
-        <security:intercept-url pattern="/page/score.jsp" access="ROLE_EMPLOYEE"/>
+        <security:intercept-url pattern="/page/score.jsp" access="ROLE_REVIEWER"/>
         <security:custom-filter position="CAS_FILTER" ref="casAuthenticationFilter" />
         <security:custom-filter ref="requestSingleLogoutFilter" before="LOGOUT_FILTER" />  
         <security:custom-filter ref="singleLogoutFilter" before="CAS_FILTER" />

@@ -5,6 +5,13 @@
  */
 package com.perficient.talentreviewsystem.serviceimpl;
 
+import com.alibaba.fastjson.JSON;
+import com.perficient.talentreviewsystem.entity.Employee;
+import com.perficient.talentreviewsystem.entity.LoginUser;
+import com.perficient.talentreviewsystem.entity.RoleList;
+import com.perficient.talentreviewsystem.restful.RoleRest;
+import com.perficient.talentreviewsystem.utils.GetProperty;
+import com.perficient.talentreviewsystem.utils.HttpConnection;
 import java.util.ArrayList;
 import java.util.List;
 import org.jasig.cas.client.authentication.AttributePrincipal;
@@ -25,7 +32,22 @@ public class LoginService extends AbstractCasAssertionUserDetailsService{
     protected UserDetails loadUserDetails(Assertion asrtn) {
         final List<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
         AttributePrincipal principal = asrtn.getPrincipal();
-        grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_EMPLOYEE"));
-        return new User(principal.getName(), "NO_PASSWORD", grantedAuthorities);
+        
+        String name = principal.getName();
+        String empsInfo = HttpConnection.getFromUrl(new GetProperty().getString("tptPath"));
+        
+        List<Employee> empList = JSON.parseArray(empsInfo, Employee.class);
+        
+        for(int i = 0; i < empList.size(); i++){
+            if(name.equalsIgnoreCase(empList.get(i).getScreenName())){
+                if(empList.get(i).getRole().equalsIgnoreCase(RoleList.ROLE_PMO)){
+                    grantedAuthorities.add(new SimpleGrantedAuthority(RoleList.ROLE_P));
+                }else {
+                    grantedAuthorities.add(new SimpleGrantedAuthority(RoleList.ROLE_R));
+                }
+                break;
+            }
+        }
+        return new User(name, "NO_PASSWORD", grantedAuthorities);
     }
 }

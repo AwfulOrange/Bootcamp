@@ -7,7 +7,7 @@
 <%@ page import="com.perficient.talentreviewsystem.utils.GetProperties" %>
     <%
         String reportIssuePROP = "Link.properties";
-        GetProperties gp = new GetProperties("/properties/" + reportIssuePROP);
+        GetProperties gp = new GetProperties("/properties/META-INF/" + reportIssuePROP);
         String logout = "logout";
         String logoutLink = gp.getProperty(logout);
     %>

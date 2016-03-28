@@ -36,6 +36,7 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
         List<Employee> empList = JSON.parseArray(empsInfo, Employee.class);
         
         List<Employee> empListSelected = new ArrayList<>();
+        empList=selectActiveEmployee(empList);
         empListSelected.add(empList.get(0));
         empListSelected.add(empList.get(1));
         empListSelected.add(empList.get(2));
@@ -43,6 +44,15 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
         combineTPTandDataBase(empInfoList, empListSelected);
         
         return empListSelected;
+    } 
+	private List<Employee> selectActiveEmployee(List<Employee> allemp){
+        List<Employee> ActiveEmployee = new ArrayList<>();
+        for(int i=0;i<allemp.size();i++)
+            if(allemp.get(i).isActive()){
+                ActiveEmployee.add(allemp.get(i));
+                
+            }
+        return ActiveEmployee;
     }
 
     private void combineTPTandDataBase(List<EmployeeInfo> empInfoList, List<Employee> empListSelected) {

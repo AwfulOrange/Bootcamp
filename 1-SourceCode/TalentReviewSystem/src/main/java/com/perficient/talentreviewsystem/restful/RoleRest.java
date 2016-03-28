@@ -31,16 +31,15 @@ import org.springframework.security.core.userdetails.UserDetails;
 public class RoleRest {
     
     @GET
-    @Produces("application/json")
-    public LoginUser getLoginUser(){
+    //@Produces("application/json")
+    public String getLoginUser(){
         String empsInfo = HttpConnection.getFromUrl(new GetProperty().getString("tptPath"));
         List<Employee> empList = JSON.parseArray(empsInfo, Employee.class);
         LoginUser login = new LoginUser();
         AttributePrincipal prin = (AttributePrincipal)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         
-        
         if (!(prin instanceof UserDetails)) {
-            return login;
+            return "error";
         }
         UserDetails userDetails = (UserDetails) prin;
         Collection<? extends GrantedAuthority> author = userDetails.getAuthorities();
@@ -50,6 +49,7 @@ public class RoleRest {
             login.setRole(RoleList.ROLE_PMO);
         }
         login.setScreenName(prin.getName());
-        return login;
+        String rs = JSON.toJSONString(login);
+        return rs;
     }
 }

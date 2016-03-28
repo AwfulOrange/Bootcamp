@@ -64,10 +64,11 @@ public class EmployeeInfo implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date workStartDate;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "employeeInfo")
-    
     private Collection<TalentReviewScore> talentReviewScoreCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "employeeInfo")
     private Collection<SupportiveInfo> supportiveInfoCollection;
+    
+    
 
     public EmployeeInfo() {
     }

@@ -5,7 +5,6 @@
  */
 package com.perficient.talentreviewsystem.entity;
 
-import com.alibaba.fastjson.annotation.JSONField;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
@@ -37,18 +36,20 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "SupportiveInfo.findByTimeEntry", query = "SELECT s FROM SupportiveInfo s WHERE s.timeEntry = :timeEntry"),
     @NamedQuery(name = "SupportiveInfo.findByTraining", query = "SELECT s FROM SupportiveInfo s WHERE s.training = :training"),
     @NamedQuery(name = "SupportiveInfo.findByEmployeeId", query = "SELECT s FROM SupportiveInfo s WHERE s.supportiveInfoPK.employeeId = :employeeId"),
-    @NamedQuery(name = "SupportiveInfo.findByReviewPeriod", query = "SELECT s FROM SupportiveInfo s WHERE s.supportiveInfoPK.reviewPeriod = :reviewPeriod")})
+    @NamedQuery(name = "SupportiveInfo.findByReviewPeriod", query = "SELECT s FROM SupportiveInfo s WHERE s.supportiveInfoPK.reviewPeriod = :reviewPeriod"),
+    @NamedQuery(name = "SupportiveInfo.findByIsReviewer", query = "SELECT s FROM SupportiveInfo s WHERE s.isReviewer = :isReviewer"),
+    @NamedQuery(name = "SupportiveInfo.findByIsPmo", query = "SELECT s FROM SupportiveInfo s WHERE s.isPmo = :isPmo")})
 public class SupportiveInfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @EmbeddedId
-    @JSONField(serialize=false)
     protected SupportiveInfoPK supportiveInfoPK;
     @Size(max = 255)
     @Column(name = "activity")
     private String activity;
+    @Size(max = 255)
     @Column(name = "award")
-    private Integer award;
+    private String award;
     @Size(max = 255)
     @Column(name = "blog")
     private String blog;
@@ -70,9 +71,12 @@ public class SupportiveInfo implements Serializable {
     @Size(max = 255)
     @Column(name = "training")
     private String training;
+    @Column(name = "is_reviewer")
+    private Integer isReviewer;
+    @Column(name = "is_pmo")
+    private Integer isPmo;
     @JoinColumn(name = "employee_id", referencedColumnName = "employee_id", insertable = false, updatable = false)
     @ManyToOne(optional = false)
-    @JSONField(serialize=false)
     private EmployeeInfo employeeInfo;
     @JoinColumn(name = "review_period", referencedColumnName = "review_period", insertable = false, updatable = false)
     @ManyToOne(optional = false)
@@ -105,11 +109,11 @@ public class SupportiveInfo implements Serializable {
         this.activity = activity;
     }
 
-    public Integer getAward() {
+    public String getAward() {
         return award;
     }
 
-    public void setAward(Integer award) {
+    public void setAward(String award) {
         this.award = award;
     }
 
@@ -167,6 +171,22 @@ public class SupportiveInfo implements Serializable {
 
     public void setTraining(String training) {
         this.training = training;
+    }
+
+    public Integer getIsReviewer() {
+        return isReviewer;
+    }
+
+    public void setIsReviewer(Integer isReviewer) {
+        this.isReviewer = isReviewer;
+    }
+
+    public Integer getIsPmo() {
+        return isPmo;
+    }
+
+    public void setIsPmo(Integer isPmo) {
+        this.isPmo = isPmo;
     }
 
     public EmployeeInfo getEmployeeInfo() {

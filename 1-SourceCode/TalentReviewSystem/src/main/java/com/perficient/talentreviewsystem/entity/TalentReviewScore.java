@@ -5,7 +5,6 @@
  */
 package com.perficient.talentreviewsystem.entity;
 
-import com.alibaba.fastjson.annotation.JSONField;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -84,9 +83,10 @@ public class TalentReviewScore implements Serializable {
     @JoinColumn(name = "review_period", referencedColumnName = "review_period", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private ReviewPeriod reviewPeriod1;
-    @Transient
-    private String employeeId;
 
+     @Transient
+    private String employeeId;
+     
     public TalentReviewScore() {
     }
 
@@ -215,6 +215,15 @@ public class TalentReviewScore implements Serializable {
         this.reviewPeriod1 = reviewPeriod1;
     }
 
+    public String getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
+    }
+    
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -238,20 +247,6 @@ public class TalentReviewScore implements Serializable {
     @Override
     public String toString() {
         return "com.perficient.talentreviewsystem.entity.TalentReviewScore[ talentReviewScorePK=" + talentReviewScorePK + " ]";
-    }
-
-    /**
-     * @return the employeeId
-     */
-    public String getEmployeeId() {
-        return employeeId;
-    }
-
-    /**
-     * @param employeeId the employeeId to set
-     */
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
     }
     
 }

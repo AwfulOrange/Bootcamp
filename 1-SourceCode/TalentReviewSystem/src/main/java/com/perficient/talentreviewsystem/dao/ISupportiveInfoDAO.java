@@ -13,7 +13,9 @@ import java.util.List;
  * @author bootcamp19
  */
 public interface ISupportiveInfoDAO {
+
     public List<SupportiveInfo> selectAllSupportiveInfo();
-    
-    public SupportiveInfo selectSupportiveInfoByBoth(String empId,String rp);
+
+    public SupportiveInfo selectSupportiveInfoByBoth(String empId, String rp);
+
 }

@@ -28,7 +28,7 @@ public interface ITalentReviewScoreDAO {
 
     public List<TalentReviewScore> selectTRScoreByPmoId(String pmoId);
 
-    public List<List<TalentReviewScore>> selectTRScoreByBoth(String pmoId);
+//    public List<List<TalentReviewScore>> selectTRScoreByBoth(String pmoId);
 
     public List<String> selectreviewerByPmoId(String pmoId);
 }

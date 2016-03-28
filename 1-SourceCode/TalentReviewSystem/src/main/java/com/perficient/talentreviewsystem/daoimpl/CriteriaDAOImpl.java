@@ -26,6 +26,7 @@ public class CriteriaDAOImpl implements ICriteriaDAO {
     CriteriaJpaController cjc = null;
     List<Criteria> criterias;
     EntityManager em = null;
+    String sql =null;
 
     @Override
     public List<Criteria> selectAllCriteria() {
@@ -40,7 +41,8 @@ public class CriteriaDAOImpl implements ICriteriaDAO {
     public List<Criteria> getCriteriaByBoth(String criteria, String level) {
         emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
         em = emf.createEntityManager();
-        Query query = em.createNativeQuery(JPAUtil.SELECT_CRITERIA_BY_CRITERIA_LEVEL,Criteria.class);
+        sql =JPAUtil.SELECT_CRITERIA_BY_CRITERIA_LEVEL;
+        Query query = em.createNativeQuery(sql,Criteria.class);
         query.setParameter(1, criteria);
         query.setParameter(2, level);
         criterias = query.getResultList();
@@ -51,7 +53,8 @@ public class CriteriaDAOImpl implements ICriteriaDAO {
     public List<Criteria> getCriteriaByLevel(String level) {
         emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
         em = emf.createEntityManager();
-        Query query =em.createNativeQuery(JPAUtil.SELECT_CRITERIA_BY_LEVLE, Criteria.class);
+        sql= JPAUtil.SELECT_CRITERIA_BY_LEVLE;
+        Query query =em.createNativeQuery(sql, Criteria.class);
         query.setParameter(1, level);
         criterias = query.getResultList();
         return  criterias;

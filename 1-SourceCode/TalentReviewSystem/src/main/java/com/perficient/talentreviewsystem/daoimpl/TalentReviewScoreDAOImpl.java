@@ -122,19 +122,19 @@ public class TalentReviewScoreDAOImpl implements ITalentReviewScoreDAO {
     }
     
     
-    @Override
-      public List<List<TalentReviewScore>> selectTRScoreByBoth(String pmoId) 
-      {
-              TalentReviewScoreDAOImpl trsdao=new TalentReviewScoreDAOImpl();
-             
-              List<String> reviewerInfo=new ArrayList<String>();
-              reviewerInfo=trsdao.selectreviewerByPmoId(pmoId);
-              List<List<TalentReviewScore>> employeeInfo=new ArrayList<List<TalentReviewScore>>();
-              for(int i=0;i<reviewerInfo.size();i++)
-              {
-               employeeInfo.add(trsdao.selectTRScoreByReviewerId(reviewerInfo.get(i))) ;  
-              }
-              return employeeInfo;
-      }
+//    @Override
+//      public List<List<TalentReviewScore>> selectTRScoreByBoth(String pmoId) 
+//      {
+//              TalentReviewScoreDAOImpl trsdao=new TalentReviewScoreDAOImpl();
+//             
+//              List<String> reviewerInfo=new ArrayList<String>();
+//              reviewerInfo=trsdao.selectreviewerByPmoId(pmoId);
+//              List<List<TalentReviewScore>> employeeInfo=new ArrayList<List<TalentReviewScore>>();
+//              for(int i=0;i<reviewerInfo.size();i++)
+//              {
+//               employeeInfo.add(trsdao.selectTRScoreByReviewerId(reviewerInfo.get(i))) ;  
+//              }
+//              return employeeInfo;
+//      }
 
 }

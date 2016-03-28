@@ -31,6 +31,7 @@ public class TalentReviewScoreDAOImpl implements ITalentReviewScoreDAO {
     TalentReviewScorePK trspk = null;
     TalentReviewScore trs = null;
     EntityManager em = null;
+    String sql =null;
 
     @Override
     public int addTalentReviewScore(TalentReviewScore trs) {
@@ -94,7 +95,8 @@ public class TalentReviewScoreDAOImpl implements ITalentReviewScoreDAO {
     public List<TalentReviewScore> selectTRScoreByReviewerId(String reviewerId) {
         emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
         em = emf.createEntityManager();
-        Query query = em.createNativeQuery(JPAUtil.SELECT_TALENTREVIEWSCORE_BY_REVIEWER, TalentReviewScore.class);
+        sql = JPAUtil.SELECT_TALENTREVIEWSCORE_BY_REVIEWER;
+        Query query = em.createNativeQuery(sql, TalentReviewScore.class);
         query.setParameter(1, reviewerId);
         talentReviewScores = query.getResultList();
         return talentReviewScores;
@@ -103,7 +105,8 @@ public class TalentReviewScoreDAOImpl implements ITalentReviewScoreDAO {
     public List<TalentReviewScore> selectTRScoreByPmoId(String pmoId) {
         emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
         em = emf.createEntityManager();
-        Query query = em.createNativeQuery(JPAUtil.SELECT_TALENTREVIEWSCORE_BY_PMO, TalentReviewScore.class);
+        sql = JPAUtil.SELECT_TALENTREVIEWSCORE_BY_PMO;
+        Query query = em.createNativeQuery(sql, TalentReviewScore.class);
         query.setParameter(1, pmoId);
         talentReviewScores = query.getResultList();
         return talentReviewScores;
@@ -113,7 +116,8 @@ public class TalentReviewScoreDAOImpl implements ITalentReviewScoreDAO {
           List<String> reviewerId=new ArrayList<String>();
         emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
         em = emf.createEntityManager();
-        Query query = em.createNativeQuery(JPAUtil.SELECT_REVIEWER_BY_PMO);
+        sql = JPAUtil.SELECT_REVIEWER_BY_PMO;
+        Query query = em.createNativeQuery(sql);
         query.setParameter(1, pmoId);
       
         reviewerId = query.getResultList();

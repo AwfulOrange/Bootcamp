@@ -25,6 +25,7 @@ public class ReviewPeriodDAOImpl implements IReviewPeriodDAO {
     ReviewPeriod reviewPeriod = null;
     EntityManager em = null;
     List<String> rps = null;
+    String sql =null;
 
     @Override
     public ReviewPeriod selectReviewPeriodByRP(String rp) {
@@ -38,7 +39,8 @@ public class ReviewPeriodDAOImpl implements IReviewPeriodDAO {
     public String findMaxRp() {
         emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
         em = emf.createEntityManager();
-        Query query =em.createNativeQuery(JPAUtil.SELECT_MAX_REVIEW_PERIOD);
+        sql = JPAUtil.SELECT_MAX_REVIEW_PERIOD;
+        Query query =em.createNativeQuery(sql);
         rps=query.getResultList();
         return rps.get(0);
     }

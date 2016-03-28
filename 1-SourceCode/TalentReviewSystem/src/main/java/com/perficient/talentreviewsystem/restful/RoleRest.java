@@ -27,11 +27,10 @@ import org.springframework.security.core.userdetails.UserDetails;
  * @author bootcamp19
  */
 @Stateless
-@Path("/")
+@Path("/role")
 public class RoleRest {
     
     @GET
-    @Path("/role")
     @Produces("application/json")
     public LoginUser getLoginUser(){
         String empsInfo = HttpConnection.getFromUrl(new GetProperty().getString("tptPath"));

@@ -43,6 +43,9 @@ public class DateUtils {
     }
     
     public static String toDate(String dateStr) {
+        if(dateStr==null){
+            return "null";
+        }
         Long l = Long.parseLong(dateStr);
         Date date = new Date(l);
         return formatDate(date);

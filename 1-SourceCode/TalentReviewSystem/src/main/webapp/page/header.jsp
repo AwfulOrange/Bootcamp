@@ -22,7 +22,7 @@
                 <td  class="w1-tab-hover"><a href="${pageContext.request.contextPath}/page/score.jsp"  class="w1-tab-a"><b>Score</b> </a></td>
                 <td class="w1-tab-hover"><a href="${pageContext.request.contextPath}/page/pmo_leader.jsp" class="w1-tab-a"><b>PMO-Leader</b> </a></td>
                 <td>
-                    <li><a href=<%=logoutLink%> > <span class="glyphicon glyphicon-log-out" aria-hidden="true">&ensp;</span>Log-out</a></li>
+                    <li><a href="<%=logoutLink%>" id="logout"> <span class="glyphicon glyphicon-log-out" aria-hidden="true">&ensp;</span>Log-out</a></li>
                 </td>
             </tr>
         </table>

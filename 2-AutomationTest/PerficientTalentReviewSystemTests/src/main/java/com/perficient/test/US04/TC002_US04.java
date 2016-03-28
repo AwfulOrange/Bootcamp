@@ -5,6 +5,7 @@
  */
 package com.perficient.test.US04;
 
+
 import com.perficient.test.pages.LoginPage;
 import com.perficient.test.pages.ScorePage;
 import com.perficient.test.util.TestCaseBase;
@@ -12,6 +13,7 @@ import static com.perficient.test.util.TestCaseBase.login;
 import static com.perficient.test.util.TestCaseBase.logout;
 import static com.thoughtworks.selenium.SeleneseTestBase.assertEquals;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -22,20 +24,23 @@ import org.testng.annotations.Test;
 public class TC002_US04 extends TestCaseBase{
         
     public static final String URL="http://10.2.1.183:8080/TRS/page/score.jsp";
-  // public static final String URL="http://localhost:8080/TRS/page/score.jsp";
+   //public static final String URL="http://localhost:8080/TRS/page/score.jsp";
     public static LoginPage lp = new LoginPage();
     public static ScorePage sp = new ScorePage();
             
     @Test
     public static void Login() throws Exception{
+       TestCaseBase.driver.navigate().to(URL);
+       PageFactory.initElements(TestCaseBase.driver, lp); 
+       PageFactory.initElements(TestCaseBase.driver, sp); 
        String LoginPagetruetitle = TestCaseBase.driver.getTitle();
        String LoginPageexptitle = "Perficient CAS";
-       assertEquals(LoginPageexptitle,LoginPagetruetitle);
+       Assert.assertEquals(LoginPagetruetitle,LoginPageexptitle,"fail");
        
        login("yuhang.zhang","tRApha7T");
        Thread.sleep(2000);
-       Assert.assertEquals(TestCaseBase.driver.findElement(By.id("scoretab")).getAttribute("value"),"Score","1");
-       Assert.assertEquals(TestCaseBase.driver.findElement(By.id("pmotab")).getAttribute("value"),"PMO-Leader","1");
+       Assert.assertNotNull(TestCaseBase.driver.findElement(By.linkText("Score")));
+       Assert.assertNotNull(TestCaseBase.driver.findElement(By.linkText("PMO-Leader")));
        
        Thread.sleep(2000);
        logout();

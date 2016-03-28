@@ -3,16 +3,14 @@
 <suite name="Account Test Suite" parallel="false" thread-count="1"
        configfailurepolicy="continue">
     <parameter name="grid" value="true" />
-    <parameter name="hubHost" value="10.2.7.32" />
+    <parameter name="hubHost" value="10.2.7.15" />
     <parameter name="hubPort" value="4444" />  
 
  
-<!--<test name="US01">
+<test name="US01">
     
         <classes>
-             <class name="com.perficient.test.US01.clear"/>
             <class name="com.perficient.test.US01.TC001_US01"/>
-            <class name="com.perficient.test.US01.clear"/>
             <class name="com.perficient.test.US01.TC002_US01"/>
         </classes>
  </test> 
@@ -28,12 +26,19 @@
             <class name="com.perficient.test.US03.TC001_US03"/>
             <class name="com.perficient.test.US03.TC002_US03"/>
         </classes>
- </test> -->
-  <test name="US05">
+ </test> 
+ 
+ <test name="US04">
+        <classes>
+<!--            <class name="com.perficient.test.US04.TC001_US04"/>-->
+           <class name="com.perficient.test.US04.TC002_US04"/>
+        </classes>
+ </test>
+<!-- <test name="US05">
         <classes>
             <class name="com.perficient.test.US05.TC001_US05"/>
         </classes>
- </test> 
+ </test> -->
  
 </suite>
 

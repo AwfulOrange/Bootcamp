@@ -7,6 +7,7 @@ package com.perficient.test.US01;
 
 
 
+import com.perficient.test.pages.LoginPage;
 import org.openqa.selenium.By;
 
 import org.openqa.selenium.WebElement;
@@ -31,16 +32,17 @@ import org.testng.Assert;
 public class TC001_US01 extends TestCaseBase{
     public static final String URL="http://10.2.1.183:8080/TRS/page/score.jsp";
     public static ScorePage sp=new ScorePage();
+    public static LoginPage lp = new LoginPage();
 
     
     @Test
     public static void click() throws InterruptedException{
+        TestCaseBase.driver.navigate().to(URL);      
+        PageFactory.initElements(TestCaseBase.driver,lp);
+        login("young.tao","Weph8zEr");
         
-        
-        
-
         PageFactory.initElements(TestCaseBase.driver, new ScorePage()); 
-        TestCaseBase.driver.navigate().to(URL);
+
         Thread.sleep(6000);
         Assert.assertNotNull(driver.getTitle(),"failure");
         
@@ -165,6 +167,7 @@ public class TC001_US01 extends TestCaseBase{
         Thread.sleep(1000);
 //        sp.click10Element.click();
 //        Thread.sleep(2000);
+        logout();
         
     };
     

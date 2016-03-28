@@ -5,12 +5,15 @@
  */
 package com.perficient.test.US03;
 
+import static com.perficient.test.US01.TC001_US01.lp;
 import static com.perficient.test.US02.TC001_US02.sp;
+import com.perficient.test.pages.LoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import com.perficient.test.pages.ScorePage;
 import com.perficient.test.util.TestCaseBase;
+import static com.perficient.test.util.TestCaseBase.login;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
@@ -30,12 +33,14 @@ import org.testng.Assert;
  */
 public class TC001_US03 extends TestCaseBase{
     public static final String URL="http://10.2.1.183:8080/TRS/page/score.jsp";
- 
+    public static LoginPage lp = new LoginPage();
     
     
     @Test
     public static void click() throws InterruptedException{
          TestCaseBase.driver.navigate().to(URL);
+        PageFactory.initElements(TestCaseBase.driver,lp);
+        login("young.tao","Weph8zEr");
          PageFactory.initElements(TestCaseBase.driver, sp); 
         Thread.sleep(6000);
         ScorePage.clickElement.click();  
@@ -58,6 +63,8 @@ public class TC001_US03 extends TestCaseBase{
         Thread.sleep(2000);
         ScorePage.clickElement.click();
          Thread.sleep(1000); 
+         
+         logout();
         
     };
     

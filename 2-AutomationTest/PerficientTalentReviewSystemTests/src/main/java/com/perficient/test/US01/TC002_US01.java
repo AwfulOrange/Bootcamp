@@ -7,12 +7,15 @@ package com.perficient.test.US01;
 
 
 
+import static com.perficient.test.US01.TC001_US01.lp;
+import com.perficient.test.pages.LoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import com.perficient.test.pages.ScorePage;
 import com.perficient.test.util.TestCaseBase;
 import static com.perficient.test.util.TestCaseBase.driver;
+import static com.perficient.test.util.TestCaseBase.login;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -30,11 +33,15 @@ import org.testng.Assert;
 public class TC002_US01 extends TestCaseBase{
     public static final String URL="http://10.2.1.183:8080/TRS/page/score.jsp";
     public static ScorePage sp=new ScorePage();
+    public static LoginPage lp = new LoginPage();
+    
     @Test
     public static void click() throws InterruptedException{
         //---------------------1---------------------//
-        PageFactory.initElements(TestCaseBase.driver, sp); 
         TestCaseBase.driver.navigate().to(URL);
+        PageFactory.initElements(TestCaseBase.driver, sp); 
+        PageFactory.initElements(TestCaseBase.driver,lp);
+        login("young.tao","Weph8zEr");
         Thread.sleep(6000);
         
         
@@ -155,9 +162,10 @@ public class TC002_US01 extends TestCaseBase{
         Alert alert = driver.switchTo().alert();
         String message = alert.getText();
         Assert.assertNotNull(message,"Fail to alert");
-
+        alert.accept();
 
         Thread.sleep(2000);
+        logout();
         
     };
     

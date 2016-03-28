@@ -5,10 +5,13 @@
  */
 package com.perficient.test.US04;
 
+import static com.perficient.test.US02.TC001_US02.sp;
+import static com.perficient.test.US03.TC001_US03.URL;
 import com.perficient.test.pages.LoginPage;
 import com.perficient.test.pages.ScorePage;
 import com.perficient.test.util.TestCaseBase;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -29,7 +32,7 @@ public class TC001_US04 extends TestCaseBase{
     
       public static boolean CheckTab(){
         boolean flag = false;
-        if(TestCaseBase.driver.findElement(By.id("pmotab"))==null){
+        if(TestCaseBase.driver.findElement(By.xpath("/html/body/header/div/table/tbody/tr/td[2]/a/b"))==null){
             flag = true;
         }
         return flag;    
@@ -37,11 +40,13 @@ public class TC001_US04 extends TestCaseBase{
             
     @Test
     public static void Login() throws Exception{
+      TestCaseBase.driver.navigate().to(URL);
+       PageFactory.initElements(TestCaseBase.driver, lp); 
        String LoginPagetruetitle = TestCaseBase.driver.getTitle();
        String LoginPageexptitle = "Perficient CAS";
-       Assert.assertEquals(LoginPageexptitle,LoginPagetruetitle,"fail to redirect");        
+       Assert.assertEquals(LoginPagetruetitle,LoginPageexptitle,"fail to redirect");        
        login("young.tao","Weph8zEr");
-       Thread.sleep(2000);
+       Thread.sleep(6000);
        boolean f = CheckTab();
        Assert.assertTrue(f);
        Assert.assertEquals(TestCaseBase.driver.findElement(By.id("scoretab")).getAttribute("value"),"Score","1");

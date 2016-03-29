@@ -44,6 +44,7 @@ public class Employee implements Serializable {
     private String bu;
 
     private String workStartDate;
+    private String workExperience;
 
     private String lineManager;
 
@@ -51,6 +52,7 @@ public class Employee implements Serializable {
 
     private String department;
     private String gdcStartDate;
+    private String gdcExperience;
     private String lastPromotionDate;
     private String startLevel;
     private Collection<SupportiveInfo> supportiveInfoCollection;
@@ -377,6 +379,34 @@ public class Employee implements Serializable {
      */
     public void setScore(TalentReviewScore Score) {
         this.Score = Score;
+    }
+
+    /**
+     * @return the workExperience
+     */
+    public String getWorkExperience() {
+        return workExperience;
+    }
+
+    /**
+     * @param workExperience the workExperience to set
+     */
+    public void setWorkExperience(String workExperience) {
+        this.workExperience = workExperience;
+    }
+
+    /**
+     * @return the gdcExperience
+     */
+    public String getGdcExperience() {
+        return gdcExperience;
+    }
+
+    /**
+     * @param gdcExperience the gdcExperience to set
+     */
+    public void setGdcExperience(String gdcExperience) {
+        this.gdcExperience = gdcExperience;
     }
 
 }

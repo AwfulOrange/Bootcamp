@@ -17,6 +17,7 @@ import com.perficient.talentreviewsystem.daoimpl.TalentReviewScoreDAOImpl;
 import com.perficient.talentreviewsystem.entity.Employee;
 import com.perficient.talentreviewsystem.entity.Group;
 import com.perficient.talentreviewsystem.entity.TalentReviewScore;
+import static com.perficient.talentreviewsystem.utils.DateUtils.calcuDate;
 import com.perficient.talentreviewsystem.utils.GetProperties;
 import com.perficient.talentreviewsystem.utils.HttpConnection;
 import java.util.ArrayList;
@@ -53,7 +54,7 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
         String empsInfo = HttpConnection.getFromUrl(new GetProperties().getProperty("tptPath"));
         List<Employee> empList = JSON.parseArray(empsInfo, Employee.class);
         empList=selectActiveEmployee(empList);    
- 
+        
         List<TalentReviewScore> talentReviewScores=trsDAO.selectTRScoreByReviewerId(reviewerid);
         return mergeScoreAndEmployee(talentReviewScores,empList);
     }
@@ -86,8 +87,12 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
                 if(empList.get(j).getId().equals(score.get(i).getEmployeeInfo().getEmployeeId())){
                 emp=empList.get(j);
                 emp.setScore(score.get(i));
+                
                 }
+                
             }
+            emp.setWorkExperience(calcuDate(emp.getWorkStartDate()));
+            emp.setGdcExperience(calcuDate(Long.toString(emp.getScore().getEmployeeInfo().getGdcStartDate().getTime())));
             empListSelected.add(emp);
         }
         
@@ -95,6 +100,4 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
     
     
     }
-
-    
 }

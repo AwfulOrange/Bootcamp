@@ -7,7 +7,6 @@ package com.perficient.talentreviewsystem.serviceimpl;
 
 import com.alibaba.fastjson.JSON;
 import com.perficient.talentreviewsystem.dao.ICriteriaDAO;
-import com.perficient.talentreviewsystem.entity.EmployeeInfo;
 import java.util.List;
 import com.perficient.talentreviewsystem.service.IEmployeeInfoService;
 import com.perficient.talentreviewsystem.dao.IEmployeeInfoDAO;
@@ -15,11 +14,9 @@ import com.perficient.talentreviewsystem.dao.ITalentReviewScoreDAO;
 import com.perficient.talentreviewsystem.daoimpl.CriteriaDAOImpl;
 import com.perficient.talentreviewsystem.daoimpl.EmployeeInfoDAOImpl;
 import com.perficient.talentreviewsystem.daoimpl.TalentReviewScoreDAOImpl;
-import com.perficient.talentreviewsystem.entity.Criteria;
 import com.perficient.talentreviewsystem.entity.Employee;
 import com.perficient.talentreviewsystem.entity.Group;
 import com.perficient.talentreviewsystem.entity.TalentReviewScore;
-import com.perficient.talentreviewsystem.utils.DateUtils;
 import com.perficient.talentreviewsystem.utils.GetProperties;
 import com.perficient.talentreviewsystem.utils.HttpConnection;
 import java.util.ArrayList;
@@ -33,16 +30,16 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
     IEmployeeInfoDAO empDAO = new EmployeeInfoDAOImpl();
     ITalentReviewScoreDAO trsDAO=new TalentReviewScoreDAOImpl();
 
-    private List<Employee> selectActiveEmployee(List<Employee> allemp){
-        List<Employee> ActiveEmployee = new ArrayList<>();
+    private static List<Employee> selectActiveEmployee(List<Employee> allemp){
+        List<Employee> activeEmployee = new ArrayList<>();
         for(int i=0;i<allemp.size();i++)
             if(allemp.get(i).isActive()){
-                ActiveEmployee.add(allemp.get(i));
+                activeEmployee.add(allemp.get(i));
                 
             }
-        return ActiveEmployee;
+        return activeEmployee;
     }
-    private String findEmpNameById(String id,List<Employee> allemp){
+    private static String findEmpNameById(String id,List<Employee> allemp){
         String name="www";
         for(int i=0;i<allemp.size();i++)
             if(allemp.get(i).getId().equalsIgnoreCase(id)){
@@ -58,13 +55,11 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
         empList=selectActiveEmployee(empList);    
  
         List<TalentReviewScore> talentReviewScores=trsDAO.selectTRScoreByReviewerId(reviewerid);
-        List<Employee> emp=mergeScoreAndEmployee(talentReviewScores,empList);
-   
-        return emp;
+        return mergeScoreAndEmployee(talentReviewScores,empList);
     }
     
     @Override
-    public List<Group> findAllByPMOID(String pmoid) {
+    public static List<Group> findAllByPMOID(String pmoid) {
         List<String> reviewerID=trsDAO.selectreviewerByPmoId(pmoid);
         String empsInfo = HttpConnection.getFromUrl(new GetProperties().getProperty("tptPath"));
         List<Employee> empList = JSON.parseArray(empsInfo, Employee.class);

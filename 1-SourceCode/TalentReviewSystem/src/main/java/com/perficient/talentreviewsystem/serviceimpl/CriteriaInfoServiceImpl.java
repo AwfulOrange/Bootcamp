@@ -20,8 +20,7 @@ public class CriteriaInfoServiceImpl implements ICriteriaInfoService{
     @Override
     public List<Criteria> getAllCriteria() {
         ICriteriaDAO criDAO = new CriteriaDAOImpl();
-        List<Criteria> allCria = criDAO.selectAllCriteria();
-        return allCria;
+        return criDAO.selectAllCriteria();
     }
     
 }

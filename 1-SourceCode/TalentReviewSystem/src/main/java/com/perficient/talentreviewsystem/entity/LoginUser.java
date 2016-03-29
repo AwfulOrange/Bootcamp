@@ -12,7 +12,7 @@ package com.perficient.talentreviewsystem.entity;
 public class LoginUser {
     private String screenName;
     private String role;
-
+    private String id;
     public String getScreenName() {
         return screenName;
     }
@@ -28,6 +28,11 @@ public class LoginUser {
     public void setRole(String role) {
         this.role = role;
     }
-    
-    
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 }

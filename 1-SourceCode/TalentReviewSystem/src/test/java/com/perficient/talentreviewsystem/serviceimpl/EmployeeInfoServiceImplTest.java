@@ -6,6 +6,7 @@
 package com.perficient.talentreviewsystem.serviceimpl;
 
 import com.perficient.talentreviewsystem.entity.Employee;
+import com.perficient.talentreviewsystem.entity.Group;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -43,11 +44,48 @@ public class EmployeeInfoServiceImplTest {
      * Test of findAll method, of class EmployeeInfoServiceImpl.
      */
     @Test
-    public void testFindAll() {
+    public void findAllByReviewerID() {
         EmployeeInfoServiceImpl instance = new EmployeeInfoServiceImpl();
-        List<Employee> result = instance.findAll();
-        assertNotNull(result);
+        List<Employee> result1 = instance.findAllByReviewerID("3");
+       
+        assertNotNull(result1);
+       
         //fail("The test case is a prototype.");
     }
-    
+    @Test
+    public void findAllByPMOID() {
+        EmployeeInfoServiceImpl instance = new EmployeeInfoServiceImpl();
+        List<Group> result2=instance.findAllByPMOID("664");
+        assertNotNull(result2);
+    }
+
+    /**
+     * Test of findAllByReviewerID method, of class EmployeeInfoServiceImpl.
+     */
+    @Test
+    public void testFindAllByReviewerID() {
+        System.out.println("findAllByReviewerID");
+        String reviewerid = "";
+        EmployeeInfoServiceImpl instance = new EmployeeInfoServiceImpl();
+        List<Employee> expResult = null;
+        List<Employee> result = instance.findAllByReviewerID(reviewerid);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of findAllByPMOID method, of class EmployeeInfoServiceImpl.
+     */
+    @Test
+    public void testFindAllByPMOID() {
+        System.out.println("findAllByPMOID");
+        String pmoid = "";
+        EmployeeInfoServiceImpl instance = new EmployeeInfoServiceImpl();
+        List<Group> expResult = null;
+        List<Group> result = instance.findAllByPMOID(pmoid);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
 }

@@ -33,23 +33,6 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
     IEmployeeInfoDAO empDAO = new EmployeeInfoDAOImpl();
     ITalentReviewScoreDAO trsDAO=new TalentReviewScoreDAOImpl();
 
-    @Override
-    public List<Employee> findAll() {
-        List<EmployeeInfo> empInfoList = empDAO.selectAllEmployeeInfo();
-        
-        String empsInfo = HttpConnection.getFromUrl(new GetProperties().getProperty("tptPath"));
-        List<Employee> empList = JSON.parseArray(empsInfo, Employee.class);
-        
-        List<Employee> empListSelected = new ArrayList<>();
-        empList=selectActiveEmployee(empList);
-        empListSelected.add(empList.get(0));
-        empListSelected.add(empList.get(1));
-        empListSelected.add(empList.get(2));
-        
-        combineTPTandDataBase(empInfoList, empListSelected);
-        
-        return empListSelected;
-    } 
     private List<Employee> selectActiveEmployee(List<Employee> allemp){
         List<Employee> ActiveEmployee = new ArrayList<>();
         for(int i=0;i<allemp.size();i++)
@@ -118,25 +101,5 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
     
     }
 
-    private void combineTPTandDataBase(List<EmployeeInfo> empInfoList, List<Employee> empListSelected) {
-        for(int j=0 ;j<empListSelected.size(); j++){
-            for(int i=0; i<empInfoList.size(); i++){
-                if(empInfoList.get(i).getEmployeeId().equals(empListSelected.get(j).getId())){
-                    EmployeeInfo ei = empInfoList.get(i);
-                    Employee e = empListSelected.get(j);
-                    e.setDepartment(ei.getDepartment());
-                    e.setWorkStartDate(DateUtils.calcuDate(e.getWorkStartDate()));
-                    e.setGdcStartDate(DateUtils.calcuDate(Long.toString(ei.getGdcStartDate().getTime())));
-                    e.setLastPromotionDate(DateUtils.formatDate(ei.getLastPromotionDate()));
-                    e.setStartLevel(ei.getStartLevel());
-                    e.setSupportiveInfoCollection(ei.getSupportiveInfoCollection());
-                    e.setLastDay(DateUtils.toDate(e.getLastDay()));
-                    List<Criteria> listCri = criDAO.getCriteriaByLevel(e.getTitle());
-                    e.setListCriteria(listCri);
-                    
-                }
-            } 
-        }
-    }
     
 }

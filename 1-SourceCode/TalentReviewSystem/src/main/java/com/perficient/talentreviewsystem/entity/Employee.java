@@ -55,7 +55,6 @@ public class Employee implements Serializable {
     private String startLevel;
     private Collection<SupportiveInfo> supportiveInfoCollection;
     private TalentReviewScore Score;
-    private List<Criteria> ListCriteria;
 
     /**
      * @return the id
@@ -364,20 +363,6 @@ public class Employee implements Serializable {
      */
     public void setSupportiveInfoCollection(Collection<SupportiveInfo> supportiveInfoCollection) {
         this.supportiveInfoCollection = supportiveInfoCollection;
-    }
-
-    /**
-     * @return the ListCriteria
-     */
-    public List<Criteria> getListCriteria() {
-        return ListCriteria;
-    }
-
-    /**
-     * @param ListCriteria the ListCriteria to set
-     */
-    public void setListCriteria(List<Criteria> ListCriteria) {
-        this.ListCriteria = ListCriteria;
     }
 
     /**

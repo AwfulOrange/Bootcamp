@@ -23,10 +23,6 @@ public class EmployeeREST {
     private IEmployeeInfoService empService = new EmployeeInfoServiceImpl();
     
     @GET
-    public String findAll() {
-        return JSON.toJSONString(empService.findAll());
-    }
-    @GET
     @Path("pmo/{id}")
     public String findByPMOID(@PathParam("id") String id){
         return JSON.toJSONString(empService.findAllByPMOID(id));

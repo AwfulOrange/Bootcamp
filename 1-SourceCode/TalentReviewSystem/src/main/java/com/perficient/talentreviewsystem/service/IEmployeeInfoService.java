@@ -14,8 +14,7 @@ import java.util.List;
  * @author bootcamp19
  */
 public interface IEmployeeInfoService {
-    
-    List<Employee> findAll();
+
     List<Group> findAllByPMOID(String pmoid);
     List<Employee> findAllByReviewerID(String reviewerid);
     

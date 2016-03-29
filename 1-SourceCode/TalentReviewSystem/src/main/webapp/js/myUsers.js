@@ -6,7 +6,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
     var reviewerId = "";
     var pmoId = "";
 
-    $http.get("http://localhost:8080/TRS/test/testpmo.json")
+    $http.get("http://10.2.1.183:8080/TRS/test/testpmo.json")
             .success(function (ndata) {
                 $scope.info = ndata;
                 var info = ndata;
@@ -14,7 +14,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
                 console.log(ndata)
 
 
-                $http.get("http://localhost:8080/TRS/web/employee/reviewer/" + ID)
+                $http.get("http://10.2.1.183:8080/TRS/web/employee/reviewer/" + ID)
                         .success(function (data) {
                             $scope.emps = data;
                             empslength = data.length;
@@ -57,7 +57,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
 
 
 
-    $http.get("http://localhost:8080/TRS/web/cri").success(function (data) {
+    $http.get("http://10.2.1.183:8080/TRS/web/cri").success(function (data) {
         criteria = data;
     });
     $scope.findCriteriaByName = function (name) {
@@ -119,7 +119,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
                     }
                 }
             }
-            $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function () {
+            $http.post('http://10.2.1.183:8080/TRS/web/score/', allscore).success(function () {
 
             }).error(function (data) {
                 alert("Fail to save!");
@@ -142,7 +142,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
                     }
                 }
             }
-            $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function () {
+            $http.post('http://10.2.1.183:8080/TRS/web/score/', allscore).success(function () {
             }).error(function (data) {
                 alert("Fail to save!");
             });
@@ -198,7 +198,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
             }
 //            var con =window.confirm("Are you sure to submit");
 //            if(con){
-            $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function () {
+            $http.post('http://10.2.1.183:8080/TRS/web/score/', allscore).success(function () {
 
                 $window.location.reload();
             }).error(function (data) {

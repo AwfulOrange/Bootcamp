@@ -117,6 +117,8 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
                 {
                     if (allscore[i].employeeId == allscore[j].employeeId)
                     {
+                        allscore[j].reviewerId = allscore[i].reviewerId;
+                        allscore[j].pmoId = allscore[i].pmoId;
                         allscore.splice(i, 1);
                         j--;
                     }

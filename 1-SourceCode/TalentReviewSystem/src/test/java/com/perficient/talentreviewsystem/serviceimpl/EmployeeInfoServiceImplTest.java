@@ -46,7 +46,7 @@ public class EmployeeInfoServiceImplTest {
     @Test
     public void findAllByReviewerID() {
         EmployeeInfoServiceImpl instance = new EmployeeInfoServiceImpl();
-        List<Employee> result1 = instance.findAllByReviewerID("3");
+        List<Employee> result1 = instance.findAllByReviewerID("283");
        
         assertNotNull(result1);
        
@@ -55,37 +55,9 @@ public class EmployeeInfoServiceImplTest {
     @Test
     public void findAllByPMOID() {
         EmployeeInfoServiceImpl instance = new EmployeeInfoServiceImpl();
-        List<Group> result2=instance.findAllByPMOID("664");
+        List<Group> result2=instance.findAllByPMOID("212");
         assertNotNull(result2);
     }
 
-    /**
-     * Test of findAllByReviewerID method, of class EmployeeInfoServiceImpl.
-     */
-    @Test
-    public void testFindAllByReviewerID() {
-        System.out.println("findAllByReviewerID");
-        String reviewerid = "";
-        EmployeeInfoServiceImpl instance = new EmployeeInfoServiceImpl();
-        List<Employee> expResult = null;
-        List<Employee> result = instance.findAllByReviewerID(reviewerid);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of findAllByPMOID method, of class EmployeeInfoServiceImpl.
-     */
-    @Test
-    public void testFindAllByPMOID() {
-        System.out.println("findAllByPMOID");
-        String pmoid = "";
-        EmployeeInfoServiceImpl instance = new EmployeeInfoServiceImpl();
-        List<Group> expResult = null;
-        List<Group> result = instance.findAllByPMOID(pmoid);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+ 
 }

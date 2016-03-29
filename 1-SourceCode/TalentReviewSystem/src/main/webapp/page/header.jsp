@@ -27,7 +27,7 @@
                 <!--<td class="w1-head-name"></td>-->
                 <!--</div></td>-->
                 <td class="w1-log-out"  align="right"width="10%">
-                   {{info[0].screenName}} <a id="logout" href=<%=logoutLink%> > <span class="glyphicon glyphicon-log-out" aria-hidden="true">&ensp;</span>Log-out<img class="w1-tab-img"src="../img/logout.png" ></a>
+                   {{info.screenName}} <a id="logout" href=<%=logoutLink%> > <span class="glyphicon glyphicon-log-out" aria-hidden="true">&ensp;</span>Log-out<img class="w1-tab-img"src="../img/logout.png" ></a>
                 </td>
             </tr>
         </tab

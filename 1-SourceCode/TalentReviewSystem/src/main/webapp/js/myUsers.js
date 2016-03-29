@@ -10,12 +10,12 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
             .success(function (ndata) {
                 $scope.info = ndata;
                 var info = ndata;
-                var ID = ndata[0].id;
+                var ID = ndata.id;
                 //console.log(ndata)
 
             $scope.checkT=function(){
-                 if(info[0].role=="pmo"){
-                     console.log(info[0].role)
+                 if(info.role=="pmo"){
+                     console.log(info.role)
                      return true;}
                  else {
                      return false;}

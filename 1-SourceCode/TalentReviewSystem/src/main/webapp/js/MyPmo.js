@@ -40,13 +40,13 @@ angular.module('myApp1', []).controller('pmoCtrl',
                     .success(function (ndata) {
                         $scope.info=ndata;
                         var info = ndata;
-                        var ID = ndata[0].id
+                        var ID = ndata.id
                        // console.log(info);
                          // console.log(ndata)
                   
                  $scope.checkT=function(){
-                 if(info[0].role=="pmo"){
-                     console.log(info[0].title)
+                 if(info.role=="pmo"){
+                     console.log(info.title)
                      return true;}
                  else {
                      return false;}

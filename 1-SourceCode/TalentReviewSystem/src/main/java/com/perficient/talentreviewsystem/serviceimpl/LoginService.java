@@ -7,10 +7,8 @@ package com.perficient.talentreviewsystem.serviceimpl;
 
 import com.alibaba.fastjson.JSON;
 import com.perficient.talentreviewsystem.entity.Employee;
-import com.perficient.talentreviewsystem.entity.LoginUser;
 import com.perficient.talentreviewsystem.entity.RoleList;
-import com.perficient.talentreviewsystem.restful.RoleREST;
-import com.perficient.talentreviewsystem.utils.GetProperty;
+import com.perficient.talentreviewsystem.utils.GetProperties;
 import com.perficient.talentreviewsystem.utils.HttpConnection;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +32,7 @@ public class LoginService extends AbstractCasAssertionUserDetailsService{
         AttributePrincipal principal = asrtn.getPrincipal();
         
         String name = principal.getName();
-        String empsInfo = HttpConnection.getFromUrl(new GetProperty().getString("tptPath"));
+        String empsInfo = HttpConnection.getFromUrl(new GetProperties().getProperty("tptPath"));
         
         List<Employee> empList = JSON.parseArray(empsInfo, Employee.class);
         

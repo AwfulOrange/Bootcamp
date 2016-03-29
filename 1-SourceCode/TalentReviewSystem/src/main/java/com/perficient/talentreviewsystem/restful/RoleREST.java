@@ -9,7 +9,7 @@ import com.alibaba.fastjson.JSON;
 import com.perficient.talentreviewsystem.entity.Employee;
 import com.perficient.talentreviewsystem.entity.LoginUser;
 import com.perficient.talentreviewsystem.entity.RoleList;
-import com.perficient.talentreviewsystem.utils.GetProperty;
+import com.perficient.talentreviewsystem.utils.GetProperties;
 import com.perficient.talentreviewsystem.utils.HttpConnection;
 import java.util.Collection;
 import java.util.List;
@@ -32,7 +32,7 @@ public class RoleREST {
     @GET
     //@Produces("application/json")
     public String getLoginUser(){
-        String empsInfo = HttpConnection.getFromUrl(new GetProperty().getString("tptPath"));
+        String empsInfo = HttpConnection.getFromUrl(new GetProperties().getProperty("tptPath"));
         List<Employee> empList = JSON.parseArray(empsInfo, Employee.class);
         LoginUser login = new LoginUser();
         if (!(SecurityContextHolder.getContext()

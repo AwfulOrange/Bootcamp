@@ -32,7 +32,7 @@ public class HttpConnection {
             connection.setRequestProperty("user-agent",
                     "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
             connection.connect();
-            result = readLine(connection, result);
+            result = readLine(connection);
         } catch (Exception e) {
             Logger.getLogger(HttpConnection.class.getName()).log(Level.SEVERE, null, e);
         }
@@ -40,15 +40,16 @@ public class HttpConnection {
 
     }
 
-    private static String readLine(URLConnection connection, String result) throws IOException {
+    private static String readLine(URLConnection connection) throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(
                 connection.getInputStream()));
+        String str = "";
         String line;
         while ((line = in.readLine()) != null) {
-            result += line;
+            str += line;
         }
         in.close();
-        return result;
+        return str;
     }
 
 }

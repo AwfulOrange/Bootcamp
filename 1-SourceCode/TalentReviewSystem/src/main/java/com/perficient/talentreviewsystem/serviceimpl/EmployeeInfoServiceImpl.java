@@ -20,7 +20,7 @@ import com.perficient.talentreviewsystem.entity.Employee;
 import com.perficient.talentreviewsystem.entity.Group;
 import com.perficient.talentreviewsystem.entity.TalentReviewScore;
 import com.perficient.talentreviewsystem.utils.DateUtils;
-import com.perficient.talentreviewsystem.utils.GetProperty;
+import com.perficient.talentreviewsystem.utils.GetProperties;
 import com.perficient.talentreviewsystem.utils.HttpConnection;
 import java.util.ArrayList;
 
@@ -37,7 +37,7 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
     public List<Employee> findAll() {
         List<EmployeeInfo> empInfoList = empDAO.selectAllEmployeeInfo();
         
-        String empsInfo = HttpConnection.getFromUrl(new GetProperty().getString("tptPath"));
+        String empsInfo = HttpConnection.getFromUrl(new GetProperties().getProperty("tptPath"));
         List<Employee> empList = JSON.parseArray(empsInfo, Employee.class);
         
         List<Employee> empListSelected = new ArrayList<>();
@@ -70,7 +70,7 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
     }
     @Override
     public List<Employee> findAllByReviewerID(String reviewerid) {
-        String empsInfo = HttpConnection.getFromUrl(new GetProperty().getString("tptPath"));
+        String empsInfo = HttpConnection.getFromUrl(new GetProperties().getProperty("tptPath"));
         List<Employee> empList = JSON.parseArray(empsInfo, Employee.class);
         empList=selectActiveEmployee(empList);    
  
@@ -83,7 +83,7 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
     @Override
     public List<Group> findAllByPMOID(String pmoid) {
         List<String> reviewerID=trsDAO.selectreviewerByPmoId(pmoid);
-        String empsInfo = HttpConnection.getFromUrl(new GetProperty().getString("tptPath"));
+        String empsInfo = HttpConnection.getFromUrl(new GetProperties().getProperty("tptPath"));
         List<Employee> empList = JSON.parseArray(empsInfo, Employee.class);
         empList=selectActiveEmployee(empList);
         List<Group> group=new ArrayList<Group>();

@@ -48,12 +48,12 @@ public class TalentReviewScoreDAOImplTest {
     public void setUp() {
         ei.setEmployeeId("99998");
         eidaoi.addEmployeeInfo(ei);
-
         trs = new TalentReviewScore("99998", "201503");
         trs.setOrgImpact(5);
         trs.setLearningAgility(5);
         trs.setStatus(1);
         trs.setReviewerId("999999");
+        trs.setPmoId("999");
         trs.setEmployeeInfo(eidaoi.selectEmployeeInfoById("99998"));
         trs.setReviewPeriod1(rpdaoi.selectReviewPeriodByRP("201503"));
     }
@@ -109,6 +109,27 @@ public class TalentReviewScoreDAOImplTest {
     public void testSelectTRScoreByReviewerId() {
         trsdaoi.addTalentReviewScore(trs);
         assert (trsdaoi.selectTRScoreByReviewerId("999999").size() > 0);
+        trsdaoi.deleteTalentReviewScore("99998", "201503");
+    }
+
+    /**
+     * Test of selectTRScoreByPmoId method, of class TalentReviewScoreDAOImpl.
+     */
+    @Test
+    public void testSelectTRScoreByPmoId() {
+       trsdaoi.addTalentReviewScore(trs);
+        assert (trsdaoi.selectTRScoreByPmoId("999").size() > 0);
+        trsdaoi.deleteTalentReviewScore("99998", "201503");
+    }
+
+    /**
+     * Test of selectreviewerByPmoId method, of class TalentReviewScoreDAOImpl.
+     */
+    @Test
+    public void testSelectreviewerByPmoId() {
+        trsdaoi.addTalentReviewScore(trs);
+        
+        assert (trsdaoi.selectreviewerByPmoId("999").get(0).equals("999999"));
         trsdaoi.deleteTalentReviewScore("99998", "201503");
     }
 

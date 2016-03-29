@@ -64,7 +64,7 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
         String empsInfo = HttpConnection.getFromUrl(new GetProperties().getProperty("tptPath"));
         List<Employee> empList = JSON.parseArray(empsInfo, Employee.class);
         empList=selectActiveEmployee(empList);
-        List<Group> group=new ArrayList<Group>();
+        List<Group> group=new ArrayList<>();
         for(int i=0;i<reviewerID.size();i++){
             Group singleGroup=new Group();
             List<TalentReviewScore> talentReviewScores=trsDAO.selectTRScoreByReviewerId(reviewerID.get(i));

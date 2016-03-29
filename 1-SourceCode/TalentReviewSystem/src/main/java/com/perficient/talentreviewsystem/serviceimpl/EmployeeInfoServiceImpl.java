@@ -59,7 +59,7 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
     }
     
     @Override
-    public static List<Group> findAllByPMOID(String pmoid) {
+    public List<Group> findAllByPMOID(String pmoid) {
         List<String> reviewerID=trsDAO.selectreviewerByPmoId(pmoid);
         String empsInfo = HttpConnection.getFromUrl(new GetProperties().getProperty("tptPath"));
         List<Employee> empList = JSON.parseArray(empsInfo, Employee.class);
@@ -78,7 +78,7 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
     }
 
     
-    private List<Employee> mergeScoreAndEmployee(List<TalentReviewScore> score, List<Employee> empList){
+    private static List<Employee> mergeScoreAndEmployee(List<TalentReviewScore> score, List<Employee> empList){
         List<Employee> empListSelected =new ArrayList();
         for(int i=0;i<score.size();i++){
             Employee emp=new Employee();

@@ -60,13 +60,24 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
         return ActiveEmployee;
     }
     private String findEmpNameById(String id,List<Employee> allemp){
-        String name="";
+        String name="www";
         for(int i=0;i<allemp.size();i++)
             if(allemp.get(i).getId().equalsIgnoreCase(id)){
                 name=allemp.get(i).getScreenName();
-                
+                return name;
             }
         return name;
+    }
+    @Override
+    public List<Employee> findAllByReviewerID(String reviewerid) {
+        String empsInfo = HttpConnection.getFromUrl(new GetProperty().getString("tptPath"));
+        List<Employee> empList = JSON.parseArray(empsInfo, Employee.class);
+        empList=selectActiveEmployee(empList);    
+ 
+        List<TalentReviewScore> talentReviewScores=trsDAO.selectTRScoreByReviewerId(reviewerid);
+        List<Employee> emp=mergeScoreAndEmployee(talentReviewScores,empList);
+   
+        return emp;
     }
     
     @Override
@@ -82,7 +93,7 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
             List<Employee> emp=mergeScoreAndEmployee(talentReviewScores,empList);
             String name=findEmpNameById(reviewerID.get(i),empList);
             singleGroup.setEmp(emp);
-             singleGroup.setReviewname(name);
+            singleGroup.setReviewname(name);
             group.add(singleGroup);
         }     
         return group;

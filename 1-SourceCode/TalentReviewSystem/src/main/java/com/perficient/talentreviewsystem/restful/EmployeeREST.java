@@ -6,10 +6,8 @@
 package com.perficient.talentreviewsystem.restful;
 
 import com.alibaba.fastjson.JSON;
-import com.perficient.talentreviewsystem.entity.Group;
 import com.perficient.talentreviewsystem.service.IEmployeeInfoService;
 import com.perficient.talentreviewsystem.serviceimpl.EmployeeInfoServiceImpl;
-import java.util.List;
 import javax.ejb.Stateless;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -29,10 +27,16 @@ public class EmployeeREST {
         return JSON.toJSONString(empService.findAll());
     }
     @GET
-    @Path("{id}")
+    @Path("pmo/{id}")
     public String findByPMOID(@PathParam("id") String id){
         return JSON.toJSONString(empService.findAllByPMOID(id));
     }
+    @GET
+    @Path("reviewer/{id}")
+    public String findByReviewID(@PathParam("id") String id){
+        return JSON.toJSONString(empService.findAllByReviewerID(id));
+    }
+    
     
     
 }

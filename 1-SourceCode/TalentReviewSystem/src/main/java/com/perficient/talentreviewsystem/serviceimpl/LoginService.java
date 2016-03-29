@@ -46,7 +46,6 @@ public class LoginService extends AbstractCasAssertionUserDetailsService{
                 break;
             }
         }
-        User user = new User(name, "NO_PASSWORD", grantedAuthorities);
-        return user;
+        return new User(name, "NO_PASSWORD", grantedAuthorities);
     }
 }

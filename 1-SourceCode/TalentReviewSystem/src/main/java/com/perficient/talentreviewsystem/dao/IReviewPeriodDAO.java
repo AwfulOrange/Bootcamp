@@ -16,4 +16,8 @@ public interface IReviewPeriodDAO {
     public ReviewPeriod selectReviewPeriodByRP(String rp);
 
     public String findMaxRp();
+
+    public int addReviewPeriod(ReviewPeriod rp);
+    
+    public int deleteReviewPeriod(String srp);
 }

@@ -2,7 +2,7 @@
 * To change this license header, choose License Headers in Project Properties.
 * To change this template file, choose Tools | Templates
 * and open the template in the editor.
-*/
+ */
 package com.perficient.talentreviewsystem.daoimpl;
 
 import com.perficient.talentreviewsystem.dao.IEmployeeInfoDAO;
@@ -20,47 +20,48 @@ import javax.persistence.Persistence;
  *
  * @author bootcamp19
  */
-public class EmployeeInfoDAOImpl implements IEmployeeInfoDAO{
-    
+public class EmployeeInfoDAOImpl implements IEmployeeInfoDAO {
+
     EntityManagerFactory emf = null;
     EmployeeInfoJpaController eijc = null;
-    List<EmployeeInfo> employeeInfos =null;
-    EmployeeInfo employeeInfo =null;
-    
+    List<EmployeeInfo> employeeInfos = null;
+    EmployeeInfo employeeInfo = null;
+
     @Override
     public List<EmployeeInfo> selectAllEmployeeInfo() {
-        emf =Persistence.createEntityManagerFactory(JPAUtil.JPA);
+        emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
         eijc = new EmployeeInfoJpaController(emf);
         employeeInfos = eijc.findEmployeeInfoEntities();
-        
+
         return employeeInfos;
     }
-    
+
     @Override
     public int addEmployeeInfo(EmployeeInfo employeeInfo) {
+        emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
+        eijc = new EmployeeInfoJpaController(emf);
         try {
-            emf =Persistence.createEntityManagerFactory(JPAUtil.JPA);
-            eijc =new EmployeeInfoJpaController(emf);
+
             eijc.create(employeeInfo);
             return 1;
         } catch (Exception ex) {
-             Logger.getLogger(EmployeeInfoDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EmployeeInfoDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             return 0;
         }
     }
+
     @Override
     public EmployeeInfo selectEmployeeInfoById(String id) {
-        emf =Persistence.createEntityManagerFactory(JPAUtil.JPA);
-        eijc =new EmployeeInfoJpaController(emf);
-        employeeInfo=eijc.findEmployeeInfo(id);
-        return  employeeInfo;
+        emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
+        eijc = new EmployeeInfoJpaController(emf);
+        employeeInfo = eijc.findEmployeeInfo(id);
+        return employeeInfo;
     }
-    
-    
+
     @Override
     public void deleteEmployeeInfoById(String id) {
-        emf =Persistence.createEntityManagerFactory(JPAUtil.JPA);
-        eijc =new EmployeeInfoJpaController(emf);   
+        emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
+        eijc = new EmployeeInfoJpaController(emf);
         try {
             eijc.destroy(id);
         } catch (IllegalOrphanException ex) {
@@ -69,5 +70,5 @@ public class EmployeeInfoDAOImpl implements IEmployeeInfoDAO{
             Logger.getLogger(EmployeeInfoDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-        
+
 }

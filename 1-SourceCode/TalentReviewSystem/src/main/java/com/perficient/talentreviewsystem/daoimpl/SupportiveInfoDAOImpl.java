@@ -19,11 +19,12 @@ import javax.persistence.Persistence;
  */
 public class SupportiveInfoDAOImpl implements ISupportiveInfoDAO{
 
-      EntityManagerFactory emf = null;
-      List<SupportiveInfo> sis =null;
-      SupportiveInfoJpaController sijc =null;
-      SupportiveInfoPK sipk =null;
+    EntityManagerFactory emf = null;
+    List<SupportiveInfo> sis =null;
+    SupportiveInfoJpaController sijc =null;
+    SupportiveInfoPK sipk =null;
     SupportiveInfo si =null;
+   
     @Override
     public List<SupportiveInfo> selectAllSupportiveInfo() {
         emf =Persistence.createEntityManagerFactory(JPAUtil.JPA);
@@ -34,7 +35,7 @@ public class SupportiveInfoDAOImpl implements ISupportiveInfoDAO{
 
     @Override
     public SupportiveInfo selectSupportiveInfoByBoth(String empId, String rp) {
-         emf =Persistence.createEntityManagerFactory(JPAUtil.JPA);
+        emf =Persistence.createEntityManagerFactory(JPAUtil.JPA);
         sijc = new SupportiveInfoJpaController(emf);
         sipk =new SupportiveInfoPK(empId, rp);
         si = sijc.findSupportiveInfo(sipk);

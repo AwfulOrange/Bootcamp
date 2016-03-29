@@ -19,24 +19,26 @@ import static org.junit.Assert.*;
  * @author bootcamp19
  */
 public class ReviewPeriodDAOImplTest {
-            ReviewPeriodDAOImpl rpdaoi = new  ReviewPeriodDAOImpl();
-        
+
+    ReviewPeriodDAOImpl rpdaoi = new ReviewPeriodDAOImpl();
+    ReviewPeriod rp = new ReviewPeriod("999999");
+
     public ReviewPeriodDAOImplTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
-
+        rp.setId(999);
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -47,8 +49,33 @@ public class ReviewPeriodDAOImplTest {
     @Test
     public void testSelectReviewPeriodByRP() {
         ReviewPeriod rp = rpdaoi.selectReviewPeriodByRP("201503");
-        assert(rp!=null);
+        assert (rp != null);
         System.err.println("testSelectReviewPeriodByRP success");
     }
-    
+
+    @Test
+    public void testAddReviewPeriod() {
+        int i = rpdaoi.addReviewPeriod(rp);
+        assert (i == 1);
+        System.out.println("testAddReviewPeriod success");
+        rpdaoi.deleteReviewPeriod(rp.getReviewPeriod());
+    }
+
+    @Test
+    public void testDeleteReviewPeriod() {
+        int i;
+        rpdaoi.addReviewPeriod(rp);
+        i = rpdaoi.deleteReviewPeriod(rp.getReviewPeriod());
+        assert (i == 1);
+        System.out.println("testDeleteReviewPeriod success");
+    }
+
+    @Test
+    public void teatFindMaxRp() {
+        rpdaoi.addReviewPeriod(rp);
+        assertEquals(rpdaoi.findMaxRp(), rp.getReviewPeriod());
+        System.out.println("teatFindMaxRp success");
+        rpdaoi.deleteReviewPeriod(rp.getReviewPeriod());
+    }
+
 }

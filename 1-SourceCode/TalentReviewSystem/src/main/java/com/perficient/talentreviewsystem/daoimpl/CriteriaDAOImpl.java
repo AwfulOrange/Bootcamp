@@ -36,7 +36,7 @@ public class CriteriaDAOImpl implements ICriteriaDAO {
         return criterias;
     }
 
-    //精确查找
+    
     @Override
     public List<Criteria> getCriteriaByBoth(String criteria, String level) {
         emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);

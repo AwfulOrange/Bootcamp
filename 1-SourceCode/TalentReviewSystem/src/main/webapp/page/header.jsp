@@ -27,14 +27,14 @@
                 <!--<td class="w1-head-name"></td>-->
                 <!--</div></td>-->
                 <td class="w1-log-out"  align="right"width="10%">
-                   {{info.screenName}} <a id="logout" href=<%=logoutLink%> > <span class="glyphicon glyphicon-log-out" aria-hidden="true">&ensp;</span>Log-out<img class="w1-tab-img"src="../img/logout.png" ></a>
+                    <b style="font-size: 14px;"> {{info.screenName}}</b> <a id="logout" href=<%=logoutLink%> > <span class="glyphicon glyphicon-log-out" aria-hidden="true">&ensp;</span>Log-out</a>
                 </td>
             </tr>
         </tab
     </div>
                 <script>
                        angular.element(document).ready(function() {
-                            angular.bootstrap(document.getElementById("app1"),['myApp1']);
+                            angular.bootstrap("app1",['myApp1']);
                           });
      </script>
 </header>

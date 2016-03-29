@@ -1,4 +1,4 @@
-<body ng-app="myApp1"  class="contentStyle" ng-controller="pmoCtrl" id="app1">
+<body ng-app="myApp1"  class="contentStyle" ng-controller="pmoCtrl" ng-model="app1">
     <link href="../css/hoverCss.css" rel="stylesheet" />
     <div class="contentStyle"  >
 
@@ -13,11 +13,11 @@
             <table  class="w3-hoverable" style="background-color:gainsboro" >
 
                     <tr></tr>
-                    <tr  ng-click="p=!p" id="pmo{{$index}}">
+                    <tr  ng-click="p=!p" id="pmo{{$index}}" style="cursor:pointer">
                         
                         <td  style="width:15%;text-align:left;" >
-                <img ng-if="p"  style="height:15px;width:15px;position:relative;top:-5px;"  src="../img/down_1.png"   />
-                <img ng-if="!p"  style="height:15px;width:15px;position:relative;top:-5px;" src="../img/up_1.png"  />
+                <img ng-if="p"  class="w1-imgpmo"  src="../img/up_1.png"   />
+                <img ng-if="!p" class="w1-imgpmo"  src="../img/down_1.png"  />
                             
                             {{ pmo.reviewname }}</td>
                         <!--<td style="width: 18%;text-align:right" ng-init=" pstatus='incompleted'" ng-model="pstatus">{{pstatus}}</td>-->
@@ -57,9 +57,9 @@
                     
                     <table class="w3-table-all"  ng-show="personalshow">
                        
-                        <h class="w3-hoverable" style="font-size:15px" ng-click="personalshow=!personalshow" id="P{{$index}}">
-                        <img ng-if="personalshow"  style="height:15px;width:15px;position:relative;top:-5px;"  src="../img/down_1.png"   />
-                        <img ng-if="!personalshow"  style="height:15px;width:15px;position:relative;top:-5px;" src="../img/up_1.png"  />
+                        <h class="w3-hoverable" style="font-size:15px;cursor:pointer;" ng-click="personalshow=!personalshow" id="P{{$index}}">
+                        <img ng-if="personalshow"  class="w1-imgpmo"  src="../img/down_1.png"   />
+                        <img ng-if="!personalshow"  class="w1-imgpmo" src="../img/up_1.png"  />
                             Personal Profile                        
                         </h>
                         <tr>
@@ -102,10 +102,10 @@
                     </table>
                        <br>
                     <table class="w3-table-all"  ng-show="suportshow">
-                        <h class="w3-hoverable" style="font-size:15px;" ng-click="suportshow=!suportshow" id="S{{$index}}">
-                         <img ng-if="suportshow"  style="height:15px;width:15px;position:relative;top:-5px;"  
-                              src="../img/down_1.png"   />
-                        <img ng-if="!suportshow"  style="height:15px;width:15px;position:relative;top:-5px;" src="../img/up_1.png"  />
+                        <h class="w3-hoverable" style="font-size:15px;cursor:pointer;" ng-click="suportshow=!suportshow" id="S{{$index}}">
+                         <img ng-if="suportshow"  class="w1-imgpmo"   
+                              src="../img/up_1.png"   />
+                        <img ng-if="!suportshow"  class="w1-imgpmo" src="../img/down_1.png"  />
                             Supportive Information</h> 
                         <tr>
                             <td>

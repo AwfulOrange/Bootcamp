@@ -33,9 +33,9 @@
                     
                     <table class="w3-table-all"  ng-show="personalshow">
                        
-                        <h class="w3-hoverable" style="font-size:15px" ng-click="personalshow=!personalshow" id="P{{$index}}">
-                        <img ng-if="personalshow"  style="height:15px;width:15px;position:relative;top:-5px;"  src="../img/down_1.png"   />
-                        <img ng-if="!personalshow"  style="height:15px;width:15px;position:relative;top:-5px;" src="../img/up_1.png"  />
+                        <h class="w3-hoverable" style="font-size:15px;cursor:pointer;" ng-click="personalshow=!personalshow" id="P{{$index}}">
+                        <img ng-if="personalshow"  class="w1-img"   src="../img/up_1.png"   />
+                        <img ng-if="!personalshow"  class="w1-img"  src="../img/down_1.png"  />
                             Personal Profile                        
                         </h>
                         <tr>
@@ -78,10 +78,10 @@
                     </table>
                        <br>
                     <table class="w3-table-all"  ng-show="suportshow">
-                        <h class="w3-hoverable" style="font-size:15px;" ng-click="suportshow=!suportshow" id="S{{$index}}">
-                         <img ng-if="suportshow"  style="height:15px;width:15px;position:relative;top:-5px;"  
-                              src="../img/down_1.png"   />
-                        <img ng-if="!suportshow"  style="height:15px;width:15px;position:relative;top:-5px;" src="../img/up_1.png"  />
+                        <h class="w3-hoverable" style="font-size:15px;cursor:pointer;" ng-click="suportshow=!suportshow" id="S{{$index}}">
+                         <img ng-if="suportshow"  class="w1-img" 
+                              src="../img/up_1.png"   />
+                        <img ng-if="!suportshow"  class="w1-img" src="../img/down_1.png"  />
                             Supportive Information</h> 
                         <tr>
                             <td>

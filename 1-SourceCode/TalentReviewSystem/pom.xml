@@ -104,6 +104,13 @@
             <artifactId>spring-security-cas-client</artifactId>
             <version>3.0.8.RELEASE</version>
         </dependency>
+        <!-- easymock-->
+        <dependency>
+            <groupId>org.easymock</groupId>
+            <artifactId>easymock</artifactId>
+            <version>3.4</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -121,9 +128,9 @@
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
-                    <configuration>
-                        <destFile>${sonar.jacoco.reportPath}</destFile>
-                     </configuration>
+                        <configuration>
+                            <destFile>${sonar.jacoco.reportPath}</destFile>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>

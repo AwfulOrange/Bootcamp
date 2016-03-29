@@ -16,6 +16,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -30,14 +31,15 @@ import org.springframework.security.core.userdetails.UserDetails;
 public class RoleREST {
     
     @GET
-    //@Produces("application/json")
-    public String getLoginUser(){
+    @Produces("application/json")
+    public LoginUser getLoginUser(){
         String empsInfo = HttpConnection.getFromUrl(new GetProperties().getProperty("tptPath"));
         List<Employee> empList = JSON.parseArray(empsInfo, Employee.class);
         LoginUser login = new LoginUser();
+        
         if (!(SecurityContextHolder.getContext()
                 .getAuthentication().getPrincipal() instanceof UserDetails)) {
-            return "error";
+            return null;
         }
         UserDetails ud = (UserDetails)SecurityContextHolder.getContext()
                 .getAuthentication().getPrincipal();
@@ -49,7 +51,13 @@ public class RoleREST {
             login.setRole(RoleList.ROLE_PMO);
         }
         login.setScreenName(ud.getUsername());
-        String rs = JSON.toJSONString(login);
-        return rs;
+        for(int i=0;i<empList.size();i++)
+        {
+            if(login.getScreenName().equalsIgnoreCase(empList.get(i).getScreenName())){
+                login.setId(empList.get(i).getId());
+                break;
+            }
+        }
+        return login;
     }
 }

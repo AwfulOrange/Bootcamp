@@ -58,8 +58,8 @@
                     <table class="w3-table-all"  ng-show="personalshow">
                        
                         <h class="w3-hoverable" style="font-size:15px;cursor:pointer;" ng-click="personalshow=!personalshow" id="P{{$index}}">
-                        <img ng-if="personalshow"  class="w1-imgpmo"  src="../img/down_1.png"   />
-                        <img ng-if="!personalshow"  class="w1-imgpmo" src="../img/up_1.png"  />
+                        <img ng-if="personalshow"  class="w1-imgpmo"  src="../img/up_1.png"   />
+                        <img ng-if="!personalshow"  class="w1-imgpmo" src="../img/down_1.png"  />
                             Personal Profile                        
                         </h>
                         <tr>

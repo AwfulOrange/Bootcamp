@@ -32,7 +32,6 @@ public class ApplicationConfig extends Application {
         resources.add(com.perficient.talentreviewsystem.restful.CriteriaREST.class);
         resources.add(com.perficient.talentreviewsystem.restful.EmployeeREST.class);
         resources.add(com.perficient.talentreviewsystem.restful.RoleREST.class);
-        resources.add(com.perficient.talentreviewsystem.restful.RoleRest.class);
         resources.add(com.perficient.talentreviewsystem.restful.TalentReviewScoreREST.class);
     }
     

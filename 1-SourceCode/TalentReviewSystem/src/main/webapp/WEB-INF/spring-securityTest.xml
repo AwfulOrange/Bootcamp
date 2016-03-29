@@ -9,7 +9,7 @@
 
     <security:http auto-config="true" entry-point-ref="casAuthenticationEntryPoint">
 
-        <security:intercept-url pattern="/page/score.jsp" access="ROLE_REVIEWER"/>
+        <security:intercept-url pattern="/page/score.jsp" access="ROLE_REVIEWER,ROLE_PMO"/>
         <security:custom-filter position="CAS_FILTER" ref="casAuthenticationFilter" />
         <security:custom-filter ref="requestSingleLogoutFilter" before="LOGOUT_FILTER" />  
         <security:custom-filter ref="singleLogoutFilter" before="CAS_FILTER" />
@@ -23,7 +23,7 @@
     <!-- This section is used to configure CAS. The service is the actual redirect that will be triggered after the CAS login 
     sequence. -->
     <bean id="serviceProperties" class="org.springframework.security.cas.ServiceProperties">
-        <property name="service" value="http://10.2.1.183:8080/TRS/j_spring_cas_security_check"></property>
+        <property name="service" value="http://localhost:8080/TRS/j_spring_cas_security_check"></property>
         <property name="sendRenew" value="false"></property>
     </bean>
 
@@ -56,7 +56,7 @@
           
     <!-- logout the server -->  
     <bean id="requestSingleLogoutFilter" class="org.springframework.security.web.authentication.logout.LogoutFilter">  
-        <constructor-arg value="http://gdccas.perficient.com/logout?service=http://10.2.1.183:8080/TRS/page/score.jsp" />  
+        <constructor-arg value="http://gdccas.perficient.com/logout?service=http://localhost:8080/TRS/page/score.jsp" />  
         <constructor-arg>  
             <bean class="org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler" />  
         </constructor-arg>

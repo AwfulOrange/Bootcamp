@@ -6,13 +6,21 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
     var reviewerId = "";
     var pmoId = "";
 
-    $http.get("http://10.2.1.183:8080/TRS/test/testpmo.json")
+    $http.get("http://10.2.1.183:8080/TRS/web/role")
             .success(function (ndata) {
                 $scope.info = ndata;
                 var info = ndata;
-                var ID = ndata[0].pmoid;
-                console.log(ndata)
+                var ID = ndata[0].id;
+                //console.log(ndata)
 
+            $scope.checkT=function(){
+                 if(info[0].role=="pmo"){
+                     console.log(info[0].role)
+                     return true;}
+                 else {
+                     return false;}
+             } 
+                        
 
                 $http.get("http://10.2.1.183:8080/TRS/web/employee/reviewer/" + ID)
                         .success(function (data) {
@@ -44,13 +52,8 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
                                 }
                             }
                         });
-                        
-                  $scope.check=function(){
-                 if(info[0].title=="pmo"){
-                     return true;}
-                 else 
-                     return false;
-             } 
+
+             
             })
 
 

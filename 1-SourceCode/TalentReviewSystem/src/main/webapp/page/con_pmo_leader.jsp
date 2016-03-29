@@ -1,4 +1,4 @@
-<body ng-app="myApp1"  class="contentStyle" ng-controller="pmoCtrl">
+<body ng-app="myApp1"  class="contentStyle" ng-controller="pmoCtrl" id="app1">
     <link href="../css/hoverCss.css" rel="stylesheet" />
     <div class="contentStyle"  >
 

@@ -16,8 +16,10 @@
 <script src="../js/angularjs.js" type="text/javascript"></script>
 <script src="../js/angular.min.js" type="text/javascript"></script>
 <script src="../js/MyPmo.js" type="text/javascript"></script>
+<!--<script src="../js/head.js" type="text/javascript"></script>-->
 <script src= "../js/project.js"></script>
 <script src= "../js/myUsers.js"></script>
+<script src= "../js/jquery.min.js"></script>
 <link href="../css/bootstrap.css" rel="stylesheet"/>
 <link href="../css/bootstrap.min.css" rel="stylesheet"/>
 <link href="../css/header.css" rel="stylesheet"/>

@@ -31,17 +31,29 @@ angular.module('myApp1', []).controller('pmoCtrl',
                         lvlCriteria.push(criteria[i]);
                     }
                 }
-                console.log(lvlCriteria);
+               // console.log(lvlCriteria);
                 return lvlCriteria;
             }
 
 
-            $http.get("http://10.2.1.183:8080/TRS/test/testpmo.json")
+            $http.get("http://10.2.1.183:8080/TRS/web/role")
                     .success(function (ndata) {
                         $scope.info=ndata;
                         var info = ndata;
-                        var ID = ndata[0].pmoid;
-                          console.log(ndata)
+                        var ID = ndata[0].id
+                       // console.log(info);
+                         // console.log(ndata)
+                  
+                 $scope.checkT=function(){
+                 if(info[0].role=="pmo"){
+                     console.log(info[0].title)
+                     return true;}
+                 else {
+                     return false;}
+             } 
+             
+             
+             
                         $http.get("http://10.2.1.183:8080/TRS/web/employee/pmo/" + ID)
                                 .success(function (data) {
                                     $scope.pmos = data;
@@ -79,12 +91,7 @@ angular.module('myApp1', []).controller('pmoCtrl',
                                 })
 
 
-                 $scope.check=function(){
-                 if(info[0].title=="pmo"){
-                     return true;}
-                 else 
-                     return false;
-             } 
+
 
 
 

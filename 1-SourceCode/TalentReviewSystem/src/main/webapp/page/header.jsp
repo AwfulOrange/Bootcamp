@@ -17,16 +17,24 @@
             <img src="../img/title_logo.png">
         </div>
             
-        <table class="nav nav-tabs" role="tablist" ng-controller="pmoCtrl">
+        <table class="nav nav-tabs" role="tablist" >
+            <tr >
             
-            <tr>
-                <td  class="w1-tab-hover"><a href="${pageContext.request.contextPath}/page/score.jsp"  class="w1-tab-a"><b>Score</b> </a></td>
-                <td class="w1-tab-hover"  ng-show="check()"><a href="${pageContext.request.contextPath}/page/pmo_leader.jsp" class="w1-tab-a"><b>PMO-Leader</b> </a></td>
-                <td>{{info[0].name}}</td>
-                <td>
-                    <li><a id="logout" href=<%=logoutLink%> > <span class="glyphicon glyphicon-log-out" aria-hidden="true">&ensp;</span>Log-out</a></li>
+                <td   class="w1-tab-hover" ><a href="${pageContext.request.contextPath}/page/score.jsp"  class="w1-tab-a"><b>Score</b> </a></td>
+
+            
+                <td class="w1-tab-hover"   ng-show="checkT()" ><a href="${pageContext.request.contextPath}/page/pmo_leader.jsp" class="w1-tab-a"><b >PMO-Leader</b> </td>
+                <!--<td class="w1-head-name"></td>-->
+                <!--</div></td>-->
+                <td class="w1-log-out"  align="right"width="10%">
+                   {{info[0].screenName}} <a id="logout" href=<%=logoutLink%> > <span class="glyphicon glyphicon-log-out" aria-hidden="true">&ensp;</span>Log-out<img class="w1-tab-img"src="../img/logout.png" ></a>
                 </td>
             </tr>
-        </table>
+        </tab
     </div>
+                <script>
+                       angular.element(document).ready(function() {
+                            angular.bootstrap(document.getElementById("app1"),['myApp1']);
+                          });
+     </script>
 </header>

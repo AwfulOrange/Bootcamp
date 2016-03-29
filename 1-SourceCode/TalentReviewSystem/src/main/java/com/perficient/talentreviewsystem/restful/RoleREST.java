@@ -31,8 +31,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 public class RoleREST {
     
     @GET
-    @Produces("application/json")
-    public LoginUser getLoginUser(){
+    //@Produces("application/json")
+    public String getLoginUser(){
         String empsInfo = HttpConnection.getFromUrl(new GetProperties().getProperty("tptPath"));
         List<Employee> empList = JSON.parseArray(empsInfo, Employee.class);
         LoginUser login = new LoginUser();
@@ -58,6 +58,7 @@ public class RoleREST {
                 break;
             }
         }
-        return login;
+        String rs = JSON.toJSONString(login);
+        return rs;
     }
 }

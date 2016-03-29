@@ -5,6 +5,7 @@
  */
 package com.perficient.talentreviewsystem.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -82,6 +83,7 @@ public class TalentReviewScore implements Serializable {
     private EmployeeInfo employeeInfo;
     @JoinColumn(name = "review_period", referencedColumnName = "review_period", insertable = false, updatable = false)
     @ManyToOne(optional = false)
+    @JSONField(serialize=false)
     private ReviewPeriod reviewPeriod1;
 
      @Transient

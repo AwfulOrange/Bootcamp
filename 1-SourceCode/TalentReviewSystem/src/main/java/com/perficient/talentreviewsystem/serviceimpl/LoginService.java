@@ -28,7 +28,7 @@ public class LoginService extends AbstractCasAssertionUserDetailsService{
 
     @Override
     protected UserDetails loadUserDetails(Assertion asrtn) {
-        final List<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
+        final List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
         AttributePrincipal principal = asrtn.getPrincipal();
         
         String name = principal.getName();

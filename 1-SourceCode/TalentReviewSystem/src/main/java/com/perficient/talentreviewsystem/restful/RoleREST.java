@@ -58,7 +58,7 @@ public class RoleREST {
                 break;
             }
         }
-        String rs = JSON.toJSONString(login);
-        return rs;
+        
+        return JSON.toJSONString(login);
     }
 }

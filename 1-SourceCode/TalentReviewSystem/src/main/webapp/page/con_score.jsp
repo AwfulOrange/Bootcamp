@@ -70,8 +70,8 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>{{emp.gdcStartDate}}</td>
-                            <td>{{emp.workStartDate}}</td>
+                            <td>{{emp.gdcExperience}}</td>
+                            <td>{{emp.workExperience}}</td>
                             <td></td>
                             <td></td>
                         </tr>

@@ -47,7 +47,7 @@ public class TalentReviewScoreServiceImplTest {
     public void testAdd() {
         List<TalentReviewScore> scoreList = new ArrayList<TalentReviewScore>();
         TalentReviewScore trScore = new TalentReviewScore();
-        trScore.setEmployeeId("61");
+        trScore.setEmployeeId("1140");
         trScore.setAchievingResults(1);
         trScore.setAchievingResultsComment("a");
         trScore.setLearningAgility(2);
@@ -57,6 +57,8 @@ public class TalentReviewScoreServiceImplTest {
         trScore.setVersatility(4);
         trScore.setVersatilityComment("d");
         trScore.setStatus(1);
+        trScore.setReviewerId("91");
+        trScore.setPmoId("212");
         scoreList.add(trScore);
         TalentReviewScoreServiceImpl instance = new TalentReviewScoreServiceImpl();
         int expResult = 1;

@@ -21,6 +21,8 @@ import org.testng.annotations.Test;
  *
  * @author bootcamp19
  */
+
+/** PMO **/
 public class TC002_US04 extends TestCaseBase{
         
     public static final String URL="http://10.2.1.183:8080/TRS/page/score.jsp";
@@ -36,8 +38,7 @@ public class TC002_US04 extends TestCaseBase{
        String LoginPagetruetitle = TestCaseBase.driver.getTitle();
        String LoginPageexptitle = "Perficient CAS";
        Assert.assertEquals(LoginPagetruetitle,LoginPageexptitle,"fail");
-       
-       login("yuhang.zhang","tRApha7T");
+       login("testEM","testEM@gdc");
        Thread.sleep(2000);
        Assert.assertNotNull(TestCaseBase.driver.findElement(By.linkText("Score")));
        Assert.assertNotNull(TestCaseBase.driver.findElement(By.linkText("PMO-Leader")));

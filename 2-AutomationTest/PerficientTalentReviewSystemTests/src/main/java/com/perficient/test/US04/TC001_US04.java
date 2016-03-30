@@ -5,13 +5,12 @@
  */
 package com.perficient.test.US04;
 
-import static com.perficient.test.US02.TC001_US02.sp;
-import static com.perficient.test.US03.TC001_US03.URL;
-import static com.perficient.test.US04.TC002_US04.sp;
+
 import com.perficient.test.pages.LoginPage;
 import com.perficient.test.pages.ScorePage;
 import com.perficient.test.util.TestCaseBase;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -31,13 +30,18 @@ public class TC001_US04 extends TestCaseBase{
     public static LoginPage lp = new LoginPage();
     public static ScorePage sp = new ScorePage();
     
-//      public static boolean CheckTab(){
-//        boolean flag = false;
-//        if(TestCaseBase.driver.findElement(By.xpath("/html/body/header/div/table/tbody/tr/td[2]/a/b"))==null){
-//            flag = true;
-//        }
-//        return flag;    
-//    }
+      public static boolean CheckTab(){
+
+        try{
+            TestCaseBase.driver.findElement(By.linkText("PMO-Leader"));
+            return true;
+        }
+        
+        catch(NoSuchElementException e){
+            System.out.println(e);
+            return false;
+        }
+    }
             
     @Test
     public static void Login() throws Exception{
@@ -47,10 +51,10 @@ public class TC001_US04 extends TestCaseBase{
        String LoginPagetruetitle = TestCaseBase.driver.getTitle();
        String LoginPageexptitle = "Perficient CAS";
        Assert.assertEquals(LoginPagetruetitle,LoginPageexptitle,"fail to redirect");        
-       login("young.tao","Weph8zEr");
+       login("testCM","testCM@gdc");
        Thread.sleep(6000);
        Assert.assertNotNull(TestCaseBase.driver.findElement(By.linkText("Score")));
-       Assert.assertNull(TestCaseBase.driver.findElement(By.linkText("PMO-Leader")));      
+       Assert.assertFalse(CheckTab());      
        Thread.sleep(2000);
        logout();
        String LoginPagetruetitle1 = TestCaseBase.driver.getTitle();

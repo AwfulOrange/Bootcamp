@@ -41,7 +41,7 @@ public class TC002_US03 extends TestCaseBase{
     public static void click() throws InterruptedException{
          TestCaseBase.driver.navigate().to(URL);
          PageFactory.initElements(TestCaseBase.driver,lp);
-         login("young.tao","Weph8zEr");
+       login("testCM","testCM@gdc");
          PageFactory.initElements(TestCaseBase.driver, sp); 
          Thread.sleep(6000);
          sp.clickElement.click(); 

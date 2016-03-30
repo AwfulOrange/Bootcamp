@@ -42,7 +42,7 @@ public class TC001_US02 extends TestCaseBase{
         TestCaseBase.driver.navigate().to(URL);
         PageFactory.initElements(TestCaseBase.driver, sp); 
         PageFactory.initElements(TestCaseBase.driver,lp);
-        login("young.tao","Weph8zEr");
+       login("testCM","testCM@gdc");
         Thread.sleep(2000);
         //first row
         sp.clickElement.click();

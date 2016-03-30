@@ -39,7 +39,7 @@ public class TC001_US01 extends TestCaseBase{
     public static void click() throws InterruptedException{
         TestCaseBase.driver.navigate().to(URL);      
         PageFactory.initElements(TestCaseBase.driver,lp);
-        login("young.tao","Weph8zEr");
+       login("testCM","testCM@gdc");
         
         PageFactory.initElements(TestCaseBase.driver, new ScorePage()); 
 

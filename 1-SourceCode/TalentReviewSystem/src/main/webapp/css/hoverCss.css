@@ -38,7 +38,13 @@ body{
 }
 
 .minwidth{
-    min-width: 200px;
+    width:20%;
+    min-width: 100px;
+    max-width: 100%;
+}
+.minwidth2{
+    width:60%;
+    min-width: 100px;
     max-width: 100%;
 }
 .text-area{

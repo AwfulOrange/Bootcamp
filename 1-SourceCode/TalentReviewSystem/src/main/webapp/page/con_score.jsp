@@ -157,7 +157,7 @@
                             </td>
                           
                             
-                            <td class="minwidth">
+                            <td class="minwidth2">
                                 <textarea class="text-area" name="text" rows="4" cols="100"
                                        ng-disabled="editable()"
                                        ng-init="achievingResultsComment=emp.score.achievingResultsComment" 
@@ -168,7 +168,7 @@
                         </tr>
                         <tr>
                         <td>Organization Impact</td>
-                        <td class="minwidth">
+                        <td >
                                   <select class="select-s"  ng-disabled="editable()"
                                           ng-model="orgImpact"  ng-options="act for act in number" 
                                             ng-init="orgImpact=emp.score.orgImpact" 
@@ -202,7 +202,7 @@
                         </tr>
                         <tr>
                             <td>Learning Agility   </td>
-                            <td class="minwidth">     
+                            <td >     
                                <select class="select-s"  ng-disabled="editable()"
                                        ng-model="learningAgility"  ng-options="act for act in number" 
                                        ng-init="learningAgility=emp.score.learningAgility" 
@@ -230,7 +230,7 @@
                                     </td>
                         <tr>
                             <td>Versatility</td>
-                            <td class="minwidth">
+                            <td >
                                  <select class="select-s"  ng-disabled="editable()"
                                         ng-model="versatility"  ng-options="act for act in number"  
                                         ng-init="versatility=emp.score.versatility" 

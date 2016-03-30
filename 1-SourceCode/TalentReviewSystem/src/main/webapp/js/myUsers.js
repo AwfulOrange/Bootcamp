@@ -15,7 +15,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
 
             $scope.checkT=function(){
                  if(info.role=="pmo"){
-                     console.log(info.role)
+                     //console.log(info.role)
                      return true;}
                  else {
                      return false;}
@@ -83,7 +83,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
                 lvlCriteria.push(criteria[i]);
             }
         }
-        console.log(lvlCriteria);
+        //console.log(lvlCriteria);
         return lvlCriteria;
     }
 

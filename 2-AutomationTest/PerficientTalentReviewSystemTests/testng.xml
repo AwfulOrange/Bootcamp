@@ -21,16 +21,16 @@
             
         </classes>
  </test>
- <test name="US03">
+<!-- <test name="US03">
         <classes>
             <class name="com.perficient.test.US03.TC001_US03"/>
             <class name="com.perficient.test.US03.TC002_US03"/>
         </classes>
- </test> 
+ </test> -->
  
  <test name="US04">
         <classes>
-<!--            <class name="com.perficient.test.US04.TC001_US04"/>-->
+           <class name="com.perficient.test.US04.TC001_US04"/>
            <class name="com.perficient.test.US04.TC002_US04"/>
         </classes>
  </test>

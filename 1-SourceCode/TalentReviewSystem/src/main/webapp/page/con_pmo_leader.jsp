@@ -23,7 +23,8 @@
                         <!--<td style="width: 18%;text-align:right" ng-init=" pstatus='incompleted'" ng-model="pstatus">{{pstatus}}</td>-->
                     </tr>
                 </table>
-            <div ng-show="p" class="w1-form">
+            <div ng-show="p">
+            <div  class="w1-form">
               <table style="text-align:left;font-size: 13px;">
                <tr>
                    <th style="width:16%;float:left;padding-bottom:5px ">Reviewee ID</th>
@@ -291,7 +292,7 @@
             <!--<button class="w3-btn w3-red w3-ripple"  ng-disabled="editable()" ng-click="postSubmit()" id="submitbt">&#10004; Submit</button>-->
 
             </div>  
-                        
+            </div>          
         </div>
          <button class="w3-btn w3-red w3-ripple"  ng-disabled="editablebutton()" ng-click="postSubmit()" id="submitbt">&#10004; Submit</button>
         <table>

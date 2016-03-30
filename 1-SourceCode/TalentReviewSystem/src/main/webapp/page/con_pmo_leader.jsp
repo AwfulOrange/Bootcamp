@@ -157,6 +157,7 @@
                     <br>
                     <table class="table-s">
                         <tr><td><h style="font-size:15px;padding-top:-5px;text-align: left;"><b>Score</b></h></td> 
+                        <td></td>
                          <td><h style="font-size:15px;padding-top:-5px;text-align: left; left: 40%"><b>Comment</b></h></td>
                         </tr>
                         <tr>

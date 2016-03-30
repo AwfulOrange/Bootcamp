@@ -14,30 +14,13 @@ body{
   color:#C00020;
   text-decoration:none;
   position:relative;
-  left:55px;
+  left:5px;
 }
-.tip-2{
-  color:#C00020;
-  text-decoration:none;
-  position:relative;
-  left:40px;
-}
-.tip-3{
-  color:#C00020;
-  text-decoration:none;
-  position:relative;
-  left:70px;
-}
-.tip-4{
-  color:#C00020;
-  text-decoration:none;
-  position:relative;
-  left:105px;
-}
-.tip-1 span,.tip-2 span,.tip-3 span,.tip-4 span{
+
+.tip-1 span{
   display:none;
 }
-.tip-1:hover,.tip-2:hover,.tip-3:hover,.tip-4:hover{
+.tip-1:hover{
   cursor:pointer;
 }
 
@@ -54,20 +37,8 @@ body{
   opacity:0.8;
 }
 
-.tip-2:hover .popbox,.tip-3:hover .popbox,.tip-4:hover .popbox{
-  font-size:14px;
-  display:block;
-  position:absolute;
-  top:-150px;
-  left:20px;
-  width:650px;
-  background-color:#b00715;
-  color:white;
-  padding:10px;
-  opacity:0.8;
-}
 .minwidth{
-    min-width: 400px;
+    min-width: 200px;
     max-width: 100%;
 }
 .text-area{

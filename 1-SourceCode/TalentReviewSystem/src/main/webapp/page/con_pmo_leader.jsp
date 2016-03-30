@@ -23,8 +23,7 @@
                         <!--<td style="width: 18%;text-align:right" ng-init=" pstatus='incompleted'" ng-model="pstatus">{{pstatus}}</td>-->
                     </tr>
                 </table>
-            <div ng-show="p">
-            <div  class="w1-form">
+            <div ng-show="p" class="w1-form">
               <table style="text-align:left;font-size: 13px;">
                <tr>
                    <th style="width:16%;float:left;padding-bottom:5px ">Reviewee ID</th>
@@ -162,7 +161,9 @@
                         </tr>
                         <tr>
                             <td class="minwidth">Achieving Results
-                                <select  class="select-s1"  
+                            </td>
+                            <td class="minwidth">
+                                <select  class="select-s"  
                                          ng-disabled="editable(status)"
                                          ng-init="achievingResults=emp.score.achievingResults" 
                                          ng-model="achievingResults"  ng-options="act for act in number" 
@@ -190,12 +191,14 @@
                         </tr>
                         <tr>
                         <td>Organization Impact
-                                  <select class="select-s2"  ng-disabled="editable(status)"
+                        </td>
+                        <td class="minwidth">
+                                  <select class="select-s"  ng-disabled="editable(status)"
                                           ng-model="orgImpact"  ng-options="act for act in number" 
                                             ng-init="orgImpact=emp.score.orgImpact" 
                                            ng-blur="save(emp.id,achievingResults,orgImpact,learningAgility,versatility
                                              ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="B{{$index}}"></select>
-                          <a class="tip-2" id="J{{$index}}" >?<span class="popbox"><ol>
+                          <a class="tip-1" id="J{{$index}}" >?<span class="popbox"><ol>
                                        <li>{{findCriteriaByName("Org Impact")[0].rule}}</li><br/>
                                       <li>{{findCriteriaByName("Org Impact")[1].rule}}</li><br/>
                                       <li>{{findCriteriaByName("Org Impact")[2].rule}}</li><br/>
@@ -219,13 +222,15 @@
                             <td></td>
                         </tr>
                         <tr>
-                            <td>Learning Agility        
-                               <select class="select-s3"  ng-disabled="editable(status)"
+                            <td>Learning Agility 
+                            </td>
+                            <td class="minwidth">
+                               <select class="select-s"  ng-disabled="editable(status)"
                                        ng-model="learningAgility"  ng-options="act for act in number" 
                                        ng-init="learningAgility=emp.score.learningAgility" 
                                        ng-blur=" save(emp.id,achievingResults,orgImpact,learningAgility,versatility
                                              ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="C{{$index}}"></select>          
-                           <a class="tip-3"  id="K{{$index}}">?<span class="popbox"><ol>
+                           <a class="tip-1"  id="K{{$index}}">?<span class="popbox"><ol>
                                        <li>{{findCriteriaByName("Learning Agility")[0].rule}}</li><br/>
                                        <li>{{findCriteriaByName("Learning Agility")[1].rule}}</li><br/>
                                        <li>{{findCriteriaByName("Learning Agility")[2].rule}}</li><br/>
@@ -244,12 +249,14 @@
                                     </td>
                         <tr>
                             <td>Versatility
-                                 <select class="select-s4"  ng-disabled="editable(status)"
+                            </td>
+                            <td class="minwidth">
+                                 <select class="select-s"  ng-disabled="editable(status)"
                                         ng-model="versatility"  ng-options="act for act in number"  
                                         ng-init="versatility=emp.score.versatility" 
                                         ng-blur=" save(emp.id,achievingResults,orgImpact,learningAgility,versatility
                                              ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="D{{$index}}"></select>         
-                          <a class="tip-4"  id="L{{$index}}">?<span class="popbox"><ol>
+                          <a class="tip-1"  id="L{{$index}}">?<span class="popbox"><ol>
                                       <li>{{findCriteriaByName("Versatility")[0].rule}}</li><br/>
                                       <li>{{findCriteriaByName("Versatility")[1].rule}}</li><br/>
                                       <li>{{findCriteriaByName("Versatility")[2].rule}}</li><br/>
@@ -283,7 +290,7 @@
 
             </div>  
                         
-        </div></div>
+        </div>
          <button class="w3-btn w3-red w3-ripple"  ng-disabled="editablebutton()" ng-click="postSubmit()" id="submitbt">&#10004; Submit</button>
         <table>
             <tr></tr>

@@ -9,17 +9,19 @@
 <meta name="description" content="">
 <meta name="keywords" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>TalentReviewSystem</title>
+<title>Talent Review System</title>
 <meta name="renderer" content="webkit">
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <!--<script src="../js/nav_js.js" type="text/javascript"></script>-->
+<script src= "../js/jquery.min.js"></script>
 <script src="../js/angularjs.js" type="text/javascript"></script>
+
 <script src="../js/angular.min.js" type="text/javascript"></script>
 <script src="../js/MyPmo.js" type="text/javascript"></script>
 <!--<script src="../js/head.js" type="text/javascript"></script>-->
 <script src= "../js/project.js"></script>
 <script src= "../js/myUsers.js"></script>
-<script src= "../js/jquery.min.js"></script>
+
 <link href="../css/bootstrap.css" rel="stylesheet"/>
 <link href="../css/bootstrap.min.css" rel="stylesheet"/>
 <link href="../css/header.css" rel="stylesheet"/>

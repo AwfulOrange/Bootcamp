@@ -133,17 +133,20 @@
                     <br>
                     <table class="table-s">
                         <tr><td><h style="font-size:15px;padding-top:-5px;text-align: left;"><b>Score</b></h></td> 
+                        <td></td>
                          <td><h style="font-size:15px;padding-top:-5px;text-align: left; left: 40%"><b>Comment</b></h></td>
                         </tr>
                         <tr>
-                            <td class="minwidth">Achieving Results
-                                <select  class="select-s1"  
+                            <td class="minwidth">Achieving Results</td>
+                            <td class="minwidth">
+                                <select  class="select-s"  
                                          ng-disabled="editable()"
                                          ng-init="achievingResults=emp.score.achievingResults" 
                                          ng-model="achievingResults"  ng-options="act for act in number" 
                                          ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
                         ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="A{{$index}}">{{emp.id}}  
                                 </select>
+                            
                                 <a class="tip-1" id="I{{$index}}">?<span class="popbox"  style="z-index:999;"><ol>
                                             <li>{{findCriteriaByLevel("Achieves Results",emp.title)[0].rule}}</li><br/>
                                             <li>{{findCriteriaByLevel("Achieves Results",emp.title)[1].rule}}</li><br/>
@@ -164,13 +167,17 @@
                             </td>
                         </tr>
                         <tr>
-                        <td>Organization Impact
-                                  <select class="select-s2"  ng-disabled="editable()"
+                        <td>Organization Impact</td>
+                        <td class="minwidth">
+                                  <select class="select-s"  ng-disabled="editable()"
                                           ng-model="orgImpact"  ng-options="act for act in number" 
                                             ng-init="orgImpact=emp.score.orgImpact" 
                                            ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
-                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="B{{$index}}"></select>
-                          <a class="tip-2" id="J{{$index}}" >?<span class="popbox"><ol>
+                                               ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="B{{$index}}">
+                                               
+                                  </select>
+                        
+                          <a class="tip-1" id="J{{$index}}" >?<span class="popbox"><ol>
                                       <li>{{findCriteriaByName("Org Impact")[0].rule}}</li><br/>
                                       <li>{{findCriteriaByName("Org Impact")[1].rule}}</li><br/>
                                       <li>{{findCriteriaByName("Org Impact")[2].rule}}</li><br/>
@@ -194,13 +201,17 @@
                             <td></td>
                         </tr>
                         <tr>
-                            <td>Learning Agility        
-                               <select class="select-s3"  ng-disabled="editable()"
+                            <td>Learning Agility   </td>
+                            <td class="minwidth">     
+                               <select class="select-s"  ng-disabled="editable()"
                                        ng-model="learningAgility"  ng-options="act for act in number" 
                                        ng-init="learningAgility=emp.score.learningAgility" 
                                        ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
-                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="C{{$index}}"></select>          
-                           <a class="tip-3"  id="K{{$index}}">?<span class="popbox"><ol>
+                                           ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="C{{$index}}">
+                                           
+                               </select> 
+                            
+                           <a class="tip-1"  id="K{{$index}}">?<span class="popbox"><ol>
                                        <li>{{findCriteriaByName("Learning Agility")[0].rule}}</li><br/>
                                        <li>{{findCriteriaByName("Learning Agility")[1].rule}}</li><br/>
                                        <li>{{findCriteriaByName("Learning Agility")[2].rule}}</li><br/>
@@ -218,13 +229,17 @@
                                    </textarea>
                                     </td>
                         <tr>
-                            <td>Versatility
-                                 <select class="select-s4"  ng-disabled="editable()"
+                            <td>Versatility</td>
+                            <td class="minwidth">
+                                 <select class="select-s"  ng-disabled="editable()"
                                         ng-model="versatility"  ng-options="act for act in number"  
                                         ng-init="versatility=emp.score.versatility" 
                                         ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
-                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="D{{$index}}"></select>         
-                          <a class="tip-4"  id="L{{$index}}">?<span class="popbox"><ol>
+                                            ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="D{{$index}}">
+                                            
+                                 </select> 
+                            
+                          <a class="tip-1"  id="L{{$index}}">?<span class="popbox"><ol>
                                       <li>{{findCriteriaByName("Versatility")[0].rule}}</li><br/>
                                       <li>{{findCriteriaByName("Versatility")[1].rule}}</li><br/>
                                       <li>{{findCriteriaByName("Versatility")[2].rule}}</li><br/>

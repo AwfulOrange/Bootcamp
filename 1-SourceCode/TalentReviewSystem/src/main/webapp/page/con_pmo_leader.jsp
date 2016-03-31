@@ -35,13 +35,13 @@
                     <th style="width:16%;float:left"  >Total</th>
                </tr>
              </table> 
-            <div ng-repeat="emp in pmo.emp | orderBy:'emid'" >
+            <div ng-repeat="emp in pmo.emp | orderBy:'screenName'" >
 
                 
                 
                 <table  class="w1-hoverable" style="background-color:ff3333;" >
                     <tr></tr>
-                    <tr ng-click="pageshow=!pageshow" id="revid{{$index}}" >
+                    <tr ng-click="pageshow=!pageshow" id="revid{{$parent.$index}}{{$index}}" >
                         
                         <td ng-model="AssignmentNo" style="width:15%;text-align:left" >{{ emp.emid }}</td>
                         <td style="width:16%;text-align:left">{{ emp.screenName }}</td>

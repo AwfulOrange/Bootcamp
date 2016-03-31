@@ -13,7 +13,7 @@
         </table>  
       
         <form >
-            <div ng-repeat="emp in emps" >
+            <div ng-repeat="emp in emps | orderBy:'emid'" >
                 <table  class="w3-hoverable" style="background-color:gainsboro" >
                     <tr></tr>
                     <tr ng-click="pageshow=!pageshow" id="revid{{$index}}" >

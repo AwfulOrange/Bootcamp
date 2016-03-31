@@ -9,7 +9,7 @@
                </tr>
         </table>  
  
-        <div  ng-repeat="pmo in pmos" >
+        <div  ng-repeat="pmo in pmos | orderBy:'reviewname'" >
             <table  class="w3-hoverable" style="background-color:gainsboro" >
 
                     <tr></tr>
@@ -35,7 +35,7 @@
                     <th style="width:16%;float:left"  >Total</th>
                </tr>
              </table> 
-            <div ng-repeat="emp in pmo.emp" >
+            <div ng-repeat="emp in pmo.emp | orderBy:'emid'" >
 
                 
                 

@@ -108,7 +108,7 @@ angular.module('myApp1', []).controller('pmoCtrl',
 
             $scope.editable = function (status) {
                 if (status == "Submitted") {
-                    return false;
+                    return true;
                 } else {
                     return true;
                 }

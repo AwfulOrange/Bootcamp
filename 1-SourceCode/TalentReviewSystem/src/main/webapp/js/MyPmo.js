@@ -294,7 +294,7 @@ angular.module('myApp1', []).controller('pmoCtrl',
 
             $scope.editablebutton = function () {
 
-
+                    return true;
 
             }
 

@@ -11,7 +11,7 @@
         <jsp:include page="head.jsp" ></jsp:include>
     </head>
     <body>
-        <jsp:include page="header.jsp"></jsp:include>
+        <jsp:include page="header_1.jsp"></jsp:include>
             <div id="pro-main">
             <jsp:include page="con_pmo_leader.jsp"></jsp:include>
             </div>

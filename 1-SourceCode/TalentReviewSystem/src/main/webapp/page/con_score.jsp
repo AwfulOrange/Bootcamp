@@ -195,9 +195,9 @@
                                    </textarea>
                          </td>
                         </tr>
-                        <tr style="background-color:#f1f1f1">
-                            <th >Performance Total &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              {{achievingResults + orgImpact}}</th>
+                        <tr >
+                            <th style="background-color:#f1f1f1">Performance Total</th>
+                            <th style="background-color:#f1f1f1">&nbsp;&nbsp;&nbsp;{{achievingResults + orgImpact}}</th>
                             <td></td>
                         </tr>
                         <tr>
@@ -258,9 +258,9 @@
                                    </textarea>
                                     </td>
                         </tr>
-                        <tr style="background-color:#f1f1f1">
-                            <th>Potential Total  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              {{learningAgility + versatility}} </th>
+                        <tr >
+                            <th style="background-color:#f1f1f1">Potential Total </th>
+                            <th style="background-color:#f1f1f1">&nbsp;&nbsp;&nbsp;{{learningAgility + versatility}} </th>
                             <td></td>
                         </tr>
                         

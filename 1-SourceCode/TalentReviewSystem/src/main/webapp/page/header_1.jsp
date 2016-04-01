@@ -20,7 +20,7 @@
         <table class="nav nav-tabs" role="tablist" >
             <tr >
             
-                <td   class="w1-tab-hover2" ><a href="${pageContext.request.contextPath}/page/score.jsp"  class="w1-tab-a"><b>Score</b> </a></td>
+                <td   class="w1-tab-hover2" ><a href="${pageContext.request.contextPath}/page/score.jsp"  class="w1-tab-a"><b>Reviewer</b> </a></td>
 
             
                 <td class="w1-tab-hover1"   ng-show="checkT()" ><a href="${pageContext.request.contextPath}/page/pmo_leader.jsp" class="w1-tab-a"><b >PMO-Leader</b> </td>

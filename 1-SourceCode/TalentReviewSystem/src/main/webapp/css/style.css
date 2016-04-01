@@ -371,7 +371,7 @@ input[type=checkbox].w3-check:disabled+.w3-validate,input[type=radio].w3-radio:d
 
 .w1-log-out{float: right;padding-top: 18px;width:30%;text-align: center;}
 .w1-head-name{float: right;padding-top: 18px;width:10%;}
-#logout{float:right;}
+#logout{float:right;font-size: 16px;}
 #logout:hover{color:red;text-decoration: none;}
 .w1-tab-img{width:25px; height:25px;padding-bottom: 5px;}
 .w1-img{height:25px;width:25px;position:relative;top:-5px;cursor:pointer;}

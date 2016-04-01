@@ -355,20 +355,15 @@ input[type=checkbox].w3-check:disabled+.w3-validate,input[type=radio].w3-radio:d
 .w1-hoverable tbody tr:hover{background-color:#b00715;min-height:20px;min-width: 800px;cursor:pointer;}.w1-ul.w1-hoverable li:hover{background-color:#b00715;opacity:0.8;}
 .w1-hoverable tbody tr{font-size: 15px;}
 .w1-form{width:97%;float:right;}
-.w1-tab-hover{padding-top: 14px;width:10%;background-color: #d9d9d9;}
-.w1-tab-hover:hover{background-color: #black;}
 
-.w1-tab-hover2{padding-top: 14px;width:10%;}
-.w1-tab-hover2:hover{background-color: #d9d9d9;}
-.w1-tab-hover1{padding-top: 14px;width:10%;background-color: #d9d9d9;}
-
-
+.w1-tab-hover{padding-top: 14px;width:10%;background-color: #d9d9d9;min-width: 125px;}
+.w1-tab-hover:hover{background-color: #black;min-width: 125px;}
+.w1-tab-hover2{padding-top: 14px;width:10%;min-width: 125px;}
+.w1-tab-hover2:hover{background-color: #d9d9d9;min-width: 125px;}
+.w1-tab-hover1{padding-top: 14px;width:10%;background-color: #d9d9d9;min-width: 125px;}
 
 .w1-tab-a{font-size: 17px;}
 .w1-tab-a:hover{text-decoration: none;color:black;}
-.w1-tab-hover-a:active{background-color: #d9d9d9;}
-
-
 .w1-log-out{float: right;padding-top: 18px;width:30%;text-align: center;}
 .w1-head-name{float: right;padding-top: 18px;width:10%;}
 #logout{float:right;font-size: 16px;}

@@ -9,6 +9,7 @@ package com.perficient.test.US06;
 import com.perficient.test.pages.LoginPage;
 import com.perficient.test.pages.ScorePage;
 import com.perficient.test.util.TestCaseBase;
+import static com.perficient.test.util.TestCaseBase.driver;
 import static com.perficient.test.util.TestCaseBase.login;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,19 +48,19 @@ public class TC001_US06 extends TestCaseBase{
         sp.sort1.click();
         Assert.assertTrue(verifySort(1,2),"Fail to sort");
         
-        sp.sort2.click();
+        ScorePage.sort2.click();
         Assert.assertTrue(verifySort(2,1),"Fail to sort");
-        sp.sort2.click();
+        ScorePage.sort2.click();
         Assert.assertTrue(verifySort(2,2),"Fail to sort");
         
-        sp.sort3.click();
+        ScorePage.sort3.click();
         Assert.assertTrue(verifySort(3,1),"Fail to sort");
-        sp.sort3.click();
+        ScorePage.sort3.click();
         Assert.assertTrue(verifySort(3,2),"Fail to sort");
         
-        sp.sort4.click();
+        ScorePage.sort4.click();
         Assert.assertTrue(verifySort(4,1),"Fail to sort");
-        sp.sort4.click();
+        ScorePage.sort4.click();
         Assert.assertTrue(verifySort(4,2),"Fail to sort");
         
         

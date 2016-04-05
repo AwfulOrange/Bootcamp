@@ -22,7 +22,7 @@ public class PMOleadPage {
     @FindBy(id="pmo0")
     public static WebElement pmo0;
 
-    @FindBy(xpath="/html/body/header/div/div[3]/div/div/div/table/tbody/tr[2]/td[1]")
+    @FindBy(id="revid00")
     public static WebElement revid00;
     
     @FindBy(xpath="/html/body/header/div/div[3]/div/div/div/div/h[1]/img")

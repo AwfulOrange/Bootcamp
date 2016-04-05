@@ -40,6 +40,36 @@ public class ScorePage {
     //********************US04 find Id**************************************************
     @FindBy(id="logout")
     public static WebElement logoutButton;
+     //********************TC001US06 find Id*********************************************
+   
+    @FindBy(id="xxxxxx")
+    public static WebElement sort0;   
+    @FindBy(id="xxxxxx")
+    public static WebElement sort1;   
+    @FindBy(id="xxxxxx")
+    public static WebElement sort2;       
+    @FindBy(id="xxxxxx")
+    public static WebElement sort3;       
+    @FindBy(id="xxxxxx")
+    public static WebElement sort4;
     
-
+    //********************TC002US06 find Id*********************************************
+    @FindBy(id="xxxxxx")
+    public static WebElement filter0;
+    @FindBy(id="xxxxxx")
+    public static WebElement filter1;
+    @FindBy(id="xxxxxx")
+    public static WebElement filter2;
+    @FindBy(id="xxxxxx")
+    public static WebElement filter3;
+    @FindBy(id="xxxxxx")
+    public static WebElement filter4;
+    @FindBy(id="xxxxxx")
+    public static WebElement filter5;
+    @FindBy(id="xxxxxx")
+    public static WebElement performancescore;
+    @FindBy(id="xxxxxx")
+    public static WebElement potentialscore;
+    @FindBy(id="xxxxxx")
+    public static WebElement totalscore;
 }

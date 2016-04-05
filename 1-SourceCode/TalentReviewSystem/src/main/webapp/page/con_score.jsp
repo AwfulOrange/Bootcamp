@@ -24,11 +24,11 @@
             </tr>
             <span  ng-model="allstatus"></span>
                <tr>
-                    <th style="width:5%;">Name</th>
-                    <th style="width:11%;"  >Performance </th>
-                    <th style="width:8%;"  >Potential </th>
-                    <th style="width:8%;"  >Total</th>
-                    <th style="width:25%;"  >Level</th>
+                    <th style="width:15%;">Name</th>
+                    <th style="width:15%;"  >Performance </th>
+                    <th style="width:10%;"  >Potential </th>
+                    <th style="width:11%;"  >Total</th>
+                    <th style="width:31%;"  >Level</th>
                     <th style="width:10%;"  >Role</th>
                     <th style="width:10%;"  ></th>
                </tr>
@@ -43,7 +43,7 @@
                         <td id="p2{{$index}}" style="width:15%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{achievingResults + orgImpact}} </td>
                         <td id="p3{{$index}}" style="width:10%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;{{learningAgility + versatility}} </td>
                         <td id="p4{{$index}}" style="width:10%;text-align:left">&nbsp;&nbsp;{{achievingResults + orgImpact+learningAgility + versatility}}
-                        <td id="p5{{$index}}" style="width:35%;text-align:left">{{emp.title}}
+                        <td id="p5{{$index}}" style="width:30%;text-align:left">{{emp.title}}
                         <td id="p6{{$index}}" style="width:15%;text-align:left">{{emp.role}}
                         <!--<td style="width:32%;text-align:left" >place for level</td>-->
                         <td class="w1-status-{{emp.score.status}}"></td>

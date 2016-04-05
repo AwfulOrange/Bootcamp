@@ -92,7 +92,8 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
                 
             }
             emp.setWorkExperience(calcuDate(emp.getWorkStartDate()));
-            emp.setGdcExperience(calcuDate(Long.toString(emp.getScore().getEmployeeInfo().getGdcStartDate().getTime())));
+            emp.setGdcExperience(calcuDate(emp.getOnBoardDate()));
+            emp.setLastPromotionDate(calcuDate(emp.getLastPromotionDate()));
             empListSelected.add(emp);
         }
         

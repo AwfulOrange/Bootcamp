@@ -35,10 +35,7 @@
                     <th style="width:16%;float:left"  >Total</th>
                </tr>
              </table> 
-            <div ng-repeat="emp in pmo.emp | orderBy:'screenName'" >
-
-                
-                
+            <div ng-repeat="emp in pmo.emp | orderBy:'screenName' | filter:filt" >
                 <table  class="w1-hoverable" style="background-color:ff3333;" >
                     <tr></tr>
                     <tr ng-click="pageshow=!pageshow" id="revid{{$parent.$index}}{{$index}}" >

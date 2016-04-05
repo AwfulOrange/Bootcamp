@@ -23,12 +23,13 @@
                 </td>
             </tr>
                <tr>
-                   <th style="width:16%;float:left;padding-bottom:5px " ng-click="order=sorter('emid')">Reviewee ID</th>
-                    <th style="width:16%;float:left" ng-click="order=sorter('screenName')">Name</th>
-                    <th style="width:16%;float:left"  ng-model="allstatus">Status</th>
-                    <th style="width:17%;float:left"  >Performance </th>
-                    <th style="width:17%;float:left"  >Potential </th>
-                    <th style="width:16%;float:left"  >Total</th>
+                    <th style="width:17%;">Name</th>
+                    <th style="width:13%;"  ng-model="allstatus">Status</th>
+                    <th style="width:14%;"  >Performance </th>
+                    <th style="width:10%;"  >Potential </th>
+                    <th style="width:10%;"  >Total</th>
+                    <th style="width:30%;"  >Level</th>
+                    <th style="width:8%;"  >Role</th>
                </tr>
         </table>  
       
@@ -37,13 +38,15 @@
                 <table  class="w3-hoverable" style="background-color:gainsboro" >
                     <tr></tr>
                     <tr ng-click="pageshow=!pageshow" id="revid{{$index}}" >
+                        <td id="p0{{$index}}" style="width:17%;text-align:left">{{ emp.screenName }}</td>
+                        <td id="p1{{$index}}" style="width: 15%;text-align:left" ng-init="status=backstatus(emp.score.status)" ng-model="status">{{status}}</td>
+                        <td id="p2{{$index}}" style="width:12%;text-align:left">{{achievingResults + orgImpact}} </td>
+                        <td id="p3{{$index}}" style="width:10%;text-align:left">{{learningAgility + versatility}} </td>
+                        <td id="p4{{$index}}" style="width:10%;text-align:left">{{achievingResults + orgImpact+learningAgility + versatility}}
+                        <td id="p5{{$index}}" style="width:27%;text-align:left">{{emp.title}}
+                        <td id="p6{{$index}}" style="width:10%;text-align:left">{{emp.role}}
+                        <!--<td style="width:32%;text-align:left" >place for level</td>-->
                         
-                        <td ng-model="AssignmentNo" style="width:15%;text-align:left" >{{ emp.emid }}</td>
-                        <td style="width:16%;text-align:left">{{ emp.screenName }}</td>
-                        <td style="width: 18%;text-align:left" ng-init="status=backstatus(emp.score.status)" ng-model="status">{{status}}</td>
-                        <td style="width:17%;text-align:left">{{achievingResults + orgImpact}} </td>
-                        <td style="width:15%;text-align:left">{{learningAgility + versatility}} </td>
-                        <td style="width:16%;text-align:left">{{achievingResults + orgImpact+learningAgility + versatility}}
                     </tr>
                 </table>
                 
@@ -63,38 +66,22 @@
                                 Assignment Number
                             </td>
                             <td>
-                                Name
+                                GDC Working Experience
                             </td>
                             <td>
-                               Perficient Level
+                               Total Working Experience
                             </td>
                             <td>
-                                Role
+                                Last Promotion Date
                             </td>
                         </tr>
                         <tr>
                             <td>{{emp.emid}}</td>
-                            <td>{{emp.screenName}}</td>
-
-                            <td>{{emp.title}}</td>
-                            <td>{{emp.role}}</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                GDC Working Experience
-                            </td>
-                            <td>
-                                Total Working Experience
-                            </td>
-                            <td>
-                            </td>
-                        </tr>
-                        <tr>
                             <td>{{emp.gdcExperience}}</td>
                             <td>{{emp.workExperience}}</td>
-                            <td></td>
-                            <td></td>
+                            <td>{{emp.score.employeeInfo.lastPromotionDate}}</td>
                         </tr>
+                        
                     </table>
                        <br>
                     <table class="w3-table-all"  ng-show="suportshow">

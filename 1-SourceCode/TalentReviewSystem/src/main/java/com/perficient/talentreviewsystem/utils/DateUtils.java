@@ -25,14 +25,16 @@ public class DateUtils {
         long exp = nowTime.getTime() - joinTime;
         
         int year = (int)(exp / 1000 / 3600 / 24 / 365);
-        String expStr = year + "year";
+        String expStr = "";
         if(year > 1){
-            expStr += "s";
+            expStr = year + "years ";
+        }else if(year == 1){
+            expStr = year + "year";
         }
         
         int month = (int)(exp/1000/3600/24) - (365 * year);
         month /= 30;
-        expStr = expStr + " "+month+"month";
+        expStr = expStr + " "+month+" month";
         if(month > 1){
             expStr += "s";
         }

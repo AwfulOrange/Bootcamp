@@ -1,29 +1,49 @@
-<body ng-app="myApp" ng-controller="userCtrl" class="contentStyle">
+<body ng-app="myApp" ng-controller="userCtrl" ng-model="p" ng-init="p=true" class="contentStyle">
     <link href="../css/hoverCss.css" rel="stylesheet" />
     <div class="contentStyle"  >
         <table style="text-align:left;font-size: 15px;">
+            <tr>
+                <td style="width:15%;float:left;padding-bottom:5px;margin-right: 1%">
+                    <input style="width: 70%" ng-model="filter1"/>
+                </td>
+                <td style="width:15%;float:left;margin-right: 1%">
+                    <input style="width: 70%" ng-model="filter2"/>
+                </td>
+                <td style="width:15%;float:left;margin-right: 1%">
+                    <input style="width: 70%" ng-model=""/>
+                </td>
+                <td style="width:16%;float:left;margin-right: 1%">
+                    <input style="width: 70%" ng-model=""/>
+                </td>
+                <td style="width:16%;float:left;margin-right: 1%">
+                    <input style="width: 70%" ng-model=""/>
+                </td>
+                <td style="width:15%;float:left">
+                    <input style="width: 70%" ng-model=""/>
+                </td>
+            </tr>
                <tr>
-                    <th style="width:17%;">Name</th>
-                    <th style="width:15%;"  ng-model="allstatus">Status</th>
-                    <th style="width:16%;"  >Performance </th>
-                    <th style="width:10%;"  >Potential </th>
-                    <th style="width:10%;"  >Total</th>
-                    <th style="width:32%;"  >Level</th>
+                   <th style="width:16%;float:left;padding-bottom:5px " ng-click="order=sorter('emid')">Reviewee ID</th>
+                    <th style="width:16%;float:left" ng-click="order=sorter('screenName')">Name</th>
+                    <th style="width:16%;float:left"  ng-model="allstatus">Status</th>
+                    <th style="width:17%;float:left"  >Performance </th>
+                    <th style="width:17%;float:left"  >Potential </th>
+                    <th style="width:16%;float:left"  >Total</th>
                </tr>
         </table>  
       
         <form >
-            <div ng-repeat="emp in emps | orderBy:'emid'" >
+            <div  ng-repeat="emp in emps | orderBy:order:p | filter:{emid : filter1}:false | filter:{screenName : filter2}:false" >
                 <table  class="w3-hoverable" style="background-color:gainsboro" >
                     <tr></tr>
                     <tr ng-click="pageshow=!pageshow" id="revid{{$index}}" >
-                        <td id="p0{{$index}}" style="width:17%;text-align:left">{{ emp.screenName }}</td>
-                        <td id="p1{{$index}}" style="width: 17%;text-align:left" ng-init="status=backstatus(emp.score.status)" ng-model="status">{{status}}</td>
-                        <td id="p2{{$index}}" style="width:14%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;{{achievingResults + orgImpact}} </td>
-                        <td id="p3{{$index}}" style="width:10%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;{{learningAgility + versatility}} </td>
-                        <td id="p4{{$index}}" style="width:10%;text-align:left">&nbsp;&nbsp;{{achievingResults + orgImpact+learningAgility + versatility}}
-                        <td style="width:32%;text-align:left" >place for level</td>
-
+                        
+                        <td ng-model="AssignmentNo" style="width:15%;text-align:left" >{{ emp.emid }}</td>
+                        <td style="width:16%;text-align:left">{{ emp.screenName }}</td>
+                        <td style="width: 18%;text-align:left" ng-init="status=backstatus(emp.score.status)" ng-model="status">{{status}}</td>
+                        <td style="width:17%;text-align:left">{{achievingResults + orgImpact}} </td>
+                        <td style="width:15%;text-align:left">{{learningAgility + versatility}} </td>
+                        <td style="width:16%;text-align:left">{{achievingResults + orgImpact+learningAgility + versatility}}
                     </tr>
                 </table>
                 
@@ -195,9 +215,9 @@
                                    </textarea>
                          </td>
                         </tr>
-                        <tr >
-                            <th style="background-color:#f1f1f1">Performance Total</th>
-                            <th style="background-color:#f1f1f1">&nbsp;&nbsp;&nbsp;{{achievingResults + orgImpact}}</th>
+                        <tr style="background-color:#f1f1f1">
+                            <th >Performance Total &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              {{achievingResults + orgImpact}}</th>
                             <td></td>
                         </tr>
                         <tr>
@@ -258,9 +278,9 @@
                                    </textarea>
                                     </td>
                         </tr>
-                        <tr >
-                            <th style="background-color:#f1f1f1">Potential Total </th>
-                            <th style="background-color:#f1f1f1">&nbsp;&nbsp;&nbsp;{{learningAgility + versatility}} </th>
+                        <tr style="background-color:#f1f1f1">
+                            <th>Potential Total  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              {{learningAgility + versatility}} </th>
                             <td></td>
                         </tr>
                         

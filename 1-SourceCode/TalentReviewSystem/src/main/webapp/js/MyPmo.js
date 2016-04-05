@@ -8,7 +8,7 @@ angular.module('myApp1', []).controller('pmoCtrl',
             var pmoId = "";
 
 
-            $http.get("http://10.2.1.183:8080/TRS/web/cri").success(function (data) {
+            $http.get("http://localhost:8080/TRS/web/cri").success(function (data) {
                 criteria = data;
             });
             $scope.findCriteriaByName = function (name) {
@@ -36,7 +36,7 @@ angular.module('myApp1', []).controller('pmoCtrl',
             }
 
 
-            $http.get("http://10.2.1.183:8080/TRS/web/role")
+            $http.get("http://localhost:8080/TRS/web/role")
                     .success(function (ndata) {
                         $scope.info=ndata;
                         var info = ndata;
@@ -54,7 +54,7 @@ angular.module('myApp1', []).controller('pmoCtrl',
              
              
              
-                        $http.get("http://10.2.1.183:8080/TRS/web/employee/pmo/" + ID)
+                        $http.get("http://localhost:8080/TRS/web/employee/pmo/" + ID)
                                 .success(function (data) {
                                     $scope.pmos = data;
                                     var p = data;
@@ -145,7 +145,7 @@ angular.module('myApp1', []).controller('pmoCtrl',
                             }
                         }
                     }
-                    $http.post('http://10.2.1.183:8080/TRS/web/score/', allscore).success(function () {
+                    $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function () {
 
                     }).error(function (data) {
                         alert("Fail to save!");
@@ -166,7 +166,7 @@ angular.module('myApp1', []).controller('pmoCtrl',
                             }
                         }
                     }
-                    $http.post('http://10.2.1.183:8080/TRS/web/score/', allscore).success(function () {
+                    $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function () {
                     }).error(function (data) {
                         alert("Fail to save!");
                     });
@@ -228,7 +228,7 @@ angular.module('myApp1', []).controller('pmoCtrl',
                     }
 //            var con =window.confirm("Are you sure to submit");
 //            if(con){
-                    $http.post('http://10.2.1.183:8080/TRS/web/score/', allscore).success(function () {
+                    $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function () {
 
                         $window.location.reload();
                     }).error(function (data) {

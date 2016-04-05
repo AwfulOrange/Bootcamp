@@ -3,22 +3,22 @@
     <div class="contentStyle"  >
         <table style="text-align:left;font-size: 15px;">
             <tr>
-                <td style="width:15%;float:left;padding-bottom:5px;margin-right: 1%">
+                <td >
                     <input style="width: 70%" ng-model="filter1"/>
                 </td>
-                <td style="width:15%;float:left;margin-right: 1%">
+                <td >
                     <input style="width: 70%" ng-model="filter2"/>
                 </td>
-                <td style="width:15%;float:left;margin-right: 1%">
+                <td >
                     <input style="width: 70%" ng-model=""/>
                 </td>
-                <td style="width:16%;float:left;margin-right: 1%">
+                <td >
                     <input style="width: 70%" ng-model=""/>
                 </td>
-                <td style="width:16%;float:left;margin-right: 1%">
+                <td >
                     <input style="width: 70%" ng-model=""/>
                 </td>
-                <td style="width:15%;float:left">
+                <td >
                     <input style="width: 70%" ng-model=""/>
                 </td>
             </tr>

@@ -57,6 +57,10 @@ public class Employee implements Serializable {
     private String startLevel;
     private Collection<SupportiveInfo> supportiveInfoCollection;
     private TalentReviewScore Score;
+    private int performance;
+    private int potential;
+    private int total;
+    
 
     /**
      * @return the id
@@ -407,6 +411,48 @@ public class Employee implements Serializable {
      */
     public void setGdcExperience(String gdcExperience) {
         this.gdcExperience = gdcExperience;
+    }
+
+    /**
+     * @return the performance
+     */
+    public int getPerformance() {
+        return performance;
+    }
+
+    /**
+     * @param performance the performance to set
+     */
+    public void setPerformance(int performance) {
+        this.performance = performance;
+    }
+
+    /**
+     * @return the potential
+     */
+    public int getPotential() {
+        return potential;
+    }
+
+    /**
+     * @param potential the potential to set
+     */
+    public void setPotential(int potential) {
+        this.potential = potential;
+    }
+
+    /**
+     * @return the total
+     */
+    public int getTotal() {
+        return total;
+    }
+
+    /**
+     * @param total the total to set
+     */
+    public void setTotal(int total) {
+        this.total = total;
     }
 
 }

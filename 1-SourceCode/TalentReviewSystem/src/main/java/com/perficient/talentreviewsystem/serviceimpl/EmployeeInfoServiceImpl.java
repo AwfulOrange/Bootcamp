@@ -17,7 +17,9 @@ import com.perficient.talentreviewsystem.daoimpl.TalentReviewScoreDAOImpl;
 import com.perficient.talentreviewsystem.entity.Employee;
 import com.perficient.talentreviewsystem.entity.Group;
 import com.perficient.talentreviewsystem.entity.TalentReviewScore;
+import com.perficient.talentreviewsystem.utils.DateUtils;
 import static com.perficient.talentreviewsystem.utils.DateUtils.calcuDate;
+import static com.perficient.talentreviewsystem.utils.DateUtils.toDate;
 import com.perficient.talentreviewsystem.utils.GetProperties;
 import com.perficient.talentreviewsystem.utils.HttpConnection;
 import java.util.ArrayList;
@@ -93,8 +95,14 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
             }
             emp.setWorkExperience(calcuDate(emp.getWorkStartDate()));
             emp.setGdcExperience(calcuDate(emp.getOnBoardDate()));
-            Long promotion=emp.getScore().getEmployeeInfo().getLastPromotionDate().getTime();
-            emp.setLastPromotionDate(calcuDate(Long.toString(promotion)));
+            Long promotion=score.get(i).getEmployeeInfo().getLastPromotionDate().getTime();
+            emp.setLastPromotionDate(toDate(Long.toString(promotion)));
+            int performance=score.get(i).getAchievingResults()+score.get(i).getOrgImpact();
+            emp.setPerformance(performance);
+            int potential=score.get(i).getLearningAgility()+score.get(i).getVersatility();
+            emp.setPotential(potential);
+            int total=performance+potential;
+            emp.setTotal(total);
             empListSelected.add(emp);
         }
         

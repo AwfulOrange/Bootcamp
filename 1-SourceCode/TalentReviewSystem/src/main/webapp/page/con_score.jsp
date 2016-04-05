@@ -22,14 +22,14 @@
                     <input style="width: 70%" ng-model=""/>
                 </td>
             </tr>
+            <span  ng-model="allstatus"></span>
                <tr>
-                    <th style="width:17%;">Name</th>
-                    <th style="width:13%;"  ng-model="allstatus">Status</th>
-                    <th style="width:14%;"  >Performance </th>
+                    <th style="width:15%;">Name</th>
+                    <th style="width:15%;"  >Performance </th>
                     <th style="width:10%;"  >Potential </th>
                     <th style="width:10%;"  >Total</th>
-                    <th style="width:30%;"  >Level</th>
-                    <th style="width:8%;"  >Role</th>
+                    <th style="width:35%;"  >&nbsp;&nbsp;&nbsp;&nbsp;Level</th>
+                    <th style="width:15%;"  >&nbsp;&nbsp;Role</th>
                </tr>
         </table>  
       
@@ -38,13 +38,12 @@
                 <table  class="w3-hoverable" style="background-color:gainsboro" >
                     <tr></tr>
                     <tr ng-click="pageshow=!pageshow" id="revid{{$index}}" >
-                        <td id="p0{{$index}}" style="width:17%;text-align:left">{{ emp.screenName }}</td>
-                        <td id="p1{{$index}}" style="width: 15%;text-align:left" ng-init="status=backstatus(emp.score.status)" ng-model="status">{{status}}</td>
-                        <td id="p2{{$index}}" style="width:12%;text-align:left">{{achievingResults + orgImpact}} </td>
-                        <td id="p3{{$index}}" style="width:10%;text-align:left">{{learningAgility + versatility}} </td>
-                        <td id="p4{{$index}}" style="width:10%;text-align:left">{{achievingResults + orgImpact+learningAgility + versatility}}
-                        <td id="p5{{$index}}" style="width:27%;text-align:left">{{emp.title}}
-                        <td id="p6{{$index}}" style="width:10%;text-align:left">{{emp.role}}
+                        <td id="p0{{$index}}" style="width:15%;text-align:left">{{ emp.screenName }}</td>
+                        <td id="p2{{$index}}" style="width:15%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{achievingResults + orgImpact}} </td>
+                        <td id="p3{{$index}}" style="width:10%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;{{learningAgility + versatility}} </td>
+                        <td id="p4{{$index}}" style="width:10%;text-align:left">&nbsp;&nbsp;{{achievingResults + orgImpact+learningAgility + versatility}}
+                        <td id="p5{{$index}}" style="width:35%;text-align:left">{{emp.title}}
+                        <td id="p6{{$index}}" style="width:15%;text-align:left">{{emp.role}}
                         <!--<td style="width:32%;text-align:left" >place for level</td>-->
                         
                     </tr>
@@ -79,7 +78,7 @@
                             <td>{{emp.emid}}</td>
                             <td>{{emp.gdcExperience}}</td>
                             <td>{{emp.workExperience}}</td>
-                            <td>{{emp.score.employeeInfo.lastPromotionDate}}</td>
+                            <td>{{emp.lastPromotionDate}}</td>
                         </tr>
                         
                     </table>

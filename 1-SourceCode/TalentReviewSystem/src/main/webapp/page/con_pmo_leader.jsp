@@ -27,25 +27,33 @@
             <div  class="w1-form">
               <table style="text-align:left;font-size: 13px;">
                <tr>
-                   <th style="width:16%;float:left;padding-bottom:5px ">Reviewee ID</th>
-                    <th style="width:16%;float:left;">Name</th>
-                    <th style="width:16%;float:left">Status</th>
-                    <th style="width:18%;float:left"  >Performance </th>
-                    <th style="width:17%;float:left"  >Potential </th>
-                    <th style="width:16%;float:left"  >Total</th>
+                   
+                    <th style="width:11%;float:left;">Name</th>
+                   
+                    <th style="width:14%;float:left"  >Performance </th>
+                    <th style="width:14%;float:left"  >Potential </th>
+                    <th style="width:12%;float:left"  >Total</th>
+                    <th style="width:33%;float:left" >Level</th>
+                    <th style="width:10%;float:left" >Role</th>
+                    <th style="width:1%;"><a class="tip-1" id="popbox1" style="float: left;">?<span class="popbox1"  style="z-index:999;"><ol>
+                                            <li>white means new </li>
+                                            <li>yellow means modify</li>
+                                            <li>green means completed</li>
+                                            <li>red means submitted</li>                                           
+                        </ol> </span></a></th>
                </tr>
              </table> 
             <div ng-repeat="emp in pmo.emp | orderBy:'screenName' | filter:filt" >
-                <table  class="w1-hoverable" style="background-color:#dbc59e;" >
+                <table  class="w1-hoverable" style="background-color:ff3333;" >
                     <tr></tr>
-                    <tr ng-click="pageshow=!pageshow" id="revid{{$parent.$index}}{{$index}}" >
-                        
-                        <td ng-model="AssignmentNo" style="width:15%;text-align:left" >{{ emp.emid }}</td>
-                        <td style="width:16%;text-align:left">{{ emp.screenName }}</td>
-                        <td style="width: 18%;text-align:left" ng-init=" status=backstatus(emp.score.status)" ng-model="status">{{status}}</td>
-                        <td style="width:17%;text-align:left">{{achievingResults + orgImpact}} </td>
-                        <td style="width:15%;text-align:left">{{learningAgility + versatility}} </td>
-                        <td style="width:16%;text-align:left">{{achievingResults + orgImpact+learningAgility + versatility}}
+                    <tr ng-click="pageshow=!pageshow" id="revid{{$parent.$index}}{{$index}}" > 
+                        <td style="width:11%;text-align:left">{{ emp.screenName }}</td>
+                        <td style="width:11%;text-align:left">{{achievingResults + orgImpact}} </td>
+                        <td style="width:10%;text-align:left">{{learningAgility + versatility}} </td>
+                        <td style="width:8%;text-align:left">{{achievingResults + orgImpact+learningAgility + versatility}}
+                        <td id="p5{{$index}}" style="width:25%;text-align:left">{{emp.title}}</td>
+                        <td id="p6{{$index}}" style="width:9%;text-align:left">{{emp.role}}</td>
+                        <td class="w1-status-{{emp.score.status}}"></td>
                     </tr>
                 </table>
                 
@@ -62,41 +70,25 @@
                         </h>
                         <tr>
                             <td >
-                                Assignment Number
+                                Employee ID
                             </td>
-                            <td>
-                                Name
-                            </td>
-                            <td>
-                               Perficient Level
-                            </td>
-                            <td>
-                                Role
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>{{emp.emid}}</td>
-                            <td>{{emp.screenName}}</td>
-
-                            <td>{{emp.title}}</td>
-                            <td>{{emp.role}}</td>
-                        </tr>
-                        <tr>
                             <td>
                                 GDC Working Experience
                             </td>
                             <td>
-                                Total Working Experience
+                               Total Working Experience
                             </td>
                             <td>
+                                 Last Promotion Date
                             </td>
                         </tr>
                         <tr>
+                            <td>{{emp.emid}}</td>
                             <td>{{emp.gdcExperience}}</td>
                             <td>{{emp.workExperience}}</td>
-                            <td></td>
-                            <td></td>
+                            <td>{{emp.lastPromotionDate}}</td>
                         </tr>
+                        
                     </table>
                        <br>
                     <table class="w3-table-all"  ng-show="suportshow">
@@ -216,11 +208,7 @@
                                    </textarea>
                          </td>
                         </tr>
-                        <tr style="background-color:#f1f1f1">
-                            <th >Performance Total &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              {{achievingResults + orgImpact}}</th>
-                            <td></td>
-                        </tr>
+                      
                         <tr>
                             <td>Learning Agility 
                             </td>
@@ -274,13 +262,7 @@
                                              ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)"id="H{{$index}}" required>
                                    </textarea>
                                     </td>
-                        </tr>
-                        <tr style="background-color:#f1f1f1">
-                            <th>Potential Total  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              {{learningAgility + versatility}} </th>
-                            <td></td>
-                        </tr>
-                        
+                        </tr>                        
                       
                     </table>
 

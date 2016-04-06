@@ -47,11 +47,11 @@
                     <tr></tr>
                     <tr ng-click="pageshow=!pageshow" id="revid{{$index}}" >
                         <td id="p0{{$index}}" style="width:15%;text-align:left">{{ emp.screenName }}</td>
-                        <td id="p2{{$index}}" style="width:15%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{emp.performance}} </td>
-                        <td id="p3{{$index}}" style="width:13%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;{{emp.potential}} </td>
-                        <td id="p4{{$index}}" style="width:10%;text-align:left">&nbsp;&nbsp;{{emp.total}}</td>
-                        <td id="p5{{$index}}" style="width:35%;text-align:left">{{emp.title}}</td>
-                        <td id="p6{{$index}}" style="width:9%;text-align:left">{{emp.role}}</td>
+                        <td id="p1{{$index}}" style="width:15%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{emp.performance}} </td>
+                        <td id="p2{{$index}}" style="width:13%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;{{emp.potential}} </td>
+                        <td id="p3{{$index}}" style="width:10%;text-align:left">&nbsp;&nbsp;{{emp.total}}</td>
+                        <td id="p4{{$index}}" style="width:35%;text-align:left">{{emp.title}}</td>
+                        <td id="p5{{$index}}" style="width:9%;text-align:left">{{emp.role}}</td>
                         <td class="w1-status-{{emp.score.status}}"></td>
                     </tr>
                 </table>

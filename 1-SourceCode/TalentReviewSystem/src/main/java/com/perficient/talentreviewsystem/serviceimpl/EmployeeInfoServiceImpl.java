@@ -97,10 +97,22 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
             emp.setGdcExperience(calcuDate(emp.getOnBoardDate()));
             Long promotion=score.get(i).getEmployeeInfo().getLastPromotionDate().getTime();
             emp.setLastPromotionDate(toDate(Long.toString(promotion)));
-            int performance=score.get(i).getAchievingResults()+score.get(i).getOrgImpact();
-            emp.setPerformance(performance);
-            int potential=score.get(i).getLearningAgility()+score.get(i).getVersatility();
-            emp.setPotential(potential);
+            int performance;
+            if(score.get(i).getAchievingResults()!=null||score.get(i).getOrgImpact()!=null){
+                performance=score.get(i).getAchievingResults()+score.get(i).getOrgImpact();
+                emp.setPerformance(performance);
+                }
+            else {
+                performance=0;
+            }
+            int potential;
+            if(score.get(i).getLearningAgility()!=null||score.get(i).getVersatility()!=null){
+                potential=score.get(i).getLearningAgility()+score.get(i).getVersatility();
+                emp.setPotential(potential);
+            }
+            else{
+                potential=0;
+            }
             int total=performance+potential;
             emp.setTotal(total);
             empListSelected.add(emp);

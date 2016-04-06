@@ -42,34 +42,33 @@ public class ScorePage {
     public static WebElement logoutButton;
      //********************TC001US06 find Id*********************************************
    
-    @FindBy(id="xxxxxx")
+    @FindBy(xpath="/html/body/header/div/table[2]/tbody/tr[1]/th[1]")
     public static WebElement sort0;   
-    @FindBy(id="xxxxxx")
+    @FindBy(xpath="/html/body/header/div/table[2]/tbody/tr[1]/th[2]")
     public static WebElement sort1;   
-    @FindBy(id="xxxxxx")
+    @FindBy(xpath="/html/body/header/div/table[2]/tbody/tr[1]/th[3]")
     public static WebElement sort2;       
-    @FindBy(id="xxxxxx")
+    @FindBy(xpath="/html/body/header/div/table[2]/tbody/tr[1]/th[4]")
     public static WebElement sort3;       
-    @FindBy(id="xxxxxx")
+    @FindBy(xpath="/html/body/header/div/table[2]/tbody/tr[1]/th[5]")
     public static WebElement sort4;
+    @FindBy(xpath="/html/body/header/div/table[2]/tbody/tr[1]/th[6]")
+    public static WebElement sort5;
     
     //********************TC002US06 find Id*********************************************
-    @FindBy(id="xxxxxx")
+    @FindBy(xpath="/html/body/header/div/table[2]/tbody/tr[1]/td/input")
+    public static WebElement filterbutton;
+    @FindBy(id="filter0")
     public static WebElement filter0;
-    @FindBy(id="xxxxxx")
+    @FindBy(id="filter1")
     public static WebElement filter1;
-    @FindBy(id="xxxxxx")
+    @FindBy(id="filter2")
     public static WebElement filter2;
-    @FindBy(id="xxxxxx")
+    @FindBy(id="filter3")
     public static WebElement filter3;
-    @FindBy(id="xxxxxx")
+    @FindBy(id="filter4")
     public static WebElement filter4;
-    @FindBy(id="xxxxxx")
+    @FindBy(id="filter5")
     public static WebElement filter5;
-    @FindBy(id="xxxxxx")
-    public static WebElement performancescore;
-    @FindBy(id="xxxxxx")
-    public static WebElement potentialscore;
-    @FindBy(id="xxxxxx")
-    public static WebElement totalscore;
+
 }

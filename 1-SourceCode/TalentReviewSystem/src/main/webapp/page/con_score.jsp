@@ -10,40 +10,39 @@
                     <input style="width: 70%" ng-model="filter2"/>
                 </td>
                 <td >
-                    <input style="width: 70%" ng-model=""/>
+                    <input style="width: 70%" ng-model="filter3"/>
                 </td>
                 <td >
-                    <input style="width: 70%" ng-model=""/>
+                    <input style="width: 70%" ng-model="filter4"/>
                 </td>
                 <td >
-                    <input style="width: 70%" ng-model=""/>
+                    <input style="width: 70%" ng-model="filter5"/>
                 </td>
                 <td >
-                    <input style="width: 70%" ng-model=""/>
+                    <input style="width: 70%" ng-model="filter6"/>
                 </td>
             </tr>
             <span  ng-model="allstatus"></span>
                <tr>
-                    <th style="width:15%;">Name</th>
-                    <th style="width:15%;"  >Performance </th>
-                    <th style="width:10%;"  >Potential </th>
-                    <th style="width:11%;"  >Total</th>
-                    <th style="width:31%;"  >Level</th>
-                    <th style="width:10%;"  >Role</th>
-                    <th style="width:10%;"  ></th>
+                    <th style="width:5%;" ng-click="order = sorter('screenName');">Name</th>
+                    <th style="width:11%;" ng-click="order = sorter('performance');" >Performance </th>
+                    <th style="width:8%;" ng-click="order = sorter('potential');" >Potential </th>
+                    <th style="width:8%;" ng-click="order = sorter('total');" >Total</th>
+                    <th style="width:25%;" ng-click="order = sorter('title');" >Level</th>
+                    <th style="width:10%;" ng-click="order = sorter('role');" >Role</th>
                </tr>
         </table>  
       
         <form >
-            <div  ng-repeat="emp in emps | orderBy:order:p | filter:{emid : filter1}:false | filter:{screenName : filter2}:false" >
+            <div  ng-repeat="emp in emps | orderBy:order:p | filter:{screenName : filter1}:false | filter:{performance : filter2}:false | filter:{potential : filter3}:false | filter:{total : filter4}:false | filter:{title : filter5}:false | filter:{role : filter6}:false" >
                 <table  class="w3-hoverable" style="background-color:gainsboro" >
                     <tr></tr>
                     <tr ng-click="pageshow=!pageshow" id="revid{{$index}}" >
                         <td id="p0{{$index}}" style="width:15%;text-align:left">{{ emp.screenName }}</td>
-                        <td id="p2{{$index}}" style="width:15%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{achievingResults + orgImpact}} </td>
-                        <td id="p3{{$index}}" style="width:10%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;{{learningAgility + versatility}} </td>
-                        <td id="p4{{$index}}" style="width:10%;text-align:left">&nbsp;&nbsp;{{achievingResults + orgImpact+learningAgility + versatility}}
-                        <td id="p5{{$index}}" style="width:30%;text-align:left">{{emp.title}}
+                        <td id="p2{{$index}}" style="width:15%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{emp.performance}} </td>
+                        <td id="p3{{$index}}" style="width:10%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;{{emp.potential}} </td>
+                        <td id="p4{{$index}}" style="width:10%;text-align:left">&nbsp;&nbsp;{{emp.total}}
+                        <td id="p5{{$index}}" style="width:35%;text-align:left">{{emp.title}}
                         <td id="p6{{$index}}" style="width:15%;text-align:left">{{emp.role}}
                         <!--<td style="width:32%;text-align:left" >place for level</td>-->
                         <td class="w1-status-{{emp.score.status}}"></td>

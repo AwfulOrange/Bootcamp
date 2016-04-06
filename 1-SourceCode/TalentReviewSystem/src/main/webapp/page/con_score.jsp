@@ -30,6 +30,12 @@
                     <th style="width:8%;" ng-click="order = sorter('total');" >Total</th>
                     <th style="width:25%;" ng-click="order = sorter('title');" >Level</th>
                     <th style="width:10%;" ng-click="order = sorter('role');" >Role</th>
+                    <th style="width:15%;">Name</th>
+                    <th style="width:15%;"  >Performance </th>
+                    <th style="width:10%;"  >Potential </th>
+                    <th style="width:11%;"  >Total</th>
+                    <th style="width:31%;"  >Level</th>
+                    <th style="width:10%;"  >Role</th>
                     <th style="width:10%;"  ></th>
                </tr>
         </table>  

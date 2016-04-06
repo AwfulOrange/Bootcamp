@@ -40,7 +40,7 @@ public class TC002_US04 extends TestCaseBase{
        Assert.assertEquals(LoginPagetruetitle,LoginPageexptitle,"fail");
        login("testEM","testEM@gdc");
        Thread.sleep(2000);
-       Assert.assertNotNull(TestCaseBase.driver.findElement(By.linkText("Score")));
+       Assert.assertNotNull(TestCaseBase.driver.findElement(By.linkText("Reviewer")));
        Assert.assertNotNull(TestCaseBase.driver.findElement(By.linkText("PMO-Leader")));
        
        Thread.sleep(2000);

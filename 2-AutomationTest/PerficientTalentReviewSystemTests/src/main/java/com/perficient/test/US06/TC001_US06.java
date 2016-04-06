@@ -34,35 +34,53 @@ public class TC001_US06 extends TestCaseBase{
         PageFactory.initElements(TestCaseBase.driver, lp);
         
         TestCaseBase.driver.navigate().to(URL);
-        login("testCM","testCM@gdc");
+        login("testEM","testEM@gdc");
         Thread.sleep(2000);
         
 
         sp.sort0.click();
+        Thread.sleep(2000);
         Assert.assertTrue(verifySort(0,1),"Fail to sort");
         sp.sort0.click();
+        Thread.sleep(2000);
         Assert.assertTrue(verifySort(0,2),"Fail to sort");
                
         sp.sort1.click();
-        Assert.assertTrue(verifySort(1,1),"Fail to sort");
+        Thread.sleep(2000);
+        Assert.assertTrue(verifyNum(2,1),"Fail to sort");
         sp.sort1.click();
-        Assert.assertTrue(verifySort(1,2),"Fail to sort");
+        Thread.sleep(2000);
+        Assert.assertTrue(verifyNum(2,2),"Fail to sort");
         
         ScorePage.sort2.click();
-        Assert.assertTrue(verifySort(2,1),"Fail to sort");
+        Thread.sleep(2000);
+        Assert.assertTrue(verifyNum(3,1),"Fail to sort");
         ScorePage.sort2.click();
-        Assert.assertTrue(verifySort(2,2),"Fail to sort");
+        Thread.sleep(2000);
+        Assert.assertTrue(verifyNum(3,2),"Fail to sort");
         
         ScorePage.sort3.click();
-        Assert.assertTrue(verifySort(3,1),"Fail to sort");
+        Thread.sleep(2000);
+        Assert.assertTrue(verifyNum(4,1),"Fail to sort");
         ScorePage.sort3.click();
-        Assert.assertTrue(verifySort(3,2),"Fail to sort");
+        Thread.sleep(2000);
+        Assert.assertTrue(verifyNum(4,2),"Fail to sort");
         
         ScorePage.sort4.click();
-        Assert.assertTrue(verifySort(4,1),"Fail to sort");
+        Thread.sleep(2000);
+        Assert.assertTrue(verifySort(5,1),"Fail to sort");
         ScorePage.sort4.click();
-        Assert.assertTrue(verifySort(4,2),"Fail to sort");
+        Thread.sleep(2000);
+        Assert.assertTrue(verifySort(5,2),"Fail to sort");
         
+        ScorePage.sort5.click();
+        Thread.sleep(2000);
+        Assert.assertTrue(verifySort(6,1),"Fail to sort");
+        ScorePage.sort5.click();
+        Thread.sleep(2000);
+        Assert.assertTrue(verifySort(6,2),"Fail to sort");
+        
+        logout();
         
         
         
@@ -72,28 +90,72 @@ public class TC001_US06 extends TestCaseBase{
             List<String> element=new ArrayList();
             int size = driver.findElements(By.xpath("/html/body/header/div/form/div")).size();
             for(int i=0;i<size;i++){
-                element.add(driver.findElement(By.id("p"+column+i)).getText());               
+                element.add(driver.findElement(By.id("p"+column+i)).getText().trim());               
             }
             
             if (time == 1){
                 
                 for(int i=0;i<size;i++){
-                    for(int j=i+1;i<size;j++){
+                    System.out.println(element.get(i));
+                    for(int j=i+1;j<size;j++){
                         if (element.get(j).compareToIgnoreCase((element.get(i)))<0 )
                         return false;                                                             
                     }
-                 return true;
+                 
                 }
+             return true;
             }
            if (time == 2){
                 
                 for(int i=0;i<size;i++){
-                    for(int j=i+1;i<size;j++){
+                    for(int j=i+1;j<size;j++){
                         if (element.get(j).compareToIgnoreCase((element.get(i)))>0 )
                         return false;                                                             
                     }
-                 return true;         
+                       
                 }
+                return true;   
+            }
+           return false;
+
+
+        }
+        
+        public static boolean verifyNum(int column,int time){
+            List<String> element=new ArrayList();
+            int size = driver.findElements(By.xpath("/html/body/header/div/form/div")).size();
+            for(int i=0;i<size;i++){
+                element.add(driver.findElement(By.id("p"+column+i)).getText().trim());               
+            }
+            
+            if (time == 1){
+                
+                for(int i=0;i<size;i++){
+                    //System.out.println(element.get(i));
+                    for(int j=i+1;j<size;j++){
+                        Integer a=Integer.parseInt(element.get(j));
+                        Integer b=Integer.parseInt((element.get(i)));
+                        
+                        if (a.compareTo(b)<0 )
+                        return false;                                                             
+                    }
+                 
+                }
+             return true;
+            }
+           if (time == 2){
+                
+                for(int i=0;i<size;i++){
+                    for(int j=i+1;j<size;j++){
+                        Integer a=Integer.parseInt(element.get(j));
+                        Integer b=Integer.parseInt((element.get(i)));
+                        
+                        if (a.compareTo(b)>0 )
+                        return false;                                                               
+                    }
+                       
+                }
+                return true;   
             }
            return false;
 

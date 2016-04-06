@@ -37,6 +37,19 @@ body{
   opacity:0.8;
 }
 
+.tip-1:hover .popbox1{
+  font-size:14px;
+  display:block;
+  position:absolute;
+  right:20px;
+  width:250px;
+  background-color:#b00715;
+  color:white;
+  padding:10px;
+  opacity:0.8;
+}
+
+
 .minwidth{
     width:20%;
     min-width: 150px;

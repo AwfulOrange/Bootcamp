@@ -11,26 +11,33 @@
                     <th style="width:8%;" ng-click="order = sorter('total');" >Total</th>
                     <th style="width:25%;" ng-click="order = sorter('title');" >Level</th>
                     <th style="width:10%;" ng-click="order = sorter('role');" >Role</th>
+
                </tr>
                <tr>
                 <td >
-                    <input style="width: 70%" ng-model="filter1"/>
+                    <input style="width: 70%" ng-model="filter1" id="filter0"/>
                 </td>
                 <td >
-                    <input style="width: 70%" ng-model="filter2"/>
+                    <input style="width: 70%" ng-model="filter2"id="filter1"/>
                 </td>
                 <td >
-                    <input style="width: 70%" ng-model="filter3"/>
+                    <input style="width: 70%" ng-model="filter3"id="filter2"/>
                 </td>
                 <td >
-                    <input style="width: 70%" ng-model="filter4"/>
+                    <input style="width: 70%" ng-model="filter4"id="filter3"/>
                 </td>
                 <td >
-                    <input style="width: 70%" ng-model="filter5"/>
+                    <input style="width: 70%" ng-model="filter5"id="filter4"/>
                 </td>
                 <td >
-                    <input style="width: 70%" ng-model="filter6"/>
+                    <input style="width: 70%" ng-model="filter6"id="filter5"/>
                 </td>
+                <td style="width:1%;"><a class="tip-1" id="popbox1">?<span class="popbox1"  style="z-index:999;"><ol>
+                                            <li>white means new </li>
+                                            <li>yellow means modify</li>
+                                            <li>green means completed</li>
+                                            <li>red means submitted</li>                                           
+                </ol> </span></a></td>
             </tr>
         </table>  
       

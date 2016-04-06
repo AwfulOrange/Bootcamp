@@ -5,12 +5,12 @@
 
             <span  ng-model="allstatus"></span>
                <tr>
-                    <th style="width:11%;" ng-click="order = sorter('screenName');">Name</th>
-                    <th style="width:11%;" ng-click="order = sorter('performance');" >Performance </th>
-                    <th style="width:10%;" ng-click="order = sorter('potential');" >Potential </th>
-                    <th style="width:8%;" ng-click="order = sorter('total');" >Total</th>
-                    <th style="width:25%;" ng-click="order = sorter('title');" >Level</th>
-                    <th style="width:10%;" ng-click="order = sorter('role');" >Role</th>
+                    <th style="width:11%;" ng-click="order = sorter('screenName');" id="sort0">Name</th>
+                    <th style="width:11%;" ng-click="order = sorter('performance');" id="sort1">Performance </th>
+                    <th style="width:10%;" ng-click="order = sorter('potential');" id="sort2">Potential </th>
+                    <th style="width:8%;" ng-click="order = sorter('total');" id="sort3">Total</th>
+                    <th style="width:25%;" ng-click="order = sorter('title');" id="sort4">Level</th>
+                    <th style="width:10%;" ng-click="order = sorter('role');" id="sort5">Role</th>
 
                </tr>
                <tr>
@@ -49,9 +49,9 @@
                         <td id="p0{{$index}}" style="width:15%;text-align:left">{{ emp.screenName }}</td>
                         <td id="p2{{$index}}" style="width:15%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{emp.performance}} </td>
                         <td id="p3{{$index}}" style="width:13%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;{{emp.potential}} </td>
-                        <td id="p4{{$index}}" style="width:10%;text-align:left">&nbsp;&nbsp;{{emp.total}}
-                        <td id="p5{{$index}}" style="width:35%;text-align:left">{{emp.title}}
-                        <td id="p6{{$index}}" style="width:9%;text-align:left">{{emp.role}}
+                        <td id="p4{{$index}}" style="width:10%;text-align:left">&nbsp;&nbsp;{{emp.total}}</td>
+                        <td id="p5{{$index}}" style="width:35%;text-align:left">{{emp.title}}</td>
+                        <td id="p6{{$index}}" style="width:9%;text-align:left">{{emp.role}}</td>
                         <td class="w1-status-{{emp.score.status}}"></td>
                     </tr>
                 </table>

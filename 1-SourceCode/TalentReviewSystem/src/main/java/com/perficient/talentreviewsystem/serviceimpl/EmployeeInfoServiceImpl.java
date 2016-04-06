@@ -98,7 +98,7 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
             Long promotion=score.get(i).getEmployeeInfo().getLastPromotionDate().getTime();
             emp.setLastPromotionDate(toDate(Long.toString(promotion)));
             int performance;
-            if(score.get(i).getAchievingResults()!=null||score.get(i).getOrgImpact()!=null){
+            if(score.get(i).getAchievingResults()!=null&&score.get(i).getOrgImpact()!=null){
                 performance=score.get(i).getAchievingResults()+score.get(i).getOrgImpact();
                 emp.setPerformance(performance);
                 }
@@ -106,7 +106,7 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
                 performance=0;
             }
             int potential;
-            if(score.get(i).getLearningAgility()!=null||score.get(i).getVersatility()!=null){
+            if(score.get(i).getLearningAgility()!=null&&score.get(i).getVersatility()!=null){
                 potential=score.get(i).getLearningAgility()+score.get(i).getVersatility();
                 emp.setPotential(potential);
             }

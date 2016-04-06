@@ -2,7 +2,17 @@
     <link href="../css/hoverCss.css" rel="stylesheet" />
     <div class="contentStyle"  >
         <table style="text-align:left;font-size: 15px;">
-            <tr>
+
+            <span  ng-model="allstatus"></span>
+               <tr>
+                    <th style="width:11%;" ng-click="order = sorter('screenName');">Name</th>
+                    <th style="width:11%;" ng-click="order = sorter('performance');" >Performance </th>
+                    <th style="width:10%;" ng-click="order = sorter('potential');" >Potential </th>
+                    <th style="width:8%;" ng-click="order = sorter('total');" >Total</th>
+                    <th style="width:25%;" ng-click="order = sorter('title');" >Level</th>
+                    <th style="width:10%;" ng-click="order = sorter('role');" >Role</th>
+               </tr>
+               <tr>
                 <td >
                     <input style="width: 70%" ng-model="filter1"/>
                 </td>
@@ -22,15 +32,6 @@
                     <input style="width: 70%" ng-model="filter6"/>
                 </td>
             </tr>
-            <span  ng-model="allstatus"></span>
-               <tr>
-                    <th style="width:5%;" ng-click="order = sorter('screenName');">Name</th>
-                    <th style="width:11%;" ng-click="order = sorter('performance');" >Performance </th>
-                    <th style="width:8%;" ng-click="order = sorter('potential');" >Potential </th>
-                    <th style="width:8%;" ng-click="order = sorter('total');" >Total</th>
-                    <th style="width:25%;" ng-click="order = sorter('title');" >Level</th>
-                    <th style="width:10%;" ng-click="order = sorter('role');" >Role</th>
-               </tr>
         </table>  
       
         <form >
@@ -40,11 +41,10 @@
                     <tr ng-click="pageshow=!pageshow" id="revid{{$index}}" >
                         <td id="p0{{$index}}" style="width:15%;text-align:left">{{ emp.screenName }}</td>
                         <td id="p2{{$index}}" style="width:15%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{emp.performance}} </td>
-                        <td id="p3{{$index}}" style="width:10%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;{{emp.potential}} </td>
+                        <td id="p3{{$index}}" style="width:13%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;{{emp.potential}} </td>
                         <td id="p4{{$index}}" style="width:10%;text-align:left">&nbsp;&nbsp;{{emp.total}}
                         <td id="p5{{$index}}" style="width:35%;text-align:left">{{emp.title}}
-                        <td id="p6{{$index}}" style="width:15%;text-align:left">{{emp.role}}
-                        <!--<td style="width:32%;text-align:left" >place for level</td>-->
+                        <td id="p6{{$index}}" style="width:9%;text-align:left">{{emp.role}}
                         <td class="w1-status-{{emp.score.status}}"></td>
                     </tr>
                 </table>
@@ -62,7 +62,7 @@
                         </h>
                         <tr>
                             <td >
-                                Assignment Number
+                                Employee ID
                             </td>
                             <td>
                                 GDC Working Experience
@@ -260,7 +260,7 @@
                                     </td>
                         </tr>
                         
-                      versatility
+       
                     </table>
                 </div>
             </div>

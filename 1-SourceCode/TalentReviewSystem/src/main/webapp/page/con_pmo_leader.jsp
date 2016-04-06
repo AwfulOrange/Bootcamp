@@ -4,7 +4,7 @@
 
         <table style="text-align:left;font-size: 17px;">
                <tr>
-                   <th style="width:16%;float:left;padding-bottom:5px ">Reviewer</th>
+                   <th style="width:16%;float:left;padding-bottom:5px ">Name</th>
                    <!--<th style="width:16%;float:right;padding-bottom:5px ">Status</th>-->
                </tr>
         </table>  
@@ -53,7 +53,7 @@
                         <td style="width:8%;text-align:left">{{achievingResults + orgImpact+learningAgility + versatility}}
                         <td id="p5{{$index}}" style="width:25%;text-align:left">{{emp.title}}</td>
                         <td id="p6{{$index}}" style="width:9%;text-align:left">{{emp.role}}</td>
-                        <td class="w1-status-{{emp.score.status}}"></td>
+                        <td class="w1-status-{{status}}" ng-init="status=emp.score.status" ng-model="status"></td>
                     </tr>
                 </table>
                 
@@ -265,7 +265,9 @@
                         </tr>                        
                       
                     </table>
-
+                    <table>
+                        <tr><button class="w3-btn w3-red w3-ripple"  ng-disabled="editablebutton()" ng-click="postSubmit()" id="submitbt">&#10004; approve</button></tr>
+                    </table>
                 </div>
             </div>
             <!--<button class="w3-btn w3-red w3-ripple"  ng-disabled="editable()" ng-click="postSubmit()" id="submitbt">&#10004; Submit</button>-->
@@ -273,7 +275,7 @@
             </div>  
             </div>          
         </div>
-         <button class="w3-btn w3-red w3-ripple"  ng-disabled="editablebutton()" ng-click="postSubmit()" id="submitbt">&#10004; Submit</button>
+         
         <table>
             <tr></tr>
             

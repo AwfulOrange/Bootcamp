@@ -26,7 +26,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
                         .success(function (data) {
                             $scope.emps = data;
                             empslength = data.length;
-                            changestatus(data);
+//                            changestatus(data);
                             for (var i = 0; i < empslength; i++) {
                                 if (data[i].score != null)
                                 {
@@ -47,7 +47,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
                                         potential: data[i].potential,
                                         total: data[i].total
                                     }
-                                    if (data[i].score.status == 2)
+                                    if (data[i].score.status >= 3)
                                     {
                                         edit = true;
                                     }
@@ -106,13 +106,13 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
             orgImpactComment: orgImpactComment,
             learningAgilityComment: learningAgilityComment,
             versatilityComment: versatilityComment,
-            status: statustoNum(status),
+            status: status,
             reviewerId: reviewerId,
             pmoId: pmoId
         };
         if (checkScoredata(scoredata) == false)
         {
-            scoredata.status = 3;
+            scoredata.status = 1;
             allscore.push(scoredata);
             for (var i = 0; i < allscore.length; i++)
             {
@@ -132,10 +132,10 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
             }).error(function (data) {
                 alert("Fail to save!");
             });
-            return "Modified";
+            return "1";
         } else
         {
-            scoredata.status = 1;
+            scoredata.status = 2;
             allscore.push(scoredata);
             for (var i = 0; i < allscore.length; i++)
             {
@@ -154,7 +154,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
             }).error(function (data) {
                 alert("Fail to save!");
             });
-            return "Completed";
+            return "2";
         }
     }
     var checkScoredata = function (data) {
@@ -202,7 +202,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
         if (valid()) {
             for (var m = 0; m < allscore.length; m++)
             {
-                allscore[m].status = 2;
+                allscore[m].status = 3;
             }
 //            var con =window.confirm("Are you sure to submit");
 //            if(con){
@@ -219,53 +219,53 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
         }
     };
     $scope.number = [1, 2, 3, 4, 5];
-    var changestatus = function (data) {
-        for (var i = 0; i < empslength; i++)
-        {
-            if (data[i].status == 0)
-            {
-                data[i].status = "New";
-            } else if (data[i].status == 1)
-            {
-                data[i].status == "Completed"
-            } else if (data[i].status == 2)
-                data[i].status == "Submitted";
-            else
-                data[i].status == "Modified"
-        }
-    }
-    $scope.backstatus = function (status)
-    {
-        if (status == 1)
-        {
-            status = "Completed";
-        } else if (status == 0)
-        {
-            status = "New";
-        } else if (status == 2)
-            status = "Submitted";
-        else if (status == 3)
-            status = "Modified";
-
-        return status;
-    }
-    var statustoNum = function (status)
-    {
-        if (status == "Completed")
-        {
-            status = 1;
-        } else if (status == "New")
-        {
-            status = 0;
-        } else if (status == "Modified")
-        {
-            status = 3;
-        } else if (status == "Submitted")
-        {
-            status = 2;
-        }
-        return status;
-    }
+//    var changestatus = function (data) {
+//        for (var i = 0; i < empslength; i++)
+//        {
+//            if (data[i].status == 0)
+//            {
+//                data[i].status = "New";
+//            } else if (data[i].status == 1)
+//            {
+//                data[i].status == "Completed"
+//            } else if (data[i].status == 2)
+//                data[i].status == "Submitted";
+//            else
+//                data[i].status == "Modified"
+//        }
+//    }
+//    $scope.backstatus = function (status)
+//    {
+//        if (status == 1)
+//        {
+//            status = "Completed";
+//        } else if (status == 0)
+//        {
+//            status = "New";
+//        } else if (status == 2)
+//            status = "Submitted";
+//        else if (status == 3)
+//            status = "Modified";
+//
+//        return status;
+//    }
+//    var statustoNum = function (status)
+//    {
+//        if (status == "Completed")
+//        {
+//            status = 1;
+//        } else if (status == "New")
+//        {
+//            status = 0;
+//        } else if (status == "Modified")
+//        {
+//            status = 3;
+//        } else if (status == "Submitted")
+//        {
+//            status = 2;
+//        }
+//        return status;
+//    }
 
     
     $scope.sorter = function(condition){

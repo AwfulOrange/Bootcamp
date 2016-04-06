@@ -53,7 +53,7 @@ public class TC001_US04 extends TestCaseBase{
        Assert.assertEquals(LoginPagetruetitle,LoginPageexptitle,"fail to redirect");        
        login("testCM","testCM@gdc");
        Thread.sleep(6000);
-       Assert.assertNotNull(TestCaseBase.driver.findElement(By.linkText("Score")));
+       Assert.assertNotNull(TestCaseBase.driver.findElement(By.linkText("Reviewer")));
        Assert.assertFalse(CheckTab());      
        Thread.sleep(2000);
        logout();

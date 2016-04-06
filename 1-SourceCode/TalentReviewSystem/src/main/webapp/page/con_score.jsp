@@ -5,15 +5,23 @@
 
             <span  ng-model="allstatus"></span>
                <tr>
-                    <th style="width:11%;" ng-click="order = sorter('screenName');" id="sort0">Name</th>
-                    <th style="width:11%;" ng-click="order = sorter('performance');" id="sort1">Performance </th>
-                    <th style="width:10%;" ng-click="order = sorter('potential');" id="sort2">Potential </th>
-                    <th style="width:8%;" ng-click="order = sorter('total');" id="sort3">Total</th>
-                    <th style="width:25%;" ng-click="order = sorter('title');" id="sort4">Level</th>
-                    <th style="width:10%;" ng-click="order = sorter('role');" id="sort5">Role</th>
-
+                    <th style="width:15%;" ng-click="order = sorter('screenName');">Name</th>
+                    <th style="width:15%;" ng-click="order = sorter('performance');" >Performance </th>
+                    <th style="width:13%;" ng-click="order = sorter('potential');" >Potential </th>
+                    <th style="width:10%;" ng-click="order = sorter('total');" >Total</th>
+                    <th style="width:25%;" ng-click="order = sorter('title');" >Level</th>
+                    <th style="width:10%;" ng-click="order = sorter('role');" >Role</th>
+                    <td>
+                        <input type="button" value="filiter" ng-click="filitershow=!filitershow"/>
+                        <a class="tip-1" id="popbox1">?<span class="popbox1"  style="z-index:999;"><ol>
+                                            <li>white means new </li>
+                                            <li>yellow means modify</li>
+                                            <li>green means completed</li>
+                                            <li>red means submitted</li></ol> 
+                            </span></a>
+                    </td>
                </tr>
-               <tr>
+               <tr ng-show="filitershow" >
                 <td >
                     <input style="width: 70%" ng-model="filter1" id="filter0"/>
                 </td>
@@ -32,12 +40,7 @@
                 <td >
                     <input style="width: 70%" ng-model="filter6"id="filter5"/>
                 </td>
-                <td style="width:1%;"><a class="tip-1" id="popbox1">?<span class="popbox1"  style="z-index:999;"><ol>
-                                            <li>white means new </li>
-                                            <li>yellow means modify</li>
-                                            <li>green means completed</li>
-                                            <li>red means submitted</li>                                           
-                </ol> </span></a></td>
+                
             </tr>
         </table>  
       
@@ -49,10 +52,11 @@
                         <td id="p0{{$index}}" style="width:15%;text-align:left">{{ emp.screenName }}</td>
                         <td id="p2{{$index}}" style="width:15%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{emp.performance}} </td>
                         <td id="p3{{$index}}" style="width:13%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;{{emp.potential}} </td>
-                        <td id="p4{{$index}}" style="width:10%;text-align:left">&nbsp;&nbsp;{{emp.total}}</td>
-                        <td id="p5{{$index}}" style="width:35%;text-align:left">{{emp.title}}</td>
-                        <td id="p6{{$index}}" style="width:9%;text-align:left">{{emp.role}}</td>
-                        <td class="w1-status-{{emp.score.status}}"></td>
+                        <td id="p4{{$index}}" style="width:10%;text-align:left">&nbsp;&nbsp;{{emp.total}}
+                        <td id="p5{{$index}}" style="width:25%;text-align:left">{{emp.title}}
+                        <td id="p6{{$index}}" style="width:15%;text-align:left">{{emp.role}}
+                        <td class="w1-status-{{status}}" ng-init="status=emp.score.status" ng-model="status"></td>
+                   
                     </tr>
                 </table>
                 

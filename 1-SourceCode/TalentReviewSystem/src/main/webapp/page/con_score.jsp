@@ -5,12 +5,12 @@
 
             <span  ng-model="allstatus"></span>
                <tr>
-                    <th style="width:15%;" ng-click="order = sorter('screenName');">Name</th>
-                    <th style="width:15%;" ng-click="order = sorter('performance');" >Performance </th>
-                    <th style="width:15%;" ng-click="order = sorter('potential');" >Potential </th>
-                    <th style="width:10%;" ng-click="order = sorter('total');" >Total</th>
-                    <th style="width:27%;" ng-click="order = sorter('title');" >Level</th>
-                    <th style="width:8%;" ng-click="order = sorter('role');" >Role</th>
+                   <th style="width:15%;">Name<img style="width: 15px;height: 15px;" class="w1-img" src="../img/sort.png"  ng-click="order = sorter('screenName');" /></th>
+                    <th style="width:15%;"  >Performance <img style="width: 15px;height: 15px;" class="w1-img" src="../img/sort.png" ng-click="order = sorter('performance');" /></th>
+                    <th style="width:15%;"  >Potential <img style="width: 15px;height: 15px;" class="w1-img" src="../img/sort.png" ng-click="order = sorter('potential');" /></th>
+                    <th style="width:10%;"  >Total<img style="width: 15px;height: 15px;" class="w1-img" src="../img/sort.png" ng-click="order = sorter('total');" /></th>
+                    <th style="width:27%;"  >Level<img style="width: 15px;height: 15px;" class="w1-img" src="../img/sort.png" ng-click="order = sorter('title');" /></th>
+                    <th style="width:8%;"  >Role<img style="width: 15px;height: 15px;" class="w1-img" src="../img/sort.png" ng-click="order = sorter('role');" /></th>
                     <th style="float: left;">
                         <input type="button" value="filiter" ng-click="filitershow=!filitershow" class="w3-btn w3-red w3-ripple"/>
                     </th>

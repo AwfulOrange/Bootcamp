@@ -5,6 +5,7 @@
 */
 package com.perficient.talentreviewsystem.entity;
 
+import static com.perficient.talentreviewsystem.entity.SupportiveInfo_.employeeInfo;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,6 +19,9 @@ import static org.junit.Assert.*;
  */
 public class SupportiveInfoTest {
     SupportiveInfo s = new SupportiveInfo();
+    SupportiveInfoPK spk = new SupportiveInfoPK();
+    EmployeeInfo empin = new EmployeeInfo();
+    ReviewPeriod re = new ReviewPeriod();
     String activity="activity";
     String award="award";
     String blog="blog";
@@ -29,6 +33,8 @@ public class SupportiveInfoTest {
     String training="tri";
     Integer isReviewer=0;
     Integer isPmo=1;
+    String employeeId="1";
+    String reviewPeriod="201503";
 //    EmployeeInfo employeeInfo=;
 //    SupportiveInfoPK supportiveInfoPK="";
     public SupportiveInfoTest() {
@@ -44,28 +50,33 @@ public class SupportiveInfoTest {
     
     @Before
     public void setUp() {
+        spk.setEmployeeId(employeeId);
+        spk.setReviewPeriod(reviewPeriod);
+        empin.setEmployeeId(employeeId);
+        re.setReviewPeriod(reviewPeriod);
     }
     
     @After
     public void tearDown() {
     }
-    
-//    @Test
-//    public void testSupportiveInfoPK() {
-//        s = new SupportiveInfo();
-//        s.setSupportiveInfoPK(supportiveInfoPK);
-//        
-//    }
-    
-    
-    
+
+    @Test
+    public void testConstructor(){
+        SupportiveInfo spk1 = new SupportiveInfo(employeeId,reviewPeriod);
+        SupportiveInfo spk2 = new SupportiveInfo(spk);
+    }
+
+    @Test
+    public void testSetSupportiveInfoPK(){
+        s.setSupportiveInfoPK(spk);
+        assertEquals(s.getSupportiveInfoPK(),spk);
+    }
     @Test
     public void testActivity() {
          s = new SupportiveInfo();
         s.setActivity(activity);
         assertEquals(activity,s.getActivity());
     }
-    
     
     @Test
     public void testAward() {
@@ -137,10 +148,24 @@ public class SupportiveInfoTest {
         assertEquals(isPmo,s.getIsPmo());
     }
     
-//    @Test
-//    public void testEmployeeInfo() {
-//        s = new SupportiveInfo();
-//        s.setEmployeeInfo(employeeInfo);
-//        
-//    }
+    @Test
+    public void testEmployeeInfo() {
+        s = new SupportiveInfo();
+        s.setEmployeeInfo(empin);
+        assertNotNull(s.getEmployeeInfo());
+    }
+    
+    @Test
+    public void testReviewPeriod1(){
+        s.setReviewPeriod1(re);
+        assertNotNull(s.getReviewPeriod1());
+    }
+    
+    @Test 
+    public void commonUtil(){
+    assertTrue(s.equals(s));
+    assertNotNull(s.hashCode());
+    assertNotNull(s.toString());
+    }
+    
 }

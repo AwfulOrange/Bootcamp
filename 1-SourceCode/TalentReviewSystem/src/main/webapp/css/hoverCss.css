@@ -35,6 +35,7 @@ body{
   color:white;
   padding:10px;
   opacity:0.8;
+   z-index: 99;
 }
 
 .tip-1:hover .popbox1{
@@ -47,6 +48,7 @@ body{
   color:white;
   padding:10px;
   opacity:0.8;
+  z-index: 99;
 }
 
 

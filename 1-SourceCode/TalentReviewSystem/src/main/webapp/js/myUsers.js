@@ -262,9 +262,12 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
 
 
 
-    $scope.sorter = function (condition) {
-        console.log($scope.p + "123");
-        $scope.p = !$scope.p;
+    $scope.sorterUp = function (condition) {
+        $scope.p = true;
+        return condition;
+    }
+    $scope.sorterDown = function (condition) {
+        $scope.p = false;
         return condition;
     }
 });

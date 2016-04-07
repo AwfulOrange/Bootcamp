@@ -373,5 +373,10 @@ input[type=checkbox].w3-check:disabled+.w3-validate,input[type=radio].w3-radio:d
 .w1-imgpmo{height:30px;width:30px;position:relative;top:-5px;}
 .w1-status-0{background-color: white;width: 3%;}
 .w1-status-2{background-color: green;width: 3%;}
-.w1-status-3{background-color: red;width: 3%;}
+.w1-status-3, .w1-status-4 ,.w1-status-5{background-color: red;width: 3%;}
 .w1-status-1{background-color:yellow;width: 3%;}
+
+.w2-status-0, .w2-status-1 ,.w2-status-2{background-color: white;width: 3%;}
+.w2-status-3{background-color:yellow;width: 3%;}
+.w2-status-4{background-color:green;width: 3%;}
+.w2-status-5{background-color:red;width: 3%;}

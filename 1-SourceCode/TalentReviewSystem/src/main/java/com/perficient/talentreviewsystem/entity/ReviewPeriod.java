@@ -40,7 +40,7 @@ public class ReviewPeriod implements Serializable {
     @NotNull
     @Size(min = 1, max = 255)
     @Column(name = "review_period")
-    private String rPeriod;
+    private String reviewPeriod;
     @Column(name = "id")
     private Integer id;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "reviewPeriod1")
@@ -53,15 +53,15 @@ public class ReviewPeriod implements Serializable {
     }
 
     public ReviewPeriod(String reviewPeriod) {
-        this.rPeriod = reviewPeriod;
+        this.reviewPeriod = reviewPeriod;
     }
 
     public String getReviewPeriod() {
-        return rPeriod;
+        return reviewPeriod;
     }
 
     public void setReviewPeriod(String reviewPeriod) {
-        this.rPeriod = reviewPeriod;
+        this.reviewPeriod = reviewPeriod;
     }
 
     public Integer getId() {
@@ -93,7 +93,7 @@ public class ReviewPeriod implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (rPeriod != null ? rPeriod.hashCode() : 0);
+        hash += (reviewPeriod != null ? reviewPeriod.hashCode() : 0);
         return hash;
     }
 
@@ -103,7 +103,7 @@ public class ReviewPeriod implements Serializable {
             return false;
         }
         ReviewPeriod other = (ReviewPeriod) object;
-        if ((this.rPeriod == null && other.rPeriod != null) || (this.rPeriod != null && !this.rPeriod.equals(other.rPeriod))) {
+        if ((this.reviewPeriod == null && other.reviewPeriod != null) || (this.reviewPeriod != null && !this.reviewPeriod.equals(other.reviewPeriod))) {
             return false;
         }
         return true;
@@ -111,7 +111,7 @@ public class ReviewPeriod implements Serializable {
 
     @Override
     public String toString() {
-        return "com.perficient.talentreviewsystem.entity.ReviewPeriod[ reviewPeriod=" + rPeriod + " ]";
+        return "com.perficient.talentreviewsystem.entity.ReviewPeriod[ reviewPeriod=" + reviewPeriod + " ]";
     }
     
 }

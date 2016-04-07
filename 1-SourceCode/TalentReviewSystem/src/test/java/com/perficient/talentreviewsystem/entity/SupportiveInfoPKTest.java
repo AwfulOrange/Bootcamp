@@ -46,7 +46,12 @@ public class SupportiveInfoPKTest {
         s.setReviewPeriod(reviewPeriod);
         assertEquals(reviewPeriod,s.getReviewPeriod());
     }
-
+    @Test public void commonUtil(){
+        
+        assertTrue(s.equals(s));
+        assertNotNull(s.hashCode());
+        assertNotNull(s.toString());
+    }
     @Test
     public void testReviewPeriod() {
         s = new SupportiveInfoPK();

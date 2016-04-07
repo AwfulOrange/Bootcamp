@@ -353,8 +353,8 @@ input[type=checkbox].w3-check:disabled+.w3-validate,input[type=radio].w3-radio:d
 
 /*pmo style*/
 .w1-hoverable tbody tr:hover{background-color:#d59392;min-height:20px;min-width: 800px;cursor:pointer;}.w1-ul.w1-hoverable li:hover{background-color:#b00715;opacity:0.8;}
-.w1-hoverable tbody tr{background-color:#eee;opacity:0.8;font-size: 15px;}
-.w1-form{width:97%;float:right;}
+.w1-hoverable tbody tr{background-color:#eee;font-size: 15px;}
+.w1-form{width:100%;float:right;}
 
 .w1-tab-hover{padding-top: 14px;width:10%;background-color: #d9d9d9;min-width: 125px;}
 .w1-tab-hover:hover{background-color: #black;min-width: 125px;}
@@ -371,7 +371,7 @@ input[type=checkbox].w3-check:disabled+.w3-validate,input[type=radio].w3-radio:d
 .w1-tab-img{width:25px; height:25px;padding-bottom: 5px;}
 .w1-img{height:25px;width:25px;position:relative;top:-5px;cursor:pointer;}
 .w1-imgpmo{height:30px;width:30px;position:relative;top:-5px;}
-.w1-status-0{background-color: white;width: 3%;border: 1px solid #eee;}
+/*.w1-status-0{background-color: white;width: 3%;border: 1px solid #eee;}
 .w1-status-2{background-color: green;width: 3%;}
 .w1-status-3, .w1-status-4 ,.w1-status-5{background-color: red;width: 3%;}
 .w1-status-1{background-color:yellow;width: 3%;}
@@ -379,4 +379,4 @@ input[type=checkbox].w3-check:disabled+.w3-validate,input[type=radio].w3-radio:d
 .w2-status-0, .w2-status-1 ,.w2-status-2{background-color: white;width: 3%;border: 1px solid #eee;}
 .w2-status-3{background-color:yellow;width: 3%;}
 .w2-status-4{background-color:green;width: 3%;}
-.w2-status-5{background-color:red;width: 3%;}
+.w2-status-5{background-color:red;width: 3%;}*/

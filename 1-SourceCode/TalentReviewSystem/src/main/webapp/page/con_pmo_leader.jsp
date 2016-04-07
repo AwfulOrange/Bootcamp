@@ -2,60 +2,37 @@
     <link href="../css/hoverCss.css" rel="stylesheet" />
     <div class="contentStyle"  >
 
-        <table style="text-align:left;font-size: 17px;">
+            <table style="text-align:left;font-size: 15px;">
                <tr>
-                   <th style="width:16%;float:left;padding-bottom:5px ">Name</th>
-                   <!--<th style="width:16%;float:right;padding-bottom:5px ">Status</th>-->
-               </tr>
-        </table>  
- 
-        <div  ng-repeat="pmo in pmos | orderBy:'reviewname'" >
-            <table  class="w3-hoverable" style="background-color:gainsboro" >
-
-                    <tr></tr>
-                    <tr  ng-click="p=!p" id="pmo{{$index}}" style="cursor:pointer">
-                        
-                        <td  style="width:15%;text-align:left;" >
-                <img ng-if="p"  class="w1-imgpmo"  src="../img/up_1.png"   />
-                <img ng-if="!p" class="w1-imgpmo"  src="../img/down_1.png"  />
-                            
-                            {{ pmo.reviewname }}</td>
-                        <!--<td style="width: 18%;text-align:right" ng-init=" pstatus='incompleted'" ng-model="pstatus">{{pstatus}}</td>-->
-                    </tr>
-                </table>
-            <div ng-show="p">
-            <div  class="w1-form">
-              <table style="text-align:left;font-size: 13px;">
-               <tr>
+                    <th style="width:11%;float:left;">Reviewer</th>
+                    <th style="width:11%;float:left;">Reviewee</th>
                    
-                    <th style="width:11%;float:left;">Name</th>
-                   
-                    <th style="width:14%;float:left"  >Performance </th>
-                    <th style="width:14%;float:left"  >Potential </th>
+                    <th style="width:13%;float:left"  >Performance </th>
+                    <th style="width:13%;float:left"  >Potential </th>
                     <th style="width:12%;float:left"  >Total</th>
-                    <th style="width:33%;float:left" >Level</th>
-                    <th style="width:10%;float:left" >Role</th>
-                    <th style="width:1%;"><a class="tip-1" id="popbox1" style="float: left;">?<span class="popbox1"  style="z-index:999;"><ol>
-                                            <li>white means haven't submitted </li>
-                                            <li>yellow means submitted</li>
-                                            <li>green means checked</li>
-                                            <li>red means approved</li>                                           
-                        </ol> </span></a></th>
+                    <th style="width:24%;float:left" >Level</th>
+                    <th style="width:8%;float:left" >Role</th>
+                    <th style="width:8%;float:left">Status</th>
                </tr>
              </table> 
+ 
+        <div  ng-repeat="pmo in pmos | orderBy:'reviewname'" >
+            <div  class="w1-form">
+              
             <div ng-repeat="emp in pmo.emp | orderBy:'screenName' | filter:filt" >
                 <table  class="w1-hoverable" style="background-color:ff3333;" >
                     <tr></tr>
                     <input type="hidden"  ng-init="reviewerId=emp.score.reviewerId" ng-model="reviewerId" >
                      <input type="hidden"  ng-init="pmoId=emp.score.pmoId" ng-model="pmoId" >
                     <tr ng-click="pageshow=!pageshow" id="revid{{$parent.$index}}{{$index}}" > 
+                        <td style="width:10%;text-align:left">{{ pmo.reviewname }}</td>
                         <td style="width:11%;text-align:left">{{ emp.screenName }}</td>
-                        <td style="width:11%;text-align:left">{{achievingResults + orgImpact}} </td>
-                        <td style="width:10%;text-align:left">{{learningAgility + versatility}} </td>
-                        <td style="width:8%;text-align:left">{{achievingResults + orgImpact+learningAgility + versatility}}
-                        <td id="p5{{$index}}" style="width:25%;text-align:left">{{emp.title}}</td>
-                        <td id="p6{{$index}}" style="width:9%;text-align:left">{{emp.role}}</td>
-                        <td class="w2-status-{{status}}" ng-init="status=emp.score.status" ng-model="status"></td>
+                        <td style="width:10%;text-align:left">{{achievingResults + orgImpact}} </td>
+                        <td style="width:7%;text-align:left">{{learningAgility + versatility}} </td>
+                        <td style="width:5%;text-align:left">{{achievingResults + orgImpact+learningAgility + versatility}}
+                        <td id="p5{{$index}}" style="width:20%;text-align:left">{{emp.title}}</td>
+                        <td id="p6{{$index}}" style="width:8%;text-align:left">{{emp.role}}</td>
+                        <td  ng-init="status=emp.score.status" ng-model="status" style="width:5%;text-align:left">{{status}}</td>
                     </tr>
                 </table>
                 
@@ -269,14 +246,14 @@
                     </table>
                     <table>
                         <tr><button class="w3-btn w3-red w3-ripple"  ng-disabled="editable(status)" ng-click="status=postSubmit(emp.id, achievingResults, orgImpact, learningAgility,
-                    versatility, achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment,reviewerId,pmoId)" id="submitbt">&#10004; approve</button></tr>
+                    versatility, achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment,reviewerId,pmoId)" id="submitbt">approve</button></tr>
                     </table>
                 </div>
             </div>
             <!--<button class="w3-btn w3-red w3-ripple"  ng-disabled="editable()" ng-click="postSubmit()" id="submitbt">&#10004; Submit</button>-->
 
             </div>  
-            </div>          
+                    
         </div>
          
         <table>

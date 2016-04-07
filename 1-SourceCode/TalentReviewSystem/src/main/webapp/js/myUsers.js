@@ -6,7 +6,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
     var reviewerId = "";
     var pmoId = "";
 
-    $http.get("http://10.2.1.183:8080/TRS/web/role")
+    $http.get("http://localhost:8080/TRS/web/role")
             .success(function (ndata) {
                 $scope.info = ndata;
                 var info = ndata;
@@ -22,7 +22,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
              } 
                         
 
-                $http.get("http://10.2.1.183:8080/TRS/web/employee/reviewer/" + ID)
+                $http.get("http://localhost:8080/TRS/web/employee/reviewer/" + ID)
                         .success(function (data) {
                             $scope.emps = data;
                             empslength = data.length;
@@ -63,7 +63,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
 
 
 
-    $http.get("http://10.2.1.183:8080/TRS/web/cri").success(function (data) {
+    $http.get("http://localhost:8080/TRS/web/cri").success(function (data) {
         criteria = data;
     });
     $scope.findCriteriaByName = function (name) {
@@ -110,6 +110,25 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
             reviewerId: reviewerId,
             pmoId: pmoId
         };
+        
+        
+        //update $scope.emps
+        var temp = $scope.emps;
+        console.log($scope.emps);
+        for (var i = 0; i < temp.length; i++) {
+            if (temp[i].id == id) {
+                temp[i].score.achievingResults = achievingResults;
+                temp[i].score.orgImpact = orgImpact;
+                temp[i].score.learningAgility = learningAgility;
+                temp[i].score.versatility = versatility;
+                temp[i].performance = achievingResults + orgImpact;
+                temp[i].potential = learningAgility + versatility;
+                temp[i].total = achievingResults + orgImpact + learningAgility + versatility;
+            }
+        }
+        $scope.emps = temp;
+        
+        
         if (checkScoredata(scoredata) == false)
         {
             scoredata.status = 1;
@@ -127,7 +146,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
                     }
                 }
             }
-            $http.post('http://10.2.1.183:8080/TRS/web/score/', allscore).success(function () {
+            $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function () {
 
             }).error(function (data) {
                 alert("Fail to save!");
@@ -150,12 +169,13 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
                     }
                 }
             }
-            $http.post('http://10.2.1.183:8080/TRS/web/score/', allscore).success(function () {
+            $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function () {
             }).error(function (data) {
                 alert("Fail to save!");
             });
             return "2";
         }
+        $scope.apply();
     }
     var checkScoredata = function (data) {
         if (data.employeeId == undefined) {
@@ -206,7 +226,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
             }
 //            var con =window.confirm("Are you sure to submit");
 //            if(con){
-            $http.post('http://10.2.1.183:8080/TRS/web/score/', allscore).success(function () {
+            $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function () {
 
                 $window.location.reload();
             }).error(function (data) {
@@ -219,53 +239,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
         }
     };
     $scope.number = [1, 2, 3, 4, 5];
-//    var changestatus = function (data) {
-//        for (var i = 0; i < empslength; i++)
-//        {
-//            if (data[i].status == 0)
-//            {
-//                data[i].status = "New";
-//            } else if (data[i].status == 1)
-//            {
-//                data[i].status == "Completed"
-//            } else if (data[i].status == 2)
-//                data[i].status == "Submitted";
-//            else
-//                data[i].status == "Modified"
-//        }
-//    }
-//    $scope.backstatus = function (status)
-//    {
-//        if (status == 1)
-//        {
-//            status = "Completed";
-//        } else if (status == 0)
-//        {
-//            status = "New";
-//        } else if (status == 2)
-//            status = "Submitted";
-//        else if (status == 3)
-//            status = "Modified";
-//
-//        return status;
-//    }
-//    var statustoNum = function (status)
-//    {
-//        if (status == "Completed")
-//        {
-//            status = 1;
-//        } else if (status == "New")
-//        {
-//            status = 0;
-//        } else if (status == "Modified")
-//        {
-//            status = 3;
-//        } else if (status == "Submitted")
-//        {
-//            status = 2;
-//        }
-//        return status;
-//    }
+
 
     
     $scope.sorter = function(condition){

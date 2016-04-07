@@ -35,19 +35,11 @@
                 <th style="width:8%;"  >
                     Role<img style="width: 15px;height: 15px;" class="w1-img" src="../img/sort.png" ng-click="order = sorter('role');" />
                 </th>
-                <th style="float: left;">
-                    <input type="button" value="filiter" ng-click="filitershow = !filitershow" class="w3-btn w3-red w3-ripple"/>
-                </th>
                 <th>
-                    <a class="tip-1" id="popbox1">?<span class="popbox1"  style="z-index:999;"><ol>
-                                <li>white means new </li>
-                                <li>yellow means modify</li>
-                                <li>green means completed</li>
-                                <li>red means submitted</li></ol> 
-                        </span></a>
+                    Status
                 </th>
             </tr>
-            <tr ng-show="filitershow" >
+            <tr>
                 <td >
                     <input style="width: 70%" ng-model="filter1" id="filter0"/>
                 </td>
@@ -81,7 +73,7 @@
                         <td id="p4{{$index}}" style="width:10%;text-align:left">&nbsp;&nbsp;{{emp.total}}
                         <td id="p5{{$index}}" style="width:25%;text-align:left">{{emp.title}}
                         <td id="p6{{$index}}" style="width:15%;text-align:left">{{emp.role}}
-                        <td class="w1-status-{{status}}" ng-init="status = emp.score.status" ng-model="status"></td>
+                        <td ng-init="status = emp.score.status" ng-model="status">{{status}}</td>
 
                     </tr>
                 </table>
@@ -300,8 +292,9 @@
 
                     </table>
                 </div>
+                <button class="w3-btn w3-red w3-ripple"  ng-disabled="editable()" ng-click="postSubmit()" id="submitbt">&#10004; Submit</button>
             </div>
-            <button class="w3-btn w3-red w3-ripple"  ng-disabled="editable()" ng-click="postSubmit()" id="submitbt">&#10004; Submit</button>
+            
         </form>
     </div>
 </body>

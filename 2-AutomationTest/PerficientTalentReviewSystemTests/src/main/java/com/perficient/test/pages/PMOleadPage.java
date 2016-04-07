@@ -63,4 +63,36 @@ public class PMOleadPage {
     //********************US04 find Id**************************************************
     @FindBy(id="logout")
     public static WebElement logoutButton;
+       //********************TC01_US07 find Id*****************************
+    @FindBy(id="XXXXXXXX")
+    public static WebElement filter0;
+    @FindBy(id="XXXXXXXX")
+    public static WebElement filter1;
+    @FindBy(id="XXXXXXXX")
+    public static WebElement filter2;
+    @FindBy(id="XXXXXXXX")
+    public static WebElement filter3;
+    @FindBy(id="XXXXXXXX")
+    public static WebElement filter4;
+    @FindBy(id="XXXXXXXX")
+    public static WebElement filter5;
+    @FindBy(id="XXXXXXXX")
+    public static WebElement filter6;
+        
+       //********************TC02_US07 find Id*****************************
+    @FindBy(xpath="xxxxxxxxxx")
+    public static WebElement sort0;   
+    @FindBy(xpath="xxxxxxxxxxx")
+    public static WebElement sort1;   
+    @FindBy(xpath="xxxxxxxx")
+    public static WebElement sort2;       
+    @FindBy(xpath="xxxxxxxxxxx")
+    public static WebElement sort3;       
+    @FindBy(xpath="xxxxxxxx")
+    public static WebElement sort4;
+    @FindBy(xpath="xxxxxxxxxxxxxx")
+    public static WebElement sort5;
+    @FindBy(xpath="xxxxxxxxxxxx")
+    public static WebElement sort6;
+    
 }

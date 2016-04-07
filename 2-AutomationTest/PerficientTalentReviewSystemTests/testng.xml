@@ -6,7 +6,7 @@
     <parameter name="hubHost" value="10.2.7.15" />
     <parameter name="hubPort" value="4444" />  
 
- 
+<!-- 
 <test name="US01">
     
         <classes>
@@ -18,28 +18,39 @@
     
         <classes>
             <class name="com.perficient.test.US02.TC001_US02"/>
-            
         </classes>
  </test>
-<!-- <test name1="US03">
+ <test name="US03">
         <classes>
             <class name="com.perficient.test.US03.TC001_US03"/>
             <class name="com.perficient.test.US03.TC002_US03"/>
         </classes>
- </test> -->
+ </test> 
  
- <test name="US04">
+<test name="US04">
         <classes>
            <class name="com.perficient.test.US04.TC001_US04"/>
            <class name="com.perficient.test.US04.TC002_US04"/>
         </classes>
- </test>
+ </test> 
  <test name="US05">
         <classes>
             <class name="com.perficient.test.US05.TC001_US05"/>
-<!--            <class name="com.perficient.test.US05.TC002_US05"/>-->
+            <class name="com.perficient.test.US05.TC002_US05"/>
+        </classes>
+ </test> -->
+  <test name="US06">
+        <classes>
+            <!--<class name="com.perficient.test.US06.TC001_US06"/>-->
+            <class name="com.perficient.test.US06.TC002_US06"/>
         </classes>
  </test> 
- 
+   <test name="US07">
+        <classes>
+            <!--<class name="com.perficient.test.US07.TC001_US07"/>-->
+            <class name="com.perficient.test.US07.TC002_US07"/>
+            <class name="com.perficient.test.US07.TC003_US07"/>
+        </classes>
+ </test> 
 </suite>
 

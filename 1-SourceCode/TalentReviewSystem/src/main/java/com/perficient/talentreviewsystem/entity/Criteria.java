@@ -42,7 +42,7 @@ public class Criteria implements Serializable {
     private Integer id;
     @Size(max = 100)
     @Column(name = "criteria")
-    private String criteria;
+    private String cri;
     @Size(max = 500)
     @Column(name = "level")
     private String level;
@@ -53,6 +53,7 @@ public class Criteria implements Serializable {
     private Integer score;
 
     public Criteria() {
+        //do nothing.
     }
 
     public Criteria(Integer id) {
@@ -67,12 +68,12 @@ public class Criteria implements Serializable {
         this.id = id;
     }
 
-    public String getCriteria() {
-        return criteria;
+    public String getCri() {
+        return cri;
     }
 
-    public void setCriteria(String criteria) {
-        this.criteria = criteria;
+    public void setCri(String cri) {
+        this.cri = cri;
     }
 
     public String getLevel() {
@@ -108,7 +109,6 @@ public class Criteria implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Criteria)) {
             return false;
         }

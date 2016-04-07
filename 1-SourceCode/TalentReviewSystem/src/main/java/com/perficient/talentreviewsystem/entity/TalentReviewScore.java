@@ -90,6 +90,7 @@ public class TalentReviewScore implements Serializable {
     private String employeeId;
      
     public TalentReviewScore() {
+        //do nothing
     }
 
     public TalentReviewScore(TalentReviewScorePK talentReviewScorePK) {
@@ -235,7 +236,6 @@ public class TalentReviewScore implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof TalentReviewScore)) {
             return false;
         }

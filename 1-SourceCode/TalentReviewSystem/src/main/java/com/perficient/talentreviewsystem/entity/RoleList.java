@@ -5,13 +5,15 @@
  */
 package com.perficient.talentreviewsystem.entity;
 
-import java.util.HashMap;
 
 /**
  *
  * @author bootcamp19
  */
 public class RoleList {
+    public RoleList(){
+        //do nothing
+    }
     public static final String ROLE_REVIEWER = "reviewer";
     public static final String ROLE_PMO = "pmo";
     public static final String ROLE_P = "ROLE_PMO";

@@ -40,7 +40,7 @@ public class ReviewPeriod implements Serializable {
     @NotNull
     @Size(min = 1, max = 255)
     @Column(name = "review_period")
-    private String reviewPeriod;
+    private String rPeriod;
     @Column(name = "id")
     private Integer id;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "reviewPeriod1")
@@ -49,18 +49,19 @@ public class ReviewPeriod implements Serializable {
     private Collection<SupportiveInfo> supportiveInfoCollection;
 
     public ReviewPeriod() {
+        //do nothing
     }
 
     public ReviewPeriod(String reviewPeriod) {
-        this.reviewPeriod = reviewPeriod;
+        this.rPeriod = reviewPeriod;
     }
 
     public String getReviewPeriod() {
-        return reviewPeriod;
+        return rPeriod;
     }
 
     public void setReviewPeriod(String reviewPeriod) {
-        this.reviewPeriod = reviewPeriod;
+        this.rPeriod = reviewPeriod;
     }
 
     public Integer getId() {
@@ -92,18 +93,17 @@ public class ReviewPeriod implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (reviewPeriod != null ? reviewPeriod.hashCode() : 0);
+        hash += (rPeriod != null ? rPeriod.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof ReviewPeriod)) {
             return false;
         }
         ReviewPeriod other = (ReviewPeriod) object;
-        if ((this.reviewPeriod == null && other.reviewPeriod != null) || (this.reviewPeriod != null && !this.reviewPeriod.equals(other.reviewPeriod))) {
+        if ((this.rPeriod == null && other.rPeriod != null) || (this.rPeriod != null && !this.rPeriod.equals(other.rPeriod))) {
             return false;
         }
         return true;
@@ -111,7 +111,7 @@ public class ReviewPeriod implements Serializable {
 
     @Override
     public String toString() {
-        return "com.perficient.talentreviewsystem.entity.ReviewPeriod[ reviewPeriod=" + reviewPeriod + " ]";
+        return "com.perficient.talentreviewsystem.entity.ReviewPeriod[ reviewPeriod=" + rPeriod + " ]";
     }
     
 }

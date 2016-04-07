@@ -7,7 +7,6 @@ package com.perficient.talentreviewsystem.entity;
 
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.List;
 
 /**
  *
@@ -56,7 +55,7 @@ public class Employee implements Serializable {
     private String lastPromotionDate;
     private String startLevel;
     private Collection<SupportiveInfo> supportiveInfoCollection;
-    private TalentReviewScore Score;
+    private TalentReviewScore trsscore;
     private int performance;
     private int potential;
     private int total;
@@ -372,17 +371,17 @@ public class Employee implements Serializable {
     }
 
     /**
-     * @return the Score
+     * @return the trsscore
      */
-    public TalentReviewScore getScore() {
-        return Score;
+    public TalentReviewScore getTrsscore() {
+        return trsscore;
     }
 
     /**
-     * @param Score the Score to set
+     * @param score the trsscore to set
      */
-    public void setScore(TalentReviewScore Score) {
-        this.Score = Score;
+    public void setTrsscore(TalentReviewScore score) {
+        this.trsscore = score;
     }
 
     /**

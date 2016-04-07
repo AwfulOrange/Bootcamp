@@ -83,6 +83,7 @@ public class SupportiveInfo implements Serializable {
     private ReviewPeriod reviewPeriod1;
 
     public SupportiveInfo() {
+        //do nothing
     }
 
     public SupportiveInfo(SupportiveInfoPK supportiveInfoPK) {
@@ -214,7 +215,6 @@ public class SupportiveInfo implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof SupportiveInfo)) {
             return false;
         }

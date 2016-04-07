@@ -46,6 +46,8 @@
             <div ng-repeat="emp in pmo.emp | orderBy:'screenName' | filter:filt" >
                 <table  class="w1-hoverable" style="background-color:ff3333;" >
                     <tr></tr>
+                    <input type="hidden"  ng-init="reviewerId=emp.score.reviewerId" ng-model="reviewerId" >
+                     <input type="hidden"  ng-init="pmoId=emp.score.pmoId" ng-model="pmoId" >
                     <tr ng-click="pageshow=!pageshow" id="revid{{$parent.$index}}{{$index}}" > 
                         <td style="width:11%;text-align:left">{{ emp.screenName }}</td>
                         <td style="width:11%;text-align:left">{{achievingResults + orgImpact}} </td>
@@ -53,7 +55,7 @@
                         <td style="width:8%;text-align:left">{{achievingResults + orgImpact+learningAgility + versatility}}
                         <td id="p5{{$index}}" style="width:25%;text-align:left">{{emp.title}}</td>
                         <td id="p6{{$index}}" style="width:9%;text-align:left">{{emp.role}}</td>
-                        <td class="w1-status-{{status}}" ng-init="status=emp.score.status" ng-model="status"></td>
+                        <td class="w2-status-{{status}}" ng-init="status=emp.score.status" ng-model="status"></td>
                     </tr>
                 </table>
                 
@@ -159,8 +161,8 @@
                                          ng-disabled="editable(status)"
                                          ng-init="achievingResults=emp.score.achievingResults" 
                                          ng-model="achievingResults"  ng-options="act for act in number" 
-                                         ng-blur="save(emp.id,achievingResults,orgImpact,learningAgility,versatility
-                        ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="A{{$index}}">{{emp.id}}  
+                                         ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                        ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,reviewerId,pmoId)" id="A{{$index}}">{{emp.id}}  
                                 </select>
                                 <a class="tip-1" id="I{{$index}}">?<span class="popbox"  style="z-index:999;"><ol>
                                              <li>{{findCriteriaByLevel("Achieves Results",emp.title)[0].rule}}</li><br/>
@@ -177,8 +179,8 @@
                                        ng-disabled="editable(status)"
                                        ng-init="achievingResultsComment=emp.score.achievingResultsComment" 
                                        ng-model="achievingResultsComment" 
-                                       placeholder="Comment Here   (*)"  ng-blur="save(emp.id,achievingResults,orgImpact,learningAgility,versatility
-                                           ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="E{{$index}}" required></textarea>
+                                       placeholder="Comment Here   (*)"  ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                           ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,reviewerId,pmoId)" id="E{{$index}}" required></textarea>
                             </td>
                         </tr>
                         <tr>
@@ -188,8 +190,8 @@
                                   <select class="select-s"  ng-disabled="editable(status)"
                                           ng-model="orgImpact"  ng-options="act for act in number" 
                                             ng-init="orgImpact=emp.score.orgImpact" 
-                                           ng-blur="save(emp.id,achievingResults,orgImpact,learningAgility,versatility
-                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="B{{$index}}"></select>
+                                           ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,reviewerId,pmoId)" id="B{{$index}}"></select>
                           <a class="tip-1" id="J{{$index}}" >?<span class="popbox"><ol>
                                        <li>{{findCriteriaByName("Org Impact")[0].rule}}</li><br/>
                                       <li>{{findCriteriaByName("Org Impact")[1].rule}}</li><br/>
@@ -203,8 +205,8 @@
                                    type="text" ng-model="orgImpactComment"  placeholder="Comment Here   (*)" 
                                    ng-disabled="editable(status)"
                                    ng-init="orgImpactComment=emp.score.orgImpactComment" 
-                                   ng-blur="save(emp.id,achievingResults,orgImpact,learningAgility,versatility
-                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="F{{$index}}" required>
+                                   ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,reviewerId,pmoId)" id="F{{$index}}" required>
                                    </textarea>
                          </td>
                         </tr>
@@ -216,8 +218,8 @@
                                <select class="select-s"  ng-disabled="editable(status)"
                                        ng-model="learningAgility"  ng-options="act for act in number" 
                                        ng-init="learningAgility=emp.score.learningAgility" 
-                                       ng-blur=" save(emp.id,achievingResults,orgImpact,learningAgility,versatility
-                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="C{{$index}}"></select>          
+                                       ng-blur="status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,reviewerId,pmoId)" id="C{{$index}}"></select>          
                            <a class="tip-1"  id="K{{$index}}">?<span class="popbox"><ol>
                                        <li>{{findCriteriaByName("Learning Agility")[0].rule}}</li><br/>
                                        <li>{{findCriteriaByName("Learning Agility")[1].rule}}</li><br/>
@@ -231,8 +233,8 @@
                                        type="text" ng-model="learningAgilityComment"  placeholder="Comment Here   (*)" 
                                        ng-disabled="editable(status)"
                                        ng-init="learningAgilityComment=emp.score.learningAgilityComment" 
-                                       ng-blur=" save(emp.id,achievingResults,orgImpact,learningAgility,versatility
-                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="G{{$index}}" required>
+                                       ng-blur=" status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,reviewerId,pmoId)" id="G{{$index}}" required>
                                    </textarea>
                                     </td>
                         <tr>
@@ -242,8 +244,8 @@
                                  <select class="select-s"  ng-disabled="editable(status)"
                                         ng-model="versatility"  ng-options="act for act in number"  
                                         ng-init="versatility=emp.score.versatility" 
-                                        ng-blur=" save(emp.id,achievingResults,orgImpact,learningAgility,versatility
-                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)" id="D{{$index}}"></select>         
+                                        ng-blur=" status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,reviewerId,pmoId)" id="D{{$index}}"></select>         
                           <a class="tip-1"  id="L{{$index}}">?<span class="popbox"><ol>
                                       <li>{{findCriteriaByName("Versatility")[0].rule}}</li><br/>
                                       <li>{{findCriteriaByName("Versatility")[1].rule}}</li><br/>
@@ -258,15 +260,16 @@
                                        type="text" ng-model="versatilityComment"  placeholder="Comment Here   (*)"
                                        ng-disabled="editable(status)"
                                        ng-init="versatilityComment=emp.score.versatilityComment" 
-                                       ng-blur=" save(emp.id,achievingResults,orgImpact,learningAgility,versatility
-                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,status)"id="H{{$index}}" required>
+                                       ng-blur=" status=save(emp.id,achievingResults,orgImpact,learningAgility,versatility
+                                             ,achievingResultsComment,orgImpactComment,learningAgilityComment,versatilityComment,reviewerId,pmoId)"id="H{{$index}}" required>
                                    </textarea>
                                     </td>
                         </tr>                        
                       
                     </table>
                     <table>
-                        <tr><button class="w3-btn w3-red w3-ripple"  ng-disabled="editablebutton()" ng-click="postSubmit()" id="submitbt">&#10004; approve</button></tr>
+                        <tr><button class="w3-btn w3-red w3-ripple"  ng-disabled="editable(status)" ng-click="status=postSubmit(emp.id, achievingResults, orgImpact, learningAgility,
+                    versatility, achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment,reviewerId,pmoId)" id="submitbt">&#10004; approve</button></tr>
                     </table>
                 </div>
             </div>

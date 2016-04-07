@@ -6,23 +6,24 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
     var reviewerId = "";
     var pmoId = "";
 
-    $http.get("http://localhost:8080/TRS/web/role")
+    $http.get("http://10.2.1.183:8080/TRS/web/role")
             .success(function (ndata) {
                 $scope.info = ndata;
                 var info = ndata;
                 var ID = ndata.id;
                 //console.log(ndata)
 
-            $scope.checkT=function(){
-                 if(info.role=="pmo"){
-                     //console.log(info.role)
-                     return true;}
-                 else {
-                     return false;}
-             } 
-                        
+                $scope.checkT = function () {
+                    if (info.role == "pmo") {
+                        //console.log(info.role)
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
 
-                $http.get("http://localhost:8080/TRS/web/employee/reviewer/" + ID)
+
+                $http.get("http://10.2.1.183:8080/TRS/web/employee/reviewer/" + ID)
                         .success(function (data) {
                             $scope.emps = data;
                             empslength = data.length;
@@ -56,14 +57,14 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
                             }
                         });
 
-             
+
             })
 
 
 
 
 
-    $http.get("http://localhost:8080/TRS/web/cri").success(function (data) {
+    $http.get("http://10.2.1.183:8080/TRS/web/cri").success(function (data) {
         criteria = data;
     });
     $scope.findCriteriaByName = function (name) {
@@ -110,8 +111,8 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
             reviewerId: reviewerId,
             pmoId: pmoId
         };
-        
-        
+
+
         //update $scope.emps
         var temp = $scope.emps;
         console.log($scope.emps);
@@ -127,8 +128,8 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
             }
         }
         $scope.emps = temp;
-        
-        
+
+
         if (checkScoredata(scoredata) == false)
         {
             scoredata.status = 1;
@@ -146,7 +147,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
                     }
                 }
             }
-            $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function () {
+            $http.post('http://10.2.1.183:8080/TRS/web/score/', allscore).success(function () {
 
             }).error(function (data) {
                 alert("Fail to save!");
@@ -169,7 +170,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
                     }
                 }
             }
-            $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function () {
+            $http.post('http://10.2.1.183:8080/TRS/web/score/', allscore).success(function () {
             }).error(function (data) {
                 alert("Fail to save!");
             });
@@ -226,7 +227,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
             }
 //            var con =window.confirm("Are you sure to submit");
 //            if(con){
-            $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function () {
+            $http.post('http://10.2.1.183:8080/TRS/web/score/', allscore).success(function () {
 
                 $window.location.reload();
             }).error(function (data) {
@@ -241,8 +242,8 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
     $scope.number = [1, 2, 3, 4, 5];
 
 
-    
-    $scope.sorter = function(condition){
+
+    $scope.sorter = function (condition) {
         console.log($scope.p + "123");
         $scope.p = !$scope.p;
         return condition;

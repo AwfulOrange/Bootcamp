@@ -17,20 +17,20 @@
             <img src="../img/title_logo.png">
         </div>
             
-        <table class="nav nav-tabs" role="tablist" >
+        <table  >
             <tr >
             
                 <td   class="w1-tab-hover2" ><a href="${pageContext.request.contextPath}/page/score.jsp"  class="w1-tab-a"><b>Reviewer</b> </a></td>
 
             
-                <td class="w1-tab-hover1"   ng-show="checkT()" ><a href="${pageContext.request.contextPath}/page/pmo_leader.jsp" class="w1-tab-a"><b >PMO-Leader</b> </td>
+                <td class="w1-tab-hover1"   ng-show="checkT()" ><a href="${pageContext.request.contextPath}/page/pmo_leader.jsp" class="w1-tab-a"><b >PMO-Leader</b></a> </td>
                 <!--<td class="w1-head-name"></td>-->
                 <!--</div></td>-->
                 <td class="w1-log-out"  align="right"width="10%">
                     <b style="font-size: 14px;"> {{info.screenName}}</b> <a id="logout" href=<%=logoutLink%> > <span class="glyphicon glyphicon-log-out" aria-hidden="true">&ensp;</span>Log-out</a>
                 </td>
             </tr>
-        </tab
+        </table>
     </div>
                 <script>
                        angular.element(document).ready(function() {

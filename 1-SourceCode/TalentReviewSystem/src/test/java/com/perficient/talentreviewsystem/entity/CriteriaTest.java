@@ -57,8 +57,8 @@ public class CriteriaTest {
     @Test
     public void testCriteria() {
         c = new Criteria();
-       c.setCri(criteria);
-       assertEquals(criteria,c.getCri());
+       c.setCriteria(criteria);
+       assertEquals(criteria,c.getCriteria());
     }
 
   

@@ -42,7 +42,7 @@ public class Criteria implements Serializable {
     private Integer id;
     @Size(max = 100)
     @Column(name = "criteria")
-    private String cri;
+    private String criteria;
     @Size(max = 500)
     @Column(name = "level")
     private String level;
@@ -68,12 +68,12 @@ public class Criteria implements Serializable {
         this.id = id;
     }
 
-    public String getCri() {
-        return cri;
+    public String getCriteria() {
+        return criteria;
     }
 
-    public void setCri(String cri) {
-        this.cri = cri;
+    public void setCriteria(String criteria) {
+        this.criteria = criteria;
     }
 
     public String getLevel() {

@@ -55,7 +55,7 @@ public class Employee implements Serializable {
     private String lastPromotionDate;
     private String startLevel;
     private Collection<SupportiveInfo> supportiveInfoCollection;
-    private TalentReviewScore trsscore;
+    private TalentReviewScore Score;
     private int performance;
     private int potential;
     private int total;
@@ -371,17 +371,17 @@ public class Employee implements Serializable {
     }
 
     /**
-     * @return the trsscore
+     * @return the Score
      */
-    public TalentReviewScore getTrsscore() {
-        return trsscore;
+    public TalentReviewScore getScore() {
+        return Score;
     }
 
     /**
-     * @param score the trsscore to set
+     * @param score the Score to set
      */
-    public void setTrsscore(TalentReviewScore score) {
-        this.trsscore = score;
+    public void setScore(TalentReviewScore score) {
+        this.Score = score;
     }
 
     /**

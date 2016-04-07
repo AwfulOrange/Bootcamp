@@ -87,7 +87,7 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
             for(int j=0;j<empList.size();j++){
                 if(empList.get(j).getId().equals(score.get(i).getEmployeeInfo().getEmployeeId())){
                 emp=empList.get(j);
-                emp.setTrsscore(score.get(i));
+                emp.setScore(score.get(i));
                 
                 }
                 

@@ -48,13 +48,22 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
                                         potential: data[i].potential,
                                         total: data[i].total
                                     }
-                                    if (data[i].score.status >= 3)
+                                    if (data[i].score.status =="Submitted")
+                                    {
+                                        edit = true;
+                                    }else if(data[i].score.status =="updated")
+                                    {
+                                        edit = true;
+                                    }else if(data[i].score.status =="Approve")
                                     {
                                         edit = true;
                                     }
                                     allscore.push(scoredata);
+                                    
                                 }
                             }
+                            console.log(allscore);
+                            console.log(data);
                         });
 
 
@@ -115,7 +124,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
 
         //update $scope.emps
         var temp = $scope.emps;
-        console.log($scope.emps);
+        //console.log($scope.emps);
         for (var i = 0; i < temp.length; i++) {
             if (temp[i].id == id) {
                 temp[i].score.achievingResults = achievingResults;
@@ -151,7 +160,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
 
         if (checkScoredata(scoredata) == false)
         {
-            scoredata.status = 1;
+            scoredata.status = "Modified";
             allscore.push(scoredata);
             for (var i = 0; i < allscore.length; i++)
             {
@@ -171,10 +180,10 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
             }).error(function (data) {
                 alert("Fail to save!");
             });
-            return "1";
+            return "Modified";
         } else
         {
-            scoredata.status = 2;
+            scoredata.status = "Completed";
             allscore.push(scoredata);
             for (var i = 0; i < allscore.length; i++)
             {
@@ -193,7 +202,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
             }).error(function (data) {
                 alert("Fail to save!");
             });
-            return "2";
+            return "Completed";
         }
         $scope.apply();
     }
@@ -242,7 +251,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
         if (valid()) {
             for (var m = 0; m < allscore.length; m++)
             {
-                allscore[m].status = 3;
+                allscore[m].status = "Submitted";
             }
 //            var con =window.confirm("Are you sure to submit");
 //            if(con){
@@ -262,12 +271,9 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
 
 
 
-    $scope.sorterUp = function (condition) {
-        $scope.p = true;
-        return condition;
-    }
-    $scope.sorterDown = function (condition) {
-        $scope.p = false;
+    $scope.sorter = function (condition) {
+        console.log($scope.p + "123");
+        $scope.p = !$scope.p;
         return condition;
     }
 });

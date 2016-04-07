@@ -26,29 +26,30 @@ angular.module('myApp1', []).controller('pmoCtrl',
                         lvlCriteria.push(criteria[i]);
                     }
                 }
-               // console.log(lvlCriteria);
+                // console.log(lvlCriteria);
                 return lvlCriteria;
             }
 
 
             $http.get("http://10.2.1.183:8080/TRS/web/role")
                     .success(function (ndata) {
-                        $scope.info=ndata;
+                        $scope.info = ndata;
                         var info = ndata;
                         var ID = ndata.id
-                       // console.log(info);
-                         // console.log(ndata)
-                  
-                 $scope.checkT=function(){
-                 if(info.role=="pmo"){
-                    // console.log(info.title)
-                     return true;}
-                 else {
-                     return false;}
-             } 
-             
-             
-             
+                        // console.log(info);
+                        // console.log(ndata)
+
+                        $scope.checkT = function () {
+                            if (info.role == "pmo") {
+                                // console.log(info.title)
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        }
+
+
+
                         $http.get("http://10.2.1.183:8080/TRS/web/employee/pmo/" + ID)
                                 .success(function (data) {
                                     $scope.pmos = data;
@@ -87,14 +88,16 @@ angular.module('myApp1', []).controller('pmoCtrl',
                     });
 
             $scope.editable = function (status) {
-                if (status >= 3 && status < 5) {
+                if (status == "Submitted") {
+                    return false;
+                } else if (status == "Update") {
                     return false;
                 } else {
                     return true;
                 }
             }
             $scope.save = function (id, achievingResults, orgImpact, learningAgility,
-                    versatility, achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment,reviewerId,pmoId)
+                    versatility, achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, reviewerId, pmoId)
             {
                 var allscore = [];
                 var scoredata = {
@@ -107,29 +110,29 @@ angular.module('myApp1', []).controller('pmoCtrl',
                     orgImpactComment: orgImpactComment,
                     learningAgilityComment: learningAgilityComment,
                     versatilityComment: versatilityComment,
-                    status: 4,
+                    status: "Update",
                     reviewerId: reviewerId,
                     pmoId: pmoId
                 };
-                    allscore.push(scoredata);
-                    for (var i = 0; i < allscore.length; i++)
+                allscore.push(scoredata);
+                for (var i = 0; i < allscore.length; i++)
+                {
+                    for (var j = i + 1; j < allscore.length; j++)
                     {
-                        for (var j = i + 1; j < allscore.length; j++)
+                        if (allscore[i].employeeId == allscore[j].employeeId)
                         {
-                            if (allscore[i].employeeId == allscore[j].employeeId)
-                            {
-                                allscore.splice(i, 1);
-                                j--;
-                            }
+                            allscore.splice(i, 1);
+                            j--;
                         }
                     }
-                    console.log(allscore);
-                    $http.post('http://10.2.1.183:8080/TRS/web/score/', allscore).success(function () {
+                }
+                console.log(allscore);
+                $http.post('http://10.2.1.183:8080/TRS/web/score/', allscore).success(function () {
 
-                    }).error(function (data) {
-                        alert("Fail to save!");
-                    });
-                    return "4";
+                }).error(function (data) {
+                    alert("Fail to save!");
+                });
+                return "Update";
             }
             var checkScoredata = function (data) {
                 if (data.employeeId == undefined) {
@@ -176,7 +179,7 @@ angular.module('myApp1', []).controller('pmoCtrl',
 //
 //            }
             $scope.postSubmit = function (id, achievingResults, orgImpact, learningAgility,
-                    versatility, achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment,reviewerId,pmoId)
+                    versatility, achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, reviewerId, pmoId)
             {
                 var postscore = [];
                 var scoredata = {
@@ -189,13 +192,13 @@ angular.module('myApp1', []).controller('pmoCtrl',
                     orgImpactComment: orgImpactComment,
                     learningAgilityComment: learningAgilityComment,
                     versatilityComment: versatilityComment,
-                    status: 4,
+                    status: "Update",
                     reviewerId: reviewerId,
                     pmoId: pmoId
                 };
                 if (checkScoredata(scoredata) == false)
                 {
-                    scoredata.status = 4;
+                    scoredata.status = "Update";
                     postscore.push(scoredata);
                     for (var i = 0; i < postscore.length; i++)
                     {
@@ -210,10 +213,10 @@ angular.module('myApp1', []).controller('pmoCtrl',
                     }
                     console.log(postscore);
                     alert("Please input all data!");
-                    return "4";
+                    return "Update";
                 } else
                 {
-                    scoredata.status = 5;
+                    scoredata.status = "Approve";
                     postscore.push(scoredata);
                     for (var i = 0; i < postscore.length; i++)
                     {
@@ -231,7 +234,7 @@ angular.module('myApp1', []).controller('pmoCtrl',
                     }).error(function (data) {
                         alert("Fail to save!");
                     });
-                    return "5";
+                    return "Approve";
                 }
             }
 //            $scope.postSubmit = function ()

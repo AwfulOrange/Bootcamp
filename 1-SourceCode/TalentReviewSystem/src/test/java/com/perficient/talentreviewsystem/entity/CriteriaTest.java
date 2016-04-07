@@ -85,5 +85,14 @@ public class CriteriaTest {
        c.setScore(score);
        assertEquals(score,c.getScore());
     }
+    
+    @Test
+    public void testToString() {
+        c=new Criteria();
+        c.setId(id);
+        String str = c.toString();        
+        String a = "com.perficient.talentreviewsystem.entity.Criteria[ id=1 ]";
+        assertEquals(a, str);
+    }
 
 }

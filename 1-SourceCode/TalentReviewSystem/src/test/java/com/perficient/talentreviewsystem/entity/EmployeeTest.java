@@ -42,6 +42,12 @@ public class EmployeeTest {
      String startLevel="startlevel";
      Collection<SupportiveInfo> supportiveInfoCollection;
      TalentReviewScore Score;
+     String workExperience="workexperience";
+     String gdcExperience="gdcexperience";
+     int performance=0;
+     int potential=0;
+     int total=0;
+     
      
     public EmployeeTest() {
     }
@@ -244,6 +250,44 @@ public class EmployeeTest {
        TalentReviewScore a = e.getScore();
        assertEquals(Score,a);
     }
-
     
+    @Test
+    public void testGetWorkExperience() {
+        e = new Employee();
+        e.setWorkExperience(workExperience);
+        String a = e.getWorkExperience();
+        assertEquals(workExperience,a);
+    }
+    
+    @Test
+    public void testGdcExperience() {
+        e = new Employee();
+        e.setGdcExperience(gdcExperience);
+        String a = e.getGdcExperience();
+        assertEquals(gdcExperience,a);
+    }
+    
+    @Test
+    public void testPerformance() {
+        e = new Employee();
+        e.setPerformance(performance);
+        int a = e.getPerformance();
+        assertEquals(performance,a);
+    }
+    
+    @Test
+    public void testPotential() {
+        e = new Employee();
+        e.setPotential(potential);
+        int a = e.getPotential();
+        assertEquals(potential,a);
+    }
+    
+    @Test
+    public void testTotal() {
+        e = new Employee();
+        e.setTotal(total);
+        int a = e.getTotal();
+        assertEquals(total,a);
+    }
 }

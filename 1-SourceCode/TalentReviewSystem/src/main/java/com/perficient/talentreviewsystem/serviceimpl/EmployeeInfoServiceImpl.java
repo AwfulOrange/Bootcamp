@@ -17,7 +17,6 @@ import com.perficient.talentreviewsystem.daoimpl.TalentReviewScoreDAOImpl;
 import com.perficient.talentreviewsystem.entity.Employee;
 import com.perficient.talentreviewsystem.entity.Group;
 import com.perficient.talentreviewsystem.entity.TalentReviewScore;
-import com.perficient.talentreviewsystem.utils.DateUtils;
 import static com.perficient.talentreviewsystem.utils.DateUtils.calcuDate;
 import static com.perficient.talentreviewsystem.utils.DateUtils.toDate;
 import com.perficient.talentreviewsystem.utils.GetProperties;
@@ -43,7 +42,7 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
         return activeEmployee;
     }
     private static String findEmpNameById(String id,List<Employee> allemp){
-        String name="www";
+        String name="";
         for(int i=0;i<allemp.size();i++)
             if(allemp.get(i).getId().equalsIgnoreCase(id)){
                 name=allemp.get(i).getScreenName();

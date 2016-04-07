@@ -47,23 +47,23 @@ public class EmployeeInfoServiceImplTest {
     
     @Before
     public void setUp() {
-        ei.setEmployeeId("99998");
+        ei.setEmployeeId("76");
         eidaoi.addEmployeeInfo(ei);
-        trs = new TalentReviewScore("99998", "201503");
+        trs = new TalentReviewScore("76", "201503");
         trs.setOrgImpact(5);
         trs.setLearningAgility(5);
         trs.setAchievingResults(3);
         trs.setVersatility(2);
         trs.setStatus(1);
-        trs.setReviewerId("999999");
-        trs.setPmoId("999");
-        trs.setEmployeeInfo(eidaoi.selectEmployeeInfoById("99998"));
+        trs.setReviewerId("212");
+        trs.setPmoId("212");
+        trs.setEmployeeInfo(eidaoi.selectEmployeeInfoById("76"));
         trs.setReviewPeriod1(rpdaoi.selectReviewPeriodByRP("201503"));
     }
     
     @After
     public void tearDown() {
-        eidaoi.deleteEmployeeInfoById("99998");
+        eidaoi.deleteEmployeeInfoById("76");
     }
 
     /**
@@ -72,7 +72,7 @@ public class EmployeeInfoServiceImplTest {
     @Test
     public void findAllByReviewerID() {
         EmployeeInfoServiceImpl instance = new EmployeeInfoServiceImpl();
-        List<Employee> result1 = instance.findAllByReviewerID("99998");
+        List<Employee> result1 = instance.findAllByReviewerID("212");
        
         assertNotNull(result1);
        
@@ -81,7 +81,7 @@ public class EmployeeInfoServiceImplTest {
     @Test
     public void findAllByPMOID() {
         EmployeeInfoServiceImpl instance = new EmployeeInfoServiceImpl();
-        List<Group> result2=instance.findAllByPMOID("99998");
+        List<Group> result2=instance.findAllByPMOID("212");
         assertNotNull(result2);
     }
 

@@ -122,9 +122,28 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
                 temp[i].score.orgImpact = orgImpact;
                 temp[i].score.learningAgility = learningAgility;
                 temp[i].score.versatility = versatility;
-                temp[i].performance = achievingResults + orgImpact;
-                temp[i].potential = learningAgility + versatility;
-                temp[i].total = achievingResults + orgImpact + learningAgility + versatility;
+                
+                if(achievingResults == undefined && orgImpact != undefined){
+                    temp[i].performance = orgImpact;
+                }else if(achievingResults != undefined && orgImpact == undefined){
+                    temp[i].performance = achievingResults;
+                }else if(achievingResults == undefined && orgImpact == undefined){
+                    temp[i].performance = 0
+                }else{
+                    temp[i].performance = achievingResults + orgImpact;
+                }
+                
+                if(learningAgility == undefined && versatility != undefined){
+                    temp[i].potential = versatility;
+                }else if(learningAgility != undefined && versatility == undefined){
+                    temp[i].potential = learningAgility;
+                }else if(learningAgility == undefined && versatility == undefined){
+                    temp[i].potential = 0
+                }else{
+                    temp[i].potential = learningAgility + versatility;
+                }
+                
+                temp[i].total = temp[i].performance + temp[i].potential;
             }
         }
         $scope.emps = temp;

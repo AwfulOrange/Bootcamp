@@ -246,8 +246,8 @@ public class EmployeeTest {
     @Test
     public void testScore() {
         e = new Employee();
-       e.setTrsscore(Score);
-       TalentReviewScore a = e.getTrsscore();
+       e.setScore(Score);
+       TalentReviewScore a = e.getScore();
        assertEquals(Score,a);
     }
     

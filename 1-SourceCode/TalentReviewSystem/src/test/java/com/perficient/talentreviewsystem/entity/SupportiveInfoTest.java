@@ -29,6 +29,8 @@ public class SupportiveInfoTest {
     String training="tri";
     Integer isReviewer=0;
     Integer isPmo=1;
+//    EmployeeInfo employeeInfo=;
+//    SupportiveInfoPK supportiveInfoPK="";
     public SupportiveInfoTest() {
     }
     
@@ -47,6 +49,14 @@ public class SupportiveInfoTest {
     @After
     public void tearDown() {
     }
+    
+//    @Test
+//    public void testSupportiveInfoPK() {
+//        s = new SupportiveInfo();
+//        s.setSupportiveInfoPK(supportiveInfoPK);
+//        
+//    }
+    
     
     
     @Test
@@ -127,4 +137,10 @@ public class SupportiveInfoTest {
         assertEquals(isPmo,s.getIsPmo());
     }
     
+//    @Test
+//    public void testEmployeeInfo() {
+//        s = new SupportiveInfo();
+//        s.setEmployeeInfo(employeeInfo);
+//        
+//    }
 }

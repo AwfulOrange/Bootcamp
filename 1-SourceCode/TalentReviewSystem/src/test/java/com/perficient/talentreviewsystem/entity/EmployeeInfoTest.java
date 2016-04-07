@@ -5,7 +5,7 @@
  */
 package com.perficient.talentreviewsystem.entity;
 
-import java.util.Collection;
+//import java.util.Collection;
 import java.util.Date;
 import org.junit.After;
 import org.junit.AfterClass;

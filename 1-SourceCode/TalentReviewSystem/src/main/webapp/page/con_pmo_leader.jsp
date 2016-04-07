@@ -36,10 +36,10 @@
                     <th style="width:33%;float:left" >Level</th>
                     <th style="width:10%;float:left" >Role</th>
                     <th style="width:1%;"><a class="tip-1" id="popbox1" style="float: left;">?<span class="popbox1"  style="z-index:999;"><ol>
-                                            <li>white means new </li>
-                                            <li>yellow means modify</li>
-                                            <li>green means completed</li>
-                                            <li>red means submitted</li>                                           
+                                            <li>white means haven't submitted </li>
+                                            <li>yellow means submitted</li>
+                                            <li>green means checked</li>
+                                            <li>red means approved</li>                                           
                         </ol> </span></a></th>
                </tr>
              </table> 

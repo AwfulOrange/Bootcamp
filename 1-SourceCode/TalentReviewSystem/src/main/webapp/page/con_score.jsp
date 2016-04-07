@@ -7,19 +7,21 @@
                <tr>
                     <th style="width:15%;" ng-click="order = sorter('screenName');">Name</th>
                     <th style="width:15%;" ng-click="order = sorter('performance');" >Performance </th>
-                    <th style="width:13%;" ng-click="order = sorter('potential');" >Potential </th>
+                    <th style="width:15%;" ng-click="order = sorter('potential');" >Potential </th>
                     <th style="width:10%;" ng-click="order = sorter('total');" >Total</th>
-                    <th style="width:25%;" ng-click="order = sorter('title');" >Level</th>
-                    <th style="width:10%;" ng-click="order = sorter('role');" >Role</th>
-                    <td>
-                        <input type="button" value="filiter" ng-click="filitershow=!filitershow"/>
+                    <th style="width:27%;" ng-click="order = sorter('title');" >Level</th>
+                    <th style="width:8%;" ng-click="order = sorter('role');" >Role</th>
+                    <th style="float: left;">
+                        <input type="button" value="filiter" ng-click="filitershow=!filitershow" class="w3-btn w3-red w3-ripple"/>
+                    </th>
+                    <th>
                         <a class="tip-1" id="popbox1">?<span class="popbox1"  style="z-index:999;"><ol>
                                             <li>white means new </li>
                                             <li>yellow means modify</li>
                                             <li>green means completed</li>
                                             <li>red means submitted</li></ol> 
                             </span></a>
-                    </td>
+                    </th>
                </tr>
                <tr ng-show="filitershow" >
                 <td >

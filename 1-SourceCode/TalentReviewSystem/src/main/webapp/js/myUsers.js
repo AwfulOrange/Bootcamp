@@ -56,7 +56,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
                                     if (data[i].score.status =="Submitted")
                                     {
                                         edit = true;
-                                    }else if(data[i].score.status =="updated")
+                                    }else if(data[i].score.status =="Update")
                                     {
                                         edit = true;
                                     }else if(data[i].score.status =="Approve")

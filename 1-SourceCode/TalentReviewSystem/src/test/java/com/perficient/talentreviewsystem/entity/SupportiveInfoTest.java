@@ -5,7 +5,7 @@
 */
 package com.perficient.talentreviewsystem.entity;
 
-import static com.perficient.talentreviewsystem.entity.SupportiveInfo_.employeeInfo;
+import com.perficient.talentreviewsystem.entity.SupportiveInfo_.employeeInfo;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

@@ -20,15 +20,15 @@ import org.testng.annotations.Test;
  * @author bootcamp19
  */
 public class TC002_US06 extends TestCaseBase{
+   // public static final String URL="http://10.2.1.183:8080/TRS/page/score.jsp";
     public static final String URL="http://10.2.1.183:8080/TRS/page/score.jsp";
-   // public static final String URL="http://localhost:8080/TRS/page/score.jsp";
     public static ScorePage sp = new ScorePage();
     public static LoginPage lp = new LoginPage();
     @Test
     public static void filter() throws InterruptedException{
         TestCaseBase.driver.navigate().to(URL);
         PageFactory.initElements(TestCaseBase.driver,lp);
-        login("testEM","testEM@gdc");
+        login("testCM","testCM@gdc");
         PageFactory.initElements(TestCaseBase.driver, sp); 
         Thread.sleep(4000);
      //   ScorePage.filterbutton.click();
@@ -94,7 +94,7 @@ public class TC002_US06 extends TestCaseBase{
     }
     public static void distinguish(String Keyword, int column){
         int j=column;
-        int size = driver.findElements(By.xpath("/html/body/header/div/form/div")).size();
+        int size = driver.findElements(By.xpath("/html/body/div/div/div")).size()-2;
        
         for(int i=0;i<size;i++)
         {

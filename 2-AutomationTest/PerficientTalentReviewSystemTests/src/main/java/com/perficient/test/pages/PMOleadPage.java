@@ -81,21 +81,23 @@ public class PMOleadPage {
     @FindBy(id="filter7")
     public static WebElement filter7;
        //********************TC02_US07 find Id*****************************
-    @FindBy(xpath="/html/body/div/div/table[1]/tbody/tr[1]/th[2]/ul")
-    public static WebElement sort0;   
-    @FindBy(xpath="/html/body/div/div/table[1]/tbody/tr[1]/th[3]/ul")
-    public static WebElement sort1;   
-    @FindBy(xpath="/html/body/div/div/table[1]/tbody/tr[1]/th[4]/ul")
-    public static WebElement sort2;       
-    @FindBy(xpath="/html/body/div/div/table[1]/tbody/tr[1]/th[5]/ul")
-    public static WebElement sort3;       
-    @FindBy(xpath="/html/body/div/div/table[1]/tbody/tr[1]/th[6]/ul")
-    public static WebElement sort4;
-    @FindBy(xpath="/html/body/div/div/table[1]/tbody/tr[1]/th[7]/ul")
-    public static WebElement sort5;
-    @FindBy(xpath="/html/body/div/div/table[1]/tbody/tr[1]/th[8]/ul")
-    public static WebElement sort6;
+
     @FindBy(xpath="/html/body/div/div/table[1]/tbody/tr[1]/th[1]/ul")
+    public static WebElement sort0;
+    @FindBy(xpath="/html/body/div/div/table[1]/tbody/tr[1]/th[2]/ul")
+    public static WebElement sort1;   
+    @FindBy(xpath="/html/body/div/div/table[1]/tbody/tr[1]/th[3]/ul")
+    public static WebElement sort2;   
+    @FindBy(xpath="/html/body/div/div/table[1]/tbody/tr[1]/th[4]/ul")
+    public static WebElement sort3;       
+    @FindBy(xpath="/html/body/div/div/table[1]/tbody/tr[1]/th[5]/ul")
+    public static WebElement sort4;       
+    @FindBy(xpath="/html/body/div/div/table[1]/tbody/tr[1]/th[6]/ul")
+    public static WebElement sort5;
+    @FindBy(xpath="/html/body/div/div/table[1]/tbody/tr[1]/th[7]/ul")
+    public static WebElement sort6;
+    @FindBy(xpath="/html/body/div/div/table[1]/tbody/tr[1]/th[8]/ul")    
     public static WebElement sort7;
+
     
 }

@@ -22,8 +22,8 @@ import org.testng.annotations.Test;
  * @author bootcamp19
  */
 public class TC001_US07 extends TestCaseBase{
-   // public static final String URL="http://localhost:8080/TRS/page/score.jsp";
     public static final String URL="http://10.2.1.183:8080/TRS/page/score.jsp";
+    //public static final String URL="http://10.2.1.183:8080/TRS/page/score.jsp";
     public static ScorePage sp = new ScorePage();
     public static LoginPage lp = new LoginPage();
     @Test
@@ -96,7 +96,7 @@ public class TC001_US07 extends TestCaseBase{
         PMOleadPage.filter6.clear();
         Thread.sleep(1000);
         
-        String status="tes";
+        String status="up";
         PMOleadPage.filter7.sendKeys(status);
         Thread.sleep(1000);
         distinguish(status,7);

@@ -1,8 +1,8 @@
 <body ng-app="myApp" ng-controller="userCtrl" ng-model="p" ng-init="p = true" class="contentStyle">
     <link href="../css/hoverCss.css" rel="stylesheet" />
     <div class="contentStyle"  >
-        <div style="height: 5px;width:100%;border-top: 1px solid black;"></div>
-        <table style="text-align:left;font-size: 15px;" ng-show="sortfilter">
+         <div style="height: 15px;width:100%;border-top: 0;"></div>
+        <table style="text-align:left;font-size: 15px;">
 
             <span  ng-model="allstatus"></span>
             <tr>
@@ -109,8 +109,8 @@
 
             </tr>
         </table>  
-        
-        <form style="margin-top: 5px;">
+        <div style="margin-top: 10px;height: 5px;width:100%;border-bottom: 3px solid #b3b3b3;"></div>
+        <form>
             <div  ng-repeat="emp in emps| orderBy:order:p | 
                         filter:{screenName : filter0}:false | 
                         filter:{performance : filter1}:false | 

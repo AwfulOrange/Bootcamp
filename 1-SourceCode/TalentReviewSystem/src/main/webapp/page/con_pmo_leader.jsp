@@ -1,8 +1,8 @@
 <body ng-app="myApp1"  class="contentStyle" ng-controller="pmoCtrl" ng-model="app1">
     <link href="../css/hoverCss.css" rel="stylesheet" />
     <div class="contentStyle"  >
-        <div style="height: 5px;width:100%;border-top: 1px solid black;"></div>
-        <table style="text-align:left;font-size: 15px;" ng-show="sortfilter">
+        <div style="height: 15px;width:100%;border-top: 0;"></div>
+        <table style="text-align:left;font-size: 15px;">
             <tr>
                 <th style="width:12%;">
                     <p style="padding: 0; margin: 0;float: left;">
@@ -120,7 +120,9 @@
             </tr>
 
         </table> 
-
+        
+        <div style="margin-top: 10px;height: 5px;width:100%;border-bottom: 3px solid #b3b3b3;"></div>
+        
         <div  ng-repeat="pmo in pmos| orderBy:order:p | 
                     filter:{reviewername : filter0}:false|
                     filter:{screenName : filter1}:false | 

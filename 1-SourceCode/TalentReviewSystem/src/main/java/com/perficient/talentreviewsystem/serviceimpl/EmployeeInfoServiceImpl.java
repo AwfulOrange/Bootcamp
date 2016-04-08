@@ -99,6 +99,7 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
             Long promotion=score.get(i).getEmployeeInfo().getLastPromotionDate().getTime();
             emp.setLastPromotionDate(toDate(Long.toString(promotion)));
             emp.setReviewername(name);
+            emp.setStatus(score.get(i).getStatus());
             int performance;
             if(score.get(i).getAchievingResults()!=null&&score.get(i).getOrgImpact()!=null){
                 performance=score.get(i).getAchievingResults()+score.get(i).getOrgImpact();

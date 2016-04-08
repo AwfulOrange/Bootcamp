@@ -48,7 +48,7 @@ public class Employee implements Serializable {
     private String lineManager;
 
     private String lastDay;
-
+    private String status;
     private String department;
     private String gdcStartDate;
     private String gdcExperience;
@@ -467,6 +467,20 @@ public class Employee implements Serializable {
      */
     public void setReviewername(String reviewername) {
         this.reviewername = reviewername;
+    }
+
+    /**
+     * @return the status
+     */
+    public String getStatus() {
+        return status;
+    }
+
+    /**
+     * @param status the status to set
+     */
+    public void setStatus(String status) {
+        this.status = status;
     }
 
 }

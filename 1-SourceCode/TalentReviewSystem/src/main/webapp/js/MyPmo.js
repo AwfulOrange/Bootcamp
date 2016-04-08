@@ -6,6 +6,8 @@ angular.module('myApp1', []).controller('pmoCtrl',
             $http.get("http://10.2.1.183:8080/TRS/web/cri").success(function (data) {
                 criteria = data;
             });
+            $scope.order="reviewername"
+            
             $scope.findCriteriaByName = function (name) {
                 var lvlCriteria = [];
                 for (var i = 0; i < criteria.length; i++)
@@ -26,7 +28,6 @@ angular.module('myApp1', []).controller('pmoCtrl',
                         lvlCriteria.push(criteria[i]);
                     }
                 }
-                // console.log(lvlCriteria);
                 return lvlCriteria;
             }
 
@@ -36,12 +37,8 @@ angular.module('myApp1', []).controller('pmoCtrl',
                         $scope.info = ndata;
                         var info = ndata;
                         var ID = ndata.id
-                        // console.log(info);
-                        // console.log(ndata)
-
                         $scope.checkT = function () {
                             if (info.role == "pmo") {
-                                // console.log(info.title)
                                 return true;
                             } else {
                                 return false;
@@ -53,37 +50,7 @@ angular.module('myApp1', []).controller('pmoCtrl',
                         $http.get("http://10.2.1.183:8080/TRS/web/employee/pmo/" + ID)
                                 .success(function (data) {
                                     $scope.pmos = data;
-//                                    var p = data;
-//                                    pmoslength = data.length;
-//                                    // console.log(pmoslength);
-//                                    for (var i = 0; i < pmoslength; i++) {
-//                                        emplength[i] = p[i].emp.length;
-//                                    }
-//                                    console.log(data);
-//                                    for (var i = 0; i < pmoslength; i++) {
-//                                        for (var j = 0; j < emplength[i]; j++) {
-//                                            //console.log(data[i].emp[j].score.status);
-//                                            if (data[i].emp[j].score != null)
-//                                            {
-//                                                var scoredata = {
-//                                                    employeeId: data[i].emp[j].id,
-//                                                    achievingResults: data[i].emp[j].score.achievingResults,
-//                                                    orgImpact: data[i].emp[j].score.orgImpact,
-//                                                    learningAgility: data[i].emp[j].score.learningAgility,
-//                                                    versatility: data[i].emp[j].score.versatility,
-//                                                    achievingResultsComment: data[i].emp[j].score.achievingResultsComment,
-//                                                    orgImpactComment: data[i].emp[j].score.orgImpactComment,
-//                                                    learningAgilityComment: data[i].emp[j].score.learningAgilityComment,
-//                                                    versatilityComment: data[i].emp[j].score.versatilityComment,
-//                                                    status: data[i].emp[j].score.status,
-//                                                    reviewerId: data[i].emp[j].score.reviewerId,
-//                                                    pmoId: data[i].emp[j].score.pmoId
-//                                                  }
-//
-//                                                allscore.push(scoredata);
-//                                              }
-//                                          }
-//                                        }
+
                                 })
                     });
 
@@ -95,6 +62,41 @@ angular.module('myApp1', []).controller('pmoCtrl',
                 } else {
                     return true;
                 }
+            }
+            var updatepageData=function(id, achievingResults, orgImpact, learningAgility,
+                    versatility,status){
+                var temp = $scope.emps;
+                for (var i = 0; i < temp.length; i++) {
+                    if (temp[i].id == id) {
+                        temp[i].score.achievingResults = achievingResults;
+                        temp[i].score.orgImpact = orgImpact;
+                        temp[i].score.learningAgility = learningAgility;
+                        temp[i].score.versatility = versatility;
+                        temp[i].status=status;
+                        if(achievingResults == undefined && orgImpact != undefined){
+                            temp[i].performance = orgImpact;
+                        }else if(achievingResults != undefined && orgImpact == undefined){
+                            temp[i].performance = achievingResults;
+                        }else if(achievingResults == undefined && orgImpact == undefined){
+                            temp[i].performance = 0
+                        }else{
+                            temp[i].performance = achievingResults + orgImpact;
+                        }
+
+                        if(learningAgility == undefined && versatility != undefined){
+                            temp[i].potential = versatility;
+                        }else if(learningAgility != undefined && versatility == undefined){
+                            temp[i].potential = learningAgility;
+                        }else if(learningAgility == undefined && versatility == undefined){
+                            temp[i].potential = 0
+                        }else{
+                            temp[i].potential = learningAgility + versatility;
+                        }
+
+                        temp[i].total = temp[i].performance + temp[i].potential;
+                    }
+                }
+                $scope.emps = temp;
             }
             $scope.save = function (id, achievingResults, orgImpact, learningAgility,
                     versatility, achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, reviewerId, pmoId)
@@ -114,6 +116,8 @@ angular.module('myApp1', []).controller('pmoCtrl',
                     reviewerId: reviewerId,
                     pmoId: pmoId
                 };
+                updatepageData(id, achievingResults, orgImpact, learningAgility,
+                    versatility,"Update");
                 allscore.push(scoredata);
                 for (var i = 0; i < allscore.length; i++)
                 {
@@ -126,7 +130,6 @@ angular.module('myApp1', []).controller('pmoCtrl',
                         }
                     }
                 }
-                console.log(allscore);
                 $http.post('http://10.2.1.183:8080/TRS/web/score/', allscore).success(function () {
 
                 }).error(function (data) {
@@ -134,6 +137,11 @@ angular.module('myApp1', []).controller('pmoCtrl',
                 });
                 return "Update";
             }
+            
+            
+            
+            
+            
             var checkScoredata = function (data) {
                 if (data.employeeId == undefined) {
                     return false;
@@ -155,29 +163,7 @@ angular.module('myApp1', []).controller('pmoCtrl',
                     return false;
                 }
             }
-//            var valid = function () {
-//        var a=true; 
-//                for (var i = 0; i < pmoslength; i++)
-//                {
-//
-//
-//                    if (allscore.length != emplength)
-//                    {
-//                        return false;
-//                    }
-//                    for (var i = 0; i < allscore.length; i++)
-//                    {
-//                        if (checkScoredata(allscore[i]) == false) {
-//                            return false;
-//                        }
-//
-//
-//                    }
-//                    return true;
-//                }
-//
-//
-//            }
+
             $scope.postSubmit = function (id, achievingResults, orgImpact, learningAgility,
                     versatility, achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, reviewerId, pmoId)
             {
@@ -211,7 +197,8 @@ angular.module('myApp1', []).controller('pmoCtrl',
                             }
                         }
                     }
-                    console.log(postscore);
+                    updatepageData(id, achievingResults, orgImpact, learningAgility,
+                    versatility,"Update");
                     alert("Please input all data!");
                     return "Update";
                 } else
@@ -229,7 +216,8 @@ angular.module('myApp1', []).controller('pmoCtrl',
                             }
                         }
                     }
-                    console.log(postscore);
+                    updatepageData(id, achievingResults, orgImpact, learningAgility,
+                    versatility,"Approve");
                     $http.post('http://10.2.1.183:8080/TRS/web/score/', postscore).success(function () {
                     }).error(function (data) {
                         alert("Fail to save!");
@@ -237,77 +225,14 @@ angular.module('myApp1', []).controller('pmoCtrl',
                     return "Approve";
                 }
             }
-//            $scope.postSubmit = function ()
-//            {
-//
-//                if (valid()) {
-//                    for (var m = 0; m < allscore.length; m++)
-//                    {
-//                        allscore[m].status = 2;
-//                    }
-//            var con =window.confirm("Are you sure to submit");
-//            if(con){
-//                    $http.post('http://10.2.1.183:8080/TRS/web/score/', allscore).success(function () {
-//
-//                        $window.location.reload();
-//                    }).error(function (data) {
-//                        alert("Sorry,Fail to send message!");
-//                    });
-//         }
-//                } else
-//                {
-//                    alert("Please input all data!");
-//                }
-//            };
-            $scope.number = [1, 2, 3, 4, 5];
-//            var changestatus = function (data) {
-//                for (var i = 0; i < pmoslength; i++)
-//                {
-//                    for (var j = 0; j < emplength[i]; j++)
-//                    {
-//                        if (data[i].emp[j].status == 0)
-//                        {
-//                            data[i].emp[j].status = "New";
-//                        } else if (data[i].emp[j].status == 1)
-//                        {
-//                            data[i].emp[j].status == "Completed"
-//                        } else if (data[i].emp[j].status == 2)
-//                            data[i].emp[j].status == "Submitted";
-//                        else
-//                            data[i].emp[j].status == "Modified"
-//                    }
-//                }
-//            }
-//            $scope.backstatus = function (status)
-//            {
-//                if (status == 1)
-//                {
-//                    status = "Completed";
-//                } else if (status == 0)
-//                {
-//                    status = "New";
-//                } else if (status == 2)
-//                    status = "Submitted";
-//                else if (status == 3)
-//                    status = "Modified";
-//
-//                return status;
-//            }
-//            var statustoNum = function (status)
-//            {
-//                if (status == "Completed")
-//                {
-//                    status = 1;
-//                } else if (status == "New")
-//                {
-//                    status = 0;
-//                } else if (status == "Modified")
-//                {
-//                    status = 3;
-//                } else if (status == "Submitted")
-//                {
-//                    status = 2;
-//                }
-//                return status;
-//            }
+
+    $scope.number = [1, 2, 3, 4, 5];
+    $scope.sorterUp = function (condition) {
+        $scope.p = false;
+        return condition;
+    }
+    $scope.sorterDown = function (condition) {
+        $scope.p = true;
+        return condition;
+    }
         });

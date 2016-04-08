@@ -30,6 +30,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
                             empslength = data.length;
                             if(empslength>0){
                                 $scope.buttonshow=true; 
+                                 $scope.sortfilter=true;
                             }
 //                            changestatus(data);
                             for (var i = 0; i < empslength; i++) {

@@ -50,7 +50,9 @@ angular.module('myApp1', []).controller('pmoCtrl',
                         $http.get("http://10.2.1.183:8080/TRS/web/employee/pmo/" + ID)
                                 .success(function (data) {
                                     $scope.pmos = data;
-
+                                    var pmoslength=data.length;
+                                    if(pmoslength>0){
+                                    $scope.sortfilter=true;}
                                 })
                     });
 

@@ -2,7 +2,7 @@
     <link href="../css/hoverCss.css" rel="stylesheet" />
     <div class="contentStyle"  >
         <div style="height: 5px;width:100%;border-top: 1px solid black;"></div>
-        <table style="text-align:left;font-size: 15px;">
+        <table style="text-align:left;font-size: 15px;" ng-show="sortfilter">
             <tr>
                 <th style="width:12%;">
                     <p style="padding: 0; margin: 0;float: left;">
@@ -129,7 +129,7 @@
                     filter:{total : filter4}:false |
                     filter:{title : filter5}:false | 
                     filter:{role : filter6}:false |
-                    filter:{status : filter7}:false " >
+                    filter:{status : filter7}:false " style="padding-top: 5px;">
             <div  class="w1-form">
                 <table  class="w1-hoverable" style="background-color:ff3333;" >
                     <tr></tr>

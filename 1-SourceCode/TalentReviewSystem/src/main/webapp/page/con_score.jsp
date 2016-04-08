@@ -2,7 +2,7 @@
     <link href="../css/hoverCss.css" rel="stylesheet" />
     <div class="contentStyle"  >
         <div style="height: 5px;width:100%;border-top: 1px solid black;"></div>
-        <table style="text-align:left;font-size: 15px;">
+        <table style="text-align:left;font-size: 15px;" ng-show="sortfilter">
 
             <span  ng-model="allstatus"></span>
             <tr>

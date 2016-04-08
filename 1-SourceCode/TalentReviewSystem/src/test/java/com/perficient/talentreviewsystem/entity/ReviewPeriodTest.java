@@ -5,7 +5,7 @@
  */
 package com.perficient.talentreviewsystem.entity;
 
-import java.util.Collection;
+//import java.util.Collection;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -54,4 +54,8 @@ public class ReviewPeriodTest {
       assertEquals(id,rp.getId());
     }
 
+    @Test
+    public void testToString() {
+        assertNotNull(rp.toString());
+    }
 }

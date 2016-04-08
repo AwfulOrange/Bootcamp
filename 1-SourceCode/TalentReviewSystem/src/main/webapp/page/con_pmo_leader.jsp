@@ -1,7 +1,7 @@
 <body ng-app="myApp1"  class="contentStyle" ng-controller="pmoCtrl" ng-model="app1">
     <link href="../css/hoverCss.css" rel="stylesheet" />
     <div class="contentStyle"  >
-
+        <div style="height: 5px;width:100%;border-top: 1px solid black;"></div>
         <table style="text-align:left;font-size: 15px;">
             <tr>
                 <th style="width:12%;float:left;">Reviewer</th>

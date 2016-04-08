@@ -20,10 +20,10 @@
         <table >
             <tr style="background-color: #FFF0F5">
             
-                <td   class="w1-tab-hover1" ><a href="${pageContext.request.contextPath}/page/score.jsp"  class="w1-tab-a"><b>Reviewer</b> </a></td>
+                <td style="text-align: center"  class="w1-tab-hover1" ><a href="${pageContext.request.contextPath}/page/score.jsp"  class="w1-tab-a" ><b>Reviewer</b> </a></td>
 
             
-                <td class="w1-tab-hover2"   ng-show="checkT()" ><a href="${pageContext.request.contextPath}/page/pmo_leader.jsp" class="w1-tab-a"><b >PMO-Leader</b></a> </td>
+                <td style="text-align: center" class="w1-tab-hover2"   ng-show="checkT()" ><a href="${pageContext.request.contextPath}/page/pmo_leader.jsp"  class="w1-tab-a"><b >PMO-Leader</b></a> </td>
                 <!--<td class="w1-head-name"></td>-->
                 <!--</div></td>-->
                 <td class="w1-log-out"  align="right"width="10%">

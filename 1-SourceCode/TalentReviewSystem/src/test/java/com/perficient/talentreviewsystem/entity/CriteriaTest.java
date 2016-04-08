@@ -19,6 +19,7 @@ import static org.junit.Assert.*;
 public class CriteriaTest {
     Criteria c = new Criteria();
     Integer id=1;
+    Criteria c1 = new Criteria(id);
     String criteria="criteria";
     String level="level";
     String rule="rule";

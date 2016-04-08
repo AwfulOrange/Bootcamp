@@ -138,11 +138,11 @@
                     <input type="hidden"  ng-init="reviewerId = pmo.score.reviewerId" ng-model="reviewerId" >
                     <input type="hidden"  ng-init="pmoId = pmo.score.pmoId" ng-model="pmoId" >
                     <tr ng-click="pageshow = !pageshow" id="revid{{$index}}" > 
-                        <td style="width:12%;text-align:left">{{ pmo.reviewername}}</td>
-                        <td style="width:12%;text-align:left">{{ pmo.screenName}}</td>
-                        <td style="width:12%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{achievingResults + orgImpact}} </td>
-                        <td style="width:10%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;{{learningAgility + versatility}} </td>
-                        <td style="width:10%;text-align:left">&nbsp;&nbsp;{{achievingResults + orgImpact + learningAgility + versatility}}
+                        <td id="p0{{$index}}" style="width:12%;text-align:left">{{ pmo.reviewername}}</td>
+                        <td id="p1{{$index}}" style="width:12%;text-align:left">{{ pmo.screenName}}</td>
+                        <td id="p2{{$index}}" style="width:12%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{achievingResults + orgImpact}} </td>
+                        <td id="p3{{$index}}" style="width:10%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;{{learningAgility + versatility}} </td>
+                        <td id="p4{{$index}}" style="width:10%;text-align:left">&nbsp;&nbsp;{{achievingResults + orgImpact + learningAgility + versatility}}
                         <td id="p5{{$index}}" style="width:24%;text-align:left">{{pmo.title}}</td>
                         <td id="p6{{$index}}" style="width:10%;text-align:left">{{pmo.role}}</td>
                         <td style="width:10%;text-align:left" ng-init="status = pmo.status" ng-model="status" >{{status}}</td>

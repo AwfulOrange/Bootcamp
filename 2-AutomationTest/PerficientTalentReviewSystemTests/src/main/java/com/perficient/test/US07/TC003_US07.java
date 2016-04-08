@@ -29,7 +29,7 @@ import org.testng.Assert;
  * @author bootcamp19
  */
 public class TC003_US07 extends TestCaseBase{
-    public static final String URL="http://10.2.1.183:8080/TRS/page/score.jsp";
+    public static final String URL="http://localhost:8080/TRS/page/score.jsp";
     public static ScorePage sp = new ScorePage();
     public static LoginPage lp = new LoginPage();
     public static PMOleadPage pp = new PMOleadPage();
@@ -50,9 +50,9 @@ public class TC003_US07 extends TestCaseBase{
         Thread.sleep(2000);
     
        
-            int row=driver.findElements(By.xpath("/html/body/header/div/div/div/div/div/table/tbody/tr[2]/td[1]")).size();     
-            for(int j=0;j<row;j++)                  
-            {
+            int row=driver.findElements(By.xpath("/html/body/div/div/div/div/table/tbody/tr[2]/td[3]")).size();     
+            for(int j=0;j<row-1;j++)                  
+            {                                       
     //Step2:Click one reviewee's name
                 TestCaseBase.driver.findElement(By.xpath("//tr[@id='revid"+j+"']")).click();  
                 Thread.sleep(2000);  
@@ -65,7 +65,9 @@ public class TC003_US07 extends TestCaseBase{
                 }
                 for(int s=69;s<73;s++)
                 {
-                TestCaseBase.driver.findElement(By.xpath("//textarea[@id='"+(char)s+""+j+"']")).sendKeys("She is nice!");
+                    WebElement send=TestCaseBase.driver.findElement(By.xpath("//textarea[@id='"+(char)s+""+j+"']"));
+                    send.clear();
+                    send.sendKeys("She is nice!");
                 } 
                 
     //Step4:Click the Approve button
@@ -79,7 +81,7 @@ public class TC003_US07 extends TestCaseBase{
             }
             
     //.............Assert(The scores and comments should be modified)......................//         
-            for(int j=0;j<row;j++)                  
+            for(int j=0;j<row-1;j++)                  
             {
                 for(int k=65;k<69;k++)
                 {
@@ -91,7 +93,7 @@ public class TC003_US07 extends TestCaseBase{
                 for(int s=69;s<73;s++)
                 {
                     WebElement findcom=TestCaseBase.driver.findElement(By.xpath("//textarea[@id='"+(char)s+""+j+"']"));
-                    Assert.assertEquals(findcom.getAttribute("value"),"NA", "failure"+s);
+                    Assert.assertEquals(findcom.getAttribute("value"),"She is nice!", "failure"+s);
                 }
             } 
     
@@ -108,14 +110,14 @@ public class TC003_US07 extends TestCaseBase{
         Thread.sleep(2000);
         
     //Step7:Check the modified data      
-            for(int j=0;j<row;j++)                  
+            for(int j=0;j<row-1;j++)                  
             {
                 TestCaseBase.driver.findElement(By.xpath("//tr[@id='revid"+j+"']")).click();  
                 Thread.sleep(2000);
              }
     
     //.............................Assert .............................//         
-            for(int j=0;j<row;j++)                  
+            for(int j=0;j<row-1;j++)                  
             {
                 for(int k=65;k<69;k++)
                 {
@@ -126,7 +128,8 @@ public class TC003_US07 extends TestCaseBase{
                 }
                 for(int s=69;s<73;s++)
                 {
-                    Assert.assertEquals(TestCaseBase.driver.findElement(By.xpath("//textarea[@id='"+(char)s+""+j+"']")).getAttribute("value"),"NA", "failure"+s);
+                    WebElement findcom=TestCaseBase.driver.findElement(By.xpath("//textarea[@id='"+(char)s+""+j+"']"));
+                    Assert.assertEquals(findcom.getAttribute("value"),"She is nice!", "failure"+s);
                 }
                 WebElement disabled=driver.findElement(By.cssSelector("select[disabled]"));
                 Assert.assertEquals(disabled.getAttribute("disabled"), "true","Fail");

@@ -5,6 +5,9 @@
  */
 package com.perficient.talentreviewsystem.serviceimpl;
 
+import com.perficient.talentreviewsystem.daoimpl.EmployeeInfoDAOImpl;
+import com.perficient.talentreviewsystem.daoimpl.TalentReviewScoreDAOImpl;
+import com.perficient.talentreviewsystem.entity.EmployeeInfo;
 import com.perficient.talentreviewsystem.entity.TalentReviewScore;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +23,11 @@ import static org.junit.Assert.*;
  * @author bootcamp19
  */
 public class TalentReviewScoreServiceImplTest {
-    
+    EmployeeInfoDAOImpl eidaoi = new EmployeeInfoDAOImpl();
+    EmployeeInfo ei = new EmployeeInfo();
+    List<TalentReviewScore> scoreList = new ArrayList<TalentReviewScore>();
+    TalentReviewScore trScore = new TalentReviewScore();
+    TalentReviewScoreDAOImpl trsdaoi = new TalentReviewScoreDAOImpl();
     public TalentReviewScoreServiceImplTest() {
     }
     
@@ -34,20 +41,7 @@ public class TalentReviewScoreServiceImplTest {
     
     @Before
     public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
-    /**
-     * Test of add method, of class TalentReviewScoreServiceImpl.
-     */
-    @Test
-    public void testAdd() {
-        List<TalentReviewScore> scoreList = new ArrayList<TalentReviewScore>();
-        TalentReviewScore trScore = new TalentReviewScore();
-        trScore.setEmployeeId("1140");
+        trScore.setEmployeeId("76");
         trScore.setAchievingResults(1);
         trScore.setAchievingResultsComment("a");
         trScore.setLearningAgility(2);
@@ -57,15 +51,29 @@ public class TalentReviewScoreServiceImplTest {
         trScore.setVersatility(4);
         trScore.setVersatilityComment("d");
         trScore.setStatus("Modified");
-        trScore.setReviewerId("91");
+        trScore.setReviewerId("212");
         trScore.setPmoId("212");
+        ei.setEmployeeId("76");
+        eidaoi.addEmployeeInfo(ei);
+    }
+    
+    @After
+    public void tearDown() {
+        eidaoi.deleteEmployeeInfoById("76");
+        trsdaoi.deleteTalentReviewScore("76", "201503");
+    }
+
+    /**
+     * Test of add method, of class TalentReviewScoreServiceImpl.
+     */
+    @Test
+    public void testAdd() {
+       
         scoreList.add(trScore);
         TalentReviewScoreServiceImpl instance = new TalentReviewScoreServiceImpl();
         int expResult = 1;
         int result = instance.add(scoreList);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
     
 }

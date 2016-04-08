@@ -54,10 +54,14 @@ public class ScorePage {
     public static WebElement sort4;
     @FindBy(xpath="/html/body/header/div/table[2]/tbody/tr[1]/th[6]")
     public static WebElement sort5;
+    @FindBy(xpath="/html/body/header/div/table[2]/tbody/tr[1]/th[7]")
+    public static WebElement sort6;
+    
+    
     
     //********************TC002US06 find Id*********************************************
-    @FindBy(xpath="/html/body/header/div/table[2]/tbody/tr[1]/td/input")
-    public static WebElement filterbutton;
+//    @FindBy(xpath="/html/body/header/div/table[2]/tbody/tr[1]/td/input")
+//    public static WebElement filterbutton;
     @FindBy(id="filter0")
     public static WebElement filter0;
     @FindBy(id="filter1")
@@ -70,5 +74,7 @@ public class ScorePage {
     public static WebElement filter4;
     @FindBy(id="filter5")
     public static WebElement filter5;
+    @FindBy(id="filter6")
+    public static WebElement filter6;
 
 }

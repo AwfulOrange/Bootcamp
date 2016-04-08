@@ -95,6 +95,16 @@ public class TC001_US07 extends TestCaseBase{
         PMOleadPage.filter6.clear();
         Thread.sleep(2000);
         
+        //Step 6 Input "sub" in thefilter above Status
+        String status="sub";
+        PMOleadPage.filter7.sendKeys(status);
+        Thread.sleep(2000);
+        distinguish(status,8);
+        Thread.sleep(2000);
+        PMOleadPage.filter7.clear();
+        Thread.sleep(2000);
+        
+        
         logout();
     }
 }

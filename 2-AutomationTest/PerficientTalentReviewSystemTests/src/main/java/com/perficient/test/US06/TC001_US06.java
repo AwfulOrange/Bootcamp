@@ -80,6 +80,12 @@ public class TC001_US06 extends TestCaseBase{
         Thread.sleep(2000);
         Assert.assertTrue(verifySort(6,2),"Fail to sort");
         
+        ScorePage.sort6.click();
+        Thread.sleep(2000);
+        Assert.assertTrue(verifySort(7,1),"Fail to sort");
+        ScorePage.sort6.click();
+        Thread.sleep(2000);
+        Assert.assertTrue(verifySort(7,2),"Fail to sort");
         logout();
         
         

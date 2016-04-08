@@ -80,6 +80,14 @@ public class TC002_US06 extends TestCaseBase{
         Thread.sleep(2000);
         ScorePage.filter5.clear();
         Thread.sleep(2000);
+        //Step 5 Input "Tes" in thefilter above Role
+        String status="sub";
+        ScorePage.filter6.sendKeys(status);
+        Thread.sleep(2000);
+        distinguish(status,7);
+        Thread.sleep(2000);
+        ScorePage.filter6.clear();
+        Thread.sleep(2000);
         
         logout();
     }

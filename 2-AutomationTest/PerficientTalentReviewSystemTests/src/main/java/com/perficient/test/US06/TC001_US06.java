@@ -47,45 +47,45 @@ public class TC001_US06 extends TestCaseBase{
                
         sp.sort1.click();
         Thread.sleep(2000);
-        Assert.assertTrue(verifyNum(2,1),"Fail to sort");
+        Assert.assertTrue(verifyNum(1,1),"Fail to sort");
         sp.sort1.click();
+        Thread.sleep(2000);
+        Assert.assertTrue(verifyNum(1,2),"Fail to sort");
+        
+        ScorePage.sort2.click();
+        Thread.sleep(2000);
+        Assert.assertTrue(verifyNum(2,1),"Fail to sort");
+        ScorePage.sort2.click();
         Thread.sleep(2000);
         Assert.assertTrue(verifyNum(2,2),"Fail to sort");
         
-        ScorePage.sort2.click();
+        ScorePage.sort3.click();
         Thread.sleep(2000);
         Assert.assertTrue(verifyNum(3,1),"Fail to sort");
-        ScorePage.sort2.click();
+        ScorePage.sort3.click();
         Thread.sleep(2000);
         Assert.assertTrue(verifyNum(3,2),"Fail to sort");
         
-        ScorePage.sort3.click();
-        Thread.sleep(2000);
-        Assert.assertTrue(verifyNum(4,1),"Fail to sort");
-        ScorePage.sort3.click();
-        Thread.sleep(2000);
-        Assert.assertTrue(verifyNum(4,2),"Fail to sort");
-        
         ScorePage.sort4.click();
+        Thread.sleep(2000);
+        Assert.assertTrue(verifySort(4,1),"Fail to sort");
+        ScorePage.sort4.click();
+        Thread.sleep(2000);
+        Assert.assertTrue(verifySort(4,2),"Fail to sort");
+        
+        ScorePage.sort5.click();
         Thread.sleep(2000);
         Assert.assertTrue(verifySort(5,1),"Fail to sort");
-        ScorePage.sort4.click();
+        ScorePage.sort5.click();
         Thread.sleep(2000);
         Assert.assertTrue(verifySort(5,2),"Fail to sort");
         
-        ScorePage.sort5.click();
+        ScorePage.sort6.click();
         Thread.sleep(2000);
         Assert.assertTrue(verifySort(6,1),"Fail to sort");
-        ScorePage.sort5.click();
+        ScorePage.sort6.click();
         Thread.sleep(2000);
         Assert.assertTrue(verifySort(6,2),"Fail to sort");
-        
-        ScorePage.sort6.click();
-        Thread.sleep(2000);
-        Assert.assertTrue(verifySort(7,1),"Fail to sort");
-        ScorePage.sort6.click();
-        Thread.sleep(2000);
-        Assert.assertTrue(verifySort(7,2),"Fail to sort");
         logout();
         
         

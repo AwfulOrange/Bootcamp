@@ -21,6 +21,7 @@ import org.testng.annotations.Test;
  */
 public class TC002_US06 extends TestCaseBase{
     public static final String URL="http://10.2.1.183:8080/TRS/page/score.jsp";
+   // public static final String URL="http://localhost:8080/TRS/page/score.jsp";
     public static ScorePage sp = new ScorePage();
     public static LoginPage lp = new LoginPage();
     @Test
@@ -29,65 +30,65 @@ public class TC002_US06 extends TestCaseBase{
         PageFactory.initElements(TestCaseBase.driver,lp);
         login("testEM","testEM@gdc");
         PageFactory.initElements(TestCaseBase.driver, sp); 
-        Thread.sleep(6000);
+        Thread.sleep(4000);
      //   ScorePage.filterbutton.click();
      //step 1 Input “Amo” in the filter below “Status”. 
-        String name="amo";
+        String name="an";
         ScorePage.filter0.sendKeys(name);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         distinguish(name,0);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         ScorePage.filter0.clear();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
   
     //step 2 Input “10” in the filter below “Performance”.    
-        String score0="5";
+        String score0="10";
         ScorePage.filter1.sendKeys(score0);
-        Thread.sleep(3000);
-        distinguish(score0,2);
-        Thread.sleep(3000);
+        Thread.sleep(1000);
+        distinguish(score0,1);
+        Thread.sleep(1000);
         ScorePage.filter1.clear();
-        Thread.sleep(3000);
+        Thread.sleep(1000);
     //step 3 Input “10” in the filter below “Potential”.     
-        String score1="2";    
+        String score1="10";    
         ScorePage.filter2.sendKeys(score1);
-        Thread.sleep(2000);
-        distinguish(score1,3);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
+        distinguish(score1,2);
+        Thread.sleep(1000);
         ScorePage.filter2.clear();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
     //step 3 Input “10” in the filter below “Total”.   
-        String score2="7";    
+        String score2="20";    
         ScorePage.filter3.sendKeys(score2);
-        Thread.sleep(2000);
-        distinguish(score2,4);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
+        distinguish(score2,3);
+        Thread.sleep(1000);
         ScorePage.filter3.clear();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
      //step 4 Input "Ass" in the filter above Level
         String level="ass";
         ScorePage.filter4.sendKeys(level);
-        Thread.sleep(2000);
-        distinguish(level,5);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
+        distinguish(level,4);
+        Thread.sleep(1000);
         ScorePage.filter4.clear();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
      //Step 5 Input "Tes" in thefilter above Role
         String role="tes";
         ScorePage.filter5.sendKeys(role);
-        Thread.sleep(2000);
-        distinguish(role,6);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
+        distinguish(role,5);
+        Thread.sleep(1000);
         ScorePage.filter5.clear();
-        Thread.sleep(2000);
-        //Step 5 Input "Tes" in thefilter above Role
+        Thread.sleep(1000);
+        
         String status="sub";
         ScorePage.filter6.sendKeys(status);
-        Thread.sleep(2000);
-        distinguish(status,7);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
+        distinguish(status,6);
+        Thread.sleep(1000);
         ScorePage.filter6.clear();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         
         logout();
     }

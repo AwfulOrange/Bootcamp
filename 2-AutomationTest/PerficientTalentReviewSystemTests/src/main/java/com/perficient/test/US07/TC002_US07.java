@@ -45,17 +45,17 @@ public class TC002_US07 {
         
         pp.sort7.click();
         Thread.sleep(2000);
-        Assert.assertTrue(verifySort(1,1),"Fail to sort");
+        Assert.assertTrue(verifySort(0,1),"Fail to sort");
         pp.sort7.click();
         Thread.sleep(2000);
-        Assert.assertTrue(verifySort(1,2),"Fail to sort");
+        Assert.assertTrue(verifySort(0,2),"Fail to sort");
         
         pp.sort0.click();
         Thread.sleep(2000);
-        Assert.assertTrue(verifySort(0,1),"Fail to sort");
+        Assert.assertTrue(verifySort(1,1),"Fail to sort");
         pp.sort0.click();
         Thread.sleep(2000);
-        Assert.assertTrue(verifySort(0,2),"Fail to sort");
+        Assert.assertTrue(verifySort(1,2),"Fail to sort");
                
         pp.sort1.click();
         Thread.sleep(2000);

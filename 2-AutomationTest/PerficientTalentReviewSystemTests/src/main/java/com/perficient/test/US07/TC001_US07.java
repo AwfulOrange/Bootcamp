@@ -22,6 +22,7 @@ import org.testng.annotations.Test;
  * @author bootcamp19
  */
 public class TC001_US07 extends TestCaseBase{
+   // public static final String URL="http://localhost:8080/TRS/page/score.jsp";
     public static final String URL="http://10.2.1.183:8080/TRS/page/score.jsp";
     public static ScorePage sp = new ScorePage();
     public static LoginPage lp = new LoginPage();
@@ -38,73 +39,70 @@ public class TC001_US07 extends TestCaseBase{
         PageFactory.initElements(TestCaseBase.driver, pp);
         Thread.sleep(2000);
         
-        String reviewer="xxxxxxx";
-        PMOleadPage.filter1.sendKeys(reviewer);
-        Thread.sleep(2000);
+        String reviewer="tes";
+        PMOleadPage.filter0.sendKeys(reviewer);
+        Thread.sleep(1000);
         distinguish(reviewer,0);
-        Thread.sleep(2000);
-        PMOleadPage.filter1.clear();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
+        PMOleadPage.filter0.clear();
+        Thread.sleep(1000);
         
         String name="amo";
         PMOleadPage.filter1.sendKeys(name);
-        Thread.sleep(2000);
-        distinguish(name,2);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
+        distinguish(name,1);
+        Thread.sleep(1000);
         PMOleadPage.filter1.clear();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
   
     //step 2 Input “2” in the filter below “Performance”.    
-        String score0="2";
+        String score0="10";
         PMOleadPage.filter2.sendKeys(score0);
-        Thread.sleep(3000);
-        distinguish(score0,3);
-        Thread.sleep(3000);
+        Thread.sleep(1000);
+        distinguish(score0,2);
+        Thread.sleep(1000);
         PMOleadPage.filter2.clear();
         Thread.sleep(3000);
     //step 3 Input “5” in the filter below “Potential”.     
         String score1="5";    
         PMOleadPage.filter3.sendKeys(score1);
-        Thread.sleep(2000);
-        distinguish(score1,4);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
+        distinguish(score1,3);
+        Thread.sleep(1000);
         PMOleadPage.filter3.clear();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
     //step 3 Input “7” in the filter below “Total”.   
-        String score2="7";    
+        String score2="20";    
         PMOleadPage.filter4.sendKeys(score2);
-        Thread.sleep(2000);
-        distinguish(score2,5);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
+        distinguish(score2,4);
+        Thread.sleep(1000);
         PMOleadPage.filter4.clear();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
      //step 4 Input "Ass" in the filter above Level
         String level="ass";
         PMOleadPage.filter5.sendKeys(level);
-        Thread.sleep(2000);
-        distinguish(level,6);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
+        distinguish(level,5);
+        Thread.sleep(1000);
         PMOleadPage.filter5.clear();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
      //Step 5 Input "Tes" in thefilter above Role
         String role="tes";
         PMOleadPage.filter6.sendKeys(role);
-        Thread.sleep(2000);
-        distinguish(role,7);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
+        distinguish(role,6);
+        Thread.sleep(1000);
         PMOleadPage.filter6.clear();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         
-        //Step 6 Input "sub" in thefilter above Status
-        String status="sub";
+        String status="tes";
         PMOleadPage.filter7.sendKeys(status);
-        Thread.sleep(2000);
-        distinguish(status,8);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
+        distinguish(status,7);
+        Thread.sleep(1000);
         PMOleadPage.filter7.clear();
-        Thread.sleep(2000);
-        
-        
+        Thread.sleep(1000);
         logout();
     }
 }

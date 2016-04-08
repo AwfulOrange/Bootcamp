@@ -42,19 +42,19 @@ public class ScorePage {
     public static WebElement logoutButton;
      //********************TC001US06 find Id*********************************************
    
-    @FindBy(xpath="/html/body/header/div/table[2]/tbody/tr[1]/th[1]")
+    @FindBy(xpath="/html/body/div/div/table/tbody/tr[1]/th[1]/ul")
     public static WebElement sort0;   
-    @FindBy(xpath="/html/body/header/div/table[2]/tbody/tr[1]/th[2]")
+    @FindBy(xpath="/html/body/div/div/table/tbody/tr[1]/th[2]/ul")
     public static WebElement sort1;   
-    @FindBy(xpath="/html/body/header/div/table[2]/tbody/tr[1]/th[3]")
+    @FindBy(xpath="/html/body/div/div/table/tbody/tr[1]/th[3]/ul")
     public static WebElement sort2;       
-    @FindBy(xpath="/html/body/header/div/table[2]/tbody/tr[1]/th[4]")
+    @FindBy(xpath="/html/body/div/div/table/tbody/tr[1]/th[4]/ul")
     public static WebElement sort3;       
-    @FindBy(xpath="/html/body/header/div/table[2]/tbody/tr[1]/th[5]")
+    @FindBy(xpath="/html/body/div/div/table/tbody/tr[1]/th[5]/ul")
     public static WebElement sort4;
-    @FindBy(xpath="/html/body/header/div/table[2]/tbody/tr[1]/th[6]")
+    @FindBy(xpath="/html/body/div/div/table/tbody/tr[1]/th[6]/ul")
     public static WebElement sort5;
-    @FindBy(xpath="/html/body/header/div/table[2]/tbody/tr[1]/th[7]")
+    @FindBy(xpath="/html/body/div/div/table/tbody/tr[1]/th[7]/ul")
     public static WebElement sort6;
     
     

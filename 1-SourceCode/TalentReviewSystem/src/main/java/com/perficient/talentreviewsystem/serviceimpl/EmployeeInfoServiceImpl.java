@@ -43,11 +43,12 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
     }
     private static String findEmpNameById(String id,List<Employee> allemp){
         String name="";
-        for(int i=0;i<allemp.size();i++)
+        for(int i=0;i<allemp.size();i++){
             if(allemp.get(i).getId().equalsIgnoreCase(id)){
                 name=allemp.get(i).getScreenName();
                 return name;
             }
+        }
         return name;
     }
     @Override
@@ -55,32 +56,34 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
         String empsInfo = HttpConnection.getFromUrl(new GetProperties().getProperty("tptPath"));
         List<Employee> empList = JSON.parseArray(empsInfo, Employee.class);
         empList=selectActiveEmployee(empList);    
-        
+        String name=findEmpNameById(reviewerid,empList);
         List<TalentReviewScore> talentReviewScores=trsDAO.selectTRScoreByReviewerId(reviewerid);
-        return mergeScoreAndEmployee(talentReviewScores,empList);
+        return mergeScoreAndEmployee(talentReviewScores,empList,name);
     }
     
     @Override
-    public List<Group> findAllByPMOID(String pmoid) {
+    public List<Employee> findAllByPMOID(String pmoid) {
         List<String> reviewerID=trsDAO.selectreviewerByPmoId(pmoid);
         String empsInfo = HttpConnection.getFromUrl(new GetProperties().getProperty("tptPath"));
         List<Employee> empList = JSON.parseArray(empsInfo, Employee.class);
         empList=selectActiveEmployee(empList);
-        List<Group> group=new ArrayList<>();
+//        List<Group> group=new ArrayList<>();
+         List<Employee> allempList=new ArrayList<>();
         for(int i=0;i<reviewerID.size();i++){
-            Group singleGroup=new Group();
+//            Group singleGroup=new Group();
             List<TalentReviewScore> talentReviewScores=trsDAO.selectTRScoreByReviewerId(reviewerID.get(i));
-            List<Employee> emp=mergeScoreAndEmployee(talentReviewScores,empList);
             String name=findEmpNameById(reviewerID.get(i),empList);
-            singleGroup.setEmp(emp);
-            singleGroup.setReviewname(name);
-            group.add(singleGroup);
+            List<Employee> emp=mergeScoreAndEmployee(talentReviewScores,empList,name);
+            allempList.addAll(emp);
+//            singleGroup.setEmp(emp);
+//            singleGroup.setReviewname(name);
+//            group.add(singleGroup);
         }     
-        return group;
+        return allempList;
     }
 
     
-    private static List<Employee> mergeScoreAndEmployee(List<TalentReviewScore> score, List<Employee> empList){
+    private static List<Employee> mergeScoreAndEmployee(List<TalentReviewScore> score, List<Employee> empList,String name){
         List<Employee> empListSelected =new ArrayList();
         for(int i=0;i<score.size();i++){
             Employee emp=new Employee();
@@ -96,6 +99,7 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
             emp.setGdcExperience(calcuDate(emp.getOnBoardDate()));
             Long promotion=score.get(i).getEmployeeInfo().getLastPromotionDate().getTime();
             emp.setLastPromotionDate(toDate(Long.toString(promotion)));
+            emp.setReviewername(name);
             int performance;
             if(score.get(i).getAchievingResults()!=null&&score.get(i).getOrgImpact()!=null){
                 performance=score.get(i).getAchievingResults()+score.get(i).getOrgImpact();

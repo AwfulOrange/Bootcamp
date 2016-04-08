@@ -54,6 +54,7 @@ public class Employee implements Serializable {
     private String gdcExperience;
     private String lastPromotionDate;
     private String startLevel;
+    private String reviewername;
     private Collection<SupportiveInfo> supportiveInfoCollection;
     private TalentReviewScore Score;
     private int performance;
@@ -452,6 +453,20 @@ public class Employee implements Serializable {
      */
     public void setTotal(int total) {
         this.total = total;
+    }
+
+    /**
+     * @return the reviewername
+     */
+    public String getReviewername() {
+        return reviewername;
+    }
+
+    /**
+     * @param reviewername the reviewername to set
+     */
+    public void setReviewername(String reviewername) {
+        this.reviewername = reviewername;
     }
 
 }

@@ -81,7 +81,7 @@ public class EmployeeInfoServiceImplTest {
     @Test
     public void findAllByPMOID() {
         EmployeeInfoServiceImpl instance = new EmployeeInfoServiceImpl();
-        List<Group> result2=instance.findAllByPMOID("212");
+        List<Employee> result2=instance.findAllByPMOID("212");
         assertNotNull(result2);
     }
 

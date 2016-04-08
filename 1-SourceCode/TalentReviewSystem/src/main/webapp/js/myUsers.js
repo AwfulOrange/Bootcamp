@@ -26,7 +26,11 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
                 $http.get("http://10.2.1.183:8080/TRS/web/employee/reviewer/" + ID)
                         .success(function (data) {
                             $scope.emps = data;
+                           
                             empslength = data.length;
+                            if(empslength>0){
+                                $scope.buttonshow=true; 
+                            }
 //                            changestatus(data);
                             for (var i = 0; i < empslength; i++) {
                                 if (data[i].score != null)

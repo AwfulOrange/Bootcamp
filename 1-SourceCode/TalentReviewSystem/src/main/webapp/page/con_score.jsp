@@ -20,7 +20,7 @@
                     
                     
                 </th>
-                <th style="width:15%;"  >
+                <th style="width:13%;"  >
                     <p style="padding: 0; margin: 0;float: left;">
                         Performance
                     </p>
@@ -33,7 +33,7 @@
                         </li>
                     </ul>
                 </th>
-                <th style="width:15%;"  >
+                <th style="width:13%;"  >
                     <p style="padding: 0; margin: 0;float: left;">
                         Potential
                     </p>
@@ -46,7 +46,7 @@
                         </li>
                     </ul>
                 </th>
-                <th style="width:10%;"  >
+                <th style="width:13%;"  >
                     <p style="padding: 0; margin: 0;float: left;">
                         Total
                     </p>
@@ -59,7 +59,7 @@
                         </li>
                     </ul>
                 </th>
-                <th style="width:27%;"  >
+                <th style="width:24%;"  >
                     <p style="padding: 0; margin: 0;float: left;">
                         Level
                     </p>
@@ -72,7 +72,7 @@
                         </li>
                     </ul>
                 </th>
-                <th style="width:8%;"  >
+                <th style="width:13%;"  >
                     <p style="padding: 0; margin: 0;float: left;">
                         Role
                     </p>
@@ -111,8 +111,8 @@
 
             </tr>
         </table>  
-
-        <form >
+        
+        <form style="margin-top: 5px;">
             <div  ng-repeat="emp in emps| orderBy:order:p | filter:{screenName : filter1}:false | filter:{performance : filter2}:false | filter:{potential : filter3}:false | filter:{total : filter4}:false | filter:{title : filter5}:false | filter:{role : filter6}:false" >
                 <table  class="w3-hoverable" style="background-color:gainsboro" >
                     <tr></tr>
@@ -121,7 +121,7 @@
                         <td id="p2{{$index}}" style="width:15%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{emp.performance}} </td>
                         <td id="p3{{$index}}" style="width:13%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;{{emp.potential}} </td>
                         <td id="p4{{$index}}" style="width:10%;text-align:left">&nbsp;&nbsp;{{emp.total}}
-                        <td id="p5{{$index}}" style="width:25%;text-align:left">{{emp.title}}
+                        <td id="p5{{$index}}" style="width:28%;text-align:left">{{emp.title}}
                         <td id="p6{{$index}}" style="width:15%;text-align:left">{{emp.role}}
                         <td ng-init="status = emp.score.status" ng-model="status">{{status}}</td>
 
@@ -342,9 +342,9 @@
 
                     </table>
                 </div>
-                <button class="w3-btn w3-red w3-ripple"  ng-disabled="editable()" ng-click="postSubmit()" id="submitbt">&#10004; Submit</button>
+               
             </div>
-            
+             <button class="w3-btn w3-red w3-ripple"  ng-disabled="editable()" ng-click="postSubmit()" id="submitbt" ng-show="buttonshow">&#10004; Submit</button>
         </form>
     </div>
 </body>

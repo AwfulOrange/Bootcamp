@@ -20,7 +20,7 @@
                     
                     
                 </th>
-                <th style="width:13%;"  >
+                <th style="width:15%;"  >
                     <p style="padding: 0; margin: 0;float: left;">
                         Performance
                     </p>
@@ -46,7 +46,7 @@
                         </li>
                     </ul>
                 </th>
-                <th style="width:13%;"  >
+                <th style="width:8%;"  >
                     <p style="padding: 0; margin: 0;float: left;">
                         Total
                     </p>
@@ -59,7 +59,7 @@
                         </li>
                     </ul>
                 </th>
-                <th style="width:24%;"  >
+                <th style="width:27%;"  >
                     <p style="padding: 0; margin: 0;float: left;">
                         Level
                     </p>
@@ -72,7 +72,7 @@
                         </li>
                     </ul>
                 </th>
-                <th style="width:13%;"  >
+                <th style="width:12%;"  >
                     <p style="padding: 0; margin: 0;float: left;">
                         Role
                     </p>
@@ -85,7 +85,7 @@
                         </li>
                     </ul>
                 </th>
-                <th>
+                <th  style="width:12%;" >
                     Status
                 </th>
             </tr>
@@ -118,13 +118,12 @@
                     <tr></tr>
                     <tr ng-click="pageshow = !pageshow" id="revid{{$index}}" >
                         <td id="p0{{$index}}" style="width:15%;text-align:left">{{ emp.screenName}}</td>
-                        <td id="p2{{$index}}" style="width:15%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{emp.performance}} </td>
-                        <td id="p3{{$index}}" style="width:13%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;{{emp.potential}} </td>
-                        <td id="p4{{$index}}" style="width:10%;text-align:left">&nbsp;&nbsp;{{emp.total}}
-                        <td id="p5{{$index}}" style="width:28%;text-align:left">{{emp.title}}
-                        <td id="p6{{$index}}" style="width:15%;text-align:left">{{emp.role}}
-                        <td ng-init="status = emp.score.status" ng-model="status">{{status}}</td>
-
+                        <td id="p1{{$index}}" style="width:15%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{emp.performance}} </td>
+                        <td id="p2{{$index}}" style="width:13%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;{{emp.potential}} </td>
+                        <td id="p3{{$index}}" style="width:8%;text-align:left">&nbsp;&nbsp;{{emp.total}}
+                        <td id="p4{{$index}}" style="width:27%;text-align:left">{{emp.title}}
+                        <td id="p5{{$index}}" style="width:12%;text-align:left">{{emp.role}}
+                        <td id="p6{{$index}}" style="width:12%;text-align:left" ng-init="status = emp.score.status" ng-model="status">{{status}}</td>
                     </tr>
                 </table>
 

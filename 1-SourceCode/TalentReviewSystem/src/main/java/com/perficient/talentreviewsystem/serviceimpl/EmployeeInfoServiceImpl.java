@@ -15,7 +15,6 @@ import com.perficient.talentreviewsystem.daoimpl.CriteriaDAOImpl;
 import com.perficient.talentreviewsystem.daoimpl.EmployeeInfoDAOImpl;
 import com.perficient.talentreviewsystem.daoimpl.TalentReviewScoreDAOImpl;
 import com.perficient.talentreviewsystem.entity.Employee;
-import com.perficient.talentreviewsystem.entity.Group;
 import com.perficient.talentreviewsystem.entity.TalentReviewScore;
 import static com.perficient.talentreviewsystem.utils.DateUtils.calcuDate;
 import static com.perficient.talentreviewsystem.utils.DateUtils.toDate;

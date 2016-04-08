@@ -46,28 +46,28 @@ public class TalentReviewScoreDAOImplTest {
 
     @Before
     public void setUp() {
-        ei.setEmployeeId("99998");
+        ei.setEmployeeId("76");
         eidaoi.addEmployeeInfo(ei);
-        trs = new TalentReviewScore("99998", "201503");
+        trs = new TalentReviewScore("76", "201503");
         trs.setOrgImpact(5);
         trs.setLearningAgility(5);
         trs.setStatus("Modified");
-        trs.setReviewerId("999999");
-        trs.setPmoId("999");
-        trs.setEmployeeInfo(eidaoi.selectEmployeeInfoById("99998"));
+        trs.setReviewerId("212");
+        trs.setPmoId("212");
+        trs.setEmployeeInfo(eidaoi.selectEmployeeInfoById("76"));
         trs.setReviewPeriod1(rpdaoi.selectReviewPeriodByRP("201503"));
     }
 
     @After
     public void tearDown() {
-        eidaoi.deleteEmployeeInfoById("99998");
+        eidaoi.deleteEmployeeInfoById("76");
     }
 
     @Test
     public void testAddTalentReviewScore() {
         int i = trsdaoi.addTalentReviewScore(trs);
         assert (i == 1);
-        trsdaoi.deleteTalentReviewScore("99998", "201503");
+        trsdaoi.deleteTalentReviewScore("76", "201503");
 
     }
 
@@ -81,9 +81,9 @@ public class TalentReviewScoreDAOImplTest {
     @Test
     public void testSelectSingleByBoth() {
         trsdaoi.addTalentReviewScore(trs);
-        assert (trsdaoi.selectSingleByBoth("99998", "201503") != null);
+        assert (trsdaoi.selectSingleByBoth("76", "201503") != null);
         System.out.println("testSelectSingleByBoth success");
-        trsdaoi.deleteTalentReviewScore("99998", "201503");
+        trsdaoi.deleteTalentReviewScore("76", "201503");
     }
 
     @Test
@@ -93,13 +93,13 @@ public class TalentReviewScoreDAOImplTest {
         int i = trsdaoi.updateTalentReviewScore(trs);
         assert (i == 1);
         System.out.println("testUpdateTalentReviewScore success");
-        trsdaoi.deleteTalentReviewScore("99998", "201503");
+        trsdaoi.deleteTalentReviewScore("76", "201503");
     }
 
     @Test
     public void testDeleteTalentReviewScore() {
         trsdaoi.addTalentReviewScore(trs);
-        int i = trsdaoi.deleteTalentReviewScore("99998", "201503");
+        int i = trsdaoi.deleteTalentReviewScore("76", "201503");
         assert (i == 1);
 
         System.out.println("testDeleteTalentReviewScore success");
@@ -108,8 +108,8 @@ public class TalentReviewScoreDAOImplTest {
     @Test
     public void testSelectTRScoreByReviewerId() {
         trsdaoi.addTalentReviewScore(trs);
-        assert (trsdaoi.selectTRScoreByReviewerId("999999").size() > 0);
-        trsdaoi.deleteTalentReviewScore("99998", "201503");
+        assert (trsdaoi.selectTRScoreByReviewerId("212").size() > 0);
+        trsdaoi.deleteTalentReviewScore("76", "201503");
     }
 
     /**
@@ -118,8 +118,8 @@ public class TalentReviewScoreDAOImplTest {
     @Test
     public void testSelectTRScoreByPmoId() {
        trsdaoi.addTalentReviewScore(trs);
-        assert (trsdaoi.selectTRScoreByPmoId("999").size() > 0);
-        trsdaoi.deleteTalentReviewScore("99998", "201503");
+        assert (trsdaoi.selectTRScoreByPmoId("212").size() > 0);
+        trsdaoi.deleteTalentReviewScore("76", "201503");
     }
 
     /**
@@ -129,8 +129,8 @@ public class TalentReviewScoreDAOImplTest {
     public void testSelectreviewerByPmoId() {
         trsdaoi.addTalentReviewScore(trs);
         
-        assert (trsdaoi.selectreviewerByPmoId("999").get(0).equals("999999"));
-        trsdaoi.deleteTalentReviewScore("99998", "201503");
+        assert (trsdaoi.selectreviewerByPmoId("212").get(0).equals("212"));
+        trsdaoi.deleteTalentReviewScore("76", "201503");
     }
 
 }

@@ -6,6 +6,7 @@
 package com.perficient.test.US07;
 
 
+import static com.perficient.test.US04.TC001_US04.sp;
 import static com.perficient.test.US05.TC001_US05.pp;
 import com.perficient.test.pages.LoginPage;
 import com.perficient.test.pages.PMOleadPage;
@@ -29,13 +30,14 @@ import org.testng.Assert;
  * @author bootcamp19
  */
 public class TC003_US07 extends TestCaseBase{
-    public static final String URL="http://localhost:8080/TRS/page/score.jsp";
+    public static final String URL="http://10.2.1.183:8080/TRS/page/score.jsp";
     public static ScorePage sp = new ScorePage();
     public static LoginPage lp = new LoginPage();
     public static PMOleadPage pp = new PMOleadPage();
 
     @Test
-    public static void click() throws InterruptedException{
+    public static void click() throws InterruptedException
+    {
         PageFactory.initElements(TestCaseBase.driver, sp); 
         PageFactory.initElements(TestCaseBase.driver, lp);
 
@@ -48,40 +50,41 @@ public class TC003_US07 extends TestCaseBase{
         TestCaseBase.driver.findElement(By.xpath("/html/body/header/div/table/tbody/tr/td[2]/a/b")).click();
         PageFactory.initElements(TestCaseBase.driver, pp);
         Thread.sleep(2000);
-    
-       
-            int row=driver.findElements(By.xpath("/html/body/div/div/div/div/table/tbody/tr[2]/td[3]")).size();     
-            for(int j=0;j<row-1;j++)                  
-            {                                       
+        int row=driver.findElements(By.xpath("/html/body/div/div/div/div/table/tbody/tr[2]/td[3]")).size();     
+        for(int j=0;j<row;j++)
+        {                                       
     //Step2:Click one reviewee's name
-                TestCaseBase.driver.findElement(By.xpath("//tr[@id='revid"+j+"']")).click();  
-                Thread.sleep(2000);  
+            TestCaseBase.driver.findElement(By.xpath("//tr[@id='revid"+j+"']")).click();  
+            Thread.sleep(2000);  
                 
     //Step3:Change the scores and comments of the reviewee
-                for(int k=65;k<69;k++)
-                {
-                WebElement select=TestCaseBase.driver.findElement(By.xpath("//select[@id='"+(char)k+""+j+"']"));
-                select.findElement(By.cssSelector("option[label='5']")).click();
-                }
-                for(int s=69;s<73;s++)
-                {
-                    WebElement send=TestCaseBase.driver.findElement(By.xpath("//textarea[@id='"+(char)s+""+j+"']"));
-                    send.clear();
-                    send.sendKeys("She is nice!");
-                } 
+            for(int k=65;k<69;k++)
+            {
+            WebElement select=TestCaseBase.driver.findElement(By.xpath("//select[@id='"+(char)k+""+j+"']"));
+            select.findElement(By.cssSelector("option[label='5']")).click();
+            }
+            for(int s=69;s<73;s++)
+            {
+                WebElement send=TestCaseBase.driver.findElement(By.xpath("//textarea[@id='"+(char)s+""+j+"']"));
+                send.clear();
+                send.sendKeys("She is nice!");
+            } 
                 
     //Step4:Click the Approve button
-                TestCaseBase.driver.findElement(By.xpath("//button[@id='submitbt"+j+"']")).click();
-                
-                
-    //..................Assert(Approve successfully)....................//
+            Thread.sleep(1000);
+            TestCaseBase.driver.findElement(By.xpath("//button[@id='submitbt"+j+"']")).click();
+               
+        }
+             //..................Assert(Approve successfully)....................//
     //All score and comment box as well as the Approve button are disabled//
-                WebElement disabled=driver.findElement(By.cssSelector("select[disabled]"));
-                Assert.assertEquals(disabled.getAttribute("disabled"), "true","Fail");
-            }
+        for(int j=0;j<row;j++)                  
+        { 
+            WebElement disabled=driver.findElement(By.cssSelector("select[disabled]"));
+            Assert.assertEquals(disabled.getAttribute("disabled"), "true","Fail");
+        }
             
     //.............Assert(The scores and comments should be modified)......................//         
-            for(int j=0;j<row-1;j++)                  
+            for(int j=0;j<row;j++)                  
             {
                 for(int k=65;k<69;k++)
                 {
@@ -99,7 +102,7 @@ public class TC003_US07 extends TestCaseBase{
     
     
     //Step5:Close the talent review page
-        logout();
+        pp.logoutButton.click();
     
     //Step6:Reopen the PMO-leader's page.
         TestCaseBase.driver.navigate().to(URL);
@@ -110,14 +113,14 @@ public class TC003_US07 extends TestCaseBase{
         Thread.sleep(2000);
         
     //Step7:Check the modified data      
-            for(int j=0;j<row-1;j++)                  
+            for(int j=0;j<row;j++)                  
             {
                 TestCaseBase.driver.findElement(By.xpath("//tr[@id='revid"+j+"']")).click();  
                 Thread.sleep(2000);
              }
     
     //.............................Assert .............................//         
-            for(int j=0;j<row-1;j++)                  
+            for(int j=0;j<row;j++)                  
             {
                 for(int k=65;k<69;k++)
                 {

@@ -11,6 +11,7 @@ import com.perficient.test.pages.PMOleadPage;
 import com.perficient.test.pages.ScorePage;
 import org.testng.annotations.Test;
 import com.perficient.test.util.TestCaseBase;
+import static com.perficient.test.util.TestCaseBase.login;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -34,26 +35,28 @@ public class TC001_US05 extends TestCaseBase{
     
     @Test
     public static void click() throws InterruptedException{
-        PageFactory.initElements(TestCaseBase.driver, sp); 
+         PageFactory.initElements(TestCaseBase.driver, sp); 
         PageFactory.initElements(TestCaseBase.driver, lp);
-        
-        TestCaseBase.driver.navigate().to(URL);
+         TestCaseBase.driver.navigate().to(URL);
         login("testEM","testEM@gdc");
         Thread.sleep(2000);
-        
         TestCaseBase.driver.findElement(By.xpath("/html/body/header/div/table/tbody/tr/td[2]/a/b")).click();
         PageFactory.initElements(TestCaseBase.driver, pp);
         Thread.sleep(2000);
-        int row=driver.findElements(By.xpath("/html/body/header/div/div/div/div/div/table/tbody/tr[2]/td[1]")).size();     
-        for(int j=0;j<row;j++)
-        {
-            TestCaseBase.driver.findElement(By.xpath("//tr[@id='revid"+j+"']")).click();  
-            Thread.sleep(2000);                  
-            driver.findElement(By.xpath("//[@id='P"+j+"']")).click();
-            Thread.sleep(2000);    
-            driver.findElement(By.xpath("//[@id='S"+j+"']")).click();
-            Thread.sleep(2000);
-             }
+        int row=driver.findElements(By.xpath("/html/body/div/div/div/div/table/tbody/tr[2]/td[3]")).size();     
+       
+        
+            for(int j=0;j<row;j++)                  
+            {
+                TestCaseBase.driver.findElement(By.xpath("//tr[@id='revid"+j+"']")).click();  
+                Thread.sleep(2000);           
+//              driver.findElement(By.xpath("//[@id='P"+j+"']")).click();
+//               Thread.sleep(2000);    
+//              driver.findElement(By.xpath("//[@id='S"+j+"']")).click();
+//              Thread.sleep(2000);
+            } 
+            
+     
         
         //.............................Assert .........................//
         for(int j=0;j<row;j++)

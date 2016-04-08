@@ -145,7 +145,7 @@
                         <td id="p4{{$index}}" style="width:10%;text-align:left">&nbsp;&nbsp;{{achievingResults + orgImpact + learningAgility + versatility}}
                         <td id="p5{{$index}}" style="width:24%;text-align:left">{{pmo.title}}</td>
                         <td id="p6{{$index}}" style="width:10%;text-align:left">{{pmo.role}}</td>
-                        <td style="width:10%;text-align:left" ng-init="status = pmo.status" ng-model="status" >{{status}}</td>
+                        <td id="p7{{$index}}" style="width:10%;text-align:left" ng-init="status = pmo.status" ng-model="status" >{{status}}</td>
                     </tr>
                 </table>
 

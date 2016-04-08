@@ -44,6 +44,8 @@ public class EmployeeTest {
      TalentReviewScore Score;
      String workExperience="workexperience";
      String gdcExperience="gdcexperience";
+     String status="Submitted";
+     String reviewername="wangxiang";
      int performance=0;
      int potential=0;
      int total=0;
@@ -282,4 +284,18 @@ public class EmployeeTest {
         int a = e.getTotal();
         assertEquals(total,a);
     }
+    
+    @Test
+    public void testReviewername(){
+        e = new Employee();
+        e.setReviewername(reviewername);
+        assertEquals(reviewername,e.getReviewername());
+    }
+    @Test
+    public void testStatus(){
+        e = new Employee();
+        e.setStatus(status);
+        assertEquals(status,e.getStatus());
+    }
+    
 }

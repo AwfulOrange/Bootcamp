@@ -56,7 +56,7 @@ public class TalentReviewScoreServiceImplTest {
         trScore.setOrgImpactComment("c");
         trScore.setVersatility(4);
         trScore.setVersatilityComment("d");
-        trScore.setStatus(1);
+        trScore.setStatus("Modified");
         trScore.setReviewerId("91");
         trScore.setPmoId("212");
         scoreList.add(trScore);

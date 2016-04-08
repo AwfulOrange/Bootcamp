@@ -139,7 +139,7 @@
                                              ng-init="achievingResults = emp.score.achievingResults" 
                                              ng-model="achievingResults"  ng-options="act for act in number" 
                                              ng-blur="status = save(emp.id, achievingResults, orgImpact, learningAgility, versatility
-                                                                             , achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, reviewerId, pmoId)" id="A{{$index}}">{{emp.id}}  
+                                                                             , achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, reviewerId, pmoId)" id="A{{$parent.$index}}{{$index}}">{{emp.id}}  
                                     </select>
                                     <a class="tip-1" id="I{{$parent.$index}}{{$index}}">?<span class="popbox"  style="z-index:999;"><ol>
                                                 <li>{{findCriteriaByLevel("Achieves Results", emp.title)[0].rule}}</li><br/>
@@ -246,7 +246,7 @@
                         </table>
                         <table>
                             <tr><button class="w3-btn w3-red w3-ripple"  ng-disabled="editable(status)" ng-click="status = postSubmit(emp.id, achievingResults, orgImpact, learningAgility,
-                                                    versatility, achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, reviewerId, pmoId)" id="submitbt" id="Button{{$parent.$index}}{{$index}}">approve</button></tr>
+                                                    versatility, achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, reviewerId, pmoId)" id="submitbt{{$parent.$index}}{{$index}}" >approve</button></tr>
                         </table>
                     </div>
                 </div>

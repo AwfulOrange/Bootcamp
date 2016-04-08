@@ -6,6 +6,7 @@
 package com.perficient.test.US07;
 
 
+import static com.perficient.test.US05.TC001_US05.pp;
 import com.perficient.test.pages.LoginPage;
 import com.perficient.test.pages.PMOleadPage;
 import com.perficient.test.pages.ScorePage;
@@ -129,7 +130,9 @@ public class TC003_US07 extends TestCaseBase{
                 }
                 WebElement disabled=driver.findElement(By.cssSelector("select[disabled]"));
                 Assert.assertEquals(disabled.getAttribute("disabled"), "true","Fail");
-            }     
+            } 
+            
+            pp.logoutButton.click();
     
     }
 };

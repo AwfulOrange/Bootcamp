@@ -5,12 +5,10 @@
  */
 package com.perficient.test.US05;
 
-import static com.perficient.test.US05.TC001_US05.sp;
 import com.perficient.test.pages.LoginPage;
 import com.perficient.test.pages.PMOleadPage;
 import com.perficient.test.pages.ScorePage;
 import com.perficient.test.util.TestCaseBase;
-import static com.perficient.test.util.TestCaseBase.driver;
 import static com.perficient.test.util.TestCaseBase.login;
 import static com.perficient.test.util.TestCaseBase.logout;
 import org.openqa.selenium.By;
@@ -45,9 +43,6 @@ public class TC002_US05 extends TestCaseBase{
         PageFactory.initElements(TestCaseBase.driver, pp);
         TestCaseBase.driver.findElement(By.xpath("/html/body/header/div/table/tbody/tr/td[2]/a/b")).click();
         Thread.sleep(4000);
-        pp.pmo2.click();
-        Thread.sleep(4000);
-          
         pp.revid00.click(); 
         Thread.sleep(4000);
         Assert.assertEquals(TestCaseBase.driver.findElement(By.xpath("/html/body/header/div/div[5]/div/div/div[1]/div/table[3]/tbody/tr[2]/td[3]/textarea")).getAttribute("value"),"He is handsome","Fail");
@@ -57,8 +52,6 @@ public class TC002_US05 extends TestCaseBase{
         Assert.assertEquals(number, "2","Fail");
         logout();  
     }
-    
-    
     
     public static void ModifyInfo() throws InterruptedException{
         login("testCM","testCM@gdc");

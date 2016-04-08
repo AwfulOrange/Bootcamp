@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
  * @author bootcamp19
  */
 public class CriteriaTest {
-    Criteria c = null;
+    Criteria c = new Criteria();
     Integer id=1;
     String criteria="criteria";
     String level="level";
@@ -37,6 +37,11 @@ public class CriteriaTest {
     
     @Before
     public void setUp() {
+        c.setId(id);
+        c.setCriteria(criteria);
+        c.setLevel(level);
+        c.setRule(rule);
+        c.setScore(score);
     }
     
     @After
@@ -46,8 +51,6 @@ public class CriteriaTest {
 
     @Test
     public void testId() {
-       c = new Criteria();
-       c.setId(id);
        assertEquals(id,c.getId());
     }
 
@@ -56,8 +59,6 @@ public class CriteriaTest {
    
     @Test
     public void testCriteria() {
-        c = new Criteria();
-       c.setCriteria(criteria);
        assertEquals(criteria,c.getCriteria());
     }
 
@@ -66,30 +67,31 @@ public class CriteriaTest {
     
     @Test
     public void testLevel() {
-       c = new Criteria();
-       c.setLevel(level);
        assertEquals(level,c.getLevel());
     }
 
     @Test
     public void testRule() {
-        c = new Criteria();
-       c.setRule(rule);
        assertEquals(rule,c.getRule());
     }
-
     
     @Test
     public void testScore() {
-        c = new Criteria();
-       c.setScore(score);
        assertEquals(score,c.getScore());
     }
     
     @Test
+    public void testHashCode() {
+        assertNotNull(c.hashCode());
+    }
+    
+    @Test
+    public void testEquals() {
+        assertTrue(c.equals(c));
+    }
+    
+    @Test
     public void testToString() {
-        c=new Criteria();
-        c.setId(id);
         String str = c.toString();        
         String a = "com.perficient.talentreviewsystem.entity.Criteria[ id=1 ]";
         assertEquals(a, str);

@@ -11,12 +11,9 @@
                         Name
                     </p>
                     <ul style="list-style: none;float: left;margin: 0; width: 10px; margin-left: 3px;">
-                        <li style="width: 8px;height: 8px;">
-                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/up.png"  ng-click="order = sorterUp('screenName');" />
-                        </li>
-                        <li style="width: 8px;height: 8px;">
-                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/down.png"  ng-click="order = sorterDown('screenName');" />
-                        </li>
+                  
+                            <img style="width:15px;height: 15px;" class="w1-img" src="../img/up.png"  ng-click="order1=!order1;order = sorterUp('screenName');" ng-show="order1"/> 
+                            <img style="width: 15px;height: 15px;" class="w1-img" src="../img/down.png"  ng-click="order1=!order1;order = sorterDown('screenName');" ng-show="!order1"/>     
                     </ul>
                     
                     
@@ -26,12 +23,9 @@
                         Performance
                     </p>
                     <ul style="list-style: none;float: left;margin: 0; width: 10px; margin-left: 3px;">
-                        <li style="width: 8px;height: 8px;">
-                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/up.png"  ng-click="order = sorterUp('performance');" />
-                        </li>
-                        <li style="width: 8px;height: 8px;">
-                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/down.png"  ng-click="order = sorterDown('performance');" />
-                        </li>
+                            <img style="width:15px;height: 15px;" class="w1-img" src="../img/up.png"  ng-click="order2=!order2;order = sorterUp('performance');" ng-show="order2"/> 
+                            <img style="width: 15px;height: 15px;" class="w1-img" src="../img/down.png"  ng-click="order2=!order2;order = sorterDown('performance');" ng-show="!order2"/>
+              
                     </ul>
                 </th>
                 <th style="width:13%;"  >
@@ -39,12 +33,10 @@
                         Potential
                     </p>
                     <ul style="list-style: none;float: left;margin: 0; width: 10px; margin-left: 3px;">
-                        <li style="width: 8px;height: 8px;">
-                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/up.png"  ng-click="order = sorterUp('potential');" />
-                        </li>
-                        <li style="width: 8px;height: 8px;">
-                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/down.png"  ng-click="order = sorterDown('potential');" />
-                        </li>
+                       <img style="width:15px;height: 15px;" class="w1-img" src="../img/up.png"  ng-click="order3=!order3;order = sorterUp('potential');" ng-show="order3"/> 
+                            <img style="width: 15px;height: 15px;" class="w1-img" src="../img/down.png"  ng-click="order3=!order3;order = sorterDown('potential');" ng-show="!order3"/>
+              
+                        
                     </ul>
                 </th>
                 <th style="width:8%;"  >
@@ -52,12 +44,10 @@
                         Total
                     </p>
                     <ul style="list-style: none;float: left;margin: 0; width: 10px; margin-left: 3px;">
-                        <li style="width: 8px;height: 8px;">
-                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/up.png"  ng-click="order = sorterUp('total');" />
-                        </li>
-                        <li style="width: 8px;height: 8px;">
-                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/down.png"  ng-click="order = sorterDown('total');" />
-                        </li>
+                      <img style="width:15px;height: 15px;" class="w1-img" src="../img/up.png"  ng-click="order4=!order4;order = sorterUp('total');" ng-show="order4"/> 
+                            <img style="width: 15px;height: 15px;" class="w1-img" src="../img/down.png"  ng-click="order4=!order4;order = sorterDown('total');" ng-show="!order4"/>
+              
+             
                     </ul>
                 </th>
                 <th style="width:27%;"  >
@@ -65,12 +55,10 @@
                         Level
                     </p>
                     <ul style="list-style: none;float: left;margin: 0; width: 10px; margin-left: 3px;">
-                        <li style="width: 8px;height: 8px;">
-                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/up.png"  ng-click="order = sorterUp('title');" />
-                        </li>
-                        <li style="width: 8px;height: 8px;">
-                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/down.png"  ng-click="order = sorterDown('title');" />
-                        </li>
+                        <img style="width:15px;height: 15px;" class="w1-img" src="../img/up.png"  ng-click="order5=!order5;order = sorterUp('title');" ng-show="order5"/> 
+                            <img style="width: 15px;height: 15px;" class="w1-img" src="../img/down.png"  ng-click="order5=!order5;order = sorterDown('title');" ng-show="!order5"/>
+              
+                       
                     </ul>
                 </th>
                 <th style="width:12%;"  >
@@ -78,12 +66,10 @@
                         Role
                     </p>
                     <ul style="list-style: none;float: left;margin: 0; width: 10px; margin-left: 3px;">
-                        <li style="width: 8px;height: 8px;">
-                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/up.png"  ng-click="order = sorterUp('role');" />
-                        </li>
-                        <li style="width: 8px;height: 8px;">
-                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/down.png"  ng-click="order = sorterDown('role');" />
-                        </li>
+                        <img style="width:15px;height: 15px;" class="w1-img" src="../img/up.png"  ng-click="order6=!order6;order = sorterUp('role');" ng-show="order6"/> 
+                            <img style="width: 15px;height: 15px;" class="w1-img" src="../img/down.png"  ng-click="order6=!order6;order = sorterDown('role');" ng-show="!order6"/>
+              
+                       
                     </ul>
                 </th>
                 <th style="width:12%;"  >
@@ -91,12 +77,10 @@
                         Status
                     </p>
                     <ul style="list-style: none;float: left;margin: 0; width: 10px; margin-left: 3px;">
-                        <li style="width: 8px;height: 8px;">
-                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/up.png"  ng-click="order = sorterUp('status');" />
-                        </li>
-                        <li style="width: 8px;height: 8px;">
-                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/down.png"  ng-click="order = sorterDown('status');" />
-                        </li>
+                       <img style="width:15px;height: 15px;" class="w1-img" src="../img/up.png"  ng-click="order7=!order7;order = sorterUp('status');" ng-show="order7"/> 
+                            <img style="width: 15px;height: 15px;" class="w1-img" src="../img/down.png"  ng-click="order7=!order7;order = sorterDown('status');" ng-show="!order7"/>
+              
+                
                     </ul>
                 </th>
             </tr>

@@ -9,12 +9,10 @@
                         Reviewer
                     </p>
                     <ul style="list-style: none;float: left;margin: 0; width: 10px; margin-left: 3px;">
-                        <li style="width: 8px;height: 8px;">
-                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/up.png"  ng-click="order = sorterUp('reviewername');" />
-                        </li>
-                        <li style="width: 8px;height: 8px;">
-                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/down.png"  ng-click="order = sorterDown('reviewername');" />
-                        </li>
+                        
+                            <img style="width: 15px;height: 15px;" class="w1-img" src="../img/up.png"  ng-click="order1=!order1;order = sorterUp('reviewername');" ng-show="order1"/>                       
+                            <img style="width: 15px;height: 15px;" class="w1-img" src="../img/down.png"  ng-click="order1=!order1;order = sorterDown('reviewername');" ng-show="!order1"/>
+
                     </ul>
 
 
@@ -24,12 +22,9 @@
                         Reviewee
                     </p>
                     <ul style="list-style: none;float: left;margin: 0; width: 10px; margin-left: 3px;">
-                        <li style="width: 8px;height: 8px;">
-                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/up.png"  ng-click="order = sorterUp('screenName');" />
-                        </li>
-                        <li style="width: 8px;height: 8px;">
-                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/down.png"  ng-click="order = sorterDown('screenName');" />
-                        </li>
+                        <img style="width: 15px;height: 15px;" class="w1-img" src="../img/up.png"  ng-click="order2=!order2;order = sorterUp('screenName');" ng-show="order2"/>                       
+                        <img style="width: 15px;height: 15px;" class="w1-img" src="../img/down.png"  ng-click="order2=!order2;order = sorterDown('screenName');" ng-show="!order2"/>
+                      
                     </ul>
 
 
@@ -39,12 +34,9 @@
                         Performance
                     </p>
                     <ul style="list-style: none;float: left;margin: 0; width: 10px; margin-left: 3px;">
-                        <li style="width: 8px;height: 8px;">
-                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/up.png"  ng-click="order = sorterUp('performance');" />
-                        </li>
-                        <li style="width: 8px;height: 8px;">
-                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/down.png"  ng-click="order = sorterDown('performance');" />
-                        </li>
+                       <img style="width: 15px;height: 15px;" class="w1-img" src="../img/up.png"  ng-click="order3=!order3;order = sorterUp('performance');" ng-show="order3"/>                       
+                        <img style="width: 15px;height: 15px;" class="w1-img" src="../img/down.png"  ng-click="order3=!order3;order = sorterDown('performance');" ng-show="!order3"/>
+                      
                     </ul>
                 </th>
                 <th style="width:10%;"  >
@@ -52,12 +44,9 @@
                         Potential
                     </p>
                     <ul style="list-style: none;float: left;margin: 0; width: 10px; margin-left: 3px;">
-                        <li style="width: 8px;height: 8px;">
-                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/up.png"  ng-click="order = sorterUp('potential');" />
-                        </li>
-                        <li style="width: 8px;height: 8px;">
-                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/down.png"  ng-click="order = sorterDown('potential');" />
-                        </li>
+                         <img style="width: 15px;height: 15px;" class="w1-img" src="../img/up.png"  ng-click="order4=!order4;order = sorterUp('potential');" ng-show="order4"/>                       
+                        <img style="width: 15px;height: 15px;" class="w1-img" src="../img/down.png"  ng-click="order4=!order4;order = sorterDown('potential');" ng-show="!order4"/>
+                       
                     </ul>
                 </th>
                 <th style="width:10%;"  >
@@ -65,12 +54,10 @@
                         Total
                     </p>
                     <ul style="list-style: none;float: left;margin: 0; width: 10px; margin-left: 3px;">
-                        <li style="width: 8px;height: 8px;">
-                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/up.png"  ng-click="order = sorterUp('total');" />
-                        </li>
-                        <li style="width: 8px;height: 8px;">
-                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/down.png"  ng-click="order = sorterDown('total');" />
-                        </li>
+                       <img style="width: 15px;height: 15px;" class="w1-img" src="../img/up.png"  ng-click="order5=!order5;order = sorterUp('total');" ng-show="order5"/>                       
+                        <img style="width: 15px;height: 15px;" class="w1-img" src="../img/down.png"  ng-click="order5=!order5;order = sorterDown('total');" ng-show="!order5"/>
+                       
+                       
                     </ul>
                 </th>
                 <th style="width:24%;"  >
@@ -78,12 +65,10 @@
                         Level
                     </p>
                     <ul style="list-style: none;float: left;margin: 0; width: 10px; margin-left: 3px;">
-                        <li style="width: 8px;height: 8px;">
-                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/up.png"  ng-click="order = sorterUp('title');" />
-                        </li>
-                        <li style="width: 8px;height: 8px;">
-                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/down.png"  ng-click="order = sorterDown('title');" />
-                        </li>
+                        <img style="width: 15px;height: 15px;" class="w1-img" src="../img/up.png"  ng-click="order6=!order6;order = sorterUp('title');" ng-show="order6"/>                       
+                        <img style="width: 15px;height: 15px;" class="w1-img" src="../img/down.png"  ng-click="order6=!order6;order = sorterDown('title');" ng-show="!order6"/>
+                       
+               
                     </ul>
                 </th>
                 <th style="width:10%;"  >
@@ -91,12 +76,9 @@
                         Role
                     </p>
                     <ul style="list-style: none;float: left;margin: 0; width: 10px; margin-left: 3px;">
-                        <li style="width: 8px;height: 8px;">
-                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/up.png"  ng-click="order = sorterUp('role');" />
-                        </li>
-                        <li style="width: 8px;height: 8px;">
-                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/down.png"  ng-click="order = sorterDown('role');" />
-                        </li>
+                         <img style="width: 15px;height: 15px;" class="w1-img" src="../img/up.png"  ng-click="order7=!order7;order = sorterUp('role');" ng-show="order7"/>                       
+                        <img style="width: 15px;height: 15px;" class="w1-img" src="../img/down.png"  ng-click="order7=!order7;order = sorterDown('role');" ng-show="!order7"/>
+                     
                     </ul>
                 </th>
                 <th style="width:10%;"  >
@@ -104,12 +86,8 @@
                         Status
                     </p>
                     <ul style="list-style: none;float: left;margin: 0; width: 10px; margin-left: 3px;">
-                        <li style="width: 8px;height: 8px;">
-                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/up.png"  ng-click="order = sorterUp('status');" />
-                        </li>
-                        <li style="width: 8px;height: 8px;">
-                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/down.png"  ng-click="order = sorterDown('status');" />
-                        </li>
+                     <img style="width: 15px;height: 15px;" class="w1-img" src="../img/up.png"  ng-click="order8=!order8;order = sorterUp('status');" ng-show="order8"/>                       
+                        <img style="width: 15px;height: 15px;" class="w1-img" src="../img/down.png"  ng-click="order8=!order8;order = sorterDown('status');" ng-show="!order8"/>
                     </ul>
                 </th>
             </tr>
@@ -157,7 +135,7 @@
                     <tr></tr>
                     <input type="hidden"  ng-init="reviewerId = pmo.score.reviewerId" ng-model="reviewerId" >
                     <input type="hidden"  ng-init="pmoId = pmo.score.pmoId" ng-model="pmoId" >
-                    <tr ng-click="pageshow = !pageshow" id="revid{{$parent.$index}}{{$index}}" > 
+                    <tr ng-click="pageshow = !pageshow" id="revid{{$index}}" > 
                         <td style="width:12%;text-align:left">{{ pmo.reviewername}}</td>
                         <td style="width:12%;text-align:left">{{ pmo.screenName}}</td>
                         <td style="width:12%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{achievingResults + orgImpact}} </td>
@@ -175,7 +153,7 @@
 
                     <table class="w3-table-all"  ng-show="personalshow">
 
-                        <h class="w3-hoverable" style="font-size:15px;cursor:pointer;" ng-click="personalshow = !personalshow" id="P{{$parent.$index}}{{$index}}">
+                        <h class="w3-hoverable" style="font-size:15px;cursor:pointer;" ng-click="personalshow = !personalshow" id="P{{$index}}">
                             <img ng-if="personalshow"  class="w1-imgpmo"  src="../img/up_1.png"   />
                             <img ng-if="!personalshow"  class="w1-imgpmo" src="../img/down_1.png"  />
                             Personal Profile                        
@@ -204,7 +182,7 @@
                     </table>
                     <br>
                     <table class="w3-table-all"  ng-show="suportshow">
-                        <h class="w3-hoverable" style="font-size:15px;cursor:pointer;" ng-click="suportshow = !suportshow" id="S{{$parent.$index}}{{$index}}">
+                        <h class="w3-hoverable" style="font-size:15px;cursor:pointer;" ng-click="suportshow = !suportshow" id="S{{$index}}">
                             <img ng-if="suportshow"  class="w1-imgpmo"   
                                  src="../img/up_1.png"   />
                             <img ng-if="!suportshow"  class="w1-imgpmo" src="../img/down_1.png"  />
@@ -272,9 +250,9 @@
                                          ng-init="achievingResults = pmo.score.achievingResults" 
                                          ng-model="achievingResults"  ng-options="act for act in number" 
                                          ng-blur="status = save(pmo.id, achievingResults, orgImpact, learningAgility, versatility
-                                                                             , achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, reviewerId, pmoId)" id="A{{$parent.$index}}{{$index}}">{{pmo.id}}  
+                                                                             , achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, reviewerId, pmoId)" id="A{{$index}}">{{pmo.id}}  
                                 </select>
-                                <a class="tip-1" id="I{{$parent.$index}}{{$index}}">?<span class="popbox"  style="z-index:999;"><ol>
+                                <a class="tip-1" id="I{{$index}}">?<span class="popbox"  style="z-index:999;"><ol>
                                             <li>{{findCriteriaByLevel("Achieves Results", pmo.title)[0].rule}}</li><br/>
                                             <li>{{findCriteriaByLevel("Achieves Results", pmo.title)[1].rule}}</li><br/>
                                             <li>{{findCriteriaByLevel("Achieves Results", pmo.title)[2].rule}}</li><br/>
@@ -290,7 +268,7 @@
                                           ng-init="achievingResultsComment = pmo.score.achievingResultsComment" 
                                           ng-model="achievingResultsComment" 
                                           placeholder="Comment Here   (*)"  ng-blur="status = save(pmo.id, achievingResults, orgImpact, learningAgility, versatility
-                                                                          , achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, reviewerId, pmoId)" id="E{{$parent.$index}}{{$index}}" required></textarea>
+                                                                          , achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, reviewerId, pmoId)" id="E{{$index}}" required></textarea>
                             </td>
                         </tr>
                         <tr>
@@ -301,8 +279,8 @@
                                         ng-model="orgImpact"  ng-options="act for act in number" 
                                         ng-init="orgImpact = pmo.score.orgImpact" 
                                         ng-blur="status = save(pmo.id, achievingResults, orgImpact, learningAgility, versatility
-                                                                            , achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, reviewerId, pmoId)" id="B{{$parent.$index}}{{$index}}"></select>
-                                <a class="tip-1" id="J{{$parent.$index}}{{$index}}" >?<span class="popbox"><ol>
+                                                                            , achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, reviewerId, pmoId)" id="B{{$index}}"></select>
+                                <a class="tip-1" id="J{{$index}}" >?<span class="popbox"><ol>
                                             <li>{{findCriteriaByName("Org Impact")[0].rule}}</li><br/>
                                             <li>{{findCriteriaByName("Org Impact")[1].rule}}</li><br/>
                                             <li>{{findCriteriaByName("Org Impact")[2].rule}}</li><br/>
@@ -316,7 +294,7 @@
                                           ng-disabled="editable(status)"
                                           ng-init="orgImpactComment = pmo.score.orgImpactComment" 
                                           ng-blur="status = save(pmo.id, achievingResults, orgImpact, learningAgility, versatility
-                                                                          , achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, reviewerId, pmoId)" id="F{{$parent.$index}}{{$index}}" required>
+                                                                          , achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, reviewerId, pmoId)" id="F{{$index}}" required>
                                 </textarea>
                             </td>
                         </tr>
@@ -329,8 +307,8 @@
                                         ng-model="learningAgility"  ng-options="act for act in number" 
                                         ng-init="learningAgility = pmo.score.learningAgility" 
                                         ng-blur="status = save(pmo.id, achievingResults, orgImpact, learningAgility, versatility
-                                                                            , achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, reviewerId, pmoId)" id="C{{$parent.$index}}{{$index}}"></select>          
-                                <a class="tip-1"  id="K{{$parent.$index}}{{$index}}">?<span class="popbox"><ol>
+                                                                            , achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, reviewerId, pmoId)" id="C{{$index}}"></select>          
+                                <a class="tip-1"  id="K{{$index}}">?<span class="popbox"><ol>
                                             <li>{{findCriteriaByName("Learning Agility")[0].rule}}</li><br/>
                                             <li>{{findCriteriaByName("Learning Agility")[1].rule}}</li><br/>
                                             <li>{{findCriteriaByName("Learning Agility")[2].rule}}</li><br/>
@@ -344,7 +322,7 @@
                                           ng-disabled="editable(status)"
                                           ng-init="learningAgilityComment = pmo.score.learningAgilityComment" 
                                           ng-blur=" status = save(pmo.id, achievingResults, orgImpact, learningAgility, versatility
-                                                                          , achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, reviewerId, pmoId)" id="G{{$parent.$index}}{{$index}}" required>
+                                                                          , achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, reviewerId, pmoId)" id="G{{$index}}" required>
                                 </textarea>
                             </td>
                         <tr>
@@ -355,8 +333,8 @@
                                         ng-model="versatility"  ng-options="act for act in number"  
                                         ng-init="versatility = pmo.score.versatility" 
                                         ng-blur=" status = save(pmo.id, achievingResults, orgImpact, learningAgility, versatility
-                                                                            , achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, reviewerId, pmoId)" id="D{{$parent.$index}}{{$index}}"></select>         
-                                <a class="tip-1"  id="L{{$parent.$index}}{{$index}}">?<span class="popbox"><ol>
+                                                                            , achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, reviewerId, pmoId)" id="D{{$index}}"></select>         
+                                <a class="tip-1"  id="L{{$index}}">?<span class="popbox"><ol>
                                             <li>{{findCriteriaByName("Versatility")[0].rule}}</li><br/>
                                             <li>{{findCriteriaByName("Versatility")[1].rule}}</li><br/>
                                             <li>{{findCriteriaByName("Versatility")[2].rule}}</li><br/>
@@ -371,7 +349,7 @@
                                           ng-disabled="editable(status)"
                                           ng-init="versatilityComment = pmo.score.versatilityComment" 
                                           ng-blur=" status = save(pmo.id, achievingResults, orgImpact, learningAgility, versatility
-                                                                          , achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, reviewerId, pmoId)"id="H{{$parent.$index}}{{$index}}" required>
+                                                                          , achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, reviewerId, pmoId)"id="H{{$index}}" required>
                                 </textarea>
                             </td>
                         </tr>                        
@@ -379,7 +357,7 @@
                     </table>
                     <table>
                         <tr><button class="w3-btn w3-red w3-ripple"  ng-disabled="editable(status)" ng-click="status = postSubmit(pmo.id, achievingResults, orgImpact, learningAgility,
-                                                    versatility, achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, reviewerId, pmoId)" id="submitbt{{$parent.$index}}{{$index}}" >approve</button></tr>
+                                                    versatility, achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, reviewerId, pmoId)" id="submitbt{{$index}}" >approve</button></tr>
                     </table>
                 </div>
                 <!--</div>-->

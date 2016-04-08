@@ -54,7 +54,7 @@ public class EmployeeInfoServiceImplTest {
         trs.setLearningAgility(5);
         trs.setAchievingResults(3);
         trs.setVersatility(2);
-        trs.setStatus(1);
+        trs.setStatus("Modified");
         trs.setReviewerId("212");
         trs.setPmoId("212");
         trs.setEmployeeInfo(eidaoi.selectEmployeeInfoById("76"));

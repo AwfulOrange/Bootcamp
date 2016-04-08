@@ -26,7 +26,7 @@ public class TalentReviewScoreTest {
     String orgImpactComment="orgImpactComment";
     Integer versatility=1;
     String versatilityComment="versatilityComment";
-    int status=1;
+    String status="Modified";
     String reviewerId="1";
     String pmoId="1";
     String employeeId="1";

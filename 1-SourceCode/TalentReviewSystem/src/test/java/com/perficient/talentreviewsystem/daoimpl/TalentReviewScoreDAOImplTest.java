@@ -51,7 +51,7 @@ public class TalentReviewScoreDAOImplTest {
         trs = new TalentReviewScore("99998", "201503");
         trs.setOrgImpact(5);
         trs.setLearningAgility(5);
-        trs.setStatus(1);
+        trs.setStatus("Modified");
         trs.setReviewerId("999999");
         trs.setPmoId("999");
         trs.setEmployeeInfo(eidaoi.selectEmployeeInfoById("99998"));

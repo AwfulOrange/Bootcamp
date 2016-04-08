@@ -45,7 +45,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
                                         orgImpactComment: data[i].score.orgImpactComment,
                                         learningAgilityComment: data[i].score.learningAgilityComment,
                                         versatilityComment: data[i].score.versatilityComment,
-                                        status: data[i].score.status,
+                                        status: data[i].status,
                                         reviewerId: data[i].score.reviewerId,
                                         pmoId: data[i].score.pmoId,
                                         performance: data[i].performance,
@@ -66,8 +66,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
                                     
                                 }
                             }
-                            console.log(allscore);
-                            console.log(data);
+                            
                         });
 
 
@@ -100,7 +99,6 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
                 lvlCriteria.push(criteria[i]);
             }
         }
-        //console.log(lvlCriteria);
         return lvlCriteria;
     }
 
@@ -124,43 +122,8 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
             reviewerId: reviewerId,
             pmoId: pmoId
         };
-
-
-        //update $scope.emps
-        var temp = $scope.emps;
-        //console.log($scope.emps);
-        for (var i = 0; i < temp.length; i++) {
-            if (temp[i].id == id) {
-                temp[i].score.achievingResults = achievingResults;
-                temp[i].score.orgImpact = orgImpact;
-                temp[i].score.learningAgility = learningAgility;
-                temp[i].score.versatility = versatility;
-                
-                if(achievingResults == undefined && orgImpact != undefined){
-                    temp[i].performance = orgImpact;
-                }else if(achievingResults != undefined && orgImpact == undefined){
-                    temp[i].performance = achievingResults;
-                }else if(achievingResults == undefined && orgImpact == undefined){
-                    temp[i].performance = 0
-                }else{
-                    temp[i].performance = achievingResults + orgImpact;
-                }
-                
-                if(learningAgility == undefined && versatility != undefined){
-                    temp[i].potential = versatility;
-                }else if(learningAgility != undefined && versatility == undefined){
-                    temp[i].potential = learningAgility;
-                }else if(learningAgility == undefined && versatility == undefined){
-                    temp[i].potential = 0
-                }else{
-                    temp[i].potential = learningAgility + versatility;
-                }
-                
-                temp[i].total = temp[i].performance + temp[i].potential;
-            }
-        }
-        $scope.emps = temp;
-
+        
+        updatepageData(id, achievingResults, orgImpact, learningAgility, versatility,status);
 
         if (checkScoredata(scoredata) == false)
         {
@@ -209,6 +172,41 @@ angular.module('myApp', []).controller('userCtrl', function ($scope, $http, $win
             return "Completed";
         }
         $scope.apply();
+    }
+    var updatepageData=function(id, achievingResults, orgImpact, learningAgility,
+            versatility,status){
+        var temp = $scope.emps;
+        for (var i = 0; i < temp.length; i++) {
+            if (temp[i].id == id) {
+                temp[i].score.achievingResults = achievingResults;
+                temp[i].score.orgImpact = orgImpact;
+                temp[i].score.learningAgility = learningAgility;
+                temp[i].score.versatility = versatility;
+                temp[i].status=status;
+                if(achievingResults == undefined && orgImpact != undefined){
+                    temp[i].performance = orgImpact;
+                }else if(achievingResults != undefined && orgImpact == undefined){
+                    temp[i].performance = achievingResults;
+                }else if(achievingResults == undefined && orgImpact == undefined){
+                    temp[i].performance = 0
+                }else{
+                    temp[i].performance = achievingResults + orgImpact;
+                }
+                
+                if(learningAgility == undefined && versatility != undefined){
+                    temp[i].potential = versatility;
+                }else if(learningAgility != undefined && versatility == undefined){
+                    temp[i].potential = learningAgility;
+                }else if(learningAgility == undefined && versatility == undefined){
+                    temp[i].potential = 0
+                }else{
+                    temp[i].potential = learningAgility + versatility;
+                }
+                
+                temp[i].total = temp[i].performance + temp[i].potential;
+            }
+        }
+        $scope.emps = temp;
     }
     var checkScoredata = function (data) {
         if (data.employeeId == undefined) {

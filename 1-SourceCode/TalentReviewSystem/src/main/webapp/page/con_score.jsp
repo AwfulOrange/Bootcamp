@@ -86,35 +86,55 @@
                         </li>
                     </ul>
                 </th>
-                <th  style="width:12%;" >
-                    Status
+                <th style="width:12%;"  >
+                    <p style="padding: 0; margin: 0;float: left;">
+                        Status
+                    </p>
+                    <ul style="list-style: none;float: left;margin: 0; width: 10px; margin-left: 3px;">
+                        <li style="width: 8px;height: 8px;">
+                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/up.png"  ng-click="order = sorterUp('status');" />
+                        </li>
+                        <li style="width: 8px;height: 8px;">
+                            <img style="width: 8px;height: 8px;" class="w1-img" src="../img/down.png"  ng-click="order = sorterDown('status');" />
+                        </li>
+                    </ul>
                 </th>
             </tr>
             <tr>
                 <td >
-                    <input style="width: 70%" ng-model="filter1" id="filter0"/>
+                    <input style="width: 70%" ng-model="filter0" id="filter0"/>
                 </td>
                 <td >
-                    <input style="width: 70%" ng-model="filter2"id="filter1"/>
+                    <input style="width: 70%" ng-model="filter1"id="filter1"/>
                 </td>
                 <td >
-                    <input style="width: 70%" ng-model="filter3"id="filter2"/>
+                    <input style="width: 70%" ng-model="filter2"id="filter2"/>
                 </td>
                 <td >
-                    <input style="width: 70%" ng-model="filter4"id="filter3"/>
+                    <input style="width: 70%" ng-model="filter3"id="filter3"/>
                 </td>
                 <td >
-                    <input style="width: 70%" ng-model="filter5"id="filter4"/>
+                    <input style="width: 70%" ng-model="filter4"id="filter4"/>
                 </td>
                 <td >
-                    <input style="width: 70%" ng-model="filter6"id="filter5"/>
+                    <input style="width: 70%" ng-model="filter5"id="filter5"/>
+                </td>
+                 <td >
+                    <input style="width: 70%" ng-model="filter6"id="filter6"/>
                 </td>
 
             </tr>
         </table>  
         
         <form style="margin-top: 5px;">
-            <div  ng-repeat="emp in emps| orderBy:order:p | filter:{screenName : filter1}:false | filter:{performance : filter2}:false | filter:{potential : filter3}:false | filter:{total : filter4}:false | filter:{title : filter5}:false | filter:{role : filter6}:false" >
+            <div  ng-repeat="emp in emps| orderBy:order:p | 
+                        filter:{screenName : filter0}:false | 
+                        filter:{performance : filter1}:false | 
+                        filter:{potential : filter2}:false | 
+                        filter:{total : filter3}:false | 
+                        filter:{title : filter4}:false | 
+                        filter:{role : filter5}:false  |
+                        filter:{status: filter6}:false " >
                 <table  class="w3-hoverable" style="background-color:gainsboro" >
                     <tr></tr>
                     <tr ng-click="pageshow = !pageshow" id="revid{{$index}}" >

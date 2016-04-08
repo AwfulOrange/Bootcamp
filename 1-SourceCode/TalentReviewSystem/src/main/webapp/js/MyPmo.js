@@ -65,7 +65,7 @@ angular.module('myApp1', []).controller('pmoCtrl',
             }
             var updatepageData=function(id, achievingResults, orgImpact, learningAgility,
                     versatility,status){
-                var temp = $scope.emps;
+                var temp = $scope.pmos;
                 for (var i = 0; i < temp.length; i++) {
                     if (temp[i].id == id) {
                         temp[i].score.achievingResults = achievingResults;
@@ -96,7 +96,7 @@ angular.module('myApp1', []).controller('pmoCtrl',
                         temp[i].total = temp[i].performance + temp[i].potential;
                     }
                 }
-                $scope.emps = temp;
+                $scope.pmos = temp;
             }
             $scope.save = function (id, achievingResults, orgImpact, learningAgility,
                     versatility, achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, reviewerId, pmoId)

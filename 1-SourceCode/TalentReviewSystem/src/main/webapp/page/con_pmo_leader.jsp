@@ -131,7 +131,7 @@
                     filter:{total : filter4}:false |
                     filter:{title : filter5}:false | 
                     filter:{role : filter6}:false |
-                    filter:{status : filter7}:false " style="padding-top: 5px;">
+                    filter:{status : filter7}:false " >
             <div  class="w1-form">
                 <table  class="w1-hoverable" style="background-color:ff3333;" >
                     <tr></tr>

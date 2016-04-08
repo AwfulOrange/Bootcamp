@@ -18,7 +18,7 @@
         </div>
             
         <table >
-            <tr >
+            <tr style="background-color: #FFF0F5">
             
                 <td   class="w1-tab-hover1" ><a href="${pageContext.request.contextPath}/page/score.jsp"  class="w1-tab-a"><b>Reviewer</b> </a></td>
 

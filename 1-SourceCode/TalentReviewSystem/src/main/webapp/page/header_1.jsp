@@ -18,7 +18,7 @@
         </div>
             
         <table  >
-            <tr >
+            <tr style="background-color: #FFF0F5">
             
                 <td   class="w1-tab-hover2" ><a href="${pageContext.request.contextPath}/page/score.jsp"  class="w1-tab-a"><b>Reviewer</b> </a></td>
 
@@ -27,7 +27,7 @@
                 <!--<td class="w1-head-name"></td>-->
                 <!--</div></td>-->
                 <td class="w1-log-out"  align="right"width="10%">
-                    <b style="font-size: 14px;"> {{info.screenName}}</b> <a id="logout" href=<%=logoutLink%> > <span class="glyphicon glyphicon-log-out" aria-hidden="true">&ensp;</span>Log-out</a>
+                    <b style="font-size: 14px;"> {{info.screenName}}</b> <a id="logout" href=<%=logoutLink%> > <span class="glyphicon glyphicon-log-out" aria-hidden="true">Log-out&ensp;</span></a>
                 </td>
             </tr>
         </table>

@@ -45,8 +45,8 @@ public class TC002_US05 extends TestCaseBase{
         Thread.sleep(4000);
         TestCaseBase.driver.findElement(By.id("revid0")).click();
         Thread.sleep(4000);
-        Assert.assertEquals(TestCaseBase.driver.findElement(By.xpath("/html/body/header/div/div[5]/div/div/div[1]/div/table[3]/tbody/tr[2]/td[3]/textarea")).getAttribute("value"),"He is handsome","Fail");
-        WebElement select2 = TestCaseBase.driver.findElement(By.xpath("/html/body/header/div/div[5]/div/div/div[1]/div/table[3]/tbody/tr[2]/td[2]/select"));
+        Assert.assertEquals(TestCaseBase.driver.findElement(By.xpath("//textarea[@id='E0']")).getAttribute("value"),"He is handsome","Fail");
+        WebElement select2 = TestCaseBase.driver.findElement(By.xpath("//select[@id='A0']"));
         Select select1=new Select(select2);
         String number=select1.getFirstSelectedOption().getText();
         Assert.assertEquals(number, "2","Fail");
@@ -63,6 +63,8 @@ public class TC002_US05 extends TestCaseBase{
         TestCaseBase.driver.findElement(By.xpath("//textarea[@id='E0']")).sendKeys("He is handsome");
         Thread.sleep(2000);
         sp.clickElement.click();
+         Thread.sleep(2000);
+        sp.click10Element.click();
          Thread.sleep(2000);
         logout();
         

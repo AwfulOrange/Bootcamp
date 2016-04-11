@@ -43,10 +43,10 @@ public class TC001_US05 extends TestCaseBase{
         TestCaseBase.driver.findElement(By.xpath("/html/body/header/div/table/tbody/tr/td[2]/a/b")).click();
         PageFactory.initElements(TestCaseBase.driver, pp);
         Thread.sleep(2000);
-        int row=driver.findElements(By.xpath("/html/body/div/div/div/div/table/tbody/tr[2]/td[3]")).size();     
+        //int row=driver.findElements(By.xpath("/html/body/div/div/div/div/table/tbody/tr[2]/td[3]")).size();     
        
         
-            for(int j=0;j<row;j++)                  
+            for(int j=0;j<3;j++)                  
             {
                 TestCaseBase.driver.findElement(By.xpath("//tr[@id='revid"+j+"']")).click();  
                 Thread.sleep(2000);           
@@ -59,7 +59,7 @@ public class TC001_US05 extends TestCaseBase{
      
         
         //.............................Assert .........................//
-        for(int j=0;j<row;j++)
+        for(int j=0;j<3;j++)
         {
             WebElement select = TestCaseBase.driver.findElement(By.xpath("//tr[@id='revid"+j+"']"));
             Assert.assertNotNull(select,"Fail");

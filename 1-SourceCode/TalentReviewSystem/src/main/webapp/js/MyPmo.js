@@ -3,7 +3,7 @@ angular.module('myApp1', []).controller('pmoCtrl',
             var criteria = [];
 
 
-            $http.get("http://localhost:8080/TRS/web/cri").success(function (data) {
+            $http.get("http://10.2.1.183:8080/TRS/web/cri").success(function (data) {
                 criteria = data;
             });
             $scope.order="reviewername"
@@ -32,7 +32,7 @@ angular.module('myApp1', []).controller('pmoCtrl',
             }
 
 
-            $http.get("http://localhost:8080/TRS/web/role")
+            $http.get("http://10.2.1.183:8080/TRS/web/role")
                     .success(function (ndata) {
                         $scope.info = ndata;
                         var info = ndata;
@@ -47,7 +47,7 @@ angular.module('myApp1', []).controller('pmoCtrl',
 
 
 
-                        $http.get("http://localhost:8080/TRS/web/employee/pmo/" + ID)
+                        $http.get("http://10.2.1.183:8080/TRS/web/employee/pmo/" + ID)
                                 .success(function (data) {
                                     $scope.pmos = data;
                                     var pmoslength=data.length;
@@ -132,7 +132,7 @@ angular.module('myApp1', []).controller('pmoCtrl',
                         }
                     }
                 }
-                $http.post('http://localhost:8080/TRS/web/score/', allscore).success(function () {
+                $http.post('http://10.2.1.183:8080/TRS/web/score/', allscore).success(function () {
 
                 }).error(function (data) {
                     alert("Fail to save!");
@@ -220,7 +220,7 @@ angular.module('myApp1', []).controller('pmoCtrl',
                     }
                     updatepageData(id, achievingResults, orgImpact, learningAgility,
                     versatility,"Approved");
-                    $http.post('http://localhost:8080/TRS/web/score/', postscore).success(function () {
+                    $http.post('http://10.2.1.183:8080/TRS/web/score/', postscore).success(function () {
                     }).error(function (data) {
                         alert("Fail to save!");
                     });

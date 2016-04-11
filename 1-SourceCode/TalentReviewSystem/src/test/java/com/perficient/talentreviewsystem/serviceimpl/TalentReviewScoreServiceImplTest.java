@@ -59,8 +59,8 @@ public class TalentReviewScoreServiceImplTest {
     
     @After
     public void tearDown() {
-        eidaoi.deleteEmployeeInfoById("76");
         trsdaoi.deleteTalentReviewScore("76", "201503");
+        eidaoi.deleteEmployeeInfoById("76");
     }
 
     /**

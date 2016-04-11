@@ -230,11 +230,11 @@ angular.module('myApp1', []).controller('pmoCtrl',
 
     $scope.number = [1, 2, 3, 4, 5];
     $scope.sorterUp = function (condition) {
-        $scope.p = false;
+        $scope.p = true;
         return condition;
     }
     $scope.sorterDown = function (condition) {
-        $scope.p = true;
+        $scope.p = false;
         return condition;
     }
         });

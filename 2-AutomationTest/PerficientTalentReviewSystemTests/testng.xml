@@ -31,13 +31,14 @@
            <class name="com.perficient.test.US04.TC001_US04"/>
            <class name="com.perficient.test.US04.TC002_US04"/>
         </classes>
- </test> -->
+ </test> 
  <test name="US05">
         <classes>
             <class name="com.perficient.test.US05.TC001_US05"/>
             <class name="com.perficient.test.US05.TC002_US05"/>
         </classes>
- </test> 
+ </test> -->
+
 <test name="US06">
         <classes>
             <class name="com.perficient.test.US06.TC001_US06"/>
@@ -48,7 +49,7 @@
         <classes>
             <class name="com.perficient.test.US07.TC001_US07"/>
             <class name="com.perficient.test.US07.TC002_US07"/>
-            <class name="com.perficient.test.US07.TC003_US07"/>
+            <!-- <class name="com.perficient.test.US07.TC003_US07"/> -->
         </classes>
  </test> 
 </suite>

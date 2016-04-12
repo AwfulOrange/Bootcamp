@@ -211,20 +211,20 @@
                     <tr></tr>
                     <input type="hidden"  ng-init="reviewerId = pmo.score.reviewerId" ng-model="reviewerId" >
                     <input type="hidden"  ng-init="pmoId = pmo.score.pmoId" ng-model="pmoId" >
-                    <tr ng-click="pageshow = !pageshow" id="revid{{$index}}" > 
-                        <td id="p9r{{$index}}" style="width:8%;text-align:left">{{pmo.title}}</td>
-                        <td id="p10r{{$index}}" style="width:10%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{pmo.role}}</td>
-                        <td id="p0r{{$index}}" style="width:12%;text-align:left">&nbsp;&nbsp;&nbsp;{{ pmo.reviewername}}</td>
-                        <td id="p1r{{$index}}" style="width:12%;text-align:left">&nbsp;&nbsp;{{ pmo.screenName}}</td>
-                        <td id="p2r{{$index}}" style="width:7%;text-align:left" >&nbsp;{{ achievingResults}}</td>
-                        <td id="p3r{{$index}}" style="width:7%;text-align:left" >&nbsp;{{ orgImpact}}</td>
-                        <td id="p4r{{$index}}" style="width:7%;text-align:left">&nbsp;{{ learningAgility}}</td>
-                        <td id="p5r{{$index}}" style="width:7%;text-align:left">&nbsp;{{ versatility}}</td>
-                        <td id="p6r{{$index}}" style="width:7%;text-align:left">&nbsp;{{achievingResults + orgImpact}} </td>
-                        <td id="p7r{{$index}}" style="width:7%;text-align:left">&nbsp;{{learningAgility + versatility}} </td>
-                        <td id="p8r{{$index}}" style="width:7%;text-align:left">&nbsp;{{achievingResults + orgImpact + learningAgility + versatility}}
-                        <td id="p11r{{$index}}" style="width:10%;text-align:left" ng-init="status = pmo.status" ng-model="status" >{{status}}</td>
-                        <td id="p12r{{$index}}" style="width:5%;text-align:left"><input type="text" id="FR" style="width: 50px;"></td>
+                    <tr  id="revid{{$index}}" > 
+                        <td ng-click="pageshow = !pageshow" id="p9r{{$index}}" style="width:8%;text-align:left">{{pmo.title}}</td>
+                        <td ng-click="pageshow = !pageshow" id="p10r{{$index}}" style="width:10%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{pmo.role}}</td>
+                        <td ng-click="pageshow = !pageshow" id="p0r{{$index}}" style="width:12%;text-align:left">&nbsp;&nbsp;&nbsp;{{ pmo.reviewername}}</td>
+                        <td ng-click="pageshow = !pageshow" id="p1r{{$index}}" style="width:12%;text-align:left">&nbsp;&nbsp;{{ pmo.screenName}}</td>
+                        <td ng-click="pageshow = !pageshow" id="p2r{{$index}}" style="width:7%;text-align:left" >&nbsp;{{ achievingResults}}</td>
+                        <td ng-click="pageshow = !pageshow" id="p3r{{$index}}" style="width:7%;text-align:left" >&nbsp;{{ orgImpact}}</td>
+                        <td ng-click="pageshow = !pageshow" id="p4r{{$index}}" style="width:7%;text-align:left">&nbsp;{{ learningAgility}}</td>
+                        <td ng-click="pageshow = !pageshow" id="p5r{{$index}}" style="width:7%;text-align:left">&nbsp;{{ versatility}}</td>
+                        <td ng-click="pageshow = !pageshow" id="p6r{{$index}}" style="width:7%;text-align:left">&nbsp;{{achievingResults + orgImpact}} </td>
+                        <td ng-click="pageshow = !pageshow" id="p7r{{$index}}" style="width:7%;text-align:left">&nbsp;{{learningAgility + versatility}} </td>
+                        <td ng-click="pageshow = !pageshow" id="p8r{{$index}}" style="width:7%;text-align:left">&nbsp;{{achievingResults + orgImpact + learningAgility + versatility}}
+                        <td ng-click="pageshow = !pageshow" id="p11r{{$index}}" style="width:10%;text-align:left" ng-init="status = pmo.status" ng-model="status" >{{status}}</td>
+                        <td ng-click="pageshow = pageshow" id="p12r{{$index}}" style="width:5%;text-align:left"><input type="text" id="FR{{$index}}" ng-model="FR" style="width: 50px;"></td>
                     </tr>
                 </table>
 

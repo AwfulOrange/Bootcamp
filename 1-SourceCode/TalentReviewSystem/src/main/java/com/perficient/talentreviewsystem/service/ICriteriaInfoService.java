@@ -5,7 +5,7 @@
  */
 package com.perficient.talentreviewsystem.service;
 
-import com.perficient.talentreviewsystem.entity.Cri;
+import com.perficient.talentreviewsystem.entity.Criteria;
 import java.util.List;
 
 /**
@@ -13,5 +13,5 @@ import java.util.List;
  * @author bootcamp19
  */
 public interface ICriteriaInfoService {
-    List<Cri> getAllCriteria();
+    List<Criteria> getAllCriteria();
 }

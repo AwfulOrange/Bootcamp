@@ -5,7 +5,7 @@
  */
 package com.perficient.talentreviewsystem.jpacontroller;
 
-import com.perficient.talentreviewsystem.entity.Rp;
+import com.perficient.talentreviewsystem.entity.ReviewPeriod;
 import java.io.Serializable;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
@@ -26,63 +26,63 @@ import javax.persistence.EntityManagerFactory;
  *
  * @author bootcamp19
  */
-public class RpJpaController implements Serializable {
+public class ReviewPeriodJpaController implements Serializable {
 
-    public RpJpaController(EntityManagerFactory emf) {
+    public ReviewPeriodJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    private EntityManagerFactory emf = null;
+    private transient EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
-    public void create(Rp rp) throws PreexistingEntityException, Exception {
-        if (rp.getTalentReviewScoreCollection() == null) {
-            rp.setTalentReviewScoreCollection(new ArrayList<TalentReviewScore>());
+    public void create(ReviewPeriod reviewPeriod) throws PreexistingEntityException, Exception {
+        if (reviewPeriod.getTalentReviewScoreCollection() == null) {
+            reviewPeriod.setTalentReviewScoreCollection(new ArrayList<TalentReviewScore>());
         }
-        if (rp.getSupportiveInfoCollection() == null) {
-            rp.setSupportiveInfoCollection(new ArrayList<SupportiveInfo>());
+        if (reviewPeriod.getSupportiveInfoCollection() == null) {
+            reviewPeriod.setSupportiveInfoCollection(new ArrayList<SupportiveInfo>());
         }
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
             Collection<TalentReviewScore> attachedTalentReviewScoreCollection = new ArrayList<TalentReviewScore>();
-            for (TalentReviewScore talentReviewScoreCollectionTalentReviewScoreToAttach : rp.getTalentReviewScoreCollection()) {
+            for (TalentReviewScore talentReviewScoreCollectionTalentReviewScoreToAttach : reviewPeriod.getTalentReviewScoreCollection()) {
                 talentReviewScoreCollectionTalentReviewScoreToAttach = em.getReference(talentReviewScoreCollectionTalentReviewScoreToAttach.getClass(), talentReviewScoreCollectionTalentReviewScoreToAttach.getTalentReviewScorePK());
                 attachedTalentReviewScoreCollection.add(talentReviewScoreCollectionTalentReviewScoreToAttach);
             }
-            rp.setTalentReviewScoreCollection(attachedTalentReviewScoreCollection);
+            reviewPeriod.setTalentReviewScoreCollection(attachedTalentReviewScoreCollection);
             Collection<SupportiveInfo> attachedSupportiveInfoCollection = new ArrayList<SupportiveInfo>();
-            for (SupportiveInfo supportiveInfoCollectionSupportiveInfoToAttach : rp.getSupportiveInfoCollection()) {
+            for (SupportiveInfo supportiveInfoCollectionSupportiveInfoToAttach : reviewPeriod.getSupportiveInfoCollection()) {
                 supportiveInfoCollectionSupportiveInfoToAttach = em.getReference(supportiveInfoCollectionSupportiveInfoToAttach.getClass(), supportiveInfoCollectionSupportiveInfoToAttach.getSupportiveInfoPK());
                 attachedSupportiveInfoCollection.add(supportiveInfoCollectionSupportiveInfoToAttach);
             }
-            rp.setSupportiveInfoCollection(attachedSupportiveInfoCollection);
-            em.persist(rp);
-            for (TalentReviewScore talentReviewScoreCollectionTalentReviewScore : rp.getTalentReviewScoreCollection()) {
-                Rp oldRpOfTalentReviewScoreCollectionTalentReviewScore = talentReviewScoreCollectionTalentReviewScore.getRp();
-                talentReviewScoreCollectionTalentReviewScore.setRp(rp);
+            reviewPeriod.setSupportiveInfoCollection(attachedSupportiveInfoCollection);
+            em.persist(reviewPeriod);
+            for (TalentReviewScore talentReviewScoreCollectionTalentReviewScore : reviewPeriod.getTalentReviewScoreCollection()) {
+                ReviewPeriod oldReviewPeriod1OfTalentReviewScoreCollectionTalentReviewScore = talentReviewScoreCollectionTalentReviewScore.getReviewPeriod1();
+                talentReviewScoreCollectionTalentReviewScore.setReviewPeriod1(reviewPeriod);
                 talentReviewScoreCollectionTalentReviewScore = em.merge(talentReviewScoreCollectionTalentReviewScore);
-                if (oldRpOfTalentReviewScoreCollectionTalentReviewScore != null) {
-                    oldRpOfTalentReviewScoreCollectionTalentReviewScore.getTalentReviewScoreCollection().remove(talentReviewScoreCollectionTalentReviewScore);
-                    oldRpOfTalentReviewScoreCollectionTalentReviewScore = em.merge(oldRpOfTalentReviewScoreCollectionTalentReviewScore);
+                if (oldReviewPeriod1OfTalentReviewScoreCollectionTalentReviewScore != null) {
+                    oldReviewPeriod1OfTalentReviewScoreCollectionTalentReviewScore.getTalentReviewScoreCollection().remove(talentReviewScoreCollectionTalentReviewScore);
+                    oldReviewPeriod1OfTalentReviewScoreCollectionTalentReviewScore = em.merge(oldReviewPeriod1OfTalentReviewScoreCollectionTalentReviewScore);
                 }
             }
-            for (SupportiveInfo supportiveInfoCollectionSupportiveInfo : rp.getSupportiveInfoCollection()) {
-                Rp oldRpOfSupportiveInfoCollectionSupportiveInfo = supportiveInfoCollectionSupportiveInfo.getRp();
-                supportiveInfoCollectionSupportiveInfo.setRp(rp);
+            for (SupportiveInfo supportiveInfoCollectionSupportiveInfo : reviewPeriod.getSupportiveInfoCollection()) {
+                ReviewPeriod oldReviewPeriod1OfSupportiveInfoCollectionSupportiveInfo = supportiveInfoCollectionSupportiveInfo.getReviewPeriod1();
+                supportiveInfoCollectionSupportiveInfo.setReviewPeriod1(reviewPeriod);
                 supportiveInfoCollectionSupportiveInfo = em.merge(supportiveInfoCollectionSupportiveInfo);
-                if (oldRpOfSupportiveInfoCollectionSupportiveInfo != null) {
-                    oldRpOfSupportiveInfoCollectionSupportiveInfo.getSupportiveInfoCollection().remove(supportiveInfoCollectionSupportiveInfo);
-                    oldRpOfSupportiveInfoCollectionSupportiveInfo = em.merge(oldRpOfSupportiveInfoCollectionSupportiveInfo);
+                if (oldReviewPeriod1OfSupportiveInfoCollectionSupportiveInfo != null) {
+                    oldReviewPeriod1OfSupportiveInfoCollectionSupportiveInfo.getSupportiveInfoCollection().remove(supportiveInfoCollectionSupportiveInfo);
+                    oldReviewPeriod1OfSupportiveInfoCollectionSupportiveInfo = em.merge(oldReviewPeriod1OfSupportiveInfoCollectionSupportiveInfo);
                 }
             }
             em.getTransaction().commit();
         } catch (Exception ex) {
-            if (findRp(rp.getReviewPeriod()) != null) {
-                throw new PreexistingEntityException("Rp " + rp + " already exists.", ex);
+            if (findReviewPeriod(reviewPeriod.getReviewPeriod()) != null) {
+                throw new PreexistingEntityException("ReviewPeriod " + reviewPeriod + " already exists.", ex);
             }
             throw ex;
         } finally {
@@ -92,23 +92,23 @@ public class RpJpaController implements Serializable {
         }
     }
 
-    public void edit(Rp rp) throws IllegalOrphanException, NonexistentEntityException, Exception {
+    public void edit(ReviewPeriod reviewPeriod) throws IllegalOrphanException, NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Rp persistentRp = em.find(Rp.class, rp.getReviewPeriod());
-            Collection<TalentReviewScore> talentReviewScoreCollectionOld = persistentRp.getTalentReviewScoreCollection();
-            Collection<TalentReviewScore> talentReviewScoreCollectionNew = rp.getTalentReviewScoreCollection();
-            Collection<SupportiveInfo> supportiveInfoCollectionOld = persistentRp.getSupportiveInfoCollection();
-            Collection<SupportiveInfo> supportiveInfoCollectionNew = rp.getSupportiveInfoCollection();
+            ReviewPeriod persistentReviewPeriod = em.find(ReviewPeriod.class, reviewPeriod.getReviewPeriod());
+            Collection<TalentReviewScore> talentReviewScoreCollectionOld = persistentReviewPeriod.getTalentReviewScoreCollection();
+            Collection<TalentReviewScore> talentReviewScoreCollectionNew = reviewPeriod.getTalentReviewScoreCollection();
+            Collection<SupportiveInfo> supportiveInfoCollectionOld = persistentReviewPeriod.getSupportiveInfoCollection();
+            Collection<SupportiveInfo> supportiveInfoCollectionNew = reviewPeriod.getSupportiveInfoCollection();
             List<String> illegalOrphanMessages = null;
             for (TalentReviewScore talentReviewScoreCollectionOldTalentReviewScore : talentReviewScoreCollectionOld) {
                 if (!talentReviewScoreCollectionNew.contains(talentReviewScoreCollectionOldTalentReviewScore)) {
                     if (illegalOrphanMessages == null) {
                         illegalOrphanMessages = new ArrayList<String>();
                     }
-                    illegalOrphanMessages.add("You must retain TalentReviewScore " + talentReviewScoreCollectionOldTalentReviewScore + " since its rp field is not nullable.");
+                    illegalOrphanMessages.add("You must retain TalentReviewScore " + talentReviewScoreCollectionOldTalentReviewScore + " since its reviewPeriod1 field is not nullable.");
                 }
             }
             for (SupportiveInfo supportiveInfoCollectionOldSupportiveInfo : supportiveInfoCollectionOld) {
@@ -116,7 +116,7 @@ public class RpJpaController implements Serializable {
                     if (illegalOrphanMessages == null) {
                         illegalOrphanMessages = new ArrayList<String>();
                     }
-                    illegalOrphanMessages.add("You must retain SupportiveInfo " + supportiveInfoCollectionOldSupportiveInfo + " since its rp field is not nullable.");
+                    illegalOrphanMessages.add("You must retain SupportiveInfo " + supportiveInfoCollectionOldSupportiveInfo + " since its reviewPeriod1 field is not nullable.");
                 }
             }
             if (illegalOrphanMessages != null) {
@@ -128,34 +128,34 @@ public class RpJpaController implements Serializable {
                 attachedTalentReviewScoreCollectionNew.add(talentReviewScoreCollectionNewTalentReviewScoreToAttach);
             }
             talentReviewScoreCollectionNew = attachedTalentReviewScoreCollectionNew;
-            rp.setTalentReviewScoreCollection(talentReviewScoreCollectionNew);
+            reviewPeriod.setTalentReviewScoreCollection(talentReviewScoreCollectionNew);
             Collection<SupportiveInfo> attachedSupportiveInfoCollectionNew = new ArrayList<SupportiveInfo>();
             for (SupportiveInfo supportiveInfoCollectionNewSupportiveInfoToAttach : supportiveInfoCollectionNew) {
                 supportiveInfoCollectionNewSupportiveInfoToAttach = em.getReference(supportiveInfoCollectionNewSupportiveInfoToAttach.getClass(), supportiveInfoCollectionNewSupportiveInfoToAttach.getSupportiveInfoPK());
                 attachedSupportiveInfoCollectionNew.add(supportiveInfoCollectionNewSupportiveInfoToAttach);
             }
             supportiveInfoCollectionNew = attachedSupportiveInfoCollectionNew;
-            rp.setSupportiveInfoCollection(supportiveInfoCollectionNew);
-            rp = em.merge(rp);
+            reviewPeriod.setSupportiveInfoCollection(supportiveInfoCollectionNew);
+            reviewPeriod = em.merge(reviewPeriod);
             for (TalentReviewScore talentReviewScoreCollectionNewTalentReviewScore : talentReviewScoreCollectionNew) {
                 if (!talentReviewScoreCollectionOld.contains(talentReviewScoreCollectionNewTalentReviewScore)) {
-                    Rp oldRpOfTalentReviewScoreCollectionNewTalentReviewScore = talentReviewScoreCollectionNewTalentReviewScore.getRp();
-                    talentReviewScoreCollectionNewTalentReviewScore.setRp(rp);
+                    ReviewPeriod oldReviewPeriod1OfTalentReviewScoreCollectionNewTalentReviewScore = talentReviewScoreCollectionNewTalentReviewScore.getReviewPeriod1();
+                    talentReviewScoreCollectionNewTalentReviewScore.setReviewPeriod1(reviewPeriod);
                     talentReviewScoreCollectionNewTalentReviewScore = em.merge(talentReviewScoreCollectionNewTalentReviewScore);
-                    if (oldRpOfTalentReviewScoreCollectionNewTalentReviewScore != null && !oldRpOfTalentReviewScoreCollectionNewTalentReviewScore.equals(rp)) {
-                        oldRpOfTalentReviewScoreCollectionNewTalentReviewScore.getTalentReviewScoreCollection().remove(talentReviewScoreCollectionNewTalentReviewScore);
-                        oldRpOfTalentReviewScoreCollectionNewTalentReviewScore = em.merge(oldRpOfTalentReviewScoreCollectionNewTalentReviewScore);
+                    if (oldReviewPeriod1OfTalentReviewScoreCollectionNewTalentReviewScore != null && !oldReviewPeriod1OfTalentReviewScoreCollectionNewTalentReviewScore.equals(reviewPeriod)) {
+                        oldReviewPeriod1OfTalentReviewScoreCollectionNewTalentReviewScore.getTalentReviewScoreCollection().remove(talentReviewScoreCollectionNewTalentReviewScore);
+                        oldReviewPeriod1OfTalentReviewScoreCollectionNewTalentReviewScore = em.merge(oldReviewPeriod1OfTalentReviewScoreCollectionNewTalentReviewScore);
                     }
                 }
             }
             for (SupportiveInfo supportiveInfoCollectionNewSupportiveInfo : supportiveInfoCollectionNew) {
                 if (!supportiveInfoCollectionOld.contains(supportiveInfoCollectionNewSupportiveInfo)) {
-                    Rp oldRpOfSupportiveInfoCollectionNewSupportiveInfo = supportiveInfoCollectionNewSupportiveInfo.getRp();
-                    supportiveInfoCollectionNewSupportiveInfo.setRp(rp);
+                    ReviewPeriod oldReviewPeriod1OfSupportiveInfoCollectionNewSupportiveInfo = supportiveInfoCollectionNewSupportiveInfo.getReviewPeriod1();
+                    supportiveInfoCollectionNewSupportiveInfo.setReviewPeriod1(reviewPeriod);
                     supportiveInfoCollectionNewSupportiveInfo = em.merge(supportiveInfoCollectionNewSupportiveInfo);
-                    if (oldRpOfSupportiveInfoCollectionNewSupportiveInfo != null && !oldRpOfSupportiveInfoCollectionNewSupportiveInfo.equals(rp)) {
-                        oldRpOfSupportiveInfoCollectionNewSupportiveInfo.getSupportiveInfoCollection().remove(supportiveInfoCollectionNewSupportiveInfo);
-                        oldRpOfSupportiveInfoCollectionNewSupportiveInfo = em.merge(oldRpOfSupportiveInfoCollectionNewSupportiveInfo);
+                    if (oldReviewPeriod1OfSupportiveInfoCollectionNewSupportiveInfo != null && !oldReviewPeriod1OfSupportiveInfoCollectionNewSupportiveInfo.equals(reviewPeriod)) {
+                        oldReviewPeriod1OfSupportiveInfoCollectionNewSupportiveInfo.getSupportiveInfoCollection().remove(supportiveInfoCollectionNewSupportiveInfo);
+                        oldReviewPeriod1OfSupportiveInfoCollectionNewSupportiveInfo = em.merge(oldReviewPeriod1OfSupportiveInfoCollectionNewSupportiveInfo);
                     }
                 }
             }
@@ -163,9 +163,9 @@ public class RpJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                String id = rp.getReviewPeriod();
-                if (findRp(id) == null) {
-                    throw new NonexistentEntityException("The rp with id " + id + " no longer exists.");
+                String id = reviewPeriod.getReviewPeriod();
+                if (findReviewPeriod(id) == null) {
+                    throw new NonexistentEntityException("The reviewPeriod with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -181,32 +181,32 @@ public class RpJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Rp rp;
+            ReviewPeriod reviewPeriod;
             try {
-                rp = em.getReference(Rp.class, id);
-                rp.getReviewPeriod();
+                reviewPeriod = em.getReference(ReviewPeriod.class, id);
+                reviewPeriod.getReviewPeriod();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The rp with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The reviewPeriod with id " + id + " no longer exists.", enfe);
             }
             List<String> illegalOrphanMessages = null;
-            Collection<TalentReviewScore> talentReviewScoreCollectionOrphanCheck = rp.getTalentReviewScoreCollection();
+            Collection<TalentReviewScore> talentReviewScoreCollectionOrphanCheck = reviewPeriod.getTalentReviewScoreCollection();
             for (TalentReviewScore talentReviewScoreCollectionOrphanCheckTalentReviewScore : talentReviewScoreCollectionOrphanCheck) {
                 if (illegalOrphanMessages == null) {
                     illegalOrphanMessages = new ArrayList<String>();
                 }
-                illegalOrphanMessages.add("This Rp (" + rp + ") cannot be destroyed since the TalentReviewScore " + talentReviewScoreCollectionOrphanCheckTalentReviewScore + " in its talentReviewScoreCollection field has a non-nullable rp field.");
+                illegalOrphanMessages.add("This ReviewPeriod (" + reviewPeriod + ") cannot be destroyed since the TalentReviewScore " + talentReviewScoreCollectionOrphanCheckTalentReviewScore + " in its talentReviewScoreCollection field has a non-nullable reviewPeriod1 field.");
             }
-            Collection<SupportiveInfo> supportiveInfoCollectionOrphanCheck = rp.getSupportiveInfoCollection();
+            Collection<SupportiveInfo> supportiveInfoCollectionOrphanCheck = reviewPeriod.getSupportiveInfoCollection();
             for (SupportiveInfo supportiveInfoCollectionOrphanCheckSupportiveInfo : supportiveInfoCollectionOrphanCheck) {
                 if (illegalOrphanMessages == null) {
                     illegalOrphanMessages = new ArrayList<String>();
                 }
-                illegalOrphanMessages.add("This Rp (" + rp + ") cannot be destroyed since the SupportiveInfo " + supportiveInfoCollectionOrphanCheckSupportiveInfo + " in its supportiveInfoCollection field has a non-nullable rp field.");
+                illegalOrphanMessages.add("This ReviewPeriod (" + reviewPeriod + ") cannot be destroyed since the SupportiveInfo " + supportiveInfoCollectionOrphanCheckSupportiveInfo + " in its supportiveInfoCollection field has a non-nullable reviewPeriod1 field.");
             }
             if (illegalOrphanMessages != null) {
                 throw new IllegalOrphanException(illegalOrphanMessages);
             }
-            em.remove(rp);
+            em.remove(reviewPeriod);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -215,19 +215,19 @@ public class RpJpaController implements Serializable {
         }
     }
 
-    public List<Rp> findRpEntities() {
-        return findRpEntities(true, -1, -1);
+    public List<ReviewPeriod> findReviewPeriodEntities() {
+        return findReviewPeriodEntities(true, -1, -1);
     }
 
-    public List<Rp> findRpEntities(int maxResults, int firstResult) {
-        return findRpEntities(false, maxResults, firstResult);
+    public List<ReviewPeriod> findReviewPeriodEntities(int maxResults, int firstResult) {
+        return findReviewPeriodEntities(false, maxResults, firstResult);
     }
 
-    private List<Rp> findRpEntities(boolean all, int maxResults, int firstResult) {
+    private List<ReviewPeriod> findReviewPeriodEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(Rp.class));
+            cq.select(cq.from(ReviewPeriod.class));
             Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -239,20 +239,20 @@ public class RpJpaController implements Serializable {
         }
     }
 
-    public Rp findRp(String id) {
+    public ReviewPeriod findReviewPeriod(String id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Rp.class, id);
+            return em.find(ReviewPeriod.class, id);
         } finally {
             em.close();
         }
     }
 
-    public int getRpCount() {
+    public int getReviewPeriodCount() {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<Rp> rt = cq.from(Rp.class);
+            Root<ReviewPeriod> rt = cq.from(ReviewPeriod.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();
@@ -260,5 +260,5 @@ public class RpJpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }

@@ -5,7 +5,7 @@
  */
 package com.perficient.talentreviewsystem.dao;
 
-import com.perficient.talentreviewsystem.entity.Rp;
+import com.perficient.talentreviewsystem.entity.ReviewPeriod;
 
 /**
  *
@@ -13,11 +13,11 @@ import com.perficient.talentreviewsystem.entity.Rp;
  */
 public interface IReviewPeriodDAO {
 
-    public Rp selectReviewPeriodByRP(String rp);
+    public ReviewPeriod selectReviewPeriodByRP(String rp);
 
     public String findMaxRp();
 
-    public int addReviewPeriod(Rp rp);
+    public int addReviewPeriod(ReviewPeriod rp);
     
     public int deleteReviewPeriod(String srp);
 }

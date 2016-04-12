@@ -31,7 +31,7 @@ public class EmployeeInfoJpaController implements Serializable {
     public EmployeeInfoJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    private EntityManagerFactory emf = null;
+    private transient EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
@@ -260,5 +260,5 @@ public class EmployeeInfoJpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }

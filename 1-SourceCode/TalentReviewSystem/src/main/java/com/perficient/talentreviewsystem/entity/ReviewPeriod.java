@@ -26,13 +26,13 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author bootcamp19
  */
 @Entity
-@Table(name = "rp")
+@Table(name = "review_period")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Rp.findAll", query = "SELECT r FROM Rp r"),
-    @NamedQuery(name = "Rp.findByReviewPeriod", query = "SELECT r FROM Rp r WHERE r.reviewPeriod = :reviewPeriod"),
-    @NamedQuery(name = "Rp.findById", query = "SELECT r FROM Rp r WHERE r.id = :id")})
-public class Rp implements Serializable {
+    @NamedQuery(name = "ReviewPeriod.findAll", query = "SELECT r FROM ReviewPeriod r"),
+    @NamedQuery(name = "ReviewPeriod.findByReviewPeriod", query = "SELECT r FROM ReviewPeriod r WHERE r.reviewPeriod = :reviewPeriod"),
+    @NamedQuery(name = "ReviewPeriod.findById", query = "SELECT r FROM ReviewPeriod r WHERE r.id = :id")})
+public class ReviewPeriod implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -43,15 +43,16 @@ public class Rp implements Serializable {
     private String reviewPeriod;
     @Column(name = "id")
     private Integer id;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "rp")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "reviewPeriod1")
     private Collection<TalentReviewScore> talentReviewScoreCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "rp")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "reviewPeriod1")
     private Collection<SupportiveInfo> supportiveInfoCollection;
 
-    public Rp() {
+    public ReviewPeriod() {
+        //do nothing
     }
 
-    public Rp(String reviewPeriod) {
+    public ReviewPeriod(String reviewPeriod) {
         this.reviewPeriod = reviewPeriod;
     }
 
@@ -98,11 +99,10 @@ public class Rp implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Rp)) {
+        if (!(object instanceof ReviewPeriod)) {
             return false;
         }
-        Rp other = (Rp) object;
+        ReviewPeriod other = (ReviewPeriod) object;
         if ((this.reviewPeriod == null && other.reviewPeriod != null) || (this.reviewPeriod != null && !this.reviewPeriod.equals(other.reviewPeriod))) {
             return false;
         }
@@ -111,7 +111,7 @@ public class Rp implements Serializable {
 
     @Override
     public String toString() {
-        return "com.perficient.talentreviewsystem.entity.Rp[ reviewPeriod=" + reviewPeriod + " ]";
+        return "com.perficient.talentreviewsystem.entity.ReviewPeriod[ reviewPeriod=" + reviewPeriod + " ]";
     }
     
 }

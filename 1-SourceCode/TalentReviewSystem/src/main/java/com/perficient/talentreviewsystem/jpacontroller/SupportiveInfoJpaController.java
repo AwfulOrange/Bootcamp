@@ -11,7 +11,7 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import com.perficient.talentreviewsystem.entity.EmployeeInfo;
-import com.perficient.talentreviewsystem.entity.Rp;
+import com.perficient.talentreviewsystem.entity.ReviewPeriod;
 import com.perficient.talentreviewsystem.entity.SupportiveInfo;
 import com.perficient.talentreviewsystem.entity.SupportiveInfoPK;
 import com.perficient.talentreviewsystem.jpacontroller.exceptions.NonexistentEntityException;
@@ -29,7 +29,7 @@ public class SupportiveInfoJpaController implements Serializable {
     public SupportiveInfoJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    private EntityManagerFactory emf = null;
+    private transient EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
@@ -39,8 +39,8 @@ public class SupportiveInfoJpaController implements Serializable {
         if (supportiveInfo.getSupportiveInfoPK() == null) {
             supportiveInfo.setSupportiveInfoPK(new SupportiveInfoPK());
         }
-        supportiveInfo.getSupportiveInfoPK().setReviewPeriod(supportiveInfo.getRp().getReviewPeriod());
         supportiveInfo.getSupportiveInfoPK().setEmployeeId(supportiveInfo.getEmployeeInfo().getEmployeeId());
+        supportiveInfo.getSupportiveInfoPK().setReviewPeriod(supportiveInfo.getReviewPeriod1().getReviewPeriod());
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -50,19 +50,19 @@ public class SupportiveInfoJpaController implements Serializable {
                 employeeInfo = em.getReference(employeeInfo.getClass(), employeeInfo.getEmployeeId());
                 supportiveInfo.setEmployeeInfo(employeeInfo);
             }
-            Rp rp = supportiveInfo.getRp();
-            if (rp != null) {
-                rp = em.getReference(rp.getClass(), rp.getReviewPeriod());
-                supportiveInfo.setRp(rp);
+            ReviewPeriod reviewPeriod1 = supportiveInfo.getReviewPeriod1();
+            if (reviewPeriod1 != null) {
+                reviewPeriod1 = em.getReference(reviewPeriod1.getClass(), reviewPeriod1.getReviewPeriod());
+                supportiveInfo.setReviewPeriod1(reviewPeriod1);
             }
             em.persist(supportiveInfo);
             if (employeeInfo != null) {
                 employeeInfo.getSupportiveInfoCollection().add(supportiveInfo);
                 employeeInfo = em.merge(employeeInfo);
             }
-            if (rp != null) {
-                rp.getSupportiveInfoCollection().add(supportiveInfo);
-                rp = em.merge(rp);
+            if (reviewPeriod1 != null) {
+                reviewPeriod1.getSupportiveInfoCollection().add(supportiveInfo);
+                reviewPeriod1 = em.merge(reviewPeriod1);
             }
             em.getTransaction().commit();
         } catch (Exception ex) {
@@ -78,8 +78,8 @@ public class SupportiveInfoJpaController implements Serializable {
     }
 
     public void edit(SupportiveInfo supportiveInfo) throws NonexistentEntityException, Exception {
-        supportiveInfo.getSupportiveInfoPK().setReviewPeriod(supportiveInfo.getRp().getReviewPeriod());
         supportiveInfo.getSupportiveInfoPK().setEmployeeId(supportiveInfo.getEmployeeInfo().getEmployeeId());
+        supportiveInfo.getSupportiveInfoPK().setReviewPeriod(supportiveInfo.getReviewPeriod1().getReviewPeriod());
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -87,15 +87,15 @@ public class SupportiveInfoJpaController implements Serializable {
             SupportiveInfo persistentSupportiveInfo = em.find(SupportiveInfo.class, supportiveInfo.getSupportiveInfoPK());
             EmployeeInfo employeeInfoOld = persistentSupportiveInfo.getEmployeeInfo();
             EmployeeInfo employeeInfoNew = supportiveInfo.getEmployeeInfo();
-            Rp rpOld = persistentSupportiveInfo.getRp();
-            Rp rpNew = supportiveInfo.getRp();
+            ReviewPeriod reviewPeriod1Old = persistentSupportiveInfo.getReviewPeriod1();
+            ReviewPeriod reviewPeriod1New = supportiveInfo.getReviewPeriod1();
             if (employeeInfoNew != null) {
                 employeeInfoNew = em.getReference(employeeInfoNew.getClass(), employeeInfoNew.getEmployeeId());
                 supportiveInfo.setEmployeeInfo(employeeInfoNew);
             }
-            if (rpNew != null) {
-                rpNew = em.getReference(rpNew.getClass(), rpNew.getReviewPeriod());
-                supportiveInfo.setRp(rpNew);
+            if (reviewPeriod1New != null) {
+                reviewPeriod1New = em.getReference(reviewPeriod1New.getClass(), reviewPeriod1New.getReviewPeriod());
+                supportiveInfo.setReviewPeriod1(reviewPeriod1New);
             }
             supportiveInfo = em.merge(supportiveInfo);
             if (employeeInfoOld != null && !employeeInfoOld.equals(employeeInfoNew)) {
@@ -106,13 +106,13 @@ public class SupportiveInfoJpaController implements Serializable {
                 employeeInfoNew.getSupportiveInfoCollection().add(supportiveInfo);
                 employeeInfoNew = em.merge(employeeInfoNew);
             }
-            if (rpOld != null && !rpOld.equals(rpNew)) {
-                rpOld.getSupportiveInfoCollection().remove(supportiveInfo);
-                rpOld = em.merge(rpOld);
+            if (reviewPeriod1Old != null && !reviewPeriod1Old.equals(reviewPeriod1New)) {
+                reviewPeriod1Old.getSupportiveInfoCollection().remove(supportiveInfo);
+                reviewPeriod1Old = em.merge(reviewPeriod1Old);
             }
-            if (rpNew != null && !rpNew.equals(rpOld)) {
-                rpNew.getSupportiveInfoCollection().add(supportiveInfo);
-                rpNew = em.merge(rpNew);
+            if (reviewPeriod1New != null && !reviewPeriod1New.equals(reviewPeriod1Old)) {
+                reviewPeriod1New.getSupportiveInfoCollection().add(supportiveInfo);
+                reviewPeriod1New = em.merge(reviewPeriod1New);
             }
             em.getTransaction().commit();
         } catch (Exception ex) {
@@ -148,10 +148,10 @@ public class SupportiveInfoJpaController implements Serializable {
                 employeeInfo.getSupportiveInfoCollection().remove(supportiveInfo);
                 employeeInfo = em.merge(employeeInfo);
             }
-            Rp rp = supportiveInfo.getRp();
-            if (rp != null) {
-                rp.getSupportiveInfoCollection().remove(supportiveInfo);
-                rp = em.merge(rp);
+            ReviewPeriod reviewPeriod1 = supportiveInfo.getReviewPeriod1();
+            if (reviewPeriod1 != null) {
+                reviewPeriod1.getSupportiveInfoCollection().remove(supportiveInfo);
+                reviewPeriod1 = em.merge(reviewPeriod1);
             }
             em.remove(supportiveInfo);
             em.getTransaction().commit();
@@ -207,5 +207,5 @@ public class SupportiveInfoJpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }

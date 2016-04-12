@@ -124,7 +124,7 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
             }
             case "Associate Technical Consultant" :
             {
-                emp.setTitlebre("AA");
+                emp.setTitlebre("ATC");
                 break;
             }
             case "Coordinator Talent Acquisition" :

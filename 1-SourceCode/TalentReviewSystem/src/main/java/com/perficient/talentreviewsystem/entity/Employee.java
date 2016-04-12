@@ -499,5 +499,33 @@ public class Employee implements Serializable {
         this.ver = ver;
     }
 
+    /**
+     * @return the ar
+     */
+    public int getAr() {
+        return ar;
+    }
+
+    /**
+     * @return the oi
+     */
+    public int getOi() {
+        return oi;
+    }
+
+    /**
+     * @return the la
+     */
+    public int getLa() {
+        return la;
+    }
+
+    /**
+     * @return the ver
+     */
+    public int getVer() {
+        return ver;
+    }
+
 
 }

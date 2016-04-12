@@ -44,7 +44,6 @@ public class GetPropertiesTest {
     public void testGetProperty() {
         String key = "tptPath";
         GetProperties instance = new GetProperties();
-        GetProperties instance2 = new GetProperties(key);
         String expResult = "http://10.2.1.207:8080/tpt2013-portlet/resteasy/employees";
         String result = instance.getProperty(key);
         assertEquals(expResult, result);

@@ -75,6 +75,9 @@ public class TalentReviewScore implements Serializable {
     @Size(max = 20)
     @Column(name = "status")
     private String status;
+    @Size(max = 1000)
+    @Column(name = "force_ranking")
+    private String force_ranking;
     @JoinColumn(name = "employee_id", referencedColumnName = "employee_id", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private EmployeeInfo employeeInfo;
@@ -85,6 +88,15 @@ public class TalentReviewScore implements Serializable {
     @Transient
     private String employeeId;
 
+    
+    public String getForce_ranking() {
+        return force_ranking;
+    }
+
+    public void setForce_ranking(String force_ranking) {
+        this.force_ranking = force_ranking;
+    }
+    
     public Rp getRp() {
         return rp;
     }

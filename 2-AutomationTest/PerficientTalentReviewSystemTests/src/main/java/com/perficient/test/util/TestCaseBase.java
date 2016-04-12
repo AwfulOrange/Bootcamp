@@ -33,7 +33,7 @@ public class TestCaseBase {
     public static WebDriverWait wait;
     @Parameters({"grid", "hubHost", "hubPort"})
     @BeforeMethod
-    public void setupFirefox(@Optional("true") String grid, @Optional("10.2.7.35") String hubHost, @Optional("4444") String hubPort) throws Exception {
+    public void setupFirefox(@Optional("true") String grid, @Optional("172.17.42.1") String hubHost, @Optional("4444") String hubPort) throws Exception {
           //driver=new FirefoxDriver();
         FirefoxProfile fxProfile = new FirefoxProfile();  
         

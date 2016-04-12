@@ -98,18 +98,7 @@ angular.module('myApp1', []).controller('pmoCtrl',
                         }else{
                             temp[i].potential = learningAgility + versatility;
                         }
-                        if(ar==undefined){
-                            temp[i].ar=0;
-                        }
-                        if(la==undefined){
-                            temp[i].la=0;
-                        }
-                        if(oi==undefined){
-                            temp[i].oi=0;
-                        }
-                        if(ver==undefined){
-                            temp[i].ver=0;
-                        }
+                        
                         temp[i].total = temp[i].performance + temp[i].potential;
                     }
                 }

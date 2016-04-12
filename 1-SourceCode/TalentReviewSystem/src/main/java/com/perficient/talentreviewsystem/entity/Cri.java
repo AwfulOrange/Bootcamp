@@ -23,16 +23,16 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author bootcamp19
  */
 @Entity
-@Table(name = "criteria")
+@Table(name = "cri")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Criteria.findAll", query = "SELECT c FROM Criteria c"),
-    @NamedQuery(name = "Criteria.findById", query = "SELECT c FROM Criteria c WHERE c.id = :id"),
-    @NamedQuery(name = "Criteria.findByCriteria", query = "SELECT c FROM Criteria c WHERE c.criteria = :criteria"),
-    @NamedQuery(name = "Criteria.findByLevel", query = "SELECT c FROM Criteria c WHERE c.level = :level"),
-    @NamedQuery(name = "Criteria.findByRule", query = "SELECT c FROM Criteria c WHERE c.rule = :rule"),
-    @NamedQuery(name = "Criteria.findByScore", query = "SELECT c FROM Criteria c WHERE c.score = :score")})
-public class Criteria implements Serializable {
+    @NamedQuery(name = "Cri.findAll", query = "SELECT c FROM Cri c"),
+    @NamedQuery(name = "Cri.findById", query = "SELECT c FROM Cri c WHERE c.id = :id"),
+    @NamedQuery(name = "Cri.findByCriteria", query = "SELECT c FROM Cri c WHERE c.criteria = :criteria"),
+    @NamedQuery(name = "Cri.findByLevel", query = "SELECT c FROM Cri c WHERE c.level = :level"),
+    @NamedQuery(name = "Cri.findByRule", query = "SELECT c FROM Cri c WHERE c.rule = :rule"),
+    @NamedQuery(name = "Cri.findByScore", query = "SELECT c FROM Cri c WHERE c.score = :score")})
+public class Cri implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -52,11 +52,10 @@ public class Criteria implements Serializable {
     @Column(name = "score")
     private Integer score;
 
-    public Criteria() {
-        //do nothing.
+    public Cri() {
     }
 
-    public Criteria(Integer id) {
+    public Cri(Integer id) {
         this.id = id;
     }
 
@@ -109,10 +108,11 @@ public class Criteria implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        if (!(object instanceof Criteria)) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Cri)) {
             return false;
         }
-        Criteria other = (Criteria) object;
+        Cri other = (Cri) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -121,7 +121,7 @@ public class Criteria implements Serializable {
 
     @Override
     public String toString() {
-        return "com.perficient.talentreviewsystem.entity.Criteria[ id=" + id + " ]";
+        return "com.perficient.talentreviewsystem.entity.Cri[ id=" + id + " ]";
     }
     
 }

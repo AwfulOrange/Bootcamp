@@ -75,18 +75,46 @@ public class TalentReviewScore implements Serializable {
     @Size(max = 20)
     @Column(name = "status")
     private String status;
+    @Size(max = 1000)
+    @Column(name = "force_ranking")
+    private String force_ranking;
     @JoinColumn(name = "employee_id", referencedColumnName = "employee_id", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private EmployeeInfo employeeInfo;
     @JoinColumn(name = "review_period", referencedColumnName = "review_period", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     @JSONField(serialize=false)
-    private ReviewPeriod reviewPeriod1;
+    private Rp rp;
     @Transient
     private String employeeId;
+
+    
+    public String getForce_ranking() {
+        return force_ranking;
+    }
+
+    public void setForce_ranking(String force_ranking) {
+        this.force_ranking = force_ranking;
+    }
+    
+    public Rp getRp() {
+        return rp;
+    }
+
+    public void setRp(Rp rp) {
+        this.rp = rp;
+    }
+
+
+    public String getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
+    }
     
     public TalentReviewScore() {
-         //do nothing
     }
 
     public TalentReviewScore(TalentReviewScorePK talentReviewScorePK) {
@@ -201,13 +229,6 @@ public class TalentReviewScore implements Serializable {
         this.employeeInfo = employeeInfo;
     }
 
-    public ReviewPeriod getReviewPeriod1() {
-        return reviewPeriod1;
-    }
-
-    public void setReviewPeriod1(ReviewPeriod reviewPeriod1) {
-        this.reviewPeriod1 = reviewPeriod1;
-    }
 
     @Override
     public int hashCode() {
@@ -218,6 +239,7 @@ public class TalentReviewScore implements Serializable {
 
     @Override
     public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof TalentReviewScore)) {
             return false;
         }
@@ -231,20 +253,6 @@ public class TalentReviewScore implements Serializable {
     @Override
     public String toString() {
         return "com.perficient.talentreviewsystem.entity.TalentReviewScore[ talentReviewScorePK=" + talentReviewScorePK + " ]";
-    }
-
-    /**
-     * @return the employeeId
-     */
-    public String getEmployeeId() {
-        return employeeId;
-    }
-
-    /**
-     * @param employeeId the employeeId to set
-     */
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
     }
     
 }

@@ -6,8 +6,8 @@
 package com.perficient.talentreviewsystem.daoimpl;
 
 import com.perficient.talentreviewsystem.dao.ICriteriaDAO;
-import com.perficient.talentreviewsystem.entity.Criteria;
-import com.perficient.talentreviewsystem.jpacontroller.CriteriaJpaController;
+import com.perficient.talentreviewsystem.entity.Cri;
+import com.perficient.talentreviewsystem.jpacontroller.CriJpaController;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -23,26 +23,26 @@ public class CriteriaDAOImpl implements ICriteriaDAO {
 
     EntityManagerFactory emf = null;
     UserTransaction ut = null;
-    CriteriaJpaController cjc = null;
-    List<Criteria> criterias;
+    CriJpaController cjc = null;
+    List<Cri> criterias;
     EntityManager em = null;
     String sql =null;
 
     @Override
-    public List<Criteria> selectAllCriteria() {
+    public List<Cri> selectAllCriteria() {
         emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
-        cjc = new CriteriaJpaController(ut, emf);
-        criterias = cjc.findCriteriaEntities();
+        cjc = new CriJpaController(emf);
+        criterias = cjc.findCriEntities();
         return criterias;
     }
 
     
     @Override
-    public List<Criteria> getCriteriaByBoth(String criteria, String level) {
+    public List<Cri> getCriteriaByBoth(String criteria, String level) {
         emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
         em = emf.createEntityManager();
         sql =JPAUtil.SELECT_CRITERIA_BY_CRITERIA_LEVEL;
-        Query query = em.createNativeQuery(sql,Criteria.class);
+        Query query = em.createNativeQuery(sql,Cri.class);
         query.setParameter(1, criteria);
         query.setParameter(2, level);
         criterias = query.getResultList();
@@ -50,11 +50,11 @@ public class CriteriaDAOImpl implements ICriteriaDAO {
     }
 
     @Override
-    public List<Criteria> getCriteriaByLevel(String level) {
+    public List<Cri> getCriteriaByLevel(String level) {
         emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
         em = emf.createEntityManager();
         sql= JPAUtil.SELECT_CRITERIA_BY_LEVLE;
-        Query query =em.createNativeQuery(sql, Criteria.class);
+        Query query =em.createNativeQuery(sql, Cri.class);
         query.setParameter(1, level);
         criterias = query.getResultList();
         return  criterias;

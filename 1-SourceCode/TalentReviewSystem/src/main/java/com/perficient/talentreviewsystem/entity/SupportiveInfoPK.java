@@ -31,7 +31,6 @@ public class SupportiveInfoPK implements Serializable {
     private String reviewPeriod;
 
     public SupportiveInfoPK() {
-        //do nothing
     }
 
     public SupportiveInfoPK(String employeeId, String reviewPeriod) {
@@ -65,6 +64,7 @@ public class SupportiveInfoPK implements Serializable {
 
     @Override
     public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof SupportiveInfoPK)) {
             return false;
         }

@@ -39,6 +39,7 @@ public class Employee implements Serializable {
     private String lastPromotionDate;
     private String startLevel;
     private String reviewername;
+    private String titlebre;
     private Collection<SupportiveInfo> supportiveInfoCollection;
     private TalentReviewScore Score;
     private int ar;
@@ -525,6 +526,20 @@ public class Employee implements Serializable {
      */
     public int getVer() {
         return ver;
+    }
+
+    /**
+     * @return the titlebre
+     */
+    public String getTitlebre() {
+        return titlebre;
+    }
+
+    /**
+     * @param titlebre the titlebre to set
+     */
+    public void setTitlebre(String titlebre) {
+        this.titlebre = titlebre;
     }
 
 

@@ -5,7 +5,7 @@
  */
 package com.perficient.talentreviewsystem.dao;
 
-import com.perficient.talentreviewsystem.entity.Criteria;
+import com.perficient.talentreviewsystem.entity.Cri;
 import java.util.List;
 
 /**
@@ -13,7 +13,7 @@ import java.util.List;
  * @author bootcamp19
  */
 public interface ICriteriaDAO {
-    public List<Criteria> selectAllCriteria();
-    public List<Criteria> getCriteriaByBoth(String criteria,String level);
-    public List<Criteria> getCriteriaByLevel(String level);
+    public List<Cri> selectAllCriteria();
+    public List<Cri> getCriteriaByBoth(String criteria,String level);
+    public List<Cri> getCriteriaByLevel(String level);
 }

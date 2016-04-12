@@ -11,7 +11,7 @@ import com.perficient.talentreviewsystem.daoimpl.EmployeeInfoDAOImpl;
 import com.perficient.talentreviewsystem.daoimpl.ReviewPeriodDAOImpl;
 import com.perficient.talentreviewsystem.daoimpl.TalentReviewScoreDAOImpl;
 import com.perficient.talentreviewsystem.entity.EmployeeInfo;
-import com.perficient.talentreviewsystem.entity.ReviewPeriod;
+import com.perficient.talentreviewsystem.entity.Rp;
 import com.perficient.talentreviewsystem.entity.TalentReviewScore;
 import com.perficient.talentreviewsystem.service.ITalentReviewScoreService;
 import java.util.List;
@@ -27,17 +27,17 @@ public class TalentReviewScoreServiceImpl implements ITalentReviewScoreService{
     
     @Override
     public int add(List<TalentReviewScore> scoreList) {
-        ReviewPeriod rp = new ReviewPeriodDAOImpl().selectReviewPeriodByRP("201503");
+        Rp rp = new ReviewPeriodDAOImpl().selectReviewPeriodByRP("201503");
         
         return cycleInsert(scoreList, rp);
     }
 
-    private int cycleInsert(List<TalentReviewScore> scoreList, ReviewPeriod rp) {
+    private int cycleInsert(List<TalentReviewScore> scoreList, Rp rp) {
         int status = 0;
         for(int i=0;i<scoreList.size();i++){
             EmployeeInfo emp = employeeInfoDao.selectEmployeeInfoById(scoreList.get(i).getEmployeeId());
 
-            scoreList.get(i).setReviewPeriod1(rp);
+            scoreList.get(i).setRp(rp);
             scoreList.get(i).setEmployeeInfo(emp); 
             TalentReviewScore trs = trsDao.selectSingleByBoth(scoreList.get(i).getEmployeeId(), rp.getReviewPeriod());
             if(trs == null){

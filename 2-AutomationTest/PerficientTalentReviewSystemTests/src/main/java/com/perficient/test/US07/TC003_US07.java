@@ -59,7 +59,7 @@ public class TC003_US07 extends TestCaseBase{
                 
     //Step3:Change the fr,scores and comments of the reviewee
     
-            WebElement fr=TestCaseBase.driver.findElement(By.xpath("//text[@id='PR"+j+"']"));
+            WebElement fr=TestCaseBase.driver.findElement(By.xpath("//*[@id='FR"+j+"']"));
             fr.clear();            
             fr.sendKeys(""+j);
             
@@ -128,7 +128,7 @@ public class TC003_US07 extends TestCaseBase{
             for(int j=0;j<row;j++)                  
             {
                 
-                WebElement fr=TestCaseBase.driver.findElement(By.xpath("//text[@id='PR"+j+"']"));
+                WebElement fr=TestCaseBase.driver.findElement(By.xpath("//*[@id='FR"+j+"']"));
                 Assert.assertEquals(fr.getAttribute("value"),""+j, "failure"+j);
 
                 for(int k=65;k<69;k++)

@@ -7,7 +7,7 @@ package com.perficient.talentreviewsystem.serviceimpl;
 
 import com.perficient.talentreviewsystem.dao.ICriteriaDAO;
 import com.perficient.talentreviewsystem.daoimpl.CriteriaDAOImpl;
-import com.perficient.talentreviewsystem.entity.Criteria;
+import com.perficient.talentreviewsystem.entity.Cri;
 import com.perficient.talentreviewsystem.service.ICriteriaInfoService;
 import java.util.List;
 
@@ -18,7 +18,7 @@ import java.util.List;
 public class CriteriaInfoServiceImpl implements ICriteriaInfoService{
 
     @Override
-    public List<Criteria> getAllCriteria() {
+    public List<Cri> getAllCriteria() {
         ICriteriaDAO criDAO = new CriteriaDAOImpl();
         return criDAO.selectAllCriteria();
     }

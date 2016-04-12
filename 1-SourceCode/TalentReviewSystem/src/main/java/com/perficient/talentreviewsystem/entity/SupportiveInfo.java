@@ -80,10 +80,9 @@ public class SupportiveInfo implements Serializable {
     private EmployeeInfo employeeInfo;
     @JoinColumn(name = "review_period", referencedColumnName = "review_period", insertable = false, updatable = false)
     @ManyToOne(optional = false)
-    private ReviewPeriod reviewPeriod1;
+    private Rp rp;
 
     public SupportiveInfo() {
-        //do nothing
     }
 
     public SupportiveInfo(SupportiveInfoPK supportiveInfoPK) {
@@ -198,12 +197,12 @@ public class SupportiveInfo implements Serializable {
         this.employeeInfo = employeeInfo;
     }
 
-    public ReviewPeriod getReviewPeriod1() {
-        return reviewPeriod1;
+    public Rp getRp() {
+        return rp;
     }
 
-    public void setReviewPeriod1(ReviewPeriod reviewPeriod1) {
-        this.reviewPeriod1 = reviewPeriod1;
+    public void setRp(Rp rp) {
+        this.rp = rp;
     }
 
     @Override
@@ -215,6 +214,7 @@ public class SupportiveInfo implements Serializable {
 
     @Override
     public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof SupportiveInfo)) {
             return false;
         }

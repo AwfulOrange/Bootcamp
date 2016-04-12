@@ -57,7 +57,12 @@ public class TC003_US07 extends TestCaseBase{
             TestCaseBase.driver.findElement(By.xpath("//tr[@id='revid"+j+"']")).click();  
             Thread.sleep(2000);  
                 
-    //Step3:Change the scores and comments of the reviewee
+    //Step3:Change the fr,scores and comments of the reviewee
+    
+            WebElement fr=TestCaseBase.driver.findElement(By.xpath("//text[@id='PR"+j+"']"));
+            fr.clear();            
+            fr.sendKeys(""+j);
+            
             for(int k=65;k<69;k++)
             {
             WebElement select=TestCaseBase.driver.findElement(By.xpath("//select[@id='"+(char)k+""+j+"']"));
@@ -122,6 +127,10 @@ public class TC003_US07 extends TestCaseBase{
     //.............................Assert .............................//         
             for(int j=0;j<row;j++)                  
             {
+                
+                WebElement fr=TestCaseBase.driver.findElement(By.xpath("//text[@id='PR"+j+"']"));
+                Assert.assertEquals(fr.getAttribute("value"),""+j, "failure"+j);
+
                 for(int k=65;k<69;k++)
                 {
                     WebElement select1 = TestCaseBase.driver.findElement(By.xpath("//select[@id='"+(char)k+""+j+"']"));

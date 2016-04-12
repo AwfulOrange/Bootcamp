@@ -55,7 +55,7 @@ public class EmployeeInfoTest {
 
     @Test
     public void testDepartment() {
-      ei= new EmployeeInfo();
+      ei= new EmployeeInfo(employeeId);
       ei.setDepartment(department);
       assertEquals(department,ei.getDepartment());
     }

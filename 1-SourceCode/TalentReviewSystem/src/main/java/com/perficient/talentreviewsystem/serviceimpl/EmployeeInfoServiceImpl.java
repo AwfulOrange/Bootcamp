@@ -66,17 +66,12 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
         String empsInfo = HttpConnection.getFromUrl(new GetProperties().getProperty("tptPath"));
         List<Employee> empList = JSON.parseArray(empsInfo, Employee.class);
         empList=selectActiveEmployee(empList);
-//        List<Group> group=new ArrayList<>();
          List<Employee> allempList=new ArrayList<>();
         for(int i=0;i<reviewerID.size();i++){
-//            Group singleGroup=new Group();
             List<TalentReviewScore> talentReviewScores=trsDAO.selectTRScoreByReviewerId(reviewerID.get(i));
             String name=findEmpNameById(reviewerID.get(i),empList);
             List<Employee> emp=mergeScoreAndEmployee(talentReviewScores,empList,name);
             allempList.addAll(emp);
-//            singleGroup.setEmp(emp);
-//            singleGroup.setReviewname(name);
-//            group.add(singleGroup);
         }     
         return allempList;
     }
@@ -100,29 +95,47 @@ public class EmployeeInfoServiceImpl implements IEmployeeInfoService{
             emp.setLastPromotionDate(toDate(Long.toString(promotion)));
             emp.setReviewername(name);
             emp.setStatus(score.get(i).getStatus());
-            int performance;
-            if(score.get(i).getAchievingResults()!=null&&score.get(i).getOrgImpact()!=null){
-                performance=score.get(i).getAchievingResults()+score.get(i).getOrgImpact();
-                emp.setPerformance(performance);
-                }
-            else {
-                performance=0;
-            }
-            int potential;
-            if(score.get(i).getLearningAgility()!=null&&score.get(i).getVersatility()!=null){
-                potential=score.get(i).getLearningAgility()+score.get(i).getVersatility();
-                emp.setPotential(potential);
-            }
-            else{
-                potential=0;
-            }
-            int total=performance+potential;
-            emp.setTotal(total);
+            emp=copyScoreToEmp(emp,score.get(i));
+            
             empListSelected.add(emp);
         }
         
         return empListSelected;
     
     
+    }
+    public static Employee copyScoreToEmp(Employee emp,TalentReviewScore score){
+        
+        if(score.getAchievingResults()!=null){
+            emp.setAr(score.getAchievingResults());
+        }
+        if(score.getOrgImpact()!=null){
+            emp.setOi(score.getOrgImpact());
+        }
+        if(score.getLearningAgility()!=null){
+            emp.setLa(score.getLearningAgility());
+        }
+        if(score.getVersatility()!=null){
+            emp.setVer(score.getVersatility());
+        }
+        int performance;
+        if(score.getAchievingResults()!=null&&score.getOrgImpact()!=null){
+            performance=score.getAchievingResults()+score.getOrgImpact();
+            emp.setPerformance(performance);
+            }
+        else {
+            performance=0;
+        }
+        int potential;
+        if(score.getLearningAgility()!=null&&score.getVersatility()!=null){
+            potential=score.getLearningAgility()+score.getVersatility();
+            emp.setPotential(potential);
+        }
+        else{
+            potential=0;
+        }
+        int total=performance+potential;
+        emp.setTotal(total);
+        return emp;
     }
 }

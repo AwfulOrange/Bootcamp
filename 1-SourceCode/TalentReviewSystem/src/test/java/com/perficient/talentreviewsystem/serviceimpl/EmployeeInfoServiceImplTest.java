@@ -10,7 +10,6 @@ import com.perficient.talentreviewsystem.daoimpl.ReviewPeriodDAOImpl;
 import com.perficient.talentreviewsystem.daoimpl.TalentReviewScoreDAOImpl;
 import com.perficient.talentreviewsystem.entity.Employee;
 import com.perficient.talentreviewsystem.entity.EmployeeInfo;
-import com.perficient.talentreviewsystem.entity.Group;
 import com.perficient.talentreviewsystem.entity.ReviewPeriod;
 import com.perficient.talentreviewsystem.entity.TalentReviewScore;
 import java.util.List;

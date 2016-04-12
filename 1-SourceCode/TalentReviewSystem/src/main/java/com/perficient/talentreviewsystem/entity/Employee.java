@@ -15,38 +15,22 @@ import java.util.Collection;
 public class Employee implements Serializable {
 
     private String id;
-
     private String type;
-
     private String role;
-
     private String title;
-
     private boolean active;
-
     private String firstName;
-
     private String lastName;
-
     private String screenName;
-
     private String gender;
-
     private String emid;
-
     private String lastUpdated;
-
     private String onBoardDate;
-
     private String photoURL;
-
     private String bu;
-
     private String workStartDate;
     private String workExperience;
-
     private String lineManager;
-
     private String lastDay;
     private String status;
     private String department;
@@ -57,6 +41,10 @@ public class Employee implements Serializable {
     private String reviewername;
     private Collection<SupportiveInfo> supportiveInfoCollection;
     private TalentReviewScore Score;
+    private int ar;
+    private int oi;
+    private int la;
+    private int ver;
     private int performance;
     private int potential;
     private int total;
@@ -482,5 +470,34 @@ public class Employee implements Serializable {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    /**
+     * @param ar the ar to set
+     */
+    public void setAr(int ar) {
+        this.ar = ar;
+    }
+
+    /**
+     * @param oi the oi to set
+     */
+    public void setOi(int oi) {
+        this.oi = oi;
+    }
+
+    /**
+     * @param la the la to set
+     */
+    public void setLa(int la) {
+        this.la = la;
+    }
+
+    /**
+     * @param ver the ver to set
+     */
+    public void setVer(int ver) {
+        this.ver = ver;
+    }
+
 
 }

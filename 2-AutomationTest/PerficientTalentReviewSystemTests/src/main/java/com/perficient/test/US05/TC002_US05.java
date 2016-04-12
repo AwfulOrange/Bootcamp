@@ -43,7 +43,7 @@ public class TC002_US05 extends TestCaseBase{
         PageFactory.initElements(TestCaseBase.driver, pp);
         TestCaseBase.driver.findElement(By.xpath("/html/body/header/div/table/tbody/tr/td[2]/a/b")).click();
         Thread.sleep(4000);
-        TestCaseBase.driver.findElement(By.id("revid0")).click();
+        TestCaseBase.driver.findElement(By.id("revid2")).click();
         Thread.sleep(4000);
         Assert.assertEquals(TestCaseBase.driver.findElement(By.xpath("//textarea[@id='E2']")).getAttribute("value"),"He is handsome","Fail");
         WebElement select2 = TestCaseBase.driver.findElement(By.xpath("//select[@id='A2']"));

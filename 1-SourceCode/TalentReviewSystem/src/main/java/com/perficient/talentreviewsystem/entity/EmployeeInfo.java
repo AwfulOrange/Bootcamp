@@ -67,11 +67,8 @@ public class EmployeeInfo implements Serializable {
     private Collection<TalentReviewScore> talentReviewScoreCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "employeeInfo")
     private Collection<SupportiveInfo> supportiveInfoCollection;
-    
-    
 
     public EmployeeInfo() {
-        //do nothing
     }
 
     public EmployeeInfo(String employeeId) {
@@ -153,6 +150,7 @@ public class EmployeeInfo implements Serializable {
 
     @Override
     public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof EmployeeInfo)) {
             return false;
         }

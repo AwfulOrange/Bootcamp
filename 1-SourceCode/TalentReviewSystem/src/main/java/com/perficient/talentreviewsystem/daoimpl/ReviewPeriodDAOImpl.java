@@ -6,8 +6,8 @@
 package com.perficient.talentreviewsystem.daoimpl;
 
 import com.perficient.talentreviewsystem.dao.IReviewPeriodDAO;
-import com.perficient.talentreviewsystem.entity.ReviewPeriod;
-import com.perficient.talentreviewsystem.jpacontroller.ReviewPeriodJpaController;
+import com.perficient.talentreviewsystem.entity.Rp;
+import com.perficient.talentreviewsystem.jpacontroller.RpJpaController;
 import com.perficient.talentreviewsystem.jpacontroller.exceptions.IllegalOrphanException;
 import com.perficient.talentreviewsystem.jpacontroller.exceptions.NonexistentEntityException;
 import java.util.List;
@@ -25,17 +25,17 @@ import javax.persistence.Query;
 public class ReviewPeriodDAOImpl implements IReviewPeriodDAO {
 
     EntityManagerFactory emf = null;
-    ReviewPeriodJpaController rpjc = null;
-    ReviewPeriod reviewPeriod = null;
+    RpJpaController rpjc = null;
+    Rp reviewPeriod = null;
     EntityManager em = null;
     List<String> rps = null;
     String sql =null;
 
     @Override
-    public ReviewPeriod selectReviewPeriodByRP(String rp) {
+    public Rp selectReviewPeriodByRP(String rp) {
         emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
-        rpjc = new ReviewPeriodJpaController(emf);
-        reviewPeriod = rpjc.findReviewPeriod(rp);
+        rpjc = new RpJpaController(emf);
+        reviewPeriod = rpjc.findRp(rp);
         return reviewPeriod;
     }
 
@@ -50,9 +50,9 @@ public class ReviewPeriodDAOImpl implements IReviewPeriodDAO {
     }
 
     @Override
-    public int addReviewPeriod(ReviewPeriod rp) {
+    public int addReviewPeriod(Rp rp) {
         emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
-        rpjc = new ReviewPeriodJpaController(emf);
+        rpjc = new RpJpaController(emf);
         try {
             rpjc.create(rp);
             return 1;
@@ -65,7 +65,7 @@ public class ReviewPeriodDAOImpl implements IReviewPeriodDAO {
     @Override
     public int deleteReviewPeriod(String srp) {
         emf = Persistence.createEntityManagerFactory(JPAUtil.JPA);
-        rpjc = new ReviewPeriodJpaController(emf);
+        rpjc = new RpJpaController(emf);
         try {
             rpjc.destroy(srp);
             return 1;

@@ -11,7 +11,7 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import com.perficient.talentreviewsystem.entity.EmployeeInfo;
-import com.perficient.talentreviewsystem.entity.ReviewPeriod;
+import com.perficient.talentreviewsystem.entity.Rp;
 import com.perficient.talentreviewsystem.entity.TalentReviewScore;
 import com.perficient.talentreviewsystem.entity.TalentReviewScorePK;
 import com.perficient.talentreviewsystem.jpacontroller.exceptions.NonexistentEntityException;
@@ -29,7 +29,7 @@ public class TalentReviewScoreJpaController implements Serializable {
     public TalentReviewScoreJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    private transient EntityManagerFactory emf = null;
+    private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
@@ -39,8 +39,8 @@ public class TalentReviewScoreJpaController implements Serializable {
         if (talentReviewScore.getTalentReviewScorePK() == null) {
             talentReviewScore.setTalentReviewScorePK(new TalentReviewScorePK());
         }
+        talentReviewScore.getTalentReviewScorePK().setReviewPeriod(talentReviewScore.getRp().getReviewPeriod());
         talentReviewScore.getTalentReviewScorePK().setEmployeeId(talentReviewScore.getEmployeeInfo().getEmployeeId());
-        talentReviewScore.getTalentReviewScorePK().setReviewPeriod(talentReviewScore.getReviewPeriod1().getReviewPeriod());
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -50,19 +50,19 @@ public class TalentReviewScoreJpaController implements Serializable {
                 employeeInfo = em.getReference(employeeInfo.getClass(), employeeInfo.getEmployeeId());
                 talentReviewScore.setEmployeeInfo(employeeInfo);
             }
-            ReviewPeriod reviewPeriod1 = talentReviewScore.getReviewPeriod1();
-            if (reviewPeriod1 != null) {
-                reviewPeriod1 = em.getReference(reviewPeriod1.getClass(), reviewPeriod1.getReviewPeriod());
-                talentReviewScore.setReviewPeriod1(reviewPeriod1);
+            Rp rp = talentReviewScore.getRp();
+            if (rp != null) {
+                rp = em.getReference(rp.getClass(), rp.getReviewPeriod());
+                talentReviewScore.setRp(rp);
             }
             em.persist(talentReviewScore);
             if (employeeInfo != null) {
                 employeeInfo.getTalentReviewScoreCollection().add(talentReviewScore);
                 employeeInfo = em.merge(employeeInfo);
             }
-            if (reviewPeriod1 != null) {
-                reviewPeriod1.getTalentReviewScoreCollection().add(talentReviewScore);
-                reviewPeriod1 = em.merge(reviewPeriod1);
+            if (rp != null) {
+                rp.getTalentReviewScoreCollection().add(talentReviewScore);
+                rp = em.merge(rp);
             }
             em.getTransaction().commit();
         } catch (Exception ex) {
@@ -78,8 +78,8 @@ public class TalentReviewScoreJpaController implements Serializable {
     }
 
     public void edit(TalentReviewScore talentReviewScore) throws NonexistentEntityException, Exception {
+        talentReviewScore.getTalentReviewScorePK().setReviewPeriod(talentReviewScore.getRp().getReviewPeriod());
         talentReviewScore.getTalentReviewScorePK().setEmployeeId(talentReviewScore.getEmployeeInfo().getEmployeeId());
-        talentReviewScore.getTalentReviewScorePK().setReviewPeriod(talentReviewScore.getReviewPeriod1().getReviewPeriod());
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -87,15 +87,15 @@ public class TalentReviewScoreJpaController implements Serializable {
             TalentReviewScore persistentTalentReviewScore = em.find(TalentReviewScore.class, talentReviewScore.getTalentReviewScorePK());
             EmployeeInfo employeeInfoOld = persistentTalentReviewScore.getEmployeeInfo();
             EmployeeInfo employeeInfoNew = talentReviewScore.getEmployeeInfo();
-            ReviewPeriod reviewPeriod1Old = persistentTalentReviewScore.getReviewPeriod1();
-            ReviewPeriod reviewPeriod1New = talentReviewScore.getReviewPeriod1();
+            Rp rpOld = persistentTalentReviewScore.getRp();
+            Rp rpNew = talentReviewScore.getRp();
             if (employeeInfoNew != null) {
                 employeeInfoNew = em.getReference(employeeInfoNew.getClass(), employeeInfoNew.getEmployeeId());
                 talentReviewScore.setEmployeeInfo(employeeInfoNew);
             }
-            if (reviewPeriod1New != null) {
-                reviewPeriod1New = em.getReference(reviewPeriod1New.getClass(), reviewPeriod1New.getReviewPeriod());
-                talentReviewScore.setReviewPeriod1(reviewPeriod1New);
+            if (rpNew != null) {
+                rpNew = em.getReference(rpNew.getClass(), rpNew.getReviewPeriod());
+                talentReviewScore.setRp(rpNew);
             }
             talentReviewScore = em.merge(talentReviewScore);
             if (employeeInfoOld != null && !employeeInfoOld.equals(employeeInfoNew)) {
@@ -106,13 +106,13 @@ public class TalentReviewScoreJpaController implements Serializable {
                 employeeInfoNew.getTalentReviewScoreCollection().add(talentReviewScore);
                 employeeInfoNew = em.merge(employeeInfoNew);
             }
-            if (reviewPeriod1Old != null && !reviewPeriod1Old.equals(reviewPeriod1New)) {
-                reviewPeriod1Old.getTalentReviewScoreCollection().remove(talentReviewScore);
-                reviewPeriod1Old = em.merge(reviewPeriod1Old);
+            if (rpOld != null && !rpOld.equals(rpNew)) {
+                rpOld.getTalentReviewScoreCollection().remove(talentReviewScore);
+                rpOld = em.merge(rpOld);
             }
-            if (reviewPeriod1New != null && !reviewPeriod1New.equals(reviewPeriod1Old)) {
-                reviewPeriod1New.getTalentReviewScoreCollection().add(talentReviewScore);
-                reviewPeriod1New = em.merge(reviewPeriod1New);
+            if (rpNew != null && !rpNew.equals(rpOld)) {
+                rpNew.getTalentReviewScoreCollection().add(talentReviewScore);
+                rpNew = em.merge(rpNew);
             }
             em.getTransaction().commit();
         } catch (Exception ex) {
@@ -148,10 +148,10 @@ public class TalentReviewScoreJpaController implements Serializable {
                 employeeInfo.getTalentReviewScoreCollection().remove(talentReviewScore);
                 employeeInfo = em.merge(employeeInfo);
             }
-            ReviewPeriod reviewPeriod1 = talentReviewScore.getReviewPeriod1();
-            if (reviewPeriod1 != null) {
-                reviewPeriod1.getTalentReviewScoreCollection().remove(talentReviewScore);
-                reviewPeriod1 = em.merge(reviewPeriod1);
+            Rp rp = talentReviewScore.getRp();
+            if (rp != null) {
+                rp.getTalentReviewScoreCollection().remove(talentReviewScore);
+                rp = em.merge(rp);
             }
             em.remove(talentReviewScore);
             em.getTransaction().commit();

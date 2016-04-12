@@ -106,7 +106,7 @@ angular.module('myApp1', []).controller('pmoCtrl',
             }
             $scope.save = function (id, achievingResults, orgImpact, learningAgility,
                     versatility, achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, 
-                    reviewerId, pmoId)
+                    reviewerId, pmoId,FR)
             {
                 var allscore = [];
                 var scoredata = {
@@ -122,7 +122,7 @@ angular.module('myApp1', []).controller('pmoCtrl',
                     status: "Updated",
                     reviewerId: reviewerId,
                     pmoId: pmoId,
-
+                    force_ranking:FR
                 };
                 updatepageData(id, achievingResults, orgImpact, learningAgility,
                     versatility,"Updated");
@@ -173,7 +173,7 @@ angular.module('myApp1', []).controller('pmoCtrl',
             }
 
             $scope.postSubmit = function (id, achievingResults, orgImpact, learningAgility,
-                    versatility, achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, reviewerId, pmoId)
+                    versatility, achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, reviewerId, pmoId,FR)
             {
                 var postscore = [];
                 var scoredata = {
@@ -188,7 +188,8 @@ angular.module('myApp1', []).controller('pmoCtrl',
                     versatilityComment: versatilityComment,
                     status: "Updated",
                     reviewerId: reviewerId,
-                    pmoId: pmoId
+                    pmoId: pmoId,
+                    force_ranking:FR
                 };
                 if (checkScoredata(scoredata) == false)
                 {

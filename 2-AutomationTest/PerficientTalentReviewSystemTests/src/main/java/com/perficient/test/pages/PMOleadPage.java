@@ -80,6 +80,14 @@ public class PMOleadPage {
     public static WebElement filter6;
     @FindBy(id="filter7")
     public static WebElement filter7;
+    @FindBy(id="filter8")
+    public static WebElement filter8;
+    @FindBy(id="filter9")
+    public static WebElement filter9;
+    @FindBy(id="filter10")
+    public static WebElement filter10;
+    @FindBy(id="filter11")
+    public static WebElement filter11;
        //********************TC02_US07 find Id*****************************
 
     @FindBy(xpath="/html/body/div/div/table[1]/tbody/tr[1]/th[1]/ul")

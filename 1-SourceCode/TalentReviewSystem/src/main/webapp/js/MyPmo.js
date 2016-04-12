@@ -75,6 +75,10 @@ angular.module('myApp1', []).controller('pmoCtrl',
                         temp[i].score.learningAgility = learningAgility;
                         temp[i].score.versatility = versatility;
                         temp[i].status=status;
+                        temp[i].ar=achievingResults;
+                        temp[i].la=learningAgility;
+                        temp[i].oi=orgImpact;
+                        temp[i].ver=versatility;
                         if(achievingResults == undefined && orgImpact != undefined){
                             temp[i].performance = orgImpact;
                         }else if(achievingResults != undefined && orgImpact == undefined){
@@ -94,14 +98,26 @@ angular.module('myApp1', []).controller('pmoCtrl',
                         }else{
                             temp[i].potential = learningAgility + versatility;
                         }
-
+                        if(ar==undefined){
+                            temp[i].ar=0;
+                        }
+                        if(la==undefined){
+                            temp[i].la=0;
+                        }
+                        if(oi==undefined){
+                            temp[i].oi=0;
+                        }
+                        if(ver==undefined){
+                            temp[i].ver=0;
+                        }
                         temp[i].total = temp[i].performance + temp[i].potential;
                     }
                 }
                 $scope.pmos = temp;
             }
             $scope.save = function (id, achievingResults, orgImpact, learningAgility,
-                    versatility, achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, reviewerId, pmoId)
+                    versatility, achievingResultsComment, orgImpactComment, learningAgilityComment, versatilityComment, 
+                    reviewerId, pmoId)
             {
                 var allscore = [];
                 var scoredata = {
@@ -116,7 +132,8 @@ angular.module('myApp1', []).controller('pmoCtrl',
                     versatilityComment: versatilityComment,
                     status: "Updated",
                     reviewerId: reviewerId,
-                    pmoId: pmoId
+                    pmoId: pmoId,
+
                 };
                 updatepageData(id, achievingResults, orgImpact, learningAgility,
                     versatility,"Updated");
@@ -131,7 +148,7 @@ angular.module('myApp1', []).controller('pmoCtrl',
                             j--;
                         }
                     }
-                }
+                }allscore
                 $http.post('http://10.2.1.183:8080/TRS/web/score/', allscore).success(function () {
 
                 }).error(function (data) {

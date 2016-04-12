@@ -38,19 +38,46 @@ body{
    z-index: 99;
 }
 
-.tip-1:hover .popbox1{
+
+.tip-2{
+
+  list-style-type:none;
+  text-decoration:none;
+  position:relative;
+  left:5px;
+}
+
+.tip-2 span{
+  display:none;
+}
+.tip-2:hover{
+  cursor:pointer;
+  text-decoration:none;
+}
+.tip-2:hover .popbox1{
   font-size:14px;
   display:block;
   position:absolute;
-  right:20px;
-  width:250px;
+  left:20px;
+  width:200px;
   background-color:#b00715;
   color:white;
   padding:10px;
   opacity:0.8;
   z-index: 99;
 }
-
+.tip-2:hover .popbox2{
+  font-size:14px;
+  display:block;
+  position:absolute;
+  right:20px;
+  width:200px;
+  background-color:#b00715;
+  color:white;
+  padding:10px;
+  opacity:0.8;
+  z-index: 99;
+}
 
 .minwidth{
     width:20%;

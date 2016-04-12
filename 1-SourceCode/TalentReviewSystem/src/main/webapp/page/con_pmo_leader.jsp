@@ -4,63 +4,7 @@
         <div style="height: 15px;width:100%;border-top: 0;"></div>
         <table style="text-align:left;font-size: 15px;">
             <tr>
-                <th style="width:12%;">
-                    <p style="padding: 0; margin: 0;float: left;">
-                        Reviewer
-                    </p>
-                    <ul style="list-style: none;float: left;margin: 0; width: 10px; margin-left: 3px;">
-                        
-                            <img style="width: 15px;height: 15px;" class="w1-img" src="../img/up.png"  ng-click="order1=!order1;order = sorterUp('reviewername');" ng-show="order1"/>                       
-                            <img style="width: 15px;height: 15px;" class="w1-img" src="../img/down.png"  ng-click="order1=!order1;order = sorterDown('reviewername');" ng-show="!order1"/>
-
-                    </ul>
-
-
-                </th>
-                <th style="width:12%;">
-                    <p style="padding: 0; margin: 0;float: left;">
-                        Reviewee
-                    </p>
-                    <ul style="list-style: none;float: left;margin: 0; width: 10px; margin-left: 3px;">
-                        <img style="width: 15px;height: 15px;" class="w1-img" src="../img/up.png"  ng-click="order2=!order2;order = sorterUp('screenName');" ng-show="order2"/>                       
-                        <img style="width: 15px;height: 15px;" class="w1-img" src="../img/down.png"  ng-click="order2=!order2;order = sorterDown('screenName');" ng-show="!order2"/>
-                      
-                    </ul>
-
-
-                </th>
-                <th style="width:12%;"  >
-                    <p style="padding: 0; margin: 0;float: left;">
-                        Performance
-                    </p>
-                    <ul style="list-style: none;float: left;margin: 0; width: 10px; margin-left: 3px;">
-                       <img style="width: 15px;height: 15px;" class="w1-img" src="../img/up.png"  ng-click="order3=!order3;order = sorterUp('performance');" ng-show="order3"/>                       
-                        <img style="width: 15px;height: 15px;" class="w1-img" src="../img/down.png"  ng-click="order3=!order3;order = sorterDown('performance');" ng-show="!order3"/>
-                      
-                    </ul>
-                </th>
                 <th style="width:10%;"  >
-                    <p style="padding: 0; margin: 0;float: left;">
-                        Potential
-                    </p>
-                    <ul style="list-style: none;float: left;margin: 0; width: 10px; margin-left: 3px;">
-                         <img style="width: 15px;height: 15px;" class="w1-img" src="../img/up.png"  ng-click="order4=!order4;order = sorterUp('potential');" ng-show="order4"/>                       
-                        <img style="width: 15px;height: 15px;" class="w1-img" src="../img/down.png"  ng-click="order4=!order4;order = sorterDown('potential');" ng-show="!order4"/>
-                       
-                    </ul>
-                </th>
-                <th style="width:10%;"  >
-                    <p style="padding: 0; margin: 0;float: left;">
-                        Total
-                    </p>
-                    <ul style="list-style: none;float: left;margin: 0; width: 10px; margin-left: 3px;">
-                       <img style="width: 15px;height: 15px;" class="w1-img" src="../img/up.png"  ng-click="order5=!order5;order = sorterUp('total');" ng-show="order5"/>                       
-                        <img style="width: 15px;height: 15px;" class="w1-img" src="../img/down.png"  ng-click="order5=!order5;order = sorterDown('total');" ng-show="!order5"/>
-                       
-                       
-                    </ul>
-                </th>
-                <th style="width:24%;"  >
                     <p style="padding: 0; margin: 0;float: left;">
                         Level
                     </p>
@@ -81,6 +25,112 @@
                      
                     </ul>
                 </th>
+                <th style="width:12%;">
+                    <p style="padding: 0; margin: 0;float: left;">
+                        Reviewer
+                    </p>
+                    <ul style="list-style: none;float: left;margin: 0; width: 10px; margin-left: 3px;">
+                        
+                            <img style="width: 15px;height: 15px;" class="w1-img" src="../img/up.png"  ng-click="order1=!order1;order = sorterUp('reviewername');" ng-show="order1"/>                       
+                            <img style="width: 15px;height: 15px;" class="w1-img" src="../img/down.png"  ng-click="order1=!order1;order = sorterDown('reviewername');" ng-show="!order1"/>
+                    </ul>
+
+
+                </th>
+                <th style="width:12%;">
+                    <p style="padding: 0; margin: 0;float: left;">
+                        Reviewee
+                    </p>
+                    <ul style="list-style: none;float: left;margin: 0; width: 10px; margin-left: 3px;">
+                        <img style="width: 15px;height: 15px;" class="w1-img" src="../img/up.png"  ng-click="order2=!order2;order = sorterUp('screenName');" ng-show="order2"/>                       
+                        <img style="width: 15px;height: 15px;" class="w1-img" src="../img/down.png"  ng-click="order2=!order2;order = sorterDown('screenName');" ng-show="!order2"/>
+                      
+                    </ul>
+
+
+                </th>
+                
+                <th style="width:7%;"  >
+                    
+                    <a class="tip-2" id="">AR<span class="popbox1"  style="z-index:999;padding: 0; margin: 0;float: left;"><ul style="list-style: none;">
+                                            <li>Achieving Results</li>                              
+                                        </ul> </span></a>
+                    
+                    <ul style="list-style: none;float: left;margin: 0; width: 10px; margin-left: 3px;">
+                       <img style="width: 15px;height: 15px;" class="w1-img" src="../img/up.png"  ng-click="order3=!order3;order = sorterUp('ar');" ng-show="order3"/>                       
+                        <img style="width: 15px;height: 15px;" class="w1-img" src="../img/down.png"  ng-click="order3=!order3;order = sorterDown('ar');" ng-show="!order3"/>
+                      
+                    </ul>
+                </th>
+                
+                <th style="width:7%;"  >
+                    
+                           <a class="tip-2" id="">OI<span class="popbox1"  style="z-index:999;padding: 0; margin: 0;float: left;"><ul style="list-style: none;">
+                                            <li>Organization Impact</li>                              
+                           </ul> </span></a>
+                   
+                    <ul style="list-style: none;float: left;margin: 0; width: 10px; margin-left: 3px;">
+                       <img style="width: 15px;height: 15px;" class="w1-img" src="../img/up.png"  ng-click="order9=!order9;order = sorterUp('oi');" ng-show="order9"/>                       
+                        <img style="width: 15px;height: 15px;" class="w1-img" src="../img/down.png"  ng-click="order9=!order9;order = sorterDown('oi');" ng-show="!order9"/>
+                      
+                    </ul>
+                </th>
+                
+                <th style="width:7%;"  >
+                     <a class="tip-2" id="">LA<span class="popbox1"  style="z-index:999;padding: 0; margin: 0;float: left;"><ul style="list-style: none;">
+                                            <li>Learning Agility </li>                              
+                           </ul> </span></a>
+                    
+                    <ul style="list-style: none;float: left;margin: 0; width: 10px; margin-left: 3px;">
+                       <img style="width: 15px;height: 15px;" class="w1-img" src="../img/up.png"  ng-click="order10=!order10;order = sorterUp('la');" ng-show="order10"/>                       
+                        <img style="width: 15px;height: 15px;" class="w1-img" src="../img/down.png"  ng-click="order10=!order10;order = sorterDown('la');" ng-show="!order10"/>
+                      
+                    </ul>
+                </th>
+                <th style="width:7%;"  >
+                     <a class="tip-2" id="">Ver<span class="popbox1"  style="z-index:999;padding: 0; margin: 0;float: left;"><ul style="list-style: none;">
+                                            <li>Versatility</li>                              
+                           </ul> </span></a>
+                    
+                    <ul style="list-style: none;float: left;margin: 0; width: 10px; margin-left: 3px;">
+                       <img style="width: 15px;height: 15px;" class="w1-img" src="../img/up.png"  ng-click="order11=!order11;order = sorterUp('ver');" ng-show="order11"/>                       
+                        <img style="width: 15px;height: 15px;" class="w1-img" src="../img/down.png"  ng-click="order11=!order11;order = sorterDown('ver');" ng-show="!order11"/>
+                      
+                    </ul>
+                </th>
+                <th style="width:7%;"  >
+                     <a class="tip-2" id="">PF<span class="popbox1"  style="z-index:999;padding: 0; margin: 0;float: left;"><ul style="list-style: none;">
+                                            <li>Performance Total</li>                              
+                           </ul> </span></a>
+                    
+                    <ul style="list-style: none;float: left;margin: 0; width: 10px; margin-left: 3px;">
+                       <img style="width: 15px;height: 15px;" class="w1-img" src="../img/up.png"  ng-click="order13=!order13;order = sorterUp('performance');" ng-show="order13"/>                       
+                        <img style="width: 15px;height: 15px;" class="w1-img" src="../img/down.png"  ng-click="order13=!order13;order = sorterDown('performance');" ng-show="!order13"/>
+                      
+                    </ul>
+                </th>
+                <th style="width:7%;"  >
+                     <a class="tip-2" id="">PT<span class="popbox1"  style="z-index:999;padding: 0; margin: 0;float: left;"><ul style="list-style: none;">
+                                            <li>Potential Total</li>                              
+                           </ul> </span></a>
+                    <ul style="list-style: none;float: left;margin: 0; width: 10px; margin-left: 3px;">
+                         <img style="width: 15px;height: 15px;" class="w1-img" src="../img/up.png"  ng-click="order12=!order12;order = sorterUp('potential');" ng-show="order12"/>                       
+                        <img style="width: 15px;height: 15px;" class="w1-img" src="../img/down.png"  ng-click="order12=!order12;order = sorterDown('potential');" ng-show="!order12"/>
+                       
+                    </ul>
+                </th>
+
+                
+                <th style="width:7%;"  >
+                    <p style="padding: 0; margin: 0;float: left;">
+                        Total
+                    </p>
+                    <ul style="list-style: none;float: left;margin: 0; width: 10px; margin-left: 3px;">
+                       <img style="width: 15px;height: 15px;" class="w1-img" src="../img/up.png"  ng-click="order5=!order5;order = sorterUp('total');" ng-show="order5"/>                       
+                        <img style="width: 15px;height: 15px;" class="w1-img" src="../img/down.png"  ng-click="order5=!order5;order = sorterDown('total');" ng-show="!order5"/>       
+                    </ul>
+                </th>
+
                 <th style="width:10%;"  >
                     <p style="padding: 0; margin: 0;float: left;">
                         Status
@@ -90,29 +140,49 @@
                         <img style="width: 15px;height: 15px;" class="w1-img" src="../img/down.png"  ng-click="order8=!order8;order = sorterDown('status');" ng-show="!order8"/>
                     </ul>
                 </th>
+                 <th style="width:10%;"  >                   
+                        <a class="tip-2" id="">FR<span class="popbox2"  style="z-index:999;padding: 0; margin: 0;float: left;"><ul style="list-style: none;">
+                                            <li>Force Ranking</li>                              
+                           </ul> </span></a>                   
+                </th>
             </tr>
              <tr>
+                <td>
+                    <input style="width: 70%" ng-model="filter5"id="filter5"/>
+                </td>
+                <td >
+                    <input style="width: 70%" ng-model="filter6"id="filter6"/>
+                </td>
                   <td >
                     <input style="width: 70%" ng-model="filter0" id="filter0"/>
                 </td>
                 <td >
                     <input style="width: 70%" ng-model="filter1" id="filter1"/>
                 </td>
+                
+                <td >
+                    <input style="width: 70%" ng-model="filter8" id="filter8"/>
+                </td>
+                <td >
+                    <input style="width: 70%" ng-model="filter9" id="filter9"/>
+                </td>
+                <td >
+                    <input style="width: 70%" ng-model="filter10" id="filter10"/>
+                </td>
+                <td >
+                    <input style="width: 70%" ng-model="filter11" id="filter11"/>
+                </td>
+                
                 <td >
                     <input style="width: 70%" ng-model="filter2"id="filter2"/>
-                </td>
+                </td>                 
                 <td >
                     <input style="width: 70%" ng-model="filter3"id="filter3"/>
                 </td>
                 <td >
                     <input style="width: 70%" ng-model="filter4"id="filter4"/>
                 </td>
-                <td >
-                    <input style="width: 70%" ng-model="filter5"id="filter5"/>
-                </td>
-                <td >
-                    <input style="width: 70%" ng-model="filter6"id="filter6"/>
-                </td>
+
                 <td >
                     <input style="width: 70%" ng-model="filter7"id="filter7"/>
                 </td>
@@ -124,13 +194,17 @@
         <div style="margin-top: 10px;height: 5px;width:100%;border-bottom: 3px solid #b3b3b3;"></div>
         
         <div  ng-repeat="pmo in pmos| orderBy:order:p | 
+                    filter:{title : filter5}:false | 
+                    filter:{role : filter6}:false |
                     filter:{reviewername : filter0}:false|
-                    filter:{screenName : filter1}:false | 
+                    filter:{screenName : filter1}:false |                     
+                    filter:{ar : filter8}:false | 
+                    filter:{oi : filter9}:false | 
+                    filter:{la : filter10}:false | 
+                    filter:{ver : filter11}:false |             
                     filter:{performance : filter2}:false |
                     filter:{potential : filter3}:false | 
                     filter:{total : filter4}:false |
-                    filter:{title : filter5}:false | 
-                    filter:{role : filter6}:false |
                     filter:{status : filter7}:false " >
             <div  class="w1-form">
                 <table  class="w1-hoverable" style="background-color:ff3333;" >
@@ -138,14 +212,19 @@
                     <input type="hidden"  ng-init="reviewerId = pmo.score.reviewerId" ng-model="reviewerId" >
                     <input type="hidden"  ng-init="pmoId = pmo.score.pmoId" ng-model="pmoId" >
                     <tr ng-click="pageshow = !pageshow" id="revid{{$index}}" > 
-                        <td id="p0{{$index}}" style="width:12%;text-align:left">{{ pmo.reviewername}}</td>
-                        <td id="p1{{$index}}" style="width:12%;text-align:left">{{ pmo.screenName}}</td>
-                        <td id="p2{{$index}}" style="width:12%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{achievingResults + orgImpact}} </td>
-                        <td id="p3{{$index}}" style="width:10%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;{{learningAgility + versatility}} </td>
-                        <td id="p4{{$index}}" style="width:10%;text-align:left">&nbsp;&nbsp;{{achievingResults + orgImpact + learningAgility + versatility}}
-                        <td id="p5{{$index}}" style="width:24%;text-align:left">{{pmo.title}}</td>
-                        <td id="p6{{$index}}" style="width:10%;text-align:left">{{pmo.role}}</td>
-                        <td id="p7{{$index}}" style="width:10%;text-align:left" ng-init="status = pmo.status" ng-model="status" >{{status}}</td>
+                        <td id="p9{{$index}}" style="width:10%;text-align:left">{{pmo.title}}</td>
+                        <td id="p10{{$index}}" style="width:10%;text-align:left">{{pmo.role}}</td>
+                        <td id="p0{{$index}}" style="width:15%;text-align:left">{{ pmo.reviewername}}</td>
+                        <td id="p1{{$index}}" style="width:15%;text-align:left">{{ pmo.screenName}}</td>
+                        <td id="p2{{$index}}" style="width:7%;text-align:left" >&nbsp;&nbsp;{{ achievingResults}}</td>
+                        <td id="p3{{$index}}" style="width:7%;text-align:left" >&nbsp;{{ orgImpact}}</td>
+                        <td id="p4{{$index}}" style="width:7%;text-align:left">&nbsp;{{ learningAgility}}</td>
+                        <td id="p5{{$index}}" style="width:7%;text-align:left">&nbsp;{{ versatility}}</td>
+                        <td id="p6{{$index}}" style="width:7%;text-align:left">&nbsp;{{achievingResults + orgImpact}} </td>
+                        <td id="p7{{$index}}" style="width:7%;text-align:left">&nbsp;{{learningAgility + versatility}} </td>
+                        <td id="p8{{$index}}" style="width:7%;text-align:left">&nbsp;{{achievingResults + orgImpact + learningAgility + versatility}}
+                        <td id="p11{{$index}}" style="width:10%;text-align:left" ng-init="status = pmo.status" ng-model="status" >{{status}}</td>
+                        <td id="p12{{$index}}" style="width:5%;text-align:left"><input type="text" id="FR" style="width: 50px;"></td>
                     </tr>
                 </table>
 

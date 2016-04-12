@@ -2,9 +2,9 @@
     <link href="../css/hoverCss.css" rel="stylesheet" />
     <div class="contentStyle"  >
         <div style="height: 15px;width:100%;border-top: 0;"></div>
-        <table style="text-align:left;font-size: 15px;">
+        <table style="text-align:left;font-size: 13px;">
             <tr>
-                <th style="width:10%;"  >
+                <th style="width:8%;"  >
                     <p style="padding: 0; margin: 0;float: left;">
                         Level
                     </p>
@@ -25,7 +25,7 @@
                      
                     </ul>
                 </th>
-                <th style="width:12%;">
+                <th style="width:10%;">
                     <p style="padding: 0; margin: 0;float: left;">
                         Reviewer
                     </p>
@@ -37,7 +37,7 @@
 
 
                 </th>
-                <th style="width:12%;">
+                <th style="width:10%;">
                     <p style="padding: 0; margin: 0;float: left;">
                         Reviewee
                     </p>
@@ -212,19 +212,19 @@
                     <input type="hidden"  ng-init="reviewerId = pmo.score.reviewerId" ng-model="reviewerId" >
                     <input type="hidden"  ng-init="pmoId = pmo.score.pmoId" ng-model="pmoId" >
                     <tr ng-click="pageshow = !pageshow" id="revid{{$index}}" > 
-                        <td id="p9{{$index}}" style="width:10%;text-align:left">{{pmo.title}}</td>
-                        <td id="p10{{$index}}" style="width:10%;text-align:left">{{pmo.role}}</td>
-                        <td id="p0{{$index}}" style="width:15%;text-align:left">{{ pmo.reviewername}}</td>
-                        <td id="p1{{$index}}" style="width:15%;text-align:left">{{ pmo.screenName}}</td>
-                        <td id="p2{{$index}}" style="width:7%;text-align:left" >&nbsp;&nbsp;{{ achievingResults}}</td>
-                        <td id="p3{{$index}}" style="width:7%;text-align:left" >&nbsp;{{ orgImpact}}</td>
-                        <td id="p4{{$index}}" style="width:7%;text-align:left">&nbsp;{{ learningAgility}}</td>
-                        <td id="p5{{$index}}" style="width:7%;text-align:left">&nbsp;{{ versatility}}</td>
-                        <td id="p6{{$index}}" style="width:7%;text-align:left">&nbsp;{{achievingResults + orgImpact}} </td>
-                        <td id="p7{{$index}}" style="width:7%;text-align:left">&nbsp;{{learningAgility + versatility}} </td>
-                        <td id="p8{{$index}}" style="width:7%;text-align:left">&nbsp;{{achievingResults + orgImpact + learningAgility + versatility}}
-                        <td id="p11{{$index}}" style="width:10%;text-align:left" ng-init="status = pmo.status" ng-model="status" >{{status}}</td>
-                        <td id="p12{{$index}}" style="width:5%;text-align:left"><input type="text" id="FR" style="width: 50px;"></td>
+                        <td id="p9r{{$index}}" style="width:8%;text-align:left">{{pmo.title}}</td>
+                        <td id="p10r{{$index}}" style="width:10%;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{pmo.role}}</td>
+                        <td id="p0r{{$index}}" style="width:12%;text-align:left">&nbsp;&nbsp;&nbsp;{{ pmo.reviewername}}</td>
+                        <td id="p1r{{$index}}" style="width:12%;text-align:left">&nbsp;&nbsp;{{ pmo.screenName}}</td>
+                        <td id="p2r{{$index}}" style="width:7%;text-align:left" >&nbsp;{{ achievingResults}}</td>
+                        <td id="p3r{{$index}}" style="width:7%;text-align:left" >&nbsp;{{ orgImpact}}</td>
+                        <td id="p4r{{$index}}" style="width:7%;text-align:left">&nbsp;{{ learningAgility}}</td>
+                        <td id="p5r{{$index}}" style="width:7%;text-align:left">&nbsp;{{ versatility}}</td>
+                        <td id="p6r{{$index}}" style="width:7%;text-align:left">&nbsp;{{achievingResults + orgImpact}} </td>
+                        <td id="p7r{{$index}}" style="width:7%;text-align:left">&nbsp;{{learningAgility + versatility}} </td>
+                        <td id="p8r{{$index}}" style="width:7%;text-align:left">&nbsp;{{achievingResults + orgImpact + learningAgility + versatility}}
+                        <td id="p11r{{$index}}" style="width:10%;text-align:left" ng-init="status = pmo.status" ng-model="status" >{{status}}</td>
+                        <td id="p12r{{$index}}" style="width:5%;text-align:left"><input type="text" id="FR" style="width: 50px;"></td>
                     </tr>
                 </table>
 
@@ -234,7 +234,7 @@
 
                     <table class="w3-table-all"  ng-show="personalshow">
 
-                        <h class="w3-hoverable" style="font-size:15px;cursor:pointer;" ng-click="personalshow = !personalshow" id="P{{$index}}">
+                        <h class="w3-hoverable" style="font-size:13px;cursor:pointer;" ng-click="personalshow = !personalshow" id="P{{$index}}">
                             <img ng-if="personalshow"  class="w1-imgpmo"  src="../img/up_1.png"   />
                             <img ng-if="!personalshow"  class="w1-imgpmo" src="../img/down_1.png"  />
                             Personal Profile                        
@@ -263,7 +263,7 @@
                     </table>
                     <br>
                     <table class="w3-table-all"  ng-show="suportshow">
-                        <h class="w3-hoverable" style="font-size:15px;cursor:pointer;" ng-click="suportshow = !suportshow" id="S{{$index}}">
+                        <h class="w3-hoverable" style="font-size:13px;cursor:pointer;" ng-click="suportshow = !suportshow" id="S{{$index}}">
                             <img ng-if="suportshow"  class="w1-imgpmo"   
                                  src="../img/up_1.png"   />
                             <img ng-if="!suportshow"  class="w1-imgpmo" src="../img/down_1.png"  />
@@ -317,10 +317,10 @@
                     </table>
                     <br>
                     <table class="table-s">
-                        <tr><td><h style="font-size:15px;padding-top:-5px;text-align: left;"><b>Score</b></h></td> 
+                        <tr><td><h style="font-size:13px;padding-top:-5px;text-align: left;"><b>Score</b></h></td> 
                         <td></td>
 
-                        <td><h style="font-size:15px;padding-top:-5px;text-align: left; left: 40%"><b>Comment</b></h></td>
+                        <td><h style="font-size:13px;padding-top:-5px;text-align: left; left: 40%"><b>Comment</b></h></td>
                         </tr>
                         <tr>
                             <td class="minwidth">Achieving Results

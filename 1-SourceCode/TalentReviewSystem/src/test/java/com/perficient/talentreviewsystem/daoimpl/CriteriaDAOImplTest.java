@@ -5,15 +5,13 @@
  */
 package com.perficient.talentreviewsystem.daoimpl;
 
-import com.perficient.talentreviewsystem.daoimpl.CriteriaDAOImpl;
-import com.perficient.talentreviewsystem.entity.Criteria;
+import com.perficient.talentreviewsystem.entity.Cri;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -47,19 +45,19 @@ public class CriteriaDAOImplTest {
     // public void hello() {}
     @Test
     public void testSelectAllCriteria(){
-        List<Criteria> lists = cdaoi.selectAllCriteria();
+        List<Cri> lists = cdaoi.selectAllCriteria();
         assert(lists.size()>0);
         System.err.println("testSelectAllCriteria success");
     }
     @Test
     public void testGetCriteriaByLevel(){
-        List<Criteria> lists = cdaoi.getCriteriaByLevel("2");
+        List<Cri> lists = cdaoi.getCriteriaByLevel("all");
         assert(lists.size()>0);
          System.err.println("GetCriteriaByLevel success");
     }
     @Test
     public void  testGetCriteriaByBoth(){
-        List<Criteria> c =cdaoi.getCriteriaByBoth("Achieves Results", "Associate Technical Consultant");
+        List<Cri> c =cdaoi.getCriteriaByBoth("Achieves Results", "Associate Technical Consultant");
         assert(c.size()>0);
         System.err.println("GetCriteriaBoth success");
     }

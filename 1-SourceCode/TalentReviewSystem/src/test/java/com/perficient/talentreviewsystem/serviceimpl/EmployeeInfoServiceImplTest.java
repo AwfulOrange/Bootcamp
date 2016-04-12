@@ -10,7 +10,7 @@ import com.perficient.talentreviewsystem.daoimpl.ReviewPeriodDAOImpl;
 import com.perficient.talentreviewsystem.daoimpl.TalentReviewScoreDAOImpl;
 import com.perficient.talentreviewsystem.entity.Employee;
 import com.perficient.talentreviewsystem.entity.EmployeeInfo;
-import com.perficient.talentreviewsystem.entity.ReviewPeriod;
+import com.perficient.talentreviewsystem.entity.Rp;
 import com.perficient.talentreviewsystem.entity.TalentReviewScore;
 import java.util.List;
 import org.junit.After;
@@ -29,7 +29,7 @@ public class EmployeeInfoServiceImplTest {
     EmployeeInfoDAOImpl eidaoi = new EmployeeInfoDAOImpl();
     ReviewPeriodDAOImpl rpdaoi = new ReviewPeriodDAOImpl();
     EmployeeInfo ei = new EmployeeInfo();
-    ReviewPeriod rp = new ReviewPeriod();
+    Rp rp = new Rp();
     TalentReviewScore trs = null;
     List<TalentReviewScore> list = null;
     
@@ -57,7 +57,7 @@ public class EmployeeInfoServiceImplTest {
         trs.setReviewerId("212");
         trs.setPmoId("212");
         trs.setEmployeeInfo(eidaoi.selectEmployeeInfoById("76"));
-        trs.setReviewPeriod1(rpdaoi.selectReviewPeriodByRP("201503"));
+        trs.setRp(rpdaoi.selectReviewPeriodByRP("201503"));
     }
     
     @After

@@ -5,7 +5,7 @@
  */
 package com.perficient.talentreviewsystem.serviceimpl;
 
-import com.perficient.talentreviewsystem.entity.Criteria;
+import com.perficient.talentreviewsystem.entity.Cri;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -45,7 +45,7 @@ public class CriteriaInfoServiceImplTest {
     @Test
     public void testGetAllCriteria() {
         CriteriaInfoServiceImpl instance = new CriteriaInfoServiceImpl();
-        List<Criteria> result = instance.getAllCriteria();
+        List<Cri> result = instance.getAllCriteria();
         assertNotNull(result);
     }
     

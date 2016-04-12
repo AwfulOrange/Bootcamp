@@ -20,7 +20,7 @@ public class SupportiveInfoTest {
     SupportiveInfo s = new SupportiveInfo();
     SupportiveInfoPK spk = new SupportiveInfoPK();
     EmployeeInfo empin = new EmployeeInfo();
-    ReviewPeriod re = new ReviewPeriod();
+    Rp re = new Rp();
     String activity="activity";
     String award="award";
     String blog="blog";
@@ -156,8 +156,8 @@ public class SupportiveInfoTest {
     
     @Test
     public void testReviewPeriod1(){
-        s.setReviewPeriod1(re);
-        assertNotNull(s.getReviewPeriod1());
+        s.setRp(re);
+        assertNotNull(s.getRp());
     }
     
     @Test 

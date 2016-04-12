@@ -6,7 +6,7 @@
 package com.perficient.talentreviewsystem.daoimpl;
 
 import com.perficient.talentreviewsystem.daoimpl.ReviewPeriodDAOImpl;
-import com.perficient.talentreviewsystem.entity.ReviewPeriod;
+import com.perficient.talentreviewsystem.entity.Rp;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -21,7 +21,7 @@ import static org.junit.Assert.*;
 public class ReviewPeriodDAOImplTest {
 
     ReviewPeriodDAOImpl rpdaoi = new ReviewPeriodDAOImpl();
-    ReviewPeriod rp = new ReviewPeriod("999999");
+    Rp rp = new Rp("999999");
 
     public ReviewPeriodDAOImplTest() {
     }
@@ -48,7 +48,7 @@ public class ReviewPeriodDAOImplTest {
      */
     @Test
     public void testSelectReviewPeriodByRP() {
-        ReviewPeriod rp = rpdaoi.selectReviewPeriodByRP("201503");
+        Rp rp = rpdaoi.selectReviewPeriodByRP("201503");
         assert (rp != null);
         System.err.println("testSelectReviewPeriodByRP success");
     }

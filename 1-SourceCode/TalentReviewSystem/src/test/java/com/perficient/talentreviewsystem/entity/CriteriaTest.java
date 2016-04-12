@@ -17,9 +17,9 @@ import static org.junit.Assert.*;
  * @author bootcamp19
  */
 public class CriteriaTest {
-    Criteria c = new Criteria();
+    Cri c = new Cri();
     Integer id=1;
-    Criteria c1 = new Criteria(id);
+    Cri c1 = new Cri(id);
     String criteria="criteria";
     String level="level";
     String rule="rule";
@@ -59,7 +59,7 @@ public class CriteriaTest {
 
    
     @Test
-    public void testCriteria() {
+    public void testCri() {
        assertEquals(criteria,c.getCriteria());
     }
 
@@ -94,7 +94,7 @@ public class CriteriaTest {
     @Test
     public void testToString() {
         String str = c.toString();        
-        String a = "com.perficient.talentreviewsystem.entity.Criteria[ id=1 ]";
+        String a = "com.perficient.talentreviewsystem.entity.Cri[ id=1 ]";
         assertEquals(a, str);
     }
 

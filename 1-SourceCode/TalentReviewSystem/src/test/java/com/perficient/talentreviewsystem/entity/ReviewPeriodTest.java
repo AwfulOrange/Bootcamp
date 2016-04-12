@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
  * @author bootcamp19
  */
 public class ReviewPeriodTest {
-    ReviewPeriod rp = new ReviewPeriod();
+    Rp rp = new Rp();
      String reviewPeriod="201601";
      Integer id=1;
     public ReviewPeriodTest() {
@@ -42,14 +42,14 @@ public class ReviewPeriodTest {
 
     @Test
     public void testReviewPeriod() {
-        rp = new ReviewPeriod();
+        rp = new Rp();
         rp.setReviewPeriod(reviewPeriod);
         assertEquals(reviewPeriod,rp.getReviewPeriod());
     }
 
     @Test
     public void testId() {
-      rp = new ReviewPeriod();
+      rp = new Rp();
       rp.setId(id);
       assertEquals(id,rp.getId());
     }
